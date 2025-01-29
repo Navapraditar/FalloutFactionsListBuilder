@@ -1,0 +1,239 @@
+/* Set background to a mint green and white theme */
+body {
+    background-color: #e0f8f1; /* Light mint green */
+    color: #333; /* Dark text for readability */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Title styling: Deep green for title */
+h1 {
+    text-align: center; /* Center the title */
+    font-size: 3em; /* Larger font size for the title */
+    margin-top: 20px;
+    color: #2d6a4f; /* Deep green for title */
+}
+
+/* Style for the "Total Points" to make it stand out */
+#step-faction h1 {
+    font-size: 1.5em; /* Slightly smaller than the main title */
+    font-weight: bold;
+    color: #2d6a4f; /* Deep green */
+    background-color: #b5e6d3; /* Soft mint green background for emphasis */
+    padding: 10px;
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Keep it inline with other elements */
+}
+
+/* Footer styling */
+#footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the unit stats table */
+table {
+    width: auto;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+/* Table header with a mint green background */
+th, td {
+    padding: 8px 12px;
+    text-align: center;
+    border: 1px solid #A9CBE5;
+}
+
+th {
+    background-color: #a8d5ba; /* Soft mint green for the header */
+    font-weight: bold;
+    color: #333; /* Dark text for readability */
+}
+
+td {
+    background-color: #ffffff; /* White for table content */
+    color: #333; /* Dark text for readability */
+}
+
+/* Table rows with alternating light green background */
+tr:nth-child(even) td {
+    background-color: #e3f8f0; /* Very light mint green for alternating rows */
+}
+
+/* Highlight rows on hover with a slightly darker mint green */
+tr:hover td {
+    background-color: #b5e6d3; /* Slightly darker mint green on hover */
+}
+
+/* Style for the faction weapons table */
+#weapon-table-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%; /* Full width for the weapon table */
+}
+
+/* Styling the weapon table */
+#weaponsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+}
+
+#right-column {
+    width: 30%; /* Adjust as needed */
+    margin-top: 20px;
+    margin-right: 60px; /* Add space to pull it away from the right edge */
+}
+
+#weaponsTable th, #weaponsTable td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#weaponsTable th {
+    background-color: #a8d5ba; /* Soft mint green */
+}
+
+#weaponsTable td {
+    background-color: #ffffff; /* White */
+}
+
+#weaponsTable tr:nth-child(even) {
+    background-color: #e3f8f0; /* Very light mint green */
+}
+
+#weaponsTable tr:hover {
+    background-color: #b5e6d3; /* Darker mint green on hover */
+}
+
+
+/* New layout for the main section and weapon table */
+#app {
+    display: flex;
+    justify-content: space-between; /* Create space between two sections */
+    width: 100%;
+    margin-top: 20px; /* Add space from the top */
+}
+
+#left-column {
+    flex: 1; /* This will take up the remaining space */
+    padding-right: 20px; /* Add space between left and right column */
+}
+
+#right-column {
+    width: 30%; /* Or adjust based on how much space you want to allocate */
+    margin-top: 20px;
+}
+
+/* Styling for the reset section */
+#reset-section {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+#reset-button {
+    margin-right: 20px;
+}
+
+#weapon-table-container {
+    margin-top: 10px;
+    width: 100%; /* Ensure the weapon table fills the container */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #app {
+        flex-direction: column; /* Stack left and right columns on small screens */
+    }
+
+    #left-column {
+        padding-right: 0; /* Remove right padding on small screens */
+    }
+
+    #right-column {
+        width: 100%; /* Make the right column take full width on small screens */
+    }
+}
+
+.chems-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 5px; /* Reduced space between items */
+}
+
+.chem-item {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 5px; /* Reduced padding to make the item smaller */
+    text-align: center;
+    font-size: 0.8rem; /* Reduced font size for the chem items */
+}
+
+.chem-name {
+    margin-bottom: 3px; /* Less space between the chem name and buttons */
+    font-size: 0.9rem; /* Smaller font size for chem names */
+}
+
+.chem-quantity {
+    margin: 3px 0; /* Reduced space around the quantity input */
+    width: 30px; /* Smaller width for the quantity input */
+    font-size: 0.8rem; /* Smaller font size for the input */
+    text-align: center; /* Center the number inside the input */
+}
+
+button {
+    margin: 1px 0; /* Reduced space between the buttons */
+    padding: 5px 8px; /* Reduced padding for buttons */
+    font-size: 0.8rem; /* Smaller font size for buttons */
+}
+
+/* Swap the order of the buttons */
+.decrease {
+    order: 2; /* Put the decrease button below the quantity input */
+}
+
+.increase {
+    order: 1; /* Put the increase button above the quantity input */
+}
+
+@media (max-width: 768px) {
+    .chems-row {
+        grid-template-columns: repeat(2, 1fr); /* On smaller screens, 2 items per row */
+    }
+
+    .chem-item {
+        padding: 3px; /* Smaller padding for small screens */
+        font-size: 0.7rem; /* Even smaller font size on smaller screens */
+    }
+
+    .chem-name {
+        font-size: 0.8rem; /* Smaller font size for chem names on small screens */
+    }
+
+    .chem-quantity {
+        width: 25px; /* Even smaller input width on smaller screens */
+    }
+
+    button {
+        padding: 4px 6px; /* Smaller button padding on smaller screens */
+        font-size: 0.7rem; /* Even smaller font size for buttons */
+    }
+}
+
+
+

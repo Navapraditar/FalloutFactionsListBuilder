@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fallout Factions List Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- Left column: Builder Section -->
+        <div id="left-column">
+            <h1>Fallout Factions List Builder</h1>
+
+            <!-- Reset Button Section -->
+            <div id="reset-section">
+                <button id="reset-button">Reset</button>
+            </div>
+						    <!-- Notes Section -->
+    <div id="unit-notes-container">
+        <label for="unit-notes">Add Custom Notes:</label>
+        <textarea id="unit-notes" rows="4" cols="50"></textarea>
+    </div>
+
+            <!-- Builder Section -->
+            <div id="builder">
+                <div id="step-faction">
+                    <h1>Total Points: <span id="total-points">0</span></h1>
+
+                    <h2>Step 1: Choose a Faction</h2>
+                    <select id="faction-select" onchange="updateWeaponTable()">
+                        <option value="">-- Select Faction --</option>
+                    </select>
+                </div>
+
+                <div id="step-unit" style="display: none;">
+                    <h2>Step 2: Choose a Unit</h2>
+                    <select id="unit-select">
+                        <option value="">-- Select Unit --</option>
+                    </select>
+                </div>
+
+                <div id="step-weapon" style="display: none;">
+                    <h2>Step 3: Choose a Weapon Set</h2>
+                    <select id="weapon-select">
+                        <option value="">-- Select Weapon Set --</option>
+                    </select>
+                </div>
+
+                <div id="step-add" style="display: none;">
+                    <button id="add-unit">Add Unit to List</button>
+                </div>
+            </div>
+
+            <h2>Your List</h2>
+            <ul id="unit-list"></ul>
+
+        </div> <!-- End of left column -->
+
+        <!-- Right column: Weapon Table Section -->
+        <div id="right-column">
+            <div id="weapon-table-container">
+                <h2>Faction Weapons</h2>
+                <table id="weaponsTable">
+                    <thead>
+                        <tr>
+                            <th>Weapon</th>
+                            <th>Type</th>
+                            <th>Test</th>
+                            <th>Traits</th>
+                            <th>Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically populated rows -->
+                    </tbody>
+                </table>
+            </div>
+			<div id="chems-container">
+	<h2>Chems</h2>
+    <div class="chems-row">
+        <div class="chem-item" data-points="5">
+            <span class="chem-name">Rad-X</span> (5 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="6">
+            <span class="chem-name">Psycho</span> (6 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="8">
+            <span class="chem-name">Nuka-Cola</span> (8 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="9">
+            <span class="chem-name">Stimpak</span> (9 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="10">
+            <span class="chem-name">Mentats</span> (10 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="11">
+            <span class="chem-name">Buffout</span> (11 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+        <div class="chem-item" data-points="15">
+            <span class="chem-name">Jet</span> (15 pts)
+            <button class="decrease">-</button>
+            <input type="text" class="chem-quantity" value="0" readonly>
+            <button class="increase">+</button>
+        </div>
+    </div>
+</div>
+        </div> <!-- End of right column -->
+
+    </div> <!-- End of app -->
+
+
+
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</body>
+
+<footer id="footer">
+    <small>Created by Joseph Navapraditar</small>
+</footer>
+
+</html>
