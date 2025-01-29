@@ -837,7 +837,7 @@ document.getElementById("add-unit").addEventListener("click", () => {
         statsTable.style.marginTop = "10px"; // Add space above the stats table
         statsTable.style.borderCollapse = "collapse";
         statsTable.style.width = "100%";
-        
+
         const tableHeader = document.createElement("thead");
         tableHeader.innerHTML = `
             <tr>
@@ -870,6 +870,15 @@ document.getElementById("add-unit").addEventListener("click", () => {
 
         li.appendChild(statsTable);
 
+        // **NEW: Add a text box for unit notes (injuries, upgrades, etc.)**
+        const unitNotes = document.createElement("textarea");
+        unitNotes.classList.add("unit-notes");
+        unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
+        unitNotes.rows = 3; // Adjust height if needed
+        unitNotes.style.width = "100%";
+        unitNotes.style.marginTop = "5px"; // Adds spacing between elements
+        li.appendChild(unitNotes);
+
         // Create remove button for the unit
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
@@ -884,9 +893,8 @@ document.getElementById("add-unit").addEventListener("click", () => {
         unitList.appendChild(li);
 
         // Update total points
-		totalPoints += parseInt(selectedWeapon) + chemPoints;
-		totalPointsDisplay.textContent = totalPoints;
-
+        totalPoints += parseInt(selectedWeapon) + chemPoints;
+        totalPointsDisplay.textContent = totalPoints;
 
         // Reset selections
         unitSelect.value = "";
@@ -894,6 +902,22 @@ document.getElementById("add-unit").addEventListener("click", () => {
         stepWeapon.style.display = "none";
         stepAdd.style.display = "none";
     }
+});
+
+
+// Script to capture the page and generate pdf
+document.getElementById("generate-pdf").addEventListener("click", () => {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF("p", "mm", "a4"); // Portrait, millimeters, A4 size
+
+    html2canvas(document.body, { scale: 2 }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgWidth = 210; // A4 width in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Scale height to maintain aspect ratio
+
+        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.save("unit_roster.pdf"); // Download the PDF
+    });
 });
 
 
