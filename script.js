@@ -790,19 +790,11 @@ unitSelect.addEventListener("change", () => {
 
 weaponSelect.addEventListener("change", () => {
     selectedWeapon = weaponSelect.value;
-    
-    if (selectedWeapon) {
-        // Add selected weapon points to unitPoints
-        const weaponPoints = parseInt(selectedWeapon, 10); // Convert weapon points to integer
-        unitPoints += weaponPoints; // Add the new weapon points to unitPoints
 
-    } else {
-        unitPoints = 0; // Reset unit points if no weapon selected
-    }
-
+    // We only update the total points in this listener, no need to add points here anymore.
     stepAdd.style.display = selectedWeapon ? "block" : "none"; // Show or hide the add button
 
-    // Update total points if needed (assuming updateTotalPoints handles the display of total points)
+    // Update total points if needed
     updateTotalPoints();
 });
 
@@ -819,6 +811,9 @@ document.getElementById("add-unit").addEventListener("click", () => {
         if (isLeader) hasLeader = true; // Mark leader as selected
 
         const li = document.createElement("li");
+
+        // Store weapon points in the list item for later removal
+        const weaponPoints = parseInt(selectedWeapon, 10);
 
         // Create formatted text for unit name and type
         const unitName = document.createElement("span");
@@ -870,7 +865,7 @@ document.getElementById("add-unit").addEventListener("click", () => {
 
         li.appendChild(statsTable);
 
-        // **NEW: Add a text box for unit notes (injuries, upgrades, etc.)**
+        // Add a text box for unit notes (injuries, upgrades, etc.)**
         const unitNotes = document.createElement("textarea");
         unitNotes.classList.add("unit-notes");
         unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
@@ -884,17 +879,24 @@ document.getElementById("add-unit").addEventListener("click", () => {
         removeButton.textContent = "Remove";
         removeButton.addEventListener("click", () => {
             unitList.removeChild(li);
-            totalPoints -= selectedWeapon;
+
+            // Subtract the stored weapon points when the unit is removed
+            unitPoints -= weaponPoints;
+
+            // Recalculate total points only once
+            totalPoints = unitPoints + chemPoints; // Ensure totalPoints is correct
             totalPointsDisplay.textContent = totalPoints;
+
             if (isLeader) hasLeader = false; // Allow adding a leader again
         });
 
         li.appendChild(removeButton);
         unitList.appendChild(li);
 
-        // Update total points
-        totalPoints += parseInt(selectedWeapon) + chemPoints;
-        totalPointsDisplay.textContent = totalPoints;
+        // Update unitPoints and totalPoints correctly on addition
+        unitPoints += weaponPoints; // Add weapon points to unitPoints
+        totalPoints = unitPoints + chemPoints; // Recalculate total points correctly
+        totalPointsDisplay.textContent = totalPoints; // Update the display
 
         // Reset selections
         unitSelect.value = "";
