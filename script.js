@@ -907,60 +907,8 @@ document.getElementById("add-unit").addEventListener("click", () => {
 });
 
 
-// Script to capture the page and generate pdf
 document.getElementById("generate-pdf").addEventListener("click", () => {
-    const { jsPDF } = window.jspdf;
-
-    // Apply custom CSS for grayscale, black text, and black table borders
-    const customStyle = `
-        body {
-            background-color: white !important; 
-            color: black !important;
-            filter: grayscale(100%) !important;
-        }
-        * {
-            color: black !important;
-            background-color: transparent !important;
-            border-color: black !important; /* Ensures all borders are black */
-        }
-
-        /* Specifically target tables and their elements to ensure borders are black */
-        table, th, td {
-            border: 1px solid black !important; /* Makes the borders black */
-            border-collapse: collapse !important; /* Ensures borders collapse into one */
-        }
-
-        /* Optional: Style table headers if needed */
-        th {
-            font-weight: bold !important;
-        }
-    `;
-
-    // Inject the CSS into the page
-    const styleSheet = document.createElement("style");
-    styleSheet.type = "text/css";
-    styleSheet.innerText = customStyle;
-    document.head.appendChild(styleSheet);
-
-    // Create the PDF with landscape orientation
-    const pdf = new jsPDF("l", "mm", "letter");
-
-    html2canvas(document.body, { 
-        scale: 2, 
-        backgroundColor: "#ffffff" // Ensure a white background
-    }).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
-
-        // Dimensions for 8.5 x 11 inches in mm (landscape mode)
-        const imgWidth = 279.4; // 11 inches in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Scale height to maintain aspect ratio
-
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("unit_roster.pdf"); // Download the PDF
-
-        // Clean up the injected CSS after PDF generation
-        document.head.removeChild(styleSheet);
-    });
+    window.print(); // This triggers the browser's print dialog
 });
 
 

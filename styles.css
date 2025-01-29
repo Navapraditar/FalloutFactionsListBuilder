@@ -170,7 +170,7 @@ tr:hover td {
 .chems-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: 5px; /* Reduced space between items */
+    gap: 3px; /* Reduced space between items even more */
 }
 
 .chem-item {
@@ -179,27 +179,27 @@ tr:hover td {
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
-    padding: 5px; /* Reduced padding to make the item smaller */
+    padding: 3px; /* Even smaller padding for the item */
     text-align: center;
-    font-size: 0.8rem; /* Reduced font size for the chem items */
+    font-size: 0.7rem; /* Even smaller font size for the chem items */
 }
 
 .chem-name {
-    margin-bottom: 3px; /* Less space between the chem name and buttons */
-    font-size: 0.9rem; /* Smaller font size for chem names */
+    margin-bottom: 2px; /* Less space between the chem name and buttons */
+    font-size: 0.8rem; /* Smaller font size for chem names */
 }
 
 .chem-quantity {
-    margin: 3px 0; /* Reduced space around the quantity input */
-    width: 30px; /* Smaller width for the quantity input */
-    font-size: 0.8rem; /* Smaller font size for the input */
+    margin: 2px 0; /* Reduced space around the quantity input */
+    width: 25px; /* Even smaller width for the quantity input */
+    font-size: 0.7rem; /* Smaller font size for the input */
     text-align: center; /* Center the number inside the input */
 }
 
 button {
-    margin: 1px 0; /* Reduced space between the buttons */
-    padding: 5px 8px; /* Reduced padding for buttons */
-    font-size: 0.8rem; /* Smaller font size for buttons */
+    margin: 0 0; /* Minimized space between the buttons */
+    padding: 3px 6px; /* Even smaller padding for buttons */
+    font-size: 0.7rem; /* Even smaller font size for buttons */
 }
 
 /* Swap the order of the buttons */
@@ -217,23 +217,24 @@ button {
     }
 
     .chem-item {
-        padding: 3px; /* Smaller padding for small screens */
-        font-size: 0.7rem; /* Even smaller font size on smaller screens */
+        padding: 2px; /* Smaller padding for small screens */
+        font-size: 0.6rem; /* Even smaller font size on smaller screens */
     }
 
     .chem-name {
-        font-size: 0.8rem; /* Smaller font size for chem names on small screens */
+        font-size: 0.7rem; /* Smaller font size for chem names on small screens */
     }
 
     .chem-quantity {
-        width: 25px; /* Even smaller input width on smaller screens */
+        width: 20px; /* Even smaller input width on smaller screens */
     }
 
     button {
-        padding: 4px 6px; /* Smaller button padding on smaller screens */
-        font-size: 0.7rem; /* Even smaller font size for buttons */
+        padding: 3px 5px; /* Smaller button padding on smaller screens */
+        font-size: 0.6rem; /* Even smaller font size for buttons */
     }
 }
+
 
 
 
