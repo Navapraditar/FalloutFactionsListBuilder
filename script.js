@@ -499,7 +499,91 @@ const weaponData = {
     ]
 };
 
-// Function to update the table based on selected faction
+const ployData = {
+    "The Operators": [
+        {
+            name: "Coordinate Fire",
+            descr: "Enact this Ploy when one of your models makes an Open Fire Action. Until the end of the Round, when you declare that models will give Supporting Fire, you are not limited to models in the Active model's Control Area. All other restrictions still apply."
+        },
+        {
+            name: "Prepared for Anything",
+            descr: "Enact this Ploy at the start of any of your Turns. You may immediately add Common Chems to your Crew Roster with a combined cost of up to 25 Caps."
+        }
+    ],
+    "The Pack": [
+        {
+            name: "Brutality",
+            descr: "Enact this Ploy when one of your models Incapacitates an Enemy with an attack. Your opponent must make Confusion Tests for any of thei models within 5\", rather than 3\". For each of these Tests, they count as Failing if they score fewer than two Hits."
+        },
+        {
+            name: "Pack Hunters",
+            descr: "Enact this Ploy when one of your Champions makes a Get Moving Action. You can give Movement Orders to any models in your Crew, even if they are outside of the Champion's Control Area. All other restrictions apply as normal."
+        }
+    ],
+	    "The Disciples": [
+        {
+            name: "Thrill Kill",
+            descr: "Enact this Ploy when an Enemy model is Incapacitated. Each of your models within 3\" Recovers one Fatigue"
+        },
+        {
+            name: "Thin the Herd",
+            descr: "Enact this Ploy when one of your models is Incapacitated. Until the end of the Round, add a Bonus Die to any Tests you make for your Champions."
+        }
+    ],
+	    "Brotherhood of Steel": [
+        {
+            name: "Pre-War Tech",
+            descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Select one of your model’s weapons. It gains Brutalise, Pierce or Suppress(2)."
+        },
+        {
+            name: "Vertibird Drop",
+            descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Choose one of your models. They are not deployed at the start of the game, Instead, deploy them anywhere on the board at the start of Turn 2."
+        }
+    ],
+	    "Gunners": [
+        {
+            name: "Suppressive Fire",
+            descr: "Enact this Ploy at the start of the opposing crew’s turn. Choose a Search Token or Objective Token on the Battlefield. Until the end of the turn, any model that finishes an Action within 3” of the chosen token suffers Fatigue."
+        },
+        {
+            name: "Barricades",
+            descr: "Enact this Ploy during setup, immediately before you place your first model on the Battlefield. Place two Barricades anywhere on the Battlefield, following the rules for placing Minor Terrain Features. A Barricade cannot be more than 3” long, 2” tall and 1” wide."
+        }
+    ],
+	    "Super Mutants": [
+        {
+            name: "Surging Advance",
+            descr: "Enact this Ploy at the start of any Round after the first. Move each Unengaged model in your crew up to 4”. During this move, models cannot move into Proximity of an enemy model."
+        },
+        {
+            name: "The Next Stage",
+            descr: "Enact this Ploy at the start of any of your turns. Remove one Harm from each of your models. Until the start of your next Turn, each of your models counts its Endurance as one higher."
+        }
+    ],
+	    "Wasteland Raiders": [
+        {
+            name: "In Moderation",
+            descr: "Enact this Ploy when a friendly model chooses to Find a Chem when making a Rummage Action. Add a dose of Rare Chems to the Crew’s Roster regardless of the result of the dice"
+        },
+        {
+            name: "Oh Yeah",
+            descr: "Enact this Ploy at the start of any of your Turns. As an additional cost, remove either a Chem or Rare Chem from your stash. Choose one of your Exhausted Grunts. Remove all Fatigue from it. Add 3 Bonus Dice to all Attack Tests this model makes. At the end of the round, remove this model from play."
+        }
+    ],
+	    "Wastelanders": [
+        {
+            name: "I Don’t Want To Set the World on Fire",
+            descr: "Enact this Ploy when an enemy model completes a Get Moving action. Nominate a piece of Terrain. Until the end of the round, when an enemy model moves within 3” of this Terrain, their controlling player makes an Evade Test (2A). If the model fails the test, it suffers 3 Damage."
+        },
+        {
+            name: "Some Rain Must Fall",
+            descr: "Enact this Ploy when a friendly model is Incapacitated by an enemy model. Every friendly model may make an Open Fire or Brawl action without taking Fatigue against the enemy model that made the Action that Incapacitated the friendly model."
+        }
+    ],
+    // Add more factions and their ploys here...
+};
+
+// Function to update the weapon table based on selected faction
 function updateWeaponTable() {
     const faction = document.getElementById('faction-select').value;
     const tableBody = document.querySelector('#weaponsTable tbody');
@@ -515,6 +599,31 @@ function updateWeaponTable() {
                 cell.textContent = val;
                 row.appendChild(cell);
             });
+            
+            // Append the row to the table body
+            tableBody.appendChild(row);
+        });
+    }
+}
+
+// Function to update the ploy table based on selected faction
+function updatePloysTable() {
+    const faction = document.getElementById('faction-select').value;
+    const tableBody = document.querySelector('#ploysTable tbody');
+    tableBody.innerHTML = '';  // Clear existing rows
+
+    if (faction && ployData[faction]) {
+        ployData[faction].forEach(ploy => {
+            const row = document.createElement('tr');
+            
+            // Create the cells for Ploy Name and Description
+            const nameCell = document.createElement('td');
+            nameCell.textContent = ploy.name;
+            row.appendChild(nameCell);
+            
+            const descrCell = document.createElement('td');
+            descrCell.textContent = ploy.descr;
+            row.appendChild(descrCell);
             
             // Append the row to the table body
             tableBody.appendChild(row);
@@ -538,19 +647,7 @@ window.onload = () => {
     });
 
     console.log("Dropdown populated with factions:", factionNames);
-};
-
-
-// Add Notes container to each unit
-const addNotesToUnit = (unitId) => {
-    const unitContainer = document.getElementById(`unit-container-${unitId}`); // Assuming each unit has a unique ID container
-    const notesContainer = document.createElement('div');
-    notesContainer.innerHTML = `
-        <label for="unit-notes-${unitId}">Add Custom Notes:</label>
-        <textarea id="unit-notes-${unitId}" rows="4" cols="50"></textarea>
-    `;
-    unitContainer.appendChild(notesContainer);
-};
+}
 
 
 
@@ -612,7 +709,8 @@ factionSelect.addEventListener("change", () => {
     unitPoints = 0; // Reset unit points only
     unitList.innerHTML = ""; // Clear the current unit list
     chemPoints = 0; // Reset chem points to avoid confusion with previous faction data
-	    // Reset all chem quantities to "0"
+
+    // Reset all chem quantities to "0"
     document.querySelectorAll(".chem-quantity").forEach(input => {
         input.value = "0"; // Reset all chem quantities to 0
     });
@@ -633,7 +731,13 @@ factionSelect.addEventListener("change", () => {
             option.textContent = `${unit.name} (${unit.type})`;
             unitSelect.appendChild(option);
         });
+
         stepUnit.style.display = "block";
+
+        // **Update Weapons and Ploys tables dynamically**
+        updateWeaponTable(); // Call function to update weapons table
+        updatePloysTable();  // Call function to update ploys table
+
     } else {
         stepUnit.style.display = "none";
         stepWeapon.style.display = "none";
@@ -645,9 +749,8 @@ factionSelect.addEventListener("change", () => {
     weaponSelect.value = "";
     stepWeapon.style.display = "none";
     stepAdd.style.display = "none";
-
-
 });
+
 
 
 
