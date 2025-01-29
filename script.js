@@ -1,4 +1,237 @@
 const factions = {
+	    "Brotherhood of Steel": [
+        { name: "Paladin", type: "Champion, Leader",
+		stats: { 
+        S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 49 },
+            { name: "Gatling Laser", points: 57 },
+            { name: "Minigun", points: 64 }
+        ] },
+        { name: "Scribe", type: "Champion",
+		stats: { 
+        S: 3, P: 3, E: 4, C: 4, I: 7, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Pistol", points: 21 },
+            { name: "10mm Pistol", points: 26 }
+        ] },
+        { name: "Knight", type: "Grunt",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Ripper", points: 45 },
+            { name: "Ripper and Laser Pistol", points: 49 },
+            { name: "Laser Rifle", points: 50 }
+        ] },
+        { name: "Aspirant", type: "Grunt",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 5, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Combat Rifle", points: 24 },
+            { name: "Laser Rifle", points: 25 }
+        ] },
+        { name: "Lancer", type: "Grunt",
+		stats: { 
+        S: 3, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 25 }
+        ] }
+    ],
+	    "Gunners": [
+        { name: "Commander", type: "Champion, Leader",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 6, I: 5, A: 4, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 35 },
+            { name: "Plasma Rifle", points: 38 },
+            { name: "Plasma Rifle and Ripper", points: 41 }
+        ] },
+		{ name: "Commander in Power Armor", type: "Champion, Leader",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 50 },
+            { name: "Plasma Rifle", points: 53 },
+            { name: "Plasma Rifle and Ripper", points: 56 }
+        ] },
+        { name: "Lieutenant", type: "Champion",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Combat Rifle", points: 35 },
+            { name: "Precision Combat Rifle", points: 39 },
+            { name: "Plasma Pistol and Ripper", points: 40 },
+            { name: "Missle Launcher", points: 42 }
+        ] },
+        { name: "Assaultron", type: "Grunt",
+		stats: { 
+        S: 6, P: 6, E: 5, C: 1, I: 1, A: 5, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Assaultron Claws & Assaultron Eye Beam", points: 45 }
+        ] },
+        { name: "Conscript", type: "Grunt",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 2, I: 4, A: 3, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 20 },
+            { name: "Combat Rifle", points: 22 },
+			{ name: "Assault Rifle", points: 23 },
+            { name: "Laser Rifle and Stun Baton", points: 25 }
+        ] },
+        { name: "Corporal", type: "Grunt",
+		stats: { 
+        S: 4, P: 3, E: 3, C: 2, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Pistol", points: 11 },
+            { name: "10mm Pistol and Frag Grenades", points: 13 },
+			{ name: "Laser Pistol and Hand Weapon", points: 13 },
+            { name: "10mm and Hand Weapon", points: 14 }
+        ] }
+    ],
+	    "Super Mutants": [
+        { name: "Master", type: "Champion, Leader",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 46 },
+            { name: "Assault Rifle and Sledgehammer", points: 48 }
+        ] },
+        { name: "Brute", type: "Champion",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Sledgehammer", points: 37 },
+            { name: "Minigun", points: 48 }
+        ] },
+        { name: "Skirmisher", type: "Grunt",
+		stats: { 
+        S: 5, P: 4, E: 5, C: 4, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Automatic Pipe Rifle", points: 28 },
+            { name: "Precision Pipe Rifle", points: 30 }
+        ] },
+        { name: "Enforcer", type: "Grunt",
+		stats: { 
+        S: 5, P: 3, E: 5, C: 3, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Pistol and Hand Weapon", points: 17 },
+            { name: "Hand Weapon and Molotov Cocktails", points: 25 },
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 25 }
+        ] },
+        { name: "Mutant Hound", type: "Grunt",
+		stats: { 
+        S: 4, P: 2, E: 4, C: 3, I: 3, A: 5, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 10 }
+        ] }
+    ],
+	    "Wasteland Raiders": [
+        { name: "Butcher", type: "Champion, Leader",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Assault Rifle", points: 46 }
+        ] },
+        { name: "Veteran", type: "Champion",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hand Weapon", points: 23 },
+            { name: "Hunting Rifle", points: 39 },
+            { name: "Minigun", points: 47 }
+        ] },
+        { name: "Scavver", type: "Grunt",
+		stats: { 
+        S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Short Hunting Rifle", points: 10 },
+            { name: "Sawn-off Shotgun", points: 13 },
+            { name: "Pipe Rifle", points: 12 },
+            { name: "Automatic Pipe Rifle", points: 14 }
+        ] },
+        { name: "Psycho", type: "Grunt",
+		stats: { 
+        S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hand Weapon", points: 8 },
+            { name: "Pipe Revolver & Hand Weapon", points: 11 },
+            { name: "Pipe Pistol & Machete", points: 14 }
+        ] },
+        { name: "Waster", type: "Grunt",
+		stats: { 
+        S: 3, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Stripped Pipe Rifle", points: 9 },
+            { name: "Pipe Pistol & Molotovs", points: 14 },
+            { name: "Pipe Pistol & Hand Weapon", points: 16 },
+			{ name: "Molotov Cocktails & Hand Weapon", points: 11 }
+        ] }
+    ],
+	    "Wastelanders": [
+        { name: "Protagonist", type: "Champion, Leader",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "10mm Pistol and Hunting Rifle", points: 44 }
+        ] },
+        { name: "Companion", type: "Champion",
+		stats: { 
+        S: 3, P: 5, E: 4, C: 5, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Sawn-Off Shotgun and Baseball Bat", points: 23 },
+            { name: "Combat Shotgun and Hand Weapon", points: 26 },
+            { name: "Assault Rifle", points: 31 }
+        ] },
+        { name: "Mercenary", type: "Grunt",
+		stats: { 
+        S: 3, P: 4, E: 5, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Combat Shotgun", points: 17 },
+            { name: "Combat Shotgun and Hand Weapon", points: 18 },
+            { name: "Assault Rifle ", points: 22 }
+        ] },
+        { name: "Regular Joe", type: "Grunt",
+		stats: { 
+        S: 3, P: 4, E: 3, C: 3, I: 4, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Pipe Pistol", points: 7 },
+            { name: "10mm Pistol", points: 8 },
+            { name: "Double-barrelled Shotgun", points: 12 },
+            { name: "Hunting Rifle", points: 13 }
+        ] },
+        { name: "Good Boy", type: "Grunt",
+		stats: { 
+        S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 7 }
+        ] }
+    ],
     "The Operators": [
         { name: "Boss", type: "Champion, Leader",
 		stats: { 
@@ -152,6 +385,72 @@ const factions = {
 
 // Example data for different factions
 const weaponData = {
+	"Brotherhood of Steel": [
+    { weapon: "Ripper", type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
+    { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
+    { weapon: "Laser Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
+    { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Ignite (1)" },
+    { weapon: "Flamer", type: "Heavy (6\")", test: "4S", traits: "Area (2\"), CQB", effect: "Ignite (3)" },
+    { weapon: "Gatling Laser", type: "Heavy (16\")", test: "4P", traits: "Area (1\")", effect: "Ignite (2)" },
+    { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
+],
+	"Gunners": [
+    { weapon: "Assaultron Claws", type: "Melee", test: "4S", traits: "Fast", effect: "Maim" },
+    { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+    { weapon: "Ripper", type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
+    { weapon: "Stun Baton", type: "Melee", test: "4S", traits: "Suppress (2)", effect: "-" },
+    { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
+    { weapon: "Assaultron Eye Beam", type: "Pistol (6\")", test: "5A", traits: "CQB, Slow", effect: "Maim" },
+    { weapon: "Laser Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
+    { weapon: "Plasma Pistol", type: "Pistol (12\")", test: "4A", traits: "CQB, Fast", effect: "Meltdown" },
+    { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)" },
+    { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Ignite (1)" },
+    { weapon: "Plasma Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Meltdown" },
+    { weapon: "Precision Combat Rifle", type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
+    { weapon: "Missile Launcher", type: "Heavy (26\")", test: "5S", traits: "Area (3”), Slow", effect: "Maim" },
+    { weapon: "Frag Grenades", type: "Grenade (10\")", test: "3A", traits: "Area (1”), CQB", effect: "Suppress (2)" }
+],
+	"Super Mutants": [
+    { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" },
+    { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+    { weapon: "Sledgehammer", type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim" },
+    { weapon: "Heavy Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce" },
+    { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
+    { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+    { weapon: "Precision Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },
+    { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+    { weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
+],	
+	"Wasteland Raiders": [
+    { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+    { weapon: "Machete", type: "Melee", test: "4S", traits: "-", effect: "Maim" },
+    { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
+    { weapon: "Pipe Revolver", type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce" },
+    { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
+    { weapon: "Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" },
+    { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
+    { weapon: "Short Hunting Rifle", type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce" },
+    { weapon: "Stripped Pipe Rifle", type: "Rifle (12\")", test: "3P", traits: "-", effect: "Suppress (1)" },
+    { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+    { weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
+],
+	"Wastelanders": [
+    { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "Wind Up", effect: "Suppress (1)" },
+    { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" },
+    { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+    { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
+    { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
+    { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+    { weapon: "Combat Shotgun", type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+    { weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
+    { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" }
+],
     "The Operators": [
         { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
 		{ weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
@@ -226,15 +525,21 @@ function updateWeaponTable() {
 // Populate faction options dynamically (You can adjust this if needed)
 window.onload = () => {
     const factionSelect = document.getElementById('faction-select');
-    const factions = ['The Operators', 'The Pack', 'The Disciples'];
-    
-    factions.forEach(faction => {
+
+    // List of faction names (Make sure these match your factions object keys)
+    const factionNames = Object.keys(factions);  
+
+    // Populate dropdown dynamically
+    factionNames.forEach(faction => {
         const option = document.createElement('option');
         option.value = faction;
-        option.textContent = faction; // No need to modify capitalization as they are already capitalized
+        option.textContent = faction;
         factionSelect.appendChild(option);
     });
+
+    console.log("Dropdown populated with factions:", factionNames);
 };
+
 
 // Add Notes container to each unit
 const addNotesToUnit = (unitId) => {
