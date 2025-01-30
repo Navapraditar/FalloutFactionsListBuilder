@@ -822,7 +822,7 @@ document.getElementById("add-unit").addEventListener("click", () => {
 
         const weaponText = `${weaponSelect.options[weaponSelect.selectedIndex].text}`;
 
-        // Construct the text for the list item
+        // Construct the text for the list item (no points here)
         li.appendChild(unitName);
         li.appendChild(document.createTextNode(": "));
         li.appendChild(document.createTextNode(`${weaponText}`));
@@ -865,13 +865,17 @@ document.getElementById("add-unit").addEventListener("click", () => {
 
         li.appendChild(statsTable);
 
-        // Add a text box for unit notes (injuries, upgrades, etc.)**
+        // Add a text box for unit notes (injuries, upgrades, etc.)
         const unitNotes = document.createElement("textarea");
         unitNotes.classList.add("unit-notes");
         unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
         unitNotes.rows = 3; // Adjust height if needed
         unitNotes.style.width = "100%";
         unitNotes.style.marginTop = "5px"; // Adds spacing between elements
+
+        // Set the weapon text and points in the notes box (only once)
+        unitNotes.value = `Weapon: ${weaponText}\n`;
+
         li.appendChild(unitNotes);
 
         // Create remove button for the unit
@@ -907,15 +911,11 @@ document.getElementById("add-unit").addEventListener("click", () => {
 });
 
 
+
+
 document.getElementById("generate-pdf").addEventListener("click", () => {
     window.print(); // This triggers the browser's print dialog
 });
-
-
-
-
-
-
 
 
 // Reset Button
@@ -925,7 +925,167 @@ resetButton.addEventListener("click", () => {
         input.value = "0"; // Reset all chem quantities to 0
     });
 
+    // Clear the List Name textbox
+    const listNameInput = document.querySelector("#list-name"); // Replace with the correct ID of the List Name input
+    if (listNameInput) {
+        listNameInput.value = ""; // Clear the value of the List Name textbox
+    }
+
     // Reload the page to reset everything else (like unit points and unit list)
     location.reload();
 });
+
+//Saving and Loading lists
+document.addEventListener("DOMContentLoaded", function () {
+    const saveListButton = document.getElementById("save-list");
+    const loadListButton = document.getElementById("load-list");
+    const deleteListButton = document.getElementById("delete-list");
+    const listNameInput = document.getElementById("list-name");
+    const savedListsDropdown = document.getElementById("saved-lists");
+    const unitList = document.getElementById("unit-list"); // The UL where units are added
+
+    // Function to update the dropdown with saved lists
+    function updateSavedListsDropdown() {
+        savedListsDropdown.innerHTML = '<option value="">-- Select a Saved List --</option>';
+        const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+        for (const listName in savedLists) {
+            const option = document.createElement("option");
+            option.value = listName;
+            option.textContent = listName;
+            savedListsDropdown.appendChild(option);
+        }
+    }
+
+    // Save List
+    saveListButton.addEventListener("click", function () {
+        const listName = listNameInput.value.trim();
+        if (!listName) {
+            alert("Please enter a list name before saving.");
+            return;
+        }
+
+        // Collect current unit list items with stats and notes
+        const unitItems = [];
+        document.querySelectorAll("#unit-list li").forEach(item => {
+            const unitName = item.querySelector("span").textContent;
+            const weaponText = item.querySelector("td").textContent; // Assuming stats are in table cells
+            const stats = Array.from(item.querySelectorAll("td")).map(td => td.textContent);
+            const notes = item.querySelector("textarea") ? item.querySelector("textarea").value : "";
+
+            unitItems.push({
+                unitName: unitName,
+                weaponText: weaponText,
+                stats: stats,
+                notes: notes
+            });
+        });
+
+        // Save to local storage
+        const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+        savedLists[listName] = unitItems;
+        localStorage.setItem("savedLists", JSON.stringify(savedLists));
+
+        // Refresh dropdown
+        updateSavedListsDropdown();
+
+        alert(`List "${listName}" saved successfully!`);
+    });
+
+    // Load List
+    loadListButton.addEventListener("click", function () {
+        const selectedList = savedListsDropdown.value;
+        if (!selectedList) {
+            alert("Please select a list to load.");
+            return;
+        }
+
+        // Retrieve the selected list from storage
+        const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+        const loadedList = savedLists[selectedList];
+
+        // Clear current list and load saved items
+        unitList.innerHTML = "";
+        loadedList.forEach(unit => {
+            const li = document.createElement("li");
+
+            // Unit name and weapon text
+            const unitName = document.createElement("span");
+            unitName.style.fontWeight = "bold";
+            unitName.textContent = unit.unitName;
+
+
+
+            li.appendChild(unitName);
+            li.appendChild(document.createTextNode(": "));
+ 
+
+            // Create a table for the SPECIALW stats
+            const statsTable = document.createElement("table");
+            statsTable.style.marginTop = "10px";
+            statsTable.style.borderCollapse = "collapse";
+            statsTable.style.width = "100%";
+
+            const tableHeader = document.createElement("thead");
+            tableHeader.innerHTML = `
+                <tr>
+                    <th>S</th>
+                    <th>P</th>
+                    <th>E</th>
+                    <th>C</th>
+                    <th>I</th>
+                    <th>A</th>
+                    <th>L</th>
+                    <th>(W)</th>
+                </tr>
+            `;
+            statsTable.appendChild(tableHeader);
+
+            const tableBody = document.createElement("tbody");
+            const statsRow = document.createElement("tr");
+            statsRow.innerHTML = unit.stats.map(stat => `<td>${stat}</td>`).join('');
+            tableBody.appendChild(statsRow);
+            statsTable.appendChild(tableBody);
+
+            li.appendChild(statsTable);
+
+            // Add a text box for unit notes
+            const unitNotes = document.createElement("textarea");
+            unitNotes.classList.add("unit-notes");
+            unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
+            unitNotes.rows = 3;
+            unitNotes.style.width = "100%";
+            unitNotes.style.marginTop = "5px";
+            unitNotes.value = unit.notes; // Load the saved notes
+            li.appendChild(unitNotes);
+
+            // Add to unit list
+            unitList.appendChild(li);
+        });
+
+        alert(`List "${selectedList}" loaded successfully!`);
+    });
+
+    // Delete List
+    deleteListButton.addEventListener("click", function () {
+        const selectedList = savedListsDropdown.value;
+        if (!selectedList) {
+            alert("Please select a list to delete.");
+            return;
+        }
+
+        if (confirm(`Are you sure you want to delete "${selectedList}"?`)) {
+            const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+            delete savedLists[selectedList];
+            localStorage.setItem("savedLists", JSON.stringify(savedLists));
+
+            updateSavedListsDropdown();
+
+            alert(`List "${selectedList}" deleted successfully!`);
+        }
+    });
+
+    // Initialize dropdown on page load
+    updateSavedListsDropdown();
+});
+
 

@@ -129,7 +129,9 @@ tr:hover td {
 #left-column {
     flex: 1; /* This will take up the remaining space */
     padding-right: 20px; /* Add space between left and right column */
+    padding-left: 20px; /* Add left padding to move it away from the left edge */
 }
+
 
 #right-column {
     width: 30%; /* Or adjust based on how much space you want to allocate */
@@ -139,12 +141,18 @@ tr:hover td {
 /* Styling for the reset section */
 #reset-section {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center; /* Center the reset section horizontally */
+    margin-top: 10px; /* Add a small space from the title */
     margin-bottom: 20px;
+    font-size: 0.9rem; /* Smaller font size */
 }
 
+/* Styling for the reset button */
 #reset-button {
-    margin-right: 20px;
+    margin-right: 10px; /* Reduced margin to make buttons closer together */
+    font-size: 0.9rem; /* Make the reset button smaller */
+}
+
 }
 
 #weapon-table-container {
@@ -233,6 +241,16 @@ button {
         padding: 3px 5px; /* Smaller button padding on smaller screens */
         font-size: 0.6rem; /* Even smaller font size for buttons */
     }
+}
+
+.your-list-header {
+    margin-bottom: 5px; /* Reduce space below this specific h2 */
+}
+
+p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0; /* Remove margin from the top of the paragraph */
 }
 
 

@@ -2,65 +2,14 @@
 <html lang="en">
 
 <head>
-	
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2TXHY3XFKL"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-2TXHY3XFKL');
-	</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-    
-    <!-- SEO Optimized Title -->
-    <title>Fallout Factions List Builder – Create & Customize Your Ultimate Faction</title>
-    
-    <!-- Meta Description for SEO -->
-    <meta name="description" content="Build and customize your ultimate Fallout factions list with our interactive tool. Explore, organize, and create your ideal Fallout faction now!">
-    
-    <!-- Open Graph Meta Tags (For Social Media Previews) -->
-    <meta property="og:title" content="Fallout Factions List Builder">
-    <meta property="og:description" content="Create your ultimate Fallout faction with our interactive list builder. Customize and explore all Fallout factions easily.">
-    <meta property="og:url" content="https://falloutfactionslistbuilder.com">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://falloutfactionslistbuilder.com/images/preview.jpg">
-    
-    <!-- Twitter Card for Better Sharing -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Fallout Factions List Builder">
-    <meta name="twitter:description" content="Create and customize your ideal Fallout faction with our interactive list builder.">
-    <meta name="twitter:image" content="https://falloutfactionslistbuilder.com/images/preview.jpg">
-    
-    <!-- Canonical URL to Avoid Duplicate Content Issues -->
-    <link rel="canonical" href="https://falloutfactionslistbuilder.com">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://falloutfactionslistbuilder.com/favicon.png">
-    
-    <!-- Stylesheet -->
+    <title>Fallout Factions List Builder</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- JavaScript Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <!-- Schema Markup for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Website",
-      "name": "Fallout Factions List Builder",
-      "description": "Build and customize your ultimate Fallout factions list with our interactive tool.",
-      "url": "https://falloutfactionslistbuilder.com"
-    }
-    </script>
 </head>
-
 
 <body>
 
@@ -74,36 +23,31 @@
                 <button id="reset-button">Reset</button>
 				<button id="generate-pdf">Download as PDF</button>
 				<span id="pdf-instructions" style="font-size: 0.9em; color: gray; margin-left: 10px;">
-				(Select "Save as PDF" as your print destination)
+				(Select "Save as PDF" as your print destination. Must be in a browser for this, not opened through reddit or discord since it's using the browser's print function)
 				</span>
-
             </div>
-						    <!-- Notes Section -->
-    <div id="unit-notes-container">
-        <label for="unit-notes">Crew Notes:</label>
-        <textarea id="unit-notes" rows="4" cols="50"></textarea>
-    </div>
-	<!-- Ploys Table Section -->
-    <div id="ploys-table-container">
-        <h2>Faction Ploys</h2>
-        <table id="ploysTable">
-            <thead>
-                <tr>
-                    <th>Ploy</th>
-                    <th>Descr</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Dynamically populated rows -->
-            </tbody>
-        </table>
-    </div>
+				<!-- Save/Load List Section -->
+	<div id="list-management">
+		<h3>Save or Load Your List</h3>
+		
+		<label for="list-name">List Name:</label>
+		<input type="text" id="list-name" placeholder="Enter list name">
+
+		<button id="save-list">Save List</button>
+
+		<label for="saved-lists">Load Saved List:</label>
+		<select id="saved-lists">
+			<option value="">-- Select a Saved List --</option>
+		</select>
+
+		<button id="load-list">Load List</button>
+		<button id="delete-list">Delete List</button>
+	</div>
 
             <!-- Builder Section -->
             <div id="builder">
                 <div id="step-faction">
                     <h1>Total Points: <span id="total-points">0</span></h1>
-					<p id="standard-note" style="font-size: 0.9em; color: #666; margin-top: 2px;">250pts is standard</p>
 
                     <h2>Step 1: Choose a Faction</h2>
                     <select id="faction-select" onchange="updateWeaponTable()">
@@ -130,7 +74,10 @@
                 </div>
             </div>
 
-            <h2>Your List</h2>
+			<h2 class="your-list-header">Your List</h2>
+			<p style="font-size: 0.9em; color: #666;">
+				*Weapon and Points are saved and loaded through the unit's notes box which is why they're auto-filled with that info. Additional notes you add are also saved and loaded. <br> These saves are stored locally on your browser.
+			</p>
             <ul id="unit-list"></ul>
 
         </div> <!-- End of left column -->
@@ -185,6 +132,21 @@
         </div>
     </div>
 </div>
+	<!-- Ploys Table Section -->
+    <div id="ploys-table-container">
+        <h2>Faction Ploys</h2>
+        <table id="ploysTable">
+            <thead>
+                <tr>
+                    <th>Ploy</th>
+                    <th>Descr</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically populated rows -->
+            </tbody>
+        </table>
+    </div>
 <div id="weapon-table-container">
                 <h2>Faction Weapons</h2>
                 <table id="weaponsTable">
