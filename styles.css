@@ -147,10 +147,27 @@ tr:hover td {
     font-size: 0.9rem; /* Smaller font size */
 }
 
-/* Styling for the reset button */
-#reset-button {
-    margin-right: 10px; /* Reduced margin to make buttons closer together */
-    font-size: 0.9rem; /* Make the reset button smaller */
+/* Styling for all buttons */
+#reset-button, #generate-txt, #generate-pdf {
+    margin-right: 10px; /* Keep buttons close together */
+    font-size: 0.9rem; /* Make buttons smaller */
+    padding: 5px 10px; /* Adjust padding for a balanced look */
+    border: 1px solid #ccc; /* Optional: Add a subtle border */
+    background-color: #f8f8f8; /* Light background */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover {
+    background-color: #e0e0e0;
+}
+
+/* Optional: If you want each button to have rounded corners */
+#reset-button, #generate-txt, #generate-pdf {
+    border-radius: 5px;
+}
+
 }
 
 }

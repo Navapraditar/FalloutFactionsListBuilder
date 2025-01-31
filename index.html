@@ -4,12 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fallout Factions List Builder</title>
-    <link rel="stylesheet" href="styles.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Fallout Factions List Builder - Create Custom RPG Lists with Units & Weapons</title>
 
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Create and manage your custom Fallout Factions list with our easy-to-use tool. Choose factions, units, and weapons, and save your progress for later.">
+    <meta name="keywords" content="Fallout, Factions, List Builder, Custom Lists, RPG, Weapon, Unit, Strategy, Fallout Builder">
+
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Fallout Factions List Builder">
+    <meta property="og:description" content="Create and manage your custom Fallout Factions list. Choose factions, units, and weapons to build your perfect team.">
+    <meta property="og:url" content="https://falloutfactionslistbuilder.com">
+
+    <!-- Twitter Card Tags for Twitter -->
+    <meta name="twitter:title" content="Fallout Factions List Builder">
+    <meta name="twitter:description" content="Create and manage your custom Fallout Factions list. Choose factions, units, and weapons to build your perfect team.">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://falloutfactionslistbuilder.com">
+
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- JSON-LD Structured Data for the Web Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Fallout Factions List Builder",
+      "description": "A web-based tool to create and manage custom Fallout Factions lists. Choose factions, units, weapons, and save your progress.",
+      "url": "https://falloutfactionslistbuilder.com",
+      "operatingSystem": "All",
+      "applicationCategory": "Game",
+      "author": {
+        "@type": "Person",
+        "name": "Joseph Navapraditar"
+      },
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Create Faction List"
+      }
+    }
+    </script>
 </head>
+
+
 
 <body>
 
@@ -21,10 +59,8 @@
             <!-- Reset Button Section -->
             <div id="reset-section">
                 <button id="reset-button">Reset</button>
-				<button id="generate-pdf">Download as PDF</button>
-				<span id="pdf-instructions" style="font-size: 0.9em; color: gray; margin-left: 10px;">
-				(Select "Save as PDF" as your print destination. Must be in a browser for this, not opened through reddit or discord since it's using the browser's print function)
-				</span>
+				<button id="generate-txt">Download List txt File</button>
+				<button id="generate-pdf">Print to PDF</button>
             </div>
 				<!-- Save/Load List Section -->
 	<div id="list-management">
@@ -89,43 +125,50 @@
 	<h2>Chems</h2>
     <div class="chems-row">
         <div class="chem-item" data-points="5">
-            <span class="chem-name">Rad-X</span> (5 pts)
-            <button class="decrease">-</button>
-            <input type="text" class="chem-quantity" value="0" readonly>
-            <button class="increase">+</button>
-        </div>
+		<span class="chem-name">Rad-X</span> (5 pts)
+		<p class="chem-description">When a model ends turn within 3" or Rad token, no Endurance penalty from Rad tokens until end of round</p>
+		<button class="decrease">-</button>
+		<input type="text" class="chem-quantity" value="0" readonly>
+		<button class="increase">+</button>
+		</div>
         <div class="chem-item" data-points="6">
             <span class="chem-name">Psycho</span> (6 pts)
+			<p class="chem-description">When creating dice pool for an Attack, add 2 Bonus Dice</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>
         </div>
         <div class="chem-item" data-points="8">
             <span class="chem-name">Nuka-Cola</span> (8 pts)
+			<p class="chem-description">Start of model Action, model's Control Area is 3" larger until end of turn</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>
         </div>
         <div class="chem-item" data-points="9">
             <span class="chem-name">Stimpak</span> (9 pts)
+			<p class="chem-description">Start of turn, active model recovers 2 Harm</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>
         </div>
         <div class="chem-item" data-points="10">
             <span class="chem-name">Mentats</span> (10 pts)
+			<p class="chem-description">When your model fails Confusion, it counts as passed</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>
         </div>
         <div class="chem-item" data-points="11">
             <span class="chem-name">Buffout</span> (11 pts)
+			<p class="chem-description">When your model is targeted by an Attack Action, after Test Pool is created but before it's rolled, increase model's Endurance by 2 until end of Attack</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>
         </div>
         <div class="chem-item" data-points="15">
             <span class="chem-name">Jet</span> (15 pts)
+			<p class="chem-description">Start of your turn before choosing an Active model, remove 1 Fatigue from a model in your crew</p>
             <button class="decrease">-</button>
             <input type="text" class="chem-quantity" value="0" readonly>
             <button class="increase">+</button>

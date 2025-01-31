@@ -913,9 +913,46 @@ document.getElementById("add-unit").addEventListener("click", () => {
 
 
 
+document.getElementById("generate-txt").addEventListener("click", () => {
+    // Initialize an array to store the text content
+    let unitListContent = '';
+
+    // Loop through each list item to gather the unit name, stats, and unit notes
+    document.querySelectorAll('#unit-list li').forEach(item => {
+        const unitName = item.querySelector("span").textContent; // Get unit name
+        const stats = Array.from(item.querySelectorAll("td")).map((td, index) => {
+            // Assuming the stats are in specific order: S, P, E, C, I, A, L, (W)
+            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)'];
+            return `${labels[index]}: ${td.textContent}`;
+        }).join(' | '); // Join all stats with " | " separator
+        
+        const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
+
+        // Append unit name, "SPECIAL" label, stats, and unit notes to the content, formatted
+        unitListContent += `Unit: ${unitName}\n`;
+        unitListContent += `${stats}\n`;  // Add "SPECIAL" label before the stats
+        unitListContent += `Notes: ${unitNotes}\n\n`;  // Add unit notes with separation
+    });
+
+    // Create a blob with the text content
+    const blob = new Blob([unitListContent], { type: 'text/plain' });
+
+    // Create an anchor element to download the text file
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = "falloutfactionslistbuilder_list.txt";  // Name of the file
+
+    // Trigger the download
+    link.click();
+});
+
 document.getElementById("generate-pdf").addEventListener("click", () => {
     window.print(); // This triggers the browser's print dialog
 });
+
+
+
+
 
 
 // Reset Button
