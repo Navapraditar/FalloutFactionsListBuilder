@@ -1,6 +1,6 @@
 const factions = {
 	    "Brotherhood of Steel": [
-        { name: "Paladin in Power Armor", type: "Champion, Leader",
+        { name: "Paladin", type: "Champion, Leader",
 		stats: { 
         S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
             }, 
@@ -17,7 +17,7 @@ const factions = {
             { name: "Laser Pistol", points: 21 },
             { name: "10mm Pistol", points: 26 }
         ] },
-        { name: "Knight in Power Armor", type: "Grunt",
+        { name: "Knight", type: "Grunt",
 		stats: { 
         S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
             }, 
@@ -142,7 +142,7 @@ const factions = {
         ] }
     ],
 	    "Wasteland Raiders": [
-        { name: "Butcher in Power Armor", type: "Champion, Leader",
+        { name: "Butcher", type: "Champion, Leader",
 		stats: { 
         S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 3, W: 4  // SPECIALW stats
             }, 
@@ -264,7 +264,7 @@ const factions = {
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
-        S: 6, P: 5, E: 5, C: 5, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
+        S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Handmade Rifle", points: 23 },
@@ -273,7 +273,7 @@ const factions = {
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
-        S: 6, P: 5, E: 5, C: 5, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
+        S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Baseball Bat", points: 10 },
