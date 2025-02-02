@@ -17,7 +17,7 @@ const factions = {
             { name: "Laser Pistol", points: 21, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
             { name: "10mm Pistol", points: 26, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  }
         ] },
-        { name: "Knight", type: "Grunt", perks: "Burly, Rad Resistant, Hardy",
+        { name: "Knight in Power Armor", type: "Grunt", perks: "Burly, Rad Resistant, Hardy",
 		stats: { 
         S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
             }, 
