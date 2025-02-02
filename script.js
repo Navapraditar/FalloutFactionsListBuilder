@@ -655,8 +655,8 @@ window.onload = () => {
 let selectedFaction = null;
 let selectedUnit = null;
 let selectedWeaponPoints = null;
-let totalPoints = 0;
-let unitPoints = 0; // Keep track of unit points separately
+let crewPoints = 0; // Keep track of unit points separately
+let partyPoints = 0;// Running sum of active party points (Need to implement a checkbox system)
 let chemPoints = 0; // Keep track of chem points separately
 let hasLeader = false;
 
@@ -664,15 +664,27 @@ const factionSelect = document.getElementById("faction-select");
 const unitSelect = document.getElementById("unit-select");
 const weaponSelect = document.getElementById("weapon-select");
 const unitList = document.getElementById("unit-list");
-const totalPointsDisplay = document.getElementById("total-points");
+const crewPointsDisplay = document.getElementById("crew-points");
+const partyPointsDisplay = document.getElementById("party-points");
+const chemPointsDisplay = document.getElementById("chem-points");
+
+
 const stepUnit = document.getElementById("step-unit");
 const stepWeapon = document.getElementById("step-weapon");
 const stepAdd = document.getElementById("step-add");
 const resetButton = document.getElementById("reset-button");
 
-// Function to update total points display
-function updateTotalPoints() {
-    document.getElementById("total-points").textContent = totalPoints;
+// Function to update crew points display
+function updateCrewPoints() {
+    document.getElementById("crew-points").textContent = crewPoints;
+}
+// Function to update party points display
+function updatePartyPoints() {
+    document.getElementById("party-points").textContent = partyPoints;
+}
+// Function to update chem points display
+function updateChemPoints() {
+    document.getElementById("chem-points").textContent = chemPoints;
 }
 
 // Chem Points Logic
@@ -686,8 +698,8 @@ document.querySelectorAll(".chem-item").forEach(item => {
         let currentValue = parseInt(quantityInput.value, 10);
         quantityInput.value = currentValue + 1;
         chemPoints += chemValue; // Add chem points
-        totalPoints = unitPoints + chemPoints; // Recalculate total points
-        updateTotalPoints();
+        updateChemPoints();
+		chemPointsDisplay.textContent = chemPoints;
     });
 
     decreaseBtn.addEventListener("click", function () {
@@ -695,8 +707,8 @@ document.querySelectorAll(".chem-item").forEach(item => {
         if (currentValue > 0) {
             quantityInput.value = currentValue - 1;
             chemPoints -= chemValue; // Subtract chem points
-            totalPoints = unitPoints + chemPoints; // Recalculate total points
-            updateTotalPoints();
+            updateChemPoints();
+			chemPointsDisplay.textContent = chemPoints;
         }
     });
 });
@@ -704,20 +716,6 @@ document.querySelectorAll(".chem-item").forEach(item => {
 factionSelect.addEventListener("change", () => {
     selectedFaction = factionSelect.value;
     hasLeader = false; // Reset leader restriction when switching factions
-
-    // Reset points and unit list when changing factions
-    unitPoints = 0; // Reset unit points only
-    unitList.innerHTML = ""; // Clear the current unit list
-    chemPoints = 0; // Reset chem points to avoid confusion with previous faction data
-
-    // Reset all chem quantities to "0"
-    document.querySelectorAll(".chem-quantity").forEach(input => {
-        input.value = "0"; // Reset all chem quantities to 0
-    });
-
-    // Now recalculate total points after reset
-    totalPoints = unitPoints + chemPoints;
-    updateTotalPoints();
 
     if (selectedFaction) {
         // Update the unit list header with selected faction
@@ -744,11 +742,7 @@ factionSelect.addEventListener("change", () => {
         stepAdd.style.display = "none";
     }
 
-    // Reset the unit and weapon selections
-    unitSelect.value = "";
-    weaponSelect.value = "";
-    stepWeapon.style.display = "none";
-    stepAdd.style.display = "none";
+
 });
 
 
@@ -793,7 +787,6 @@ weaponSelect.addEventListener("change", () => {
     selectedWeapon = weaponSelect.options[weaponSelect.selectedIndex].text.split(" (")[0]; // Extract weapon name
     selectedWeaponPoints = parseInt(weaponSelect.value, 10);
     stepAdd.style.display = selectedWeapon ? "block" : "none";
-    updateTotalPoints();
 });
 
 
@@ -819,6 +812,24 @@ document.getElementById("add-unit").addEventListener("click", () => {
         const weaponText = document.createElement("span");
 		weaponText.textContent = ` ${selectedWeapon} (${selectedWeaponPoints} points)`;
 		li.appendChild(weaponText);
+		
+		        // Create the Active checkbox
+        const activeCheckbox = document.createElement("input");
+        activeCheckbox.type = "checkbox";
+        activeCheckbox.style.marginLeft = "10px"; // Optional style for spacing
+        li.appendChild(activeCheckbox);
+
+        // Event listener for the Active checkbox
+        activeCheckbox.addEventListener("change", () => {
+            if (activeCheckbox.checked) {
+                // Add weapon points to party points when checked
+                partyPoints += weaponPoints;
+            } else {
+                // Subtract weapon points from party points when unchecked
+                partyPoints -= weaponPoints;
+            }
+            updatePartyPoints(); // Update the display
+        });
 
 
         const statsTable = document.createElement("table");
@@ -898,17 +909,21 @@ li.appendChild(weaponDataTable);
         removeButton.textContent = "Remove";
         removeButton.addEventListener("click", () => {
             unitList.removeChild(li);
-            unitPoints -= weaponPoints;
-            totalPoints = unitPoints + chemPoints;
-            totalPointsDisplay.textContent = totalPoints;
+            crewPoints -= weaponPoints;
+            crewPointsDisplay.textContent = crewPoints;
             if (isLeader) hasLeader = false;
+			// Adjust party points if the unit was active
+            if (activeCheckbox.checked) {
+                partyPoints -= weaponPoints;
+                updatePartyPoints();
+            }
         });
         li.appendChild(removeButton);
         unitList.appendChild(li);
 
-        unitPoints += weaponPoints;
-        totalPoints = unitPoints + chemPoints;
-        totalPointsDisplay.textContent = totalPoints;
+        crewPoints += weaponPoints;
+        crewPointsDisplay.textContent = crewPoints;
+		partyPointsDisplay.textContent = partyPoints;
 
         unitSelect.value = "";
         weaponSelect.value = "";
@@ -916,6 +931,7 @@ li.appendChild(weaponDataTable);
         stepAdd.style.display = "none";
     }
 });
+
 
 
 
@@ -1101,6 +1117,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Clear current list and load saved items
         unitList.innerHTML = "";
 		
+		// Initialize total points to 0
+		let crewPoints = 0;
+		let partyPoints = 0;
+		let chemPoints = 0;
+		updateCrewPoints();
+		updatePartyPoints();
+		updateChemPoints();
+		
 		// Load crew notes
 		const crewNotesTextarea = document.querySelector("#crew-notes");
 		const crewNotes = loadedList?.crewNotes || "";  // Retrieve crew notes if available
@@ -1148,19 +1172,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 </tr>
             </thead>
 			<tbody>
-				${unit.weapons.map(wpn => `
-					<tr>
-						<td>${wpn.name}</td>
-						<td>${wpn.type}</td>
-						<td>${wpn.test}</td>
-						<td>${wpn.traits}</td>
-						<td>${wpn.effect}</td>
-						<td>${wpn.points}</td>
-					</tr>
-				`).join('')}
-			</tbody>
-			`;
-        li.appendChild(weaponTable);
+				 ${unit.weapons.map(wpn => {
+									// Sum the weapon points into crewPoints
+									crewPoints += parseInt(wpn.points, 10) || 0;
+
+									return `
+										<tr>
+											<td>${wpn.name}</td>
+											<td>${wpn.type}</td>
+											<td>${wpn.test}</td>
+											<td>${wpn.traits}</td>
+											<td>${wpn.effect}</td>
+											<td>${wpn.points}</td>
+										</tr>
+									`;
+								}).join('')}
+							</tbody>
+						`;
+						li.appendChild(weaponTable);
 
             // Add a text box for unit notes
             const unitNotes = document.createElement("textarea");
@@ -1175,6 +1204,12 @@ document.addEventListener("DOMContentLoaded", function () {
             // Add to unit list
             unitList.appendChild(li);
         });
+		
+	// Update total points (sum of all weapon points)
+    const crewPointsElement = document.querySelector("#crew-points");
+    if (crewPointsElement) {
+        crewPointsElement.textContent = crewPoints;
+    }
 
         alert(`List "${selectedList}" loaded successfully!`);
     });
