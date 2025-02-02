@@ -5,41 +5,41 @@ const factions = {
         S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 49 },
-            { name: "Gatling Laser", points: 57 },
-            { name: "Minigun", points: 64 }
+            { name: "Laser Rifle", points: 49, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  },
+            { name: "Gatling Laser", points: 57, type: "Heavy (16\")", test: "4P", traits: "Area (1\")", effect: "Ignite (2)" },
+            { name: "Minigun", points: 64, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
         ] },
         { name: "Scribe", type: "Champion",
 		stats: { 
         S: 3, P: 3, E: 4, C: 4, I: 7, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Pistol", points: 21 },
-            { name: "10mm Pistol", points: 26 }
+            { name: "Laser Pistol", points: 21, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
+            { name: "10mm Pistol", points: 26, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  }
         ] },
         { name: "Knight", type: "Grunt",
 		stats: { 
         S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Ripper", points: 45 },
-            { name: "Ripper and Laser Pistol", points: 49 },
-            { name: "Laser Rifle", points: 50 }
+            { name: "Ripper", points: 45, type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
+            { name: "Ripper and Laser Pistol", points: 49, type: "Melee", test: "5S", traits: "Fast", effect: "Maim", type2: "Pistol (10\")", test2: "3A", traits2: "CQB", effect2: "Ignite (2)"  },
+            { name: "Laser Rifle", points: 50, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" }
         ] },
         { name: "Aspirant", type: "Grunt",
 		stats: { 
         S: 4, P: 5, E: 4, C: 5, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Rifle", points: 24 },
-            { name: "Laser Rifle", points: 25 }
+            { name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+            { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
         ] },
         { name: "Lancer", type: "Grunt",
 		stats: { 
         S: 3, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 25 }
+            { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
         ] }
     ],
 	    "Gunners": [
@@ -48,55 +48,55 @@ const factions = {
         S: 4, P: 5, E: 4, C: 6, I: 5, A: 4, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 35 },
-            { name: "Plasma Rifle", points: 38 },
-            { name: "Plasma Rifle and Ripper", points: 41 }
+            { name: "Laser Rifle", points: 35, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
+            { name: "Plasma Rifle", points: 38, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
+            { name: "Plasma Rifle and Ripper", points: 41, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"}
         ] },
 		{ name: "Commander in Power Armor", type: "Champion, Leader",
 		stats: { 
         S: 6, P: 5, E: 6, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 50 },
-            { name: "Plasma Rifle", points: 53 },
-            { name: "Plasma Rifle and Ripper", points: 56 }
+            { name: "Laser Rifle", points: 50, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
+            { name: "Plasma Rifle", points: 53, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
+            { name: "Plasma Rifle and Ripper", points: 56, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" }
         ] },
         { name: "Lieutenant", type: "Champion",
 		stats: { 
         S: 4, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Rifle", points: 35 },
-            { name: "Precision Combat Rifle", points: 39 },
-            { name: "Plasma Pistol and Ripper", points: 40 },
-            { name: "Missle Launcher", points: 42 }
+            { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
+            { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
+            { name: "Plasma Pistol and Ripper", points: 40, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
+            { name: "Missle Launcher", points: 42, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
         ] },
         { name: "Assaultron", type: "Grunt",
 		stats: { 
         S: 6, P: 6, E: 5, C: 1, I: 1, A: 5, L: 1, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Assaultron Claws & Assaultron Eye Beam", points: 45 }
+            { name: "Assaultron Claws & Assaultron Eye Beam", points: 45, type: "Melee", test: "4S", traits: "Fast", effect: "Maim" }
         ] },
         { name: "Conscript", type: "Grunt",
 		stats: { 
         S: 4, P: 5, E: 4, C: 2, I: 4, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 20 },
-            { name: "Combat Rifle", points: 22 },
-			{ name: "Assault Rifle", points: 23 },
-            { name: "Laser Rifle and Stun Baton", points: 25 }
+            { name: "Laser Rifle", points: 20, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
+            { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+			{ name: "Assault Rifle", points: 23, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)"  },
+            { name: "Laser Rifle and Stun Baton", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)", type2: "Melee", test2: "4S", traits2: "Suppress (2)", effect2: "-"  }
         ] },
         { name: "Corporal", type: "Grunt",
 		stats: { 
         S: 4, P: 3, E: 3, C: 2, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Pistol", points: 11 },
-            { name: "10mm Pistol and Frag Grenades", points: 13 },
-			{ name: "Laser Pistol and Hand Weapon", points: 13 },
-            { name: "10mm and Hand Weapon", points: 14 }
+            { name: "Laser Pistol", points: 11, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
+            { name: "10mm Pistol and Frag Grenades", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Grenade (10\")", test2: "3A", traits2: "Area (1\"), CQB", effect2: "Suppress (2)" },
+			{ name: "Laser Pistol and Hand Weapon", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "10mm and Hand Weapon", points: 14, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
 	    "Super Mutants": [
@@ -105,40 +105,40 @@ const factions = {
         S: 6, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Heavy Pipe Pistol and Sledgehammer", points: 46 },
-            { name: "Assault Rifle and Sledgehammer", points: 48 }
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 46, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  },
+            { name: "Assault Rifle and Sledgehammer", points: 48, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  }
         ] },
         { name: "Brute", type: "Champion",
 		stats: { 
         S: 6, P: 5, E: 6, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sledgehammer", points: 37 },
-            { name: "Minigun", points: 48 }
+            { name: "Sledgehammer", points: 37, type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim"  },
+            { name: "Minigun", points: 48, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce"  }
         ] },
         { name: "Skirmisher", type: "Grunt",
 		stats: { 
         S: 5, P: 4, E: 5, C: 4, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Automatic Pipe Rifle", points: 28 },
-            { name: "Precision Pipe Rifle", points: 30 }
+            { name: "Automatic Pipe Rifle", points: 28, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+            { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" }
         ] },
         { name: "Enforcer", type: "Grunt",
 		stats: { 
         S: 5, P: 3, E: 5, C: 3, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Pipe Pistol and Hand Weapon", points: 17 },
-            { name: "Hand Weapon and Molotov Cocktails", points: 25 },
-            { name: "Heavy Pipe Pistol and Sledgehammer", points: 25 }
+            { name: "Pipe Pistol and Hand Weapon", points: 17, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "Hand Weapon and Molotov Cocktails", points: 25, type: "Melee", test: "3S", traits: "Fast", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)"  },
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 25, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim" }
         ] },
         { name: "Mutant Hound", type: "Grunt",
 		stats: { 
         S: 4, P: 2, E: 4, C: 3, I: 3, A: 5, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Claws and Jaws", points: 10 }
+            { name: "Claws and Jaws", points: 10, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
         ] }
     ],
 	    "Wasteland Raiders": [
@@ -147,45 +147,45 @@ const factions = {
         S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 3, W: 4  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Assault Rifle", points: 46 }
+            { name: "Assault Rifle", points: 46, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim"  }
         ] },
         { name: "Veteran", type: "Champion",
 		stats: { 
         S: 4, P: 4, E: 4, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hand Weapon", points: 23 },
-            { name: "Hunting Rifle", points: 39 },
-            { name: "Minigun", points: 47 }
+            { name: "Hand Weapon", points: 23, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+            { name: "Hunting Rifle", points: 39, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
+            { name: "Minigun", points: 47, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Short Hunting Rifle", points: 10 },
-            { name: "Sawn-off Shotgun", points: 13 },
-            { name: "Pipe Rifle", points: 12 },
-            { name: "Automatic Pipe Rifle", points: 14 }
+            { name: "Short Hunting Rifle", points: 10, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce"  },
+            { name: "Sawn-off Shotgun", points: 13, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
+            { name: "Pipe Rifle", points: 12, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
+            { name: "Automatic Pipe Rifle", points: 14, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
         S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hand Weapon", points: 8 },
-            { name: "Pipe Revolver & Hand Weapon", points: 11 },
-            { name: "Pipe Pistol & Machete", points: 14 }
+            { name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+            { name: "Pipe Revolver & Hand Weapon", points: 11, type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Pistol & Machete", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"  }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
         S: 3, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Stripped Pipe Rifle", points: 9 },
-            { name: "Pipe Pistol & Molotovs", points: 14 },
-            { name: "Pipe Pistol & Hand Weapon", points: 16 },
-			{ name: "Molotov Cocktails & Hand Weapon", points: 11 }
+            { name: "Stripped Pipe Rifle", points: 9, type: "Rifle (12\")", test: "3P", traits: "-", effect: "Suppress (1)" },
+            { name: "Pipe Pistol & Molotovs", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)" },
+            { name: "Pipe Pistol & Hand Weapon", points: 16, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+			{ name: "Molotov Cocktails & Hand Weapon", points: 11, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
 	    "Wastelanders": [
@@ -194,42 +194,42 @@ const factions = {
         S: 4, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "10mm Pistol and Hunting Rifle", points: 44 }
+            { name: "10mm Pistol and Hunting Rifle", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Rifle (22\")", test2: "3P", traits2: "Aim (+1)", effect2: "Pierce" }
         ] },
         { name: "Companion", type: "Champion",
 		stats: { 
         S: 3, P: 5, E: 4, C: 5, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sawn-Off Shotgun and Baseball Bat", points: 23 },
-            { name: "Combat Shotgun and Hand Weapon", points: 26 },
-            { name: "Assault Rifle", points: 31 }
+            { name: "Sawn-Off Shotgun and Baseball Bat", points: 23, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" , type2: "Melee", test2: "3S", traits2: "Wind Up", effect2: "Suppress (1)" },
+            { name: "Combat Shotgun and Hand Weapon", points: 26, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"},
+            { name: "Assault Rifle", points: 31, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" }
         ] },
         { name: "Mercenary", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 5, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Shotgun", points: 17 },
-            { name: "Combat Shotgun and Hand Weapon", points: 18 },
-            { name: "Assault Rifle ", points: 22 }
+            { name: "Combat Shotgun", points: 17, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+            { name: "Combat Shotgun and Hand Weapon", points: 18, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "Assault Rifle ", points: 22, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" }
         ] },
         { name: "Regular Joe", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 4, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-			{ name: "Pipe Pistol", points: 7 },
-            { name: "10mm Pistol", points: 8 },
-            { name: "Double-barrelled Shotgun", points: 12 },
-            { name: "Hunting Rifle", points: 13 }
+			{ name: "Pipe Pistol", points: 7, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
+            { name: "10mm Pistol", points: 8, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
+            { name: "Double-barrelled Shotgun", points: 12, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+            { name: "Hunting Rifle", points: 13, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" }
         ] },
         { name: "Good Boy", type: "Grunt",
 		stats: { 
         S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Claws and Jaws", points: 7 }
+            { name: "Claws and Jaws", points: 7, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
         ] }
     ],
     "The Operators": [
@@ -238,47 +238,47 @@ const factions = {
         S: 5, P: 6, E: 5, C: 6, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Marksman's Handmade Rifle", points: 44 },
-            { name: "Combat Rifle", points: 50 },
-            { name: "Plasma Pistol and Shishkebab", points: 51 }
+            { name: "Marksman's Handmade Rifle", points: 44 , type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"},
+            { name: "Combat Rifle", points: 50, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  },
+            { name: "Plasma Pistol and Shishkebab", points: 51, type: "Pistol(12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "4S", traits2: "-", effect2: "Ignite(2)" }
         ] },
         { name: "Made Man", type: "Champion",
 		stats: { 
         S: 4, P: 6, E: 4, C: 4, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Syringer", points: 31 },
-            { name: "Combat Rifle", points: 33 },
-            { name: "Combat Shotgun and Frag Grenades", points: 38 },
-            { name: "Missle Launcher", points: 48 }
+            { name: "Syringer", points: 31, type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
+            { name: "Combat Rifle", points: 33, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  },
+            { name: "Combat Shotgun and Frag Grenades", points: 38, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim", type2: "Grenade(10\")", test2: "3A", traits2: "Area(1\") CQB", effect2: "Suppress(2)" },
+            { name: "Missle Launcher", points: 48, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"  }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
         S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "10mm Pistol", points: 15 },
-            { name: "Combat Shotgun", points: 17 },
-            { name: "10mm Pistol and Hand Weapon", points: 21 },
-            { name: "10mm Pistol and Baseball Bat", points: 22 }
+            { name: "10mm Pistol", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
+            { name: "Combat Shotgun", points: 17, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
+            { name: "10mm Pistol and Hand Weapon", points: 21, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "10mm Pistol and Baseball Bat", points: 22, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Handmade Rifle", points: 23 },
-            { name: "Marksman's Handmade Rifle", points: 24 },
-            { name: "Combat Rifle", points: 27 }
+            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Marksman's Handmade Rifle", points: 24, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"  },
+            { name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Baseball Bat", points: 10 },
-            { name: "10mm Pistol and Hand Weapon", points: 13 },
-            { name: "Handmade Rifle", points: 14 }
+            { name: "Baseball Bat", points: 10, type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
+            { name: "10mm Pistol and Hand Weapon", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Handmade Rifle", points: 14, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" }
         ] }
     ],
     "The Pack": [
@@ -287,49 +287,49 @@ const factions = {
         S: 5, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sawn-off Shotgun", points: 35 },
-            { name: "10mm Pistol and Deathclaw Gauntlet", points: 42 },
-            { name: "Automatic Handmade Rifle and Baseball Bat", points: 48 }
+            { name: "Sawn-off Shotgun", points: 35, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
+            { name: "10mm Pistol and Deathclaw Gauntlet", points: 42, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "5S", traits2: "WindUp", effect2: "Pierce" },
+            { name: "Automatic Handmade Rifle and Baseball Bat", points: 48, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
         { name: "Top Dog", type: "Champion",
 		stats: { 
         S: 5, P: 4, E: 4, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "10mm Pistol and Baseball Bat", points: 23 },
-            { name: "Handmade Rifle and Baseball Bat", points: 25 },
-            { name: "Sledgehammer and Predator Grenades", points: 33 },
-            { name: "Flamer", points: 36 }
+            { name: "10mm Pistol and Baseball Bat", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Handmade Rifle and Baseball Bat", points: 25, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Sledgehammer and Predator Grenades", points: 33, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim", type2: "Grenade(8\")", test2: "4A", traits2: "Area(3\") CQB", effect2: "Maim" },
+            { name: "Flamer", points: 36, type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
         S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sledgehammer", points: 14 },
-            { name: "Light Handmade Rifle", points: 18 },
-            { name: "Pipe Revolver and Baseball Bat", points: 23 },
-            { name: "10mm Pistol and Hand Weapon", points: 23 },
-            { name: "10mm Pistol and Baseball Bat", points: 24 }
+            { name: "Sledgehammer", points: 14, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
+            { name: "Light Handmade Rifle", points: 18, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
+            { name: "Pipe Revolver and Baseball Bat", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "10mm Pistol and Hand Weapon", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type: "Melee", test: "3S", traits: "Fast", effect: "-"  },
+            { name: "10mm Pistol and Baseball Bat", points: 24, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sawn-Off Shotgun", points: 18 },
-            { name: "Handmade Rifle", points: 23 },
-            { name: "Automatic Handmade Rifle", points: 27 }
+            { name: "Sawn-Off Shotgun", points: 18, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
+            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Automatic Handmade Rifle", points: 27, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)"  }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Pipe Revolver", points: 12 },
-            { name: "10mm Pistol", points: 13 },
-            { name: "Pipe Revolver and Hand Weapon", points: 14 },
-            { name: "Light Handmade Rifle", points: 16 }
+            { name: "Pipe Revolver", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
+            { name: "10mm Pistol", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
+            { name: "Light Handmade Rifle", points: 16, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" }
         ] }
     ],
     "The Disciples": [
@@ -338,47 +338,47 @@ const factions = {
         S: 6, P: 5, E: 5, C: 5, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Handmade Rifle", points: 44 },
-            { name: "Precision Hunting Rifle", points: 45 },
-            { name: ".44 Pistol and Machete", points: 47 }
+            { name: "Handmade Rifle", points: 44, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Precision Hunting Rifle", points: 45, type: "Rifle(24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"  },
+            { name: ".44 Pistol and Machete", points: 47, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"}
         ] },
         { name: "Butcher", type: "Champion",
 		stats: { 
         S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 		weapons: [
-            { name: "Handmade Rifle", points: 30 },
-            { name: "Syringer", points: 28 },
-            { name: "Marksman's Handmade Rifle", points: 30 },
-            { name: "10mm Pistol and Nuka-Grenade", points: 40 }
+            { name: "Handmade Rifle", points: 30, points: 44, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Syringer", points: 28, type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
+            { name: "Marksman's Handmade Rifle", points: 30, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)" },
+            { name: "10mm Pistol and Nuka-Grenade", points: 40, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Grenade(8\")", test2: "5A", traits2: "Area(2\") CQB Irradiate OneAndDone", effect2: "Maim" }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
         S: 5, P: 3, E: 4, C: 4, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Short Hunting Rifle", points: 15 },
-            { name: "Light Handmade Rifle", points: 20 },
-            { name: "Pipe Revolver and Hand Weapon", points: 21 },
-            { name: "10mm Pistol and Machete", points: 21 }
+            { name: "Short Hunting Rifle", points: 15 , type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce"},
+            { name: "Light Handmade Rifle", points: 20, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)"  },
+            { name: "Pipe Revolver and Hand Weapon", points: 21, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "10mm Pistol and Machete", points: 21, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"}
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
         S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hunting Rifle", points: 21 },
-            { name: "Handmade Rifle", points: 23 },
-            { name: "Ranger's Hunting Rifle", points: 23 }
+            { name: "Hunting Rifle", points: 21, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Handmade Rifle", points: 23, points: 44, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Ranger's Hunting Rifle", points: 23 , type: "Rifle(18\")", test: "3P", traits: "Aim(+1) Bladed", effect: "Pierce" }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
         S: 4, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Short Hunting Rifle", points: 10 },
-            { name: "Pipe Revolver and Hand Weapon", points: 14 },
-            { name: "10mm Pistol and Hand Weapon", points: 15 }
+            { name: "Short Hunting Rifle", points: 10, points: 15 , type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce" },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ]
 };
@@ -390,7 +390,7 @@ const weaponData = {
     { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
     { weapon: "Laser Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
     { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
-    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Ignite (1)" },
+    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
     { weapon: "Flamer", type: "Heavy (6\")", test: "4S", traits: "Area (2\"), CQB", effect: "Ignite (3)" },
     { weapon: "Gatling Laser", type: "Heavy (16\")", test: "4P", traits: "Area (1\")", effect: "Ignite (2)" },
     { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
@@ -406,8 +406,8 @@ const weaponData = {
     { weapon: "Plasma Pistol", type: "Pistol (12\")", test: "4A", traits: "CQB, Fast", effect: "Meltdown" },
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)" },
     { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
-    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Ignite (1)" },
-    { weapon: "Plasma Rifle", type: "Rifle (18\")", test: "4P", traits: "", effect: "Meltdown" },
+    { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
+    { weapon: "Plasma Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
     { weapon: "Precision Combat Rifle", type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
     { weapon: "Missile Launcher", type: "Heavy (26\")", test: "5S", traits: "Area (3”), Slow", effect: "Maim" },
     { weapon: "Frag Grenades", type: "Grenade (10\")", test: "3A", traits: "Area (1”), CQB", effect: "Suppress (2)" }
@@ -654,7 +654,7 @@ window.onload = () => {
 
 let selectedFaction = null;
 let selectedUnit = null;
-let selectedWeapon = null;
+let selectedWeaponPoints = null;
 let totalPoints = 0;
 let unitPoints = 0; // Keep track of unit points separately
 let chemPoints = 0; // Keep track of chem points separately
@@ -788,127 +788,135 @@ unitSelect.addEventListener("change", () => {
     }
 });
 
+
 weaponSelect.addEventListener("change", () => {
-    selectedWeapon = weaponSelect.value;
-
-    // We only update the total points in this listener, no need to add points here anymore.
-    stepAdd.style.display = selectedWeapon ? "block" : "none"; // Show or hide the add button
-
-    // Update total points if needed
+    selectedWeapon = weaponSelect.options[weaponSelect.selectedIndex].text.split(" (")[0]; // Extract weapon name
+    selectedWeaponPoints = parseInt(weaponSelect.value, 10);
+    stepAdd.style.display = selectedWeapon ? "block" : "none";
     updateTotalPoints();
 });
 
 
 
-
-
 document.getElementById("add-unit").addEventListener("click", () => {
-    if (selectedFaction && selectedUnit && selectedWeapon) {
+    if (selectedFaction && selectedUnit && selectedWeaponPoints) {
         const selectedUnitData = factions[selectedFaction].find(
             unit => unit.name === selectedUnit
         );
         const isLeader = selectedUnitData.type.includes("Leader");
-        if (isLeader) hasLeader = true; // Mark leader as selected
+        if (isLeader) hasLeader = true;
 
         const li = document.createElement("li");
 
-        // Store weapon points in the list item for later removal
-        const weaponPoints = parseInt(selectedWeapon, 10);
+        const weaponPoints = selectedWeaponPoints;
 
-        // Create formatted text for unit name and type
         const unitName = document.createElement("span");
-        unitName.style.fontWeight = "bold"; // Set the unit name to bold
+        unitName.style.fontWeight = "bold";
         unitName.textContent = `${selectedUnit} (${selectedUnitData.type})`;
 
-        const weaponText = `${weaponSelect.options[weaponSelect.selectedIndex].text}`;
-
-        // Construct the text for the list item (no points here)
         li.appendChild(unitName);
         li.appendChild(document.createTextNode(": "));
-        li.appendChild(document.createTextNode(`${weaponText}`));
+        const weaponText = document.createElement("span");
+		weaponText.textContent = ` ${selectedWeapon} (${selectedWeaponPoints} points)`;
+		li.appendChild(weaponText);
 
-        // Create a table for the SPECIALW stats
+
         const statsTable = document.createElement("table");
-        statsTable.style.marginTop = "10px"; // Add space above the stats table
+        statsTable.style.marginTop = "10px";
         statsTable.style.borderCollapse = "collapse";
         statsTable.style.width = "100%";
 
-        const tableHeader = document.createElement("thead");
-        tableHeader.innerHTML = `
-            <tr>
-                <th>S</th>
-                <th>P</th>
-                <th>E</th>
-                <th>C</th>
-                <th>I</th>
-                <th>A</th>
-                <th>L</th>
-                <th>(W)</th>
-            </tr>
-        `;
-        statsTable.appendChild(tableHeader);
-
-        const tableBody = document.createElement("tbody");
-        const statsRow = document.createElement("tr");
-        statsRow.innerHTML = `
-            <td>${selectedUnitData.stats.S}</td>
-            <td>${selectedUnitData.stats.P}</td>
-            <td>${selectedUnitData.stats.E}</td>
-            <td>${selectedUnitData.stats.C}</td>
-            <td>${selectedUnitData.stats.I}</td>
-            <td>${selectedUnitData.stats.A}</td>
-            <td>${selectedUnitData.stats.L}</td>
-            <td>${selectedUnitData.stats.W}</td>
-        `;
-        tableBody.appendChild(statsRow);
-        statsTable.appendChild(tableBody);
-
+        statsTable.innerHTML = `
+            <thead>
+                <tr><th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>${selectedUnitData.stats.S}</td>
+                    <td>${selectedUnitData.stats.P}</td>
+                    <td>${selectedUnitData.stats.E}</td>
+                    <td>${selectedUnitData.stats.C}</td>
+                    <td>${selectedUnitData.stats.I}</td>
+                    <td>${selectedUnitData.stats.A}</td>
+                    <td>${selectedUnitData.stats.L}</td>
+                    <td>${selectedUnitData.stats.W}</td>
+                </tr>
+            </tbody>`;
         li.appendChild(statsTable);
 
-        // Add a text box for unit notes (injuries, upgrades, etc.)
+        const weaponDataTable = document.createElement("table");
+        weaponDataTable.style.marginTop = "10px";
+        weaponDataTable.style.borderCollapse = "collapse";
+        weaponDataTable.style.width = "100%";
+        
+const selectedWeaponData = selectedUnitData.weapons.find(w => w.name === selectedWeapon);
+
+// Start building the table HTML
+let tableHTML = `
+    <thead>
+        <tr><th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>${selectedWeaponData.name}</td>
+            <td>${selectedWeaponData.type}</td>
+            <td>${selectedWeaponData.test}</td>
+            <td>${selectedWeaponData.traits}</td>
+            <td>${selectedWeaponData.effect}</td>
+            <td>${selectedWeaponData.points}</td>
+        </tr>`;
+
+        // Check if second weapon data exists and add another row if so
+        if (selectedWeaponData.type2 && selectedWeaponData.test2) {
+            tableHTML += `
+            <tr>
+                <td>${"WPN2 ->"}</td>
+                <td>${selectedWeaponData.type2}</td>
+                <td>${selectedWeaponData.test2}</td>
+                <td>${selectedWeaponData.traits2}</td>
+                <td>${selectedWeaponData.effect2}</td>
+            </tr>`;
+        }
+
+        // Close the tbody and table tags
+        tableHTML += `</tbody>`;
+
+// Update the table with the generated HTML
+weaponDataTable.innerHTML = tableHTML;
+
+li.appendChild(weaponDataTable);
+
         const unitNotes = document.createElement("textarea");
         unitNotes.classList.add("unit-notes");
-        unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
-        unitNotes.rows = 3; // Adjust height if needed
+        unitNotes.placeholder = "Enter Perks, Upgrades, Injuries, etc.";
+        unitNotes.rows = 3;
         unitNotes.style.width = "100%";
-        unitNotes.style.marginTop = "5px"; // Adds spacing between elements
-
-        // Set the weapon text and points in the notes box (only once)
-        unitNotes.value = `Weapon: ${weaponText}\n`;
-
+        unitNotes.style.marginTop = "5px";
         li.appendChild(unitNotes);
 
-        // Create remove button for the unit
         const removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
         removeButton.addEventListener("click", () => {
             unitList.removeChild(li);
-
-            // Subtract the stored weapon points when the unit is removed
             unitPoints -= weaponPoints;
-
-            // Recalculate total points only once
-            totalPoints = unitPoints + chemPoints; // Ensure totalPoints is correct
+            totalPoints = unitPoints + chemPoints;
             totalPointsDisplay.textContent = totalPoints;
-
-            if (isLeader) hasLeader = false; // Allow adding a leader again
+            if (isLeader) hasLeader = false;
         });
-
         li.appendChild(removeButton);
         unitList.appendChild(li);
 
-        // Update unitPoints and totalPoints correctly on addition
-        unitPoints += weaponPoints; // Add weapon points to unitPoints
-        totalPoints = unitPoints + chemPoints; // Recalculate total points correctly
-        totalPointsDisplay.textContent = totalPoints; // Update the display
+        unitPoints += weaponPoints;
+        totalPoints = unitPoints + chemPoints;
+        totalPointsDisplay.textContent = totalPoints;
 
-        // Reset selections
         unitSelect.value = "";
         weaponSelect.value = "";
         stepWeapon.style.display = "none";
         stepAdd.style.display = "none";
     }
 });
+
 
 
 
@@ -922,8 +930,16 @@ document.getElementById("generate-txt").addEventListener("click", () => {
         const unitName = item.querySelector("span").textContent; // Get unit name
         const stats = Array.from(item.querySelectorAll("td")).map((td, index) => {
             // Assuming the stats are in specific order: S, P, E, C, I, A, L, (W)
-            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)'];
-            return `${labels[index]}: ${td.textContent}`;
+            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)','Weapon(s)','Type','Test','Traits','Crit','Pts','','Type2','Test2','Traits2','Crit2'];
+                        // If index is the position of (W), add a line break after it
+            let stat = `${labels[index]}: ${td.textContent}`;
+            
+            // Add line breaks after (W) and Pts
+            if (labels[index] === '(W)' || labels[index] === 'Pts') {
+                stat += '\n'; // Add a line break after (W) or Pts
+            }
+            
+            return stat;
         }).join(' | '); // Join all stats with " | " separator
         
         const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
@@ -931,7 +947,7 @@ document.getElementById("generate-txt").addEventListener("click", () => {
         // Append unit name, "SPECIAL" label, stats, and unit notes to the content, formatted
         unitListContent += `Unit: ${unitName}\n`;
         unitListContent += `${stats}\n`;  // Add "SPECIAL" label before the stats
-        unitListContent += `Notes: ${unitNotes}\n\n`;  // Add unit notes with separation
+        unitListContent += `Notes: ${unitNotes}\n\n-----------------------\n`;  // Add unit notes with separation
     });
 
     // Create a blob with the text content
@@ -1050,8 +1066,6 @@ document.addEventListener("DOMContentLoaded", function () {
             unitName.style.fontWeight = "bold";
             unitName.textContent = unit.unitName;
 
-
-
             li.appendChild(unitName);
             li.appendChild(document.createTextNode(": "));
  
@@ -1073,13 +1087,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     <th>A</th>
                     <th>L</th>
                     <th>(W)</th>
+					<th>Weapon</th>
+                    <th>Type</th>
+                    <th>Test</th>
+                    <th>Trait</th>
+                    <th>Crit</th>
+                    <th>Points</th>
+					<th>WPN2</th>
+                    <th>Type2</th>
+                    <th>Test2</th>
+                    <th>Trait2</th>
+                    <th>Crit2</th>
                 </tr>
             `;
             statsTable.appendChild(tableHeader);
+			
 
             const tableBody = document.createElement("tbody");
             const statsRow = document.createElement("tr");
-            statsRow.innerHTML = unit.stats.map(stat => `<td>${stat}</td>`).join('');
+			statsRow.innerHTML = Object.values(unit.stats).map(stat => `<td>${stat}</td>`).join('');
             tableBody.appendChild(statsRow);
             statsTable.appendChild(tableBody);
 
@@ -1088,7 +1114,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Add a text box for unit notes
             const unitNotes = document.createElement("textarea");
             unitNotes.classList.add("unit-notes");
-            unitNotes.placeholder = "Enter notes, upgrades, injuries, etc.";
+            unitNotes.placeholder = "Enter Perks, Upgrades, Injuries, etc.";
             unitNotes.rows = 3;
             unitNotes.style.width = "100%";
             unitNotes.style.marginTop = "5px";
