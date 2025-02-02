@@ -1034,19 +1034,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Collect current unit list items with stats and notes
         const unitItems = [];
-        document.querySelectorAll("#unit-list li").forEach(item => {
-            const unitName = item.querySelector("span").textContent;
-            const weaponText = item.querySelector("td").textContent; // Assuming stats are in table cells
-            const stats = Array.from(item.querySelectorAll("td")).map(td => td.textContent);
-            const notes = item.querySelector("textarea") ? item.querySelector("textarea").value : "";
+		document.querySelectorAll("#unit-list li").forEach(item => {
+			const unitName = item.querySelector("span").textContent;
+			const statsTable = item.querySelector("table:nth-of-type(1) tbody tr");
+			const weaponTable = item.querySelector("table:nth-of-type(2) tbody tr");
 
-            unitItems.push({
-                unitName: unitName,
-                weaponText: weaponText,
-                stats: stats,
-                notes: notes
-            });
-        });
+			// Extract stats
+			const stats = Array.from(statsTable.querySelectorAll("td")).map(td => td.textContent);
+
+			// Extract weapon details
+			const weaponRows = Array.from(item.querySelectorAll("table:nth-of-type(2) tbody tr")); 
+			const weapons = weaponRows.map(row => {
+				const cells = row.querySelectorAll("td");
+				return {
+					name: cells[0]?.textContent || "",
+					type: cells[1]?.textContent || "",
+					test: cells[2]?.textContent || "",
+					traits: cells[3]?.textContent || "",
+					effect: cells[4]?.textContent || "",
+					points: cells[5]?.textContent || ""
+				};
+			});
+
+
+			const notes = item.querySelector("textarea") ? item.querySelector("textarea").value : "";
+
+			unitItems.push({
+				unitName: unitName,
+				stats: stats,
+				weapons: weapons,
+				notes: notes
+			});
+		});
 		
 		    // Collect the crew notes text
 		const crewNotesTextarea = document.querySelector("#crew-notes");
@@ -1097,51 +1116,51 @@ document.addEventListener("DOMContentLoaded", function () {
             const unitName = document.createElement("span");
             unitName.style.fontWeight = "bold";
             unitName.textContent = unit.unitName;
-
             li.appendChild(unitName);
             li.appendChild(document.createTextNode(": "));
  
 
             // Create a table for the SPECIALW stats
-            const statsTable = document.createElement("table");
-            statsTable.style.marginTop = "10px";
-            statsTable.style.borderCollapse = "collapse";
-            statsTable.style.width = "100%";
-
-            const tableHeader = document.createElement("thead");
-            tableHeader.innerHTML = `
-                <tr>
-                    <th>S</th>
-                    <th>P</th>
-                    <th>E</th>
-                    <th>C</th>
-                    <th>I</th>
-                    <th>A</th>
-                    <th>L</th>
-                    <th>(W)</th>
-					<th>Weapon</th>
-                    <th>Type</th>
-                    <th>Test</th>
-                    <th>Trait</th>
-                    <th>Crit</th>
-                    <th>Points</th>
-					<th>WPN2</th>
-                    <th>Type2</th>
-                    <th>Test2</th>
-                    <th>Trait2</th>
-                    <th>Crit2</th>
-                </tr>
-            `;
-            statsTable.appendChild(tableHeader);
+			const statsTable = document.createElement("table");
+			statsTable.style.marginTop = "10px";
+			statsTable.style.borderCollapse = "collapse";
+			statsTable.style.width = "100%";
+			statsTable.innerHTML = `
+				<thead>
+					<tr>
+						<th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>${unit.stats.map(stat => `<td>${stat}</td>`).join('')}</tr>
+				</tbody>`;
+			li.appendChild(statsTable);
 			
-
-            const tableBody = document.createElement("tbody");
-            const statsRow = document.createElement("tr");
-			statsRow.innerHTML = Object.values(unit.stats).map(stat => `<td>${stat}</td>`).join('');
-            tableBody.appendChild(statsRow);
-            statsTable.appendChild(tableBody);
-
-            li.appendChild(statsTable);
+        // Create a table for weapon details
+        const weaponTable = document.createElement("table");
+        weaponTable.style.marginTop = "10px";
+        weaponTable.style.borderCollapse = "collapse";
+        weaponTable.style.width = "100%";
+        weaponTable.innerHTML = `
+            <thead>
+                <tr>
+                    <th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th>
+                </tr>
+            </thead>
+			<tbody>
+				${unit.weapons.map(wpn => `
+					<tr>
+						<td>${wpn.name}</td>
+						<td>${wpn.type}</td>
+						<td>${wpn.test}</td>
+						<td>${wpn.traits}</td>
+						<td>${wpn.effect}</td>
+						<td>${wpn.points}</td>
+					</tr>
+				`).join('')}
+			</tbody>
+			`;
+        li.appendChild(weaponTable);
 
             // Add a text box for unit notes
             const unitNotes = document.createElement("textarea");
