@@ -1,6 +1,6 @@
 const factions = {
 	    "Brotherhood of Steel": [
-        { name: "Paladin", type: "Champion, Leader", perks: "Natural Leader, Burly, Rad Resistant, Hardy",
+        { name: "Paladin in Power Armor", type: "Champion, Leader", perks: "Natural Leader, Burly, Rad Resistant, Hardy",
 		stats: { 
         S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
             }, 
