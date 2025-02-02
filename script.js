@@ -959,6 +959,7 @@ let tableHTML = `
                 <td>${selectedWeaponData.test2}</td>
                 <td>${selectedWeaponData.traits2}</td>
                 <td>${selectedWeaponData.effect2}</td>
+				<!-- Exclude Points column in second row -->
             </tr>`;
         }
 
@@ -1109,6 +1110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const listNameInput = document.getElementById("list-name");
     const savedListsDropdown = document.getElementById("saved-lists");
     const unitList = document.getElementById("unit-list"); // The UL where units are added
+	
 
     // Function to update the dropdown with saved lists
     function updateSavedListsDropdown() {
@@ -1150,31 +1152,40 @@ document.addEventListener("DOMContentLoaded", function () {
 					test: cells[2]?.textContent || "",
 					traits: cells[3]?.textContent || "",
 					effect: cells[4]?.textContent || "",
-					points: cells[5]?.textContent || ""
+					points: parseInt(cells[5]?.textContent, 10) || 0 // Convert to number, default to 0
 				};
 			});
 
 
 			const notes = item.querySelector("textarea") ? item.querySelector("textarea").value : "";
+			// Find and save the checkbox state
+			const activeCheckbox = item.querySelector("input[type='checkbox']");
+			const isChecked = activeCheckbox ? activeCheckbox.checked : false;
 
 			unitItems.push({
 				unitName: unitName,
 				stats: stats,
 				weapons: weapons,
-				notes: notes
+				notes: notes,
+				active: isChecked // Save checkbox state
 			});
 		});
 		
 		    // Collect the crew notes text
 		const crewNotesTextarea = document.querySelector("#crew-notes");
     const crewNotes = crewNotesTextarea ? crewNotesTextarea.value : ""; // Save crew notes if it exists
+	
+	    // Collect the partyPoints and checkbox states
+    const partyPointsCheckbox = document.querySelector("#party-points-checkbox");
+    const partyPoints = partyPointsCheckbox ? partyPointsCheckbox.checked : false;
 
 
         // Save to local storage
         const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
 		savedLists[listName] = {
 		unitItems: unitItems, // save the unit items
-		crewNotes: crewNotes  // save the crew notes
+		crewNotes: crewNotes,  // save the crew notes
+		partyPoints: partyPoints // save the partyPoints checkbox state
 	};
         localStorage.setItem("savedLists", JSON.stringify(savedLists));
 
@@ -1224,6 +1235,27 @@ document.addEventListener("DOMContentLoaded", function () {
             unitName.textContent = unit.unitName;
             li.appendChild(unitName);
             li.appendChild(document.createTextNode(": "));
+						// Add the Active checkbox
+			const activeCheckbox = document.createElement("input");
+			activeCheckbox.type = "checkbox";
+			activeCheckbox.style.marginLeft = "15px";
+			li.appendChild(activeCheckbox);
+
+			// Ensure all checkboxes start as unchecked when loading
+			activeCheckbox.checked = false;
+			
+			// Recalculate weapon points dynamically
+			const weaponPoints = unit.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
+
+			// Event listener for the Active checkbox
+			activeCheckbox.addEventListener("change", () => {
+				if (activeCheckbox.checked) {
+					partyPoints += weaponPoints;
+				} else {
+					partyPoints -= weaponPoints;
+				}
+				updatePartyPoints(); // Update the display
+			});
  
 
             // Create a table for the SPECIALW stats
@@ -1257,6 +1289,9 @@ document.addEventListener("DOMContentLoaded", function () {
 				 ${unit.weapons.map(wpn => {
 									// Sum the weapon points into crewPoints
 									crewPoints += parseInt(wpn.points, 10) || 0;
+									
+			// If there is no points value, exclude the Points column
+            const pointsCell = wpn.points ? `<td>${wpn.points}</td>` : '';
 
 									return `
 										<tr>
@@ -1265,13 +1300,14 @@ document.addEventListener("DOMContentLoaded", function () {
 											<td>${wpn.test}</td>
 											<td>${wpn.traits}</td>
 											<td>${wpn.effect}</td>
-											<td>${wpn.points}</td>
+											${pointsCell}
 										</tr>
 									`;
 								}).join('')}
 							</tbody>
 						`;
 						li.appendChild(weaponTable);
+						
 
             // Add a text box for unit notes
             const unitNotes = document.createElement("textarea");
@@ -1291,6 +1327,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const crewPointsElement = document.querySelector("#crew-points");
     if (crewPointsElement) {
         crewPointsElement.textContent = crewPoints;
+    }
+	
+	// Load partyPoints checkbox state
+    const partyPointsCheckbox = document.querySelector("#party-points-checkbox");
+    if (partyPointsCheckbox) {
+        partyPointsCheckbox.checked = loadedList?.partyPoints || false; // Load partyPoints checkbox state
     }
 
         alert(`List "${selectedList}" loaded successfully!`);
