@@ -924,6 +924,15 @@ li.appendChild(weaponDataTable);
 document.getElementById("generate-txt").addEventListener("click", () => {
     // Initialize an array to store the text content
     let unitListContent = '';
+	
+	// Get the crew notes from the textarea (same as the save/load functionality)
+    const crewNotesTextarea = document.querySelector("#crew-notes");
+    const crewNotes = crewNotesTextarea ? crewNotesTextarea.value : '';  // Retrieve crew notes if available
+
+    // Add crew notes at the top of the file
+    if (crewNotes) {
+        unitListContent += `Crew Notes:\n${crewNotes}\n\n-----------------------\n`;  // Add crew notes section
+    }
 
     // Loop through each list item to gather the unit name, stats, and unit notes
     document.querySelectorAll('#unit-list li').forEach(item => {
@@ -983,6 +992,12 @@ resetButton.addEventListener("click", () => {
     if (listNameInput) {
         listNameInput.value = ""; // Clear the value of the List Name textbox
     }
+	
+    // Clear the Crew Notes textbox
+    const crewNotesTextarea = document.querySelector("#crew-notes");
+    if (crewNotesTextarea) {
+        crewNotesTextarea.value = ""; // Clear the value of the Crew Notes textarea
+    }
 
     // Reload the page to reset everything else (like unit points and unit list)
     location.reload();
@@ -1032,10 +1047,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 notes: notes
             });
         });
+		
+		    // Collect the crew notes text
+		const crewNotesTextarea = document.querySelector("#crew-notes");
+    const crewNotes = crewNotesTextarea ? crewNotesTextarea.value : ""; // Save crew notes if it exists
+
 
         // Save to local storage
         const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
-        savedLists[listName] = unitItems;
+		savedLists[listName] = {
+		unitItems: unitItems, // save the unit items
+		crewNotes: crewNotes  // save the crew notes
+	};
         localStorage.setItem("savedLists", JSON.stringify(savedLists));
 
         // Refresh dropdown
@@ -1055,10 +1078,19 @@ document.addEventListener("DOMContentLoaded", function () {
         // Retrieve the selected list from storage
         const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
         const loadedList = savedLists[selectedList];
-
+		
         // Clear current list and load saved items
         unitList.innerHTML = "";
-        loadedList.forEach(unit => {
+		
+		// Load crew notes
+		const crewNotesTextarea = document.querySelector("#crew-notes");
+		const crewNotes = loadedList?.crewNotes || "";  // Retrieve crew notes if available
+		if (crewNotesTextarea) {
+			crewNotesTextarea.value = crewNotes;  // Set crew notes in the textarea
+		}		
+		
+			// Load unit items
+			loadedList?.unitItems.forEach(unit => {
             const li = document.createElement("li");
 
             // Unit name and weapon text

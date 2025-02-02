@@ -270,6 +270,12 @@ p {
     margin-top: 0; /* Remove margin from the top of the paragraph */
 }
 
+#crew-notes {
+    width: 100%;  /* Makes the textarea span the full width of its container */
+    height: 50px; /* Adjust the height to whatever you prefer */
+    padding: 10px; /* Optional, adds padding inside the textarea */
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
 
 
 
