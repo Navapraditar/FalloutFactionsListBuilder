@@ -886,11 +886,31 @@ document.getElementById("add-unit").addEventListener("click", () => {
 		weaponText.textContent = ` ${selectedWeapon} (${selectedWeaponPoints} points)`;
 		li.appendChild(weaponText);
 		
+					// Create a container div for the checkbox and label
+			const checkboxContainer = document.createElement("span");
+			checkboxContainer.style.display = "inline-flex";
+			checkboxContainer.style.flexDirection = "column";
+			checkboxContainer.style.alignItems = "center";
+			checkboxContainer.style.marginLeft = "10px";
+
+			// Create the label
+			const activeLabel = document.createElement("label");
+			activeLabel.textContent = "Active Party";
+			activeLabel.style.fontSize = "10px";
+			activeLabel.style.color = "#666";
+			activeLabel.style.marginBottom = "2px"; // Small spacing above checkbox
+		
 		        // Create the Active checkbox
         const activeCheckbox = document.createElement("input");
         activeCheckbox.type = "checkbox";
         activeCheckbox.style.marginLeft = "10px"; // Optional style for spacing
-        li.appendChild(activeCheckbox);
+
+		// Append label and checkbox to the container
+		checkboxContainer.appendChild(activeLabel);
+		checkboxContainer.appendChild(activeCheckbox);
+		
+		// Append the container div to the list item
+		li.appendChild(checkboxContainer);
 
         // Event listener for the Active checkbox
         activeCheckbox.addEventListener("change", () => {
@@ -1235,27 +1255,41 @@ document.addEventListener("DOMContentLoaded", function () {
             unitName.textContent = unit.unitName;
             li.appendChild(unitName);
             li.appendChild(document.createTextNode(": "));
-						// Add the Active checkbox
+			
+			// Create a container div for the checkbox and label
+			const checkboxContainer = document.createElement("span");
+			checkboxContainer.style.display = "inline-flex";
+			checkboxContainer.style.flexDirection = "column";
+			checkboxContainer.style.alignItems = "center";
+			checkboxContainer.style.marginLeft = "10px";
+
+			// Create the label
+			const activeLabel = document.createElement("label");
+			activeLabel.textContent = "Active Party";
+			activeLabel.style.fontSize = "10px";
+			activeLabel.style.color = "#666";
+			activeLabel.style.marginBottom = "2px"; // Small spacing above checkbox
+			
+			// Add the Active checkbox
 			const activeCheckbox = document.createElement("input");
 			activeCheckbox.type = "checkbox";
 			activeCheckbox.style.marginLeft = "15px";
-			li.appendChild(activeCheckbox);
+        // Store weapon points in data attribute (individual weapon values)
+        activeCheckbox.dataset.points = JSON.stringify(unit.weapons.map(wpn => parseInt(wpn.points, 10) || 0));
 
-			// Ensure all checkboxes start as unchecked when loading
-			activeCheckbox.checked = false;
+        // Ensure all checkboxes start as unchecked when loading
+        activeCheckbox.checked = false;
+
+        // Event listener for the Active checkbox
+        activeCheckbox.addEventListener("change", () => updatePartyPoints());
+
+		// Append the label and checkbox to the container
+		checkboxContainer.appendChild(activeLabel);
+		checkboxContainer.appendChild(activeCheckbox);
+
+		// Append the container to the list item (li)
+		li.appendChild(checkboxContainer);
 			
-			// Recalculate weapon points dynamically
-			const weaponPoints = unit.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
-
-			// Event listener for the Active checkbox
-			activeCheckbox.addEventListener("change", () => {
-				if (activeCheckbox.checked) {
-					partyPoints += weaponPoints;
-				} else {
-					partyPoints -= weaponPoints;
-				}
-				updatePartyPoints(); // Update the display
-			});
  
 
             // Create a table for the SPECIALW stats
@@ -1323,16 +1357,26 @@ document.addEventListener("DOMContentLoaded", function () {
             unitList.appendChild(li);
         });
 		
+		// Function to update Party Points dynamically
+		function updatePartyPoints() {
+			let totalPoints = 0;
+
+			document.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
+				const weaponPointsArray = JSON.parse(checkbox.dataset.points);
+				totalPoints += weaponPointsArray.reduce((sum, points) => sum + points, 0);
+			});
+
+			// Update the UI
+			const partyPointsElement = document.querySelector("#party-points");
+			if (partyPointsElement) {
+				partyPointsElement.textContent = totalPoints;
+			}
+		}
+		
 	// Update total points (sum of all weapon points)
     const crewPointsElement = document.querySelector("#crew-points");
     if (crewPointsElement) {
         crewPointsElement.textContent = crewPoints;
-    }
-	
-	// Load partyPoints checkbox state
-    const partyPointsCheckbox = document.querySelector("#party-points-checkbox");
-    if (partyPointsCheckbox) {
-        partyPointsCheckbox.checked = loadedList?.partyPoints || false; // Load partyPoints checkbox state
     }
 
         alert(`List "${selectedList}" loaded successfully!`);
