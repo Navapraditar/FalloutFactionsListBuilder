@@ -1149,7 +1149,7 @@ document.getElementById("add-unit").addEventListener("click", () => {
 			const activeLabel = document.createElement("label");
 			activeLabel.textContent = "Active Party";
 			activeLabel.style.fontSize = "10px";
-			activeLabel.style.color = "#666";
+			activeLabel.style.color = "#B0A050 ";
 			activeLabel.style.marginBottom = "2px"; // Small spacing above checkbox
 		
 		        // Create the Active checkbox
@@ -1369,6 +1369,11 @@ document.getElementById("generate-pdf").addEventListener("click", () => {
     wrapper.appendChild(crewNotesClone);
     wrapper.appendChild(document.createElement("hr")); // Add separator
     wrapper.appendChild(unitListClone);
+	
+	// Ensure all text is black
+    wrapper.querySelectorAll("*").forEach(el => {
+        el.style.color = "black";  // Force text color to black
+    });
 
     // Options for html2pdf
     const options = {
@@ -1562,7 +1567,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			const activeLabel = document.createElement("label");
 			activeLabel.textContent = "Active Party";
 			activeLabel.style.fontSize = "10px";
-			activeLabel.style.color = "#666";
+			activeLabel.style.color = "#B0A050 ";
 			activeLabel.style.marginBottom = "2px"; // Small spacing above checkbox
 			
 			// Add the Active checkbox

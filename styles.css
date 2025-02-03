@@ -1,11 +1,11 @@
-/* Set background to a mint green and white theme */
+
 body {
-    background-color: #e0f8f1; /* Light mint green */
-    color: #333; /* Dark text for readability */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Orbitron', monospace;
+    color: #33ff33; /* Classic Pip-Boy green */
+    background-color: #111; /* Dark background for contrast */
 }
+
+
 
 /* Title styling: Deep green for title */
 h1 {
@@ -42,7 +42,7 @@ table {
     max-width: 800px;
     border-collapse: collapse;
     margin-top: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', monospace;
     font-size: 12px;
 }
 
@@ -85,7 +85,7 @@ tr:hover td {
 #weaponsTable {
     width: 100%;
     border-collapse: collapse;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', monospace;
     font-size: 12px;
 }
 
@@ -148,19 +148,38 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#reset-button, #generate-txt, #generate-pdf {
+#save-list, #load-list, #delete-list {
     margin-right: 10px; /* Keep buttons close together */
-    font-size: 0.9rem; /* Make buttons smaller */
-    padding: 5px 10px; /* Adjust padding for a balanced look */
-    border: 1px solid #ccc; /* Optional: Add a subtle border */
-    background-color: #f8f8f8; /* Light background */
+    font-size: 0.7rem; /* Make buttons smaller */
+    background-color: transparent;
+    color: #33ff33;
+    border: 2px solid #33ff33;
+    padding: 10px 20px;
+    text-transform: uppercase;
     cursor: pointer;
+    text-shadow: 0px 0px 5px #33ff33;
     transition: background-color 0.3s ease;
+	font-family: 'Orbitron', monospace;
+}
+/* Styling for all buttons */
+#reset-button, #generate-txt, #generate-pdf{
+    margin-right: 10px; /* Keep buttons close together */
+    font-size: 0.8rem; /* Make buttons smaller */
+    background-color: transparent;
+    color: #33ff33;
+    border: 2px solid #33ff33;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-shadow: 0px 0px 5px #33ff33;
+    transition: background-color 0.3s ease;
+	font-family: 'Orbitron', monospace;
 }
 
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover {
-    background-color: #e0e0e0;
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover {
+    background-color: #33ff33;
+    color: black;
 }
 
 /* Optional: If you want each button to have rounded corners */
@@ -168,8 +187,10 @@ tr:hover td {
     border-radius: 5px;
 }
 
-}
-
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
 }
 
 #weapon-table-container {
@@ -206,7 +227,7 @@ tr:hover td {
     border: 1px solid #ccc;
     padding: 3px; /* Even smaller padding for the item */
     text-align: center;
-    font-size: 0.7rem; /* Even smaller font size for the chem items */
+    font-size: 0.8rem; /* Even smaller font size for the chem items */
 }
 
 .chem-name {
@@ -266,7 +287,7 @@ button {
 
 p {
     font-size: 0.9em;
-    color: #666;
+    color: #B0A050 ;
     margin-top: 0; /* Remove margin from the top of the paragraph */
 }
 
@@ -279,3 +300,86 @@ p {
 
 
 
+/* General dropdown styling */
+select {
+    background-color: #2a2a2a; /* Dark gray/black background */
+    color: #33ff33; /* Green text (like Fallout UI) */
+    border: 2px solid #33ff33; /* Green border */
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Orbitron', monospace; /* A Fallout-like font */
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+/* Style when hovered */
+select:hover {
+    background-color: #444; /* Slightly lighter for effect */
+}
+
+/* Style when focused (clicked) */
+select:focus {
+    outline: none;
+    border-color: #33ff33; /* Green glow effect */
+    box-shadow: 0 0 10px #33ff33;
+}
+
+/* Style for options inside dropdown */
+select option {
+    background-color: #2a2a2a;
+    color: #FFD700;
+    padding: 5px;
+}
+
+/* General styling for the input field */
+input[type="text"] {
+    background-color: #2a2a2a; /* Dark gray/black background */
+    color: #33ff33; /* Green text (like Fallout UI) */
+    border: 1px solid #33ff33; /* Green border */
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Orbitron', monospace; /* A Fallout-like font */
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+}
+
+/* Add hover effect */
+input[type="text"]:hover {
+    background-color: #444; /* Slightly lighter when hovered */
+}
+
+/* Add focus effect when clicked */
+input[type="text"]:focus {
+    border-color: #33ff33; /* Green glow effect */
+    box-shadow: 0 0 10px #33ff33;
+}
+
+/* Ensure the label has the same font */
+label {
+    font-family: 'Orbitron', sans-serif;
+    color: #33ff33; /* Green text (like Fallout UI) */
+    font-size: 16px;
+}
+
+.unit-notes {
+	font-family: 'Orbitron', monospace;
+	font-size: 12px;
+}
+
+.chem-quantity {
+    width: 5px; /* Adjusts the width of the input box */
+    height: 8px; /* Adjusts the height */
+    padding: 3px;
+    font-size: 8px; /* Smaller font size for readability */
+    border: 2px solid #00ff00; /* Subtle green border */
+    background-color: #101710; /* Dark background similar to Pip-Boy theme */
+    color: #00ff00; /* Green text color */
+    text-align: center; /* Centers the text inside */
+    outline: none;
+}
+
+.chem-quantity:focus {
+    box-shadow: 0px 0px 5px rgba(51, 255, 51, 0.5);
+}
