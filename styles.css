@@ -383,3 +383,51 @@ label {
 .chem-quantity:focus {
     box-shadow: 0px 0px 5px rgba(51, 255, 51, 0.5);
 }
+
+/* Fallout Theme for #weaponsTable and #ploysTable */
+#weaponsTable, #ploysTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff00; /* Pip-Boy green */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Table header style (Enhanced for better visibility) */
+#weaponsTable th, #ploysTable th {
+    padding: 12px 20px; /* Larger padding for emphasis */
+    text-align: center;
+    border: 2px solid #00ff00; /* Green border for each header cell */
+    background-color: #004d00   ; /* Bright green background for headers */
+    color: #00ff00; /* White text for better contrast */
+    font-weight: bold;
+    font-size: 12px; /* Larger text for the header */
+    text-transform: uppercase; /* Uppercase to make the header more impactful */
+    letter-spacing: 1px; /* Added letter spacing for the Fallout feel */
+}
+
+/* Table data cell style */
+#weaponsTable td, #ploysTable td {
+    padding: 12px 20px;
+    text-align: center;
+    border: 1px solid #00ff00; /* Green border for each data cell */
+    background-color: #2b2d2f; /* Slightly lighter background for content */
+	color: #00ff00; /* Pip-Boy green */
+}
+
+/* Alternate row colors */
+#weaponsTable tr:nth-child(even) td, #ploysTable tr:nth-child(even) td {
+    background-color: #212223; /* Darker background for even rows */
+}
+
+/* Hover effect for rows */
+#weaponsTable tr:hover td, #ploysTable tr:hover td {
+    background-color: #3a3d3f; /* Hover effect for rows */
+}
+
+/* Optional: Style the container for additional spacing */
+#weaponsTable, #ploysTable {
+    margin: 20px auto;
+    width: 90%;
+}
