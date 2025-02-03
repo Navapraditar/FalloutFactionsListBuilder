@@ -681,6 +681,140 @@ const factions = {
     ]
 };
 
+//Perks data for all factions
+const perksData = [
+  { perk: "Big Leagues", prereq:"S4", description: "When this model makes a Melee Attack, treat its Luck as being 1 higher." },
+  { perk: "Steady Aim", prereq:"S4", description: "When the Active player declares that this model will make an Open Fire Action with a Rifle or Heavy weapon, and they have not moved this Action, they gain a Bonus Die." },
+  { perk: "Grenadier", prereq:"S6", description: "Add 3\" to the Range of any Grenade weapons carried by this model." },
+  { perk: "Iron Fist", prereq:"S7", description: "Add this weapon to the model's Roster Entry: Iron Fist, Melee, 5S, Fast, Maim" },
+  { perk: "Sniper", prereq:"P4", description: "When this model makes a Ranged Attack with a Rifle weapon, the Target never counts as being Obscured" },
+  { perk: "Pickpocket", prereq:"P5", description: "When this model makes a Back Off Action, the Active player makes a Pickpocket Test (3P) for it. If the Test Passes, the opposing player must spend a Chem of their choice from their Crew Roster, without using it. The Active player immediately adds one dose of the same Chem to their own Roster if they have capacity. If the test scores 3 or more Hits, the Active player can choose which Chem is stolen instead." },
+  { perk: "Rifleman", prereq:"P6", description: "When this model makes a Ranged Attack and uses a Rifle weapon, treat its Luck as being 1 higher" },
+  { perk: "Awareness", prereq:"P7", description: "This model can give Supporting Fire even if it is not within the attacking model's Control Area. Other restrictions still apply." },
+  { perk: "Rad Resistant", prereq:"E4", description: "This model is unaffected by Radiation Tokens." },
+  { perk: "Cannibal", prereq:"E5", description: "If a model is Incapacitated while in contact with this model, this model recovers all Harm." },
+  { perk: "Toughness", prereq:"E6", description: "The first time each game that this model would be Incapacitated, make a 2E test for it. If it Passes, it immediately takes enough Harm to bring it to its Harm Limit but remains in play." },
+  { perk: "Lifegiver", prereq:"E7", description: "At the start of each Round, this model recovers 2 Harm" },
+  { perk: "Inspirational", prereq:"C4", description: "Increase this model's Control Area by 2\"." },
+  { perk: "Lone Wanderer", prereq:"C5", description: "While this model does not have any other Friendly models within its Control Area, add a Bonus Die to any Tests you make for it." },
+  { perk: "Intimidation", prereq:"C6", description: "When the opposing player makes a Confusion Test for an Enemy model within this model's Influence, they count its Intelligence as 1 lower." },
+  { perk: "Cap Collector", prereq:"C7", description: "When trading Chems for Caps, double the number of Caps (During Scavenge or when clearing Rare Chems) that the crew receives if there is at least one model with the Perk in the crew and it is not marked as Absent." },
+  { perk: "Scrapper", prereq:"I4", description: "When this model makes a Search Action, double the number of Caps and Parts added to the crew's Stash." },
+  { perk: "Chemist", prereq:"I5", description: "If this model is not Absent at the start of a game, the crew increases its Chem Budget by 5 (Even if it has a higher Rep than the opposing crew)." },
+  { perk: "Medic", prereq:"I6", description: "When this model makes a Patch Up Action, it can either remove up to 3 Harm from itself, or remove up to 3 Harm from a Friendly model within 1\". If this model is not Abesent when the Crew makes a Recuperate, add a Bonus Die to all Endurance Tests made to see whether Champions recover from Serious Injuries." },
+  { perk: "Gun Nut", prereq:"I7", description: "If this model is not marked Abest at the end of the Make Story Actions step, you may pay Parts to Modify a single weapon as though the crew had made a Modify Weapons Story Action." },
+  { perk: "Blitz", prereq:"A4", description: "After this model completes a Brawl Action, the Active player can move it up to 3\"." },
+  { perk: "Gunslinger", prereq:"A5", description: "Add 4\" to the Effective Range of any Pistols this model is carrying" },
+  { perk: "Fire and Move", prereq:"A6", description: "After this model completes an Open Fire Action, the Active player can move it up to 4\"." },
+  { perk: "Moving Target", prereq:"A7", description: "When this model is targeted by an Attack Action, its controlling player can declare that it will dodge at the start of the Make the Attack Test step. A model that dodges takes 1 Fatigue, but its Endurance is increased by 2 until the attack has been resolved. (Stacks with Buffout)" },
+  { perk: "Fortune Finder", prereq:"L4", description: "Whenever this model makes a Scavenge Action, add Caps equal to the result of the die roll to the crew's Stash." },
+  { perk: "Four Leaf Clover", prereq:"L5", description: "When Fortune Smiles on a SPECIAL test for this model, add 2 Standard Dice to the roll instead of 1." },
+  { perk: "Bloody Mess", prereq:"L6", description: "If an attack made by this model Incapacitates an Enemy model, each other Enemy model within 2\" takes 1 Harm. Excess Harm has no effect." },
+  { perk: "Grim Reaper's Sprint", prereq:"L7", description: "If an attack made by this model Incapacitates an Enemy model and at least 2 Luck Dice scored Hits, this model recovers 1 Fatigue." },
+  { perk: "Natural Leader", prereq:"-", description: "This model automatically passes Confusion tests. When making an Intelligence test for a friendly model within this model's Control Area, you can choose to use this model's Intelligence instead. " },
+  { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks." },
+  { perk: "Burly", prereq:"-", description: "This model's Harm limit is 4 instead of 3." },
+  { perk: "Hardy", prereq:"-", description: "This model cannot suffer Fatigue. This model still takes Fatigue by performing an Action or gaining a bonus." },
+  { perk: "Improvised Lasso", prereq:"-", description: "Gains the following Action: This Action can target an enemy model within 8\". The opposing player makes a 2S test. If the model Fails, it is moved 4\" towards this model." },
+  { perk: "Rule No.1: Read the Manual", prereq:"-", description: "Open Fire Actions made by this model are Unlucky." },
+  { perk: "Sic 'Em", prereq:"-", description: "This model can be given Movement Orders even if it is outside of the Active model's Control Area. All other restrictions still apply." },
+  { perk: "Okey Dokey", prereq:"-", description: "When creating the Pool for a SPECIAL test for this model, it can take a fatigue to add one Bonus Die to the pool." },
+  { perk: "The One and Only", prereq:"-", description: "This is a specific and unique Wasteland Wanderer. If the player with Initiative hires this model first, the other player cannot hire the same model for this game." },
+  { perk: "Personal Stash", prereq:"-", description: "This model reduces the cost of Common Chems when purchasing Chems before a game AND during play when any Friendly model makes a Rummage Action by 3 Caps." },
+  { perk: "Ritual", prereq:"-", description: "This model can contribute towards a crew's Ritual Count. A crew's Ritual Count starts at 0. For each Luck Die remaining in the Pool during the Fortune Smiles step, the Active player can increase Ritual Count by 1 instead of rolling a Standard Die. This is marked on the Crew Roster. Critical Effects cannot be triggered in a Test that increases Ritual Count." },
+  { perk: "Being of Insight", prereq:"-", description: "When this model would suffer an Injury, reduce Ritual Count by 1 on the Crew Roster." },
+  { perk: "Being of Rage", prereq:"-", description: "When this model completes an Attack Action or would suffer an Injury, reduce Ritual Count by 1 on the Crew Roster." },
+  { perk: "Flight", prereq:"-", description: "This model is unaffected by the Proximity of Enemy models and can take the Get Moving Action whilst Engaged." },
+  { perk: "Mythical", prereq:"-", description: "This model does not have a Health Value. When a crew's Ritual Count reaches 0, this model is Incapacitated." },
+  { perk: "Offering", prereq:"-", description: "When this model makes a Rummage Action, it may increase the crew's Ritual Count by two instead of Finding Chems or Finding Caps and Parts." },
+  { perk: "Pacifist", prereq:"-", description: "This model cannot take the Open Fire or Brawl Actions." },
+  { perk: "Recruiter", prereq:"-", description: "If a model with this Perk was not Incapacitated during a game, the crew that contained it may make a Recruit Story Action for free during the next Story Phase." },
+  { perk: "True Wisdom of the Mothman", prereq:"-", description: "Friendly models within this model's Control Area may count their Charisma statistic as being 8. When a model within this model's Control Area would Fail a Confusion Test, you may reduce Ritual Count by 1 to have the model Pass the Test instead." },
+  { perk: "Take Me Home", prereq:"-", description: "When this model suffers Harm, it may have another friendly model that is not at Harm Limit within 3\" suffer the Harm instead." },
+  { perk: "Wasteland Wanderer", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." }
+];
+
+function renderPerksTable() {
+  // Sort the perksData array alphabetically by perk name
+  const sortedPerks = perksData.sort((a, b) => {
+    return a.perk.localeCompare(b.perk); // Sort alphabetically
+  });
+
+  // Get the container where you want to display the table
+  const tableContainer = document.getElementById("perks-table-container");
+
+  // Create the table
+  const table = document.createElement("table");
+  table.classList.add("perks-table");
+
+  // Create the table header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  const headers = ["Perk Name", "Description", "Req"];
+  headers.forEach(headerText => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create the table body
+  const tbody = document.createElement("tbody");
+  sortedPerks.forEach(perk => {
+    const row = document.createElement("tr");
+
+    const perkCell = document.createElement("td");
+    perkCell.textContent = perk.perk;
+    row.appendChild(perkCell);
+
+    const descriptionCell = document.createElement("td");
+    descriptionCell.textContent = perk.description;
+    row.appendChild(descriptionCell);
+
+    const effectCell = document.createElement("td");
+    effectCell.textContent = perk.prereq;
+    row.appendChild(effectCell);
+
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+
+  // Append the table to the container
+  tableContainer.appendChild(table);
+}
+
+// Call the function to render the table
+renderPerksTable();
+
+// Function to toggle the visibility of the perks table
+document.getElementById("toggle-perks-table").addEventListener("click", function() {
+    const tableContainer = document.getElementById("perks-table-container");
+    
+    // Get the current display value of the table container
+    const currentDisplay = window.getComputedStyle(tableContainer).display;
+    
+    // Toggle the table's display style without affecting the footer
+    if (currentDisplay === "none") {
+        tableContainer.style.display = "block"; // Show the table
+    } else {
+        tableContainer.style.display = "none"; // Hide the table
+    }
+});
+
+//Function to toggle the visibility of the factions weapons table
+document.getElementById('toggle-weapon-table').addEventListener('click', function() {
+    var tableContainer = document.getElementById('weapon-table-container');
+    if (tableContainer.style.display === 'block' || tableContainer.style.display === '') {
+        tableContainer.style.display = 'none'; // Show the weapon table
+    } else {
+        tableContainer.style.display = 'block'; // Hide the weapon table
+    }
+});
+
+
+
+
 
 
 

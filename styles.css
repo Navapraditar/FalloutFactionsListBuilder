@@ -148,7 +148,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.7rem; /* Make buttons smaller */
     background-color: transparent;
@@ -177,7 +177,7 @@ tr:hover td {
 }
 
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover {
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover {
     background-color: #33ff33;
     color: black;
 }
@@ -384,8 +384,8 @@ label {
     box-shadow: 0px 0px 5px rgba(51, 255, 51, 0.5);
 }
 
-/* Fallout Theme for #weaponsTable and #ploysTable */
-#weaponsTable, #ploysTable {
+/* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
+#weaponsTable, #ploysTable, #perksTable {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Orbitron', sans-serif;
@@ -394,40 +394,160 @@ label {
     margin-bottom: 20px;
 }
 
-/* Table header style (Enhanced for better visibility) */
-#weaponsTable th, #ploysTable th {
+/* Table header style */
+#weaponsTable th, #ploysTable th, #perksTable th {
     padding: 12px 20px; /* Larger padding for emphasis */
     text-align: center;
     border: 2px solid #00ff00; /* Green border for each header cell */
-    background-color: #004d00   ; /* Bright green background for headers */
-    color: #00ff00; /* White text for better contrast */
+    background-color: #004d00; /* Dark green Pip-Boy header */
+    color: #00ff00; /* Pip-Boy green */
     font-weight: bold;
-    font-size: 12px; /* Larger text for the header */
-    text-transform: uppercase; /* Uppercase to make the header more impactful */
-    letter-spacing: 1px; /* Added letter spacing for the Fallout feel */
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Table data cell style */
-#weaponsTable td, #ploysTable td {
+#weaponsTable td, #ploysTable td, #perksTable td {
     padding: 12px 20px;
     text-align: center;
     border: 1px solid #00ff00; /* Green border for each data cell */
-    background-color: #2b2d2f; /* Slightly lighter background for content */
-	color: #00ff00; /* Pip-Boy green */
+    background-color: #2b2d2f; /* Slightly lighter background */
+    color: #00ff00; /* Pip-Boy green */
+}
+
+/* Style tbody and rows in the table */
+#weaponsTable tbody, #ploysTable tbody, #perksTable tbody {
+    background-color: #2b2d2f; /* Lighter background for the body */
 }
 
 /* Alternate row colors */
-#weaponsTable tr:nth-child(even) td, #ploysTable tr:nth-child(even) td {
+#weaponsTable tr:nth-child(even) td, 
+#ploysTable tr:nth-child(even) td,
+#perksTable tr:nth-child(even) td {
     background-color: #212223; /* Darker background for even rows */
 }
 
 /* Hover effect for rows */
-#weaponsTable tr:hover td, #ploysTable tr:hover td {
-    background-color: #3a3d3f; /* Hover effect for rows */
+#weaponsTable tr:hover td, 
+#ploysTable tr:hover td,
+#perksTable tr:hover td {
+    background-color: #3a3d3f; /* Hover effect */
 }
 
 /* Optional: Style the container for additional spacing */
-#weaponsTable, #ploysTable {
+#weaponsTable, #ploysTable, #perksTable {
     margin: 20px auto;
     width: 90%;
 }
+
+#perks-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
+#perksTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff00; /* Pip-Boy green */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Table header style */
+#perksTable th {
+    padding: 12px 20px; /* Larger padding for emphasis */
+    text-align: center;
+    border: 2px solid #00ff00; /* Green border for each header cell */
+    background-color: #004d00; /* Dark green Pip-Boy header */
+    color: #00ff00; /* Pip-Boy green */
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table data cell style */
+#perksTable td {
+    padding: 12px 20px;
+    text-align: center;
+    border: 1px solid #00ff00; /* Green border for each data cell */
+    background-color: #2b2d2f; /* Slightly lighter background */
+    color: #00ff00; /* Pip-Boy green */
+}
+
+/* Style tbody and rows in the table */
+#perksTable tbody {
+    background-color: #2b2d2f; /* Lighter background for the body */
+}
+
+/* Alternate row colors */
+#perksTable tr:nth-child(even) td {
+    background-color: #212223; /* Darker background for even rows */
+}
+
+/* Hover effect for rows */
+#perksTable tr:hover td {
+    background-color: #3a3d3f; /* Hover effect */
+}
+
+/* Optional: Style the container for additional spacing */
+#perksTable {
+    margin: 20px auto;
+    width: 90%;
+}
+
+/* Button to show/hide perks table */
+#toggle-table-button {
+    background-color: #004d00; /* Dark green */
+    color: #00ff00; /* Pip-Boy green */
+    padding: 10px 15px;
+    border: 2px solid #00ff00;
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-table-button:hover {
+    background-color: #00ff00; /* Green hover */
+    color: #004d00; /* Dark green text on hover */
+}
+
+/* Optional: Add transition effect for the table visibility */
+#perks-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease;
+	max-height: 70vh; /* Limit the height to 70% of the viewport height */
+    overflow-y: auto; /* Allow scrolling if the table is large */
+    padding-bottom: 20px; /* Ensure there's some space at the bottom */
+
+#header-footer {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 14px;
+    color: #B0A050;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: adds a semi-transparent background */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#app {
+    margin-top: 50px; /* To make space for the footer at the top */
+}
+
+/* Make sure the content below does not overlap with the new header footer */
+#left-column, #right-column {
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
