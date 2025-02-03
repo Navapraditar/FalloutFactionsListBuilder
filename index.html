@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://falloutfactionslistbuilder.com">
 
     <!-- Link to Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=1.6">
+    <link rel="stylesheet" href="styles.css?v=1.7">
 
     <!-- JSON-LD Structured Data for the Web Application -->
     <script type="application/ld+json">
@@ -64,7 +64,7 @@
             <div id="reset-section">
                 <button id="reset-button">Reset</button>
 				<button id="generate-txt">Download List txt File</button>
-				<button id="generate-pdf">Print to PDF</button>
+				<button id="generate-pdf">Generate PDF</button>
             </div>
 				<!-- Save/Load List Section -->
 	<div id="list-management">
@@ -93,7 +93,9 @@
             <!-- Builder Section -->
             <div id="builder">
                 <div id="step-faction">
-                    <h1>Crew Points: <span id="crew-points">0</span></h1> <h1>Party Points: <span id="party-points">0</span></h1> <h1>Chem Points: <span id="chem-points">0</span></h1>
+				<h1 style="font-size: 1.2em; margin-bottom: 5px;">Crew Points: <span id="crew-points">0</span></h1> 
+				<h1 style="font-size: 1.2em; margin-bottom: 5px;">Party Points: <span id="party-points">0</span></h1> 
+				<h1 style="font-size: 1.2em; margin-bottom: 5px;">Chem Points: <span id="chem-points">0</span></h1> 
 
                     <h2>Step 1: Choose a Faction</h2>
                     <select id="faction-select" onchange="updateWeaponTable()">
