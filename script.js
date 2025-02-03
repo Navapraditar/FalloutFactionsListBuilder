@@ -1344,20 +1344,46 @@ document.getElementById("generate-txt").addEventListener("click", () => {
 });
 
 document.getElementById("generate-pdf").addEventListener("click", () => {
-    const element = document.getElementById("unit-list");  // Get the element containing the list
+    // Create a wrapper div dynamically
+    const wrapper = document.createElement("div");
+
+    // Get the crew-notes section and unit-list
+    const crewNotesSection = document.getElementById("crew-notes-section");
+    const unitList = document.getElementById("unit-list");
+
+    // Clone the crew-notes-section but replace the textarea with its value
+    const crewNotesClone = crewNotesSection.cloneNode(true);
+    const textarea = crewNotesClone.querySelector("#crew-notes");
+    
+    if (textarea) {
+        const crewNotesText = textarea.value.trim();
+        const textDiv = document.createElement("div");
+        textDiv.innerHTML = `<p style="white-space: pre-wrap; border: 1px solid #ccc; padding: 8px;">${crewNotesText || "No notes provided."}</p>`;
+        textarea.replaceWith(textDiv); // Replace textarea with formatted text
+    }
+
+    // Clone unit-list
+    const unitListClone = unitList.cloneNode(true);
+
+    // Append both sections to the wrapper
+    wrapper.appendChild(crewNotesClone);
+    wrapper.appendChild(document.createElement("hr")); // Add separator
+    wrapper.appendChild(unitListClone);
 
     // Options for html2pdf
     const options = {
-        margin:       [10, 10],  // Set a margin to keep content from touching edges
+        margin:       10,  // Adds margin to keep content from touching edges
         filename:     'fallout_factions_list.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 1.5, width: 800 },  // Scale and optionally set width
+        html2canvas:  { scale: 1.2, width: 750 }, // Slightly reduce width to fit better
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    // Use html2pdf to convert the HTML content to a PDF
-    html2pdf().from(element).set(options).save();
+    // Convert the wrapper to a PDF
+    html2pdf().from(wrapper).set(options).save();
 });
+
+
 
 
 
