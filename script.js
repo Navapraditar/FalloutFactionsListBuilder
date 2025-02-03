@@ -40,6 +40,34 @@ const factions = {
             }, 
 			weapons: [
             { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
 	    "Gunners": [
@@ -97,6 +125,34 @@ const factions = {
             { name: "10mm Pistol and Frag Grenades", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Grenade (10\")", test2: "3A", traits2: "Area (1\"), CQB", effect2: "Suppress (2)" },
 			{ name: "Laser Pistol and Hand Weapon", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
             { name: "10mm and Hand Weapon", points: 14, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
 	    "Super Mutants": [
@@ -139,6 +195,34 @@ const factions = {
             }, 
 			weapons: [
             { name: "Claws and Jaws", points: 10, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
 	    "Wasteland Raiders": [
@@ -186,6 +270,34 @@ const factions = {
             { name: "Pipe Pistol & Molotovs", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)" },
             { name: "Pipe Pistol & Hand Weapon", points: 16, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
 			{ name: "Molotov Cocktails & Hand Weapon", points: 11, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
 	    "Wastelanders": [
@@ -230,6 +342,34 @@ const factions = {
             }, 
 			weapons: [
             { name: "Claws and Jaws", points: 7, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
     "The Operators": [
@@ -279,6 +419,34 @@ const factions = {
             { name: "Baseball Bat", points: 10, type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
             { name: "10mm Pistol and Hand Weapon", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "Handmade Rifle", points: 14, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
     "The Pack": [
@@ -330,6 +498,34 @@ const factions = {
             { name: "10mm Pistol", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
             { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
             { name: "Light Handmade Rifle", points: 16, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
     "The Disciples": [
@@ -379,6 +575,34 @@ const factions = {
             { name: "Short Hunting Rifle", points: 10, type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce" },
             { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ],
 	"Cult of the Mothman": [
@@ -425,6 +649,34 @@ const factions = {
             { name: "10mm Pistol and Machete", points: 14, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
 			{ name: "Pipe Revolver and Machete", points: 15, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
             { name: ".44 Pistol and Machete", points: 16, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
+        ] },
+        { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Tranquilizer Pistol", points: 33, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)"  }
+        ] },
+        { name: "The Ghoul", type: "Grunt, Hiring Fee: 65", perks: "Bloody Mess, Fire and Move, Improvised Lasso, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 6, E: 6, C: 5, I: 4, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Ghoul's Pistol and Rifle", points: 65, type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim",type2: "Rifle (18\")", test2: "5P", traits2: "Fast", effect2: "Suppress(2)"  }
+        ] },
+        { name: "CX404", type: "Grunt, Hiring Fee: 17", perks: "Beast, Scrapper, Sic 'Em, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 17, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
+        ] },
+        { name: "Maximus", type: "Grunt, Hiring Fee: 42", perks: "Rule No.1: Read the Manual, Burly, Hardy, Rad Resistant, The One and Only, Wasteland Wanderer",
+		stats: { 
+        S: 6, P: 4, E: 6, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
     ]
 };
@@ -986,11 +1238,12 @@ let tableHTML = `
         // Close the tbody and table tags
         tableHTML += `</tbody>`;
 
-// Update the table with the generated HTML
-weaponDataTable.innerHTML = tableHTML;
+		// Update the table with the generated HTML
+		weaponDataTable.innerHTML = tableHTML;
 
-li.appendChild(weaponDataTable);
+		li.appendChild(weaponDataTable);
 
+		//unitNotes to autofill with innate perks
 		const unitNotes = document.createElement("textarea");
 		unitNotes.classList.add("unit-notes");
 		unitNotes.placeholder = "Enter Perks, Upgrades, Injuries, etc.";
@@ -1002,8 +1255,8 @@ li.appendChild(weaponDataTable);
 		// Auto-fill perks
 		if (factions[selectedFaction] && factions[selectedFaction].length > 0) {
 			const selectedUnitData = factions[selectedFaction].find(u => u.name === selectedUnit);
-			if (selectedUnitData) {
-				unitNotes.value = selectedUnitData.perks; // Set perks as default text
+			if (selectedUnitData && selectedUnitData.perks !== undefined) {
+				unitNotes.value = selectedUnitData.perks; // Set perks if defined
 			}
 		}
 		
@@ -1352,6 +1605,38 @@ document.addEventListener("DOMContentLoaded", function () {
             unitNotes.style.marginTop = "5px";
             unitNotes.value = unit.notes; // Load the saved notes
             li.appendChild(unitNotes);
+			
+			    // Create and add the Remove button
+			const removeButton = document.createElement("button");
+			removeButton.textContent = "Remove";
+			removeButton.addEventListener("click", () => {
+				// Remove the unit from the list
+				unitList.removeChild(li);
+				
+				// Adjust points
+				unit.weapons.forEach(wpn => {
+					crewPoints -= parseInt(wpn.points, 10) || 0;
+				});
+
+				// Update points display
+				crewPointsDisplay.textContent = crewPoints;
+
+				// If it's a leader, reset the hasLeader flag
+				if (unit.isLeader) hasLeader = false;
+
+				// Adjust party points if the unit was active
+				if (activeCheckbox.checked) {
+					unit.weapons.forEach(wpn => {
+						partyPoints -= parseInt(wpn.points, 10) || 0;
+					});
+					updatePartyPoints(); // Recalculate and update party points
+				}
+
+				// Recalculate and update total points
+				updateCrewPoints();
+				updatePartyPoints();
+			});
+			li.appendChild(removeButton);
 
             // Add to unit list
             unitList.appendChild(li);
