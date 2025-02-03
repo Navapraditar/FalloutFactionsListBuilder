@@ -681,6 +681,9 @@ const factions = {
     ]
 };
 
+
+
+
 // Example data for different factions
 const weaponData = {
 	"Brotherhood of Steel": [
@@ -1262,7 +1265,7 @@ let tableHTML = `
 		
 
         const removeButton = document.createElement("button");
-        removeButton.textContent = "Remove";
+        removeButton.textContent = "Remove unit ABOVE";
         removeButton.addEventListener("click", () => {
             unitList.removeChild(li);
             crewPoints -= weaponPoints;
