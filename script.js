@@ -1344,8 +1344,24 @@ document.getElementById("generate-txt").addEventListener("click", () => {
 });
 
 document.getElementById("generate-pdf").addEventListener("click", () => {
-    window.print(); // This triggers the browser's print dialog
+    const element = document.getElementById("unit-list");  // Get the element containing the list
+
+    // Options for html2pdf
+    const options = {
+        margin:       [10, 10],  // Set a margin to keep content from touching edges
+        filename:     'fallout_factions_list.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 1.5, width: 800 },  // Scale and optionally set width
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    // Use html2pdf to convert the HTML content to a PDF
+    html2pdf().from(element).set(options).save();
 });
+
+
+
+
 
 
 
