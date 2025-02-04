@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://falloutfactionslistbuilder.com">
 
     <!-- Link to Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=1.10">
+    <link rel="stylesheet" href="styles.css?v=1.12">
 
     <!-- JSON-LD Structured Data for the Web Application -->
     <script type="application/ld+json">
@@ -200,8 +200,8 @@
         <table id="ploysTable">
             <thead>
                 <tr>
-                    <th>Ploy</th>
-                    <th>Descr</th>
+                    <!-- <th>Ploy</th>
+                    <th>Descr</th> taking out the headers -->
                 </tr>
             </thead>
             <tbody>
@@ -213,15 +213,15 @@
 			<!-- Button to toggle weapon table -->
 		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
 			<div id="weapon-table-container">
-                <h2>Faction Weapons</h2> <p><em>This table populates upon selecting a faction.</em></p>
+			<h2>Faction Weapons</h2>
                 <table id="weaponsTable">
                     <thead>
                         <tr>
-                            <th>Weapon</th>
+                            <!-- <th>Weapon</th>
                             <th>Type</th>
                             <th>Test</th>
                             <th>Traits</th>
-                            <th>Crit</th>
+                            <th>Crit</th> taking out the headers -->
                         </tr>
                     </thead>
                     <tbody>
@@ -229,27 +229,45 @@
                     </tbody>
                 </table>
             </div>
-						<button id="toggle-perks-table">Show/Hide Perks Table</button>	
-					<div id="perks-table-container">
-			<h2>Perks List</h2>
-			<table id="perksTable">
-				<thead>
-					<tr>
-						<th>Perk</th>
-						<th>Description</th>
-						<th>Req</th>
-					</tr>
-				</thead>
-				<tbody>
-				</div>
-				
+			
+			<!-- Crits Table Section -->
+			<button id="toggle-crits-table">Show/Hide Crits Table</button>	
+			<div id="crits-table-container">
+				<h2>Crits List</h2>
+				<table id="critsTable">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Dynamically populated rows -->
+					</tbody>
+				</table>
+			</div> <!-- End of crits-table-container -->
+
+			<!-- Perks Table Section -->
+			<button id="toggle-perks-table">Show/Hide Perks Table</button>	
+			<div id="perks-table-container">
+				<h2>Perks List</h2>
+				<table id="perksTable">
+					<thead>
+						<tr>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Dynamically populated rows -->
+					</tbody>
+				</table>
+			</div> <!-- End of perks-table-container -->
         </div> <!-- End of right column -->
+		
+
 
     </div> <!-- End of app -->
 
 
 
-    <script src="script.js?v=1.8"></script>
+    <script src="script.js?v=1.10"></script>
 
 </body>
 

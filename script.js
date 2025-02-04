@@ -731,7 +731,21 @@ const perksData = [
   { perk: "Recruiter", prereq:"-", description: "If a model with this Perk was not Incapacitated during a game, the crew that contained it may make a Recruit Story Action for free during the next Story Phase." },
   { perk: "True Wisdom of the Mothman", prereq:"-", description: "Friendly models within this model's Control Area may count their Charisma statistic as being 8. When a model within this model's Control Area would Fail a Confusion Test, you may reduce Ritual Count by 1 to have the model Pass the Test instead." },
   { perk: "Take Me Home", prereq:"-", description: "When this model suffers Harm, it may have another friendly model that is not at Harm Limit within 3\" suffer the Harm instead." },
+  { perk: "Machine", prereq:"-", description: "This model always passes any Confusion test it is required to make. When this model is Incapacitated, it does not trigger Confusion tests in other models. Additionally, Chems cannot be used on this model, and it is unaffected by Poison(X)." },
   { perk: "Wasteland Wanderer", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." }
+];
+
+// Critical Effects table
+const critData = [
+	{crit: "Ignite(X)", effect: "At the start of the Inflict Damage step, the opposing player rolls X Dice. For each one that scores higher than the Target model's Agility, the amount of Damage inflicted is increased by 1." },
+	{crit: "Maim", effect: "At the end of the Inflict Damage step, the Target Suffers 1 Harm." },
+	{crit: "Pierce", effect: "During the Inflict Damage step, the Target’s Endurance is treated as one lower." },
+	{crit: "Suppress(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. If any of them score higher than the Target’s Intelligence, the Target suffers Fatigue." },
+	{crit: "Meltdown", effect: "At the end of the Inflict Damage step, the opposing player makes a Meltdown Test (2E) for the Target. If they score fewer Hits than the amount of Harm that the Target has suffered, the Target suffers an Injury." },
+	{crit: "Poison(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target's Endurance, the Target suffers one Harm with Excess Harm causing an Injury." },
+	{crit: "Showstopper", effect: "If this attack inflicts an amount of Damage equal to or greater than the Target's Endurance, any Excess Harm caused will result in the model suffering an Injury." },
+	{crit: "Pushback(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target’s Strength, the Target is moved 1\" directly away from the Active model. If the model cannot move this full distance, it moves as far as it can." },
+	{crit: "Tranquilize(X)", effect: "At the end of the Inflict Damage step, the opposing player" }
 ];
 
 function renderPerksTable() {
@@ -801,6 +815,71 @@ document.getElementById("toggle-perks-table").addEventListener("click", function
         tableContainer.style.display = "none"; // Hide the table
     }
 });
+
+function renderCritsTable() {
+  // Sort the critData array alphabetically by crit name (if needed)
+  const sortedCrits = critData.sort((a, b) => {
+    return a.crit.localeCompare(b.crit); // Sort alphabetically by crit name
+  });
+
+  // Get the container where you want to display the table
+  const tableContainer = document.getElementById("crits-table-container");
+
+  // Create the table
+  const table = document.createElement("table");
+  table.classList.add("crits-table");
+
+  // Create the table header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  const headers = ["Crit", "Effect"];
+  headers.forEach(headerText => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create the table body
+  const tbody = document.createElement("tbody");
+  sortedCrits.forEach(crit => {
+    const row = document.createElement("tr");
+
+    const critCell = document.createElement("td");
+    critCell.textContent = crit.crit;
+    row.appendChild(critCell);
+
+    const effectCell = document.createElement("td");
+    effectCell.textContent = crit.effect;
+    row.appendChild(effectCell);
+
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+
+  // Append the table to the container
+  tableContainer.appendChild(table);
+}
+
+// Call the function to render the crits table
+renderCritsTable();
+
+// Function to toggle the visibility of the crits table
+document.getElementById("toggle-crits-table").addEventListener("click", function() {
+    const tableContainer = document.getElementById("crits-table-container");
+    
+    // Get the current display value of the table container
+    const currentDisplay = window.getComputedStyle(tableContainer).display;
+    
+    // Toggle the table's display style without affecting the footer
+    if (currentDisplay === "none") {
+        tableContainer.style.display = "block"; // Show the table
+    } else {
+        tableContainer.style.display = "none"; // Hide the table
+    }
+});
+
 
 //Function to toggle the visibility of the factions weapons table
 document.getElementById('toggle-weapon-table').addEventListener('click', function() {

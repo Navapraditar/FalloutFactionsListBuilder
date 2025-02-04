@@ -1,4 +1,6 @@
 
+
+
 body {
     font-family: 'Orbitron', monospace;
     color: #33ff33; /* Classic Pip-Boy green */
@@ -148,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table  {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.7rem; /* Make buttons smaller */
     background-color: transparent;
@@ -177,7 +179,7 @@ tr:hover td {
 }
 
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover {
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover  {
     background-color: #33ff33;
     color: black;
 }
@@ -385,7 +387,7 @@ label {
 }
 
 /* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
-#weaponsTable, #ploysTable, #perksTable {
+#weaponsTable, #ploysTable, #perksTable,#crits-table {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Orbitron', sans-serif;
@@ -395,7 +397,7 @@ label {
 }
 
 /* Table header style */
-#weaponsTable th, #ploysTable th, #perksTable th {
+#weaponsTable th, #ploysTable th, #perksTable,#crits-table th {
     padding: 12px 20px; /* Larger padding for emphasis */
     text-align: center;
     border: 2px solid #00ff00; /* Green border for each header cell */
@@ -408,7 +410,7 @@ label {
 }
 
 /* Table data cell style */
-#weaponsTable td, #ploysTable td, #perksTable td {
+#weaponsTable td, #ploysTable td, #perksTable,#crits-table td {
     padding: 12px 20px;
     text-align: center;
     border: 1px solid #00ff00; /* Green border for each data cell */
@@ -417,26 +419,28 @@ label {
 }
 
 /* Style tbody and rows in the table */
-#weaponsTable tbody, #ploysTable tbody, #perksTable tbody {
+#weaponsTable tbody, #ploysTable tbody, #perksTable,#crits-table tbody {
     background-color: #2b2d2f; /* Lighter background for the body */
 }
 
 /* Alternate row colors */
 #weaponsTable tr:nth-child(even) td, 
 #ploysTable tr:nth-child(even) td,
-#perksTable tr:nth-child(even) td {
+#perksTable tr:nth-child(even) td,
+#crits-table {
     background-color: #212223; /* Darker background for even rows */
 }
 
 /* Hover effect for rows */
 #weaponsTable tr:hover td, 
 #ploysTable tr:hover td,
-#perksTable tr:hover td {
+#perksTable tr:hover td,
+#crits-table {
     background-color: #3a3d3f; /* Hover effect */
 }
 
 /* Optional: Style the container for additional spacing */
-#weaponsTable, #ploysTable, #perksTable {
+#weaponsTable, #ploysTable, #perksTable,#crits-table {
     margin: 20px auto;
     width: 90%;
 }
@@ -444,59 +448,6 @@ label {
 #perks-table-container {
     display: none; /* Hidden by default */
     transition: all 0.3s ease; /* Smooth transition */
-}
-
-/* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
-#perksTable {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: 'Orbitron', sans-serif;
-    color: #00ff00; /* Pip-Boy green */
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* Table header style */
-#perksTable th {
-    padding: 12px 20px; /* Larger padding for emphasis */
-    text-align: center;
-    border: 2px solid #00ff00; /* Green border for each header cell */
-    background-color: #004d00; /* Dark green Pip-Boy header */
-    color: #00ff00; /* Pip-Boy green */
-    font-weight: bold;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Table data cell style */
-#perksTable td {
-    padding: 12px 20px;
-    text-align: center;
-    border: 1px solid #00ff00; /* Green border for each data cell */
-    background-color: #2b2d2f; /* Slightly lighter background */
-    color: #00ff00; /* Pip-Boy green */
-}
-
-/* Style tbody and rows in the table */
-#perksTable tbody {
-    background-color: #2b2d2f; /* Lighter background for the body */
-}
-
-/* Alternate row colors */
-#perksTable tr:nth-child(even) td {
-    background-color: #212223; /* Darker background for even rows */
-}
-
-/* Hover effect for rows */
-#perksTable tr:hover td {
-    background-color: #3a3d3f; /* Hover effect */
-}
-
-/* Optional: Style the container for additional spacing */
-#perksTable {
-    margin: 20px auto;
-    width: 90%;
 }
 
 /* Button to show/hide perks table */
@@ -516,13 +467,27 @@ label {
     color: #004d00; /* Dark green text on hover */
 }
 
-/* Optional: Add transition effect for the table visibility */
+/* Optional: Add transition effect for the perks table visibility */
 #perks-table-container {
     display: none; /* Hidden by default */
     transition: all 0.3s ease;
-	max-height: 70vh; /* Limit the height to 70% of the viewport height */
+    max-height: 70vh; /* Limit the height to 70% of the viewport height */
     overflow-y: auto; /* Allow scrolling if the table is large */
     padding-bottom: 20px; /* Ensure there's some space at the bottom */
+} /* <-- Missing closing bracket was added here */
+
+/* Ensure crits table is hidden by default */
+#crits-table-container {
+    display: none; /* Start hidden */
+    transition: all 0.3s ease;
+    max-height: 80vh; /* Limit the height to 70% of the viewport height */
+    overflow-y: auto; /* Allow scrolling if the table is large */
+    padding-bottom: 20px; /* Ensure there's some space at the bottom */
+}
+
+
+
+
 
 #header-footer {
     position: fixed;
@@ -544,6 +509,161 @@ label {
 #left-column, #right-column {
     margin-top: 10px;
 }
+
+/* Fallout-Themed Perks Table Container */
+#perks-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease;
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 15px;
+    
+    background-color: #2b2d2f !important; /* Dark Pip-Boy background */
+    border: 2px solid #00ff00 !important; /* Green border */
+    border-radius: 8px; 
+   
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: center;
+}
+
+/* Table Style */
+#perks-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2d2f !important; /* Darker background */
+    color: #00ff00 !important; /* Pip-Boy green */
+}
+
+/* Table Header */
+#perks-table-container th {
+    padding: 12px 20px;
+    text-align: center;
+    border: 2px solid #00ff00 !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #00ff00 !important; 
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Cells */
+#perks-table-container td {
+    padding: 12px 20px;
+    text-align: center;
+    border: 1px solid #00ff00 !important;
+    background-color: #2b2d2f !important;
+    color: #00ff00 !important;
+}
+
+/* Alternate Row Colors */
+#perks-table-container tr:nth-child(even) td {
+    background-color: #212223 !important; /* Darker for even rows */
+}
+
+/* Hover Effect */
+#perks-table-container tr:hover td {
+    background-color: #3a3d3f !important; /* Slight highlight */
+}
+
+/* Fallout-Themed Scrollbar */
+#perks-table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#perks-table-container::-webkit-scrollbar-track {
+    background: #2b2d2f !important;
+}
+
+#perks-table-container::-webkit-scrollbar-thumb {
+    background: #00ff00 !important;
+    border-radius: 5px;
+}
+
+/* Apply Fallout Theme to Everything Inside */
+#perks-table-container * {
+    background-color: inherit !important;
+    color: #00ff00 !important;
+    border-color: #00ff00 !important;
+}
+
+/* Fallout-Themed Crits Table Container */
+#crits-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease;
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 15px;
+    
+    background-color: #2b2d2f !important; /* Dark Pip-Boy background */
+    border: 2px solid #00ff00 !important; /* Green border */
+    border-radius: 8px; 
+   
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: center;
+}
+
+/* Table Style */
+#crits-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2d2f !important; /* Darker background */
+    color: #00ff00 !important; /* Pip-Boy green */
+}
+
+/* Table Header */
+#crits-table-container th {
+    padding: 12px 20px;
+    text-align: center;
+    border: 2px solid #00ff00 !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #00ff00 !important; 
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Cells */
+#crits-table-container td {
+    padding: 12px 20px;
+    text-align: center;
+    border: 1px solid #00ff00 !important;
+    background-color: #2b2d2f !important;
+    color: #00ff00 !important;
+}
+
+/* Alternate Row Colors */
+#crits-table-container tr:nth-child(even) td {
+    background-color: #212223 !important; /* Darker for even rows */
+}
+
+/* Hover Effect */
+#crits-table-container tr:hover td {
+    background-color: #3a3d3f !important; /* Slight highlight */
+}
+
+/* Fallout-Themed Scrollbar */
+#crits-table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#crits-table-container::-webkit-scrollbar-track {
+    background: #2b2d2f !important;
+}
+
+#crits-table-container::-webkit-scrollbar-thumb {
+    background: #00ff00 !important;
+    border-radius: 5px;
+}
+
+/* Apply Fallout Theme to Everything Inside */
+#crits-table-container * {
+    background-color: inherit !important;
+    color: #00ff00 !important;
+    border-color: #00ff00 !important;
+}
+
 
 
 
