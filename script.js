@@ -1871,7 +1871,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			
 			    // Create and add the Remove button
 			const removeButton = document.createElement("button");
-			removeButton.textContent = "Remove";
+			removeButton.textContent = "Remove unit ABOVE";
 			removeButton.addEventListener("click", () => {
 				// Remove the unit from the list
 				unitList.removeChild(li);
