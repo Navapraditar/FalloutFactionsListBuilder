@@ -745,7 +745,7 @@ const critData = [
 	{crit: "Poison(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target's Endurance, the Target suffers one Harm with Excess Harm causing an Injury." },
 	{crit: "Showstopper", effect: "If this attack inflicts an amount of Damage equal to or greater than the Target's Endurance, any Excess Harm caused will result in the model suffering an Injury." },
 	{crit: "Pushback(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target’s Strength, the Target is moved 1\" directly away from the Active model. If the model cannot move this full distance, it moves as far as it can." },
-	{crit: "Tranquilize(X)", effect: "At the end of the Inflict Damage step, the opposing player" }
+	{crit: "Tranquilize(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target's Endurance, the Target suffers one Harm, with Excess Harm causing an Injury. If this causes the Target to be Incapacitated, when you do the Treat the Wounded step, there is no lasting effect, as though you rolled Clean Bill of Health." }
 ];
 
 function renderPerksTable() {
@@ -1871,7 +1871,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			
 			    // Create and add the Remove button
 			const removeButton = document.createElement("button");
-			removeButton.textContent = "Remove unit ABOVE";
+			removeButton.textContent = "Remove";
 			removeButton.addEventListener("click", () => {
 				// Remove the unit from the list
 				unitList.removeChild(li);
