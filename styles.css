@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table  {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.7rem; /* Make buttons smaller */
     background-color: transparent;
@@ -178,8 +178,43 @@ tr:hover td {
 	font-family: 'Orbitron', monospace;
 }
 
+/* Highlight the Add Unit button */
+#add-unit {
+    margin-right: 10px; /* Keep buttons close together */
+    margin-top: 12px; /* Add space below the button above */
+    font-size: 0.85rem; /* Slightly larger text */
+    background-color: transparent;
+    color: #FFD700; /* Gold color */
+    border: 3px solid #FFD700; /* Slightly thicker border */
+    padding: 12px 24px; /* Bigger button */
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold; /* Bold text */
+    text-decoration: underline; /* Underline text */
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.8); /* Soft golden glow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    font-family: 'Orbitron', monospace;
+    box-shadow: 0px 0px 14px rgba(255, 215, 0, 0.7); /* Subtle golden glow effect */
+}
+
+/* Hover Effect */
+#add-unit:hover {
+    background-color: #FFD700; /* Bright yellow on hover */
+    color: black;
+    box-shadow: 0px 0px 22px rgba(255, 215, 0, 1); /* Stronger glow on hover */
+    transform: scale(1.1); /* Slightly enlarge */
+}
+
+/* Active (Clicked) Effect */
+#add-unit:active {
+    transform: scale(0.95); /* Slight shrink effect */
+    box-shadow: 0px 0px 16px rgba(255, 215, 0, 0.9); /* Maintain glow when clicked */
+}
+
+
+
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover  {
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover   {
     background-color: #33ff33;
     color: black;
 }
