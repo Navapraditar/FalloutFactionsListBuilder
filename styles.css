@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table, #campaign-button {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.7rem; /* Make buttons smaller */
     background-color: transparent;
@@ -371,20 +371,12 @@ select option {
 
 /* General styling for the input field */
 input[type="text"] {
-    background-color: #2a2a2a; /* Dark gray/black background */
-    color: #33ff33; /* Green text (like Fallout UI) */
     border: 1px solid #33ff33; /* Green border */
-    padding: 8px;
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Orbitron', monospace; /* A Fallout-like font */
     width: 100%;
     max-width: 300px;
-    cursor: pointer;
-}
-
-/* Add hover effect */
-input[type="text"]:hover {
-    background-color: #444; /* Slightly lighter when hovered */
+    cursor: text;
 }
 
 /* Add focus effect when clicked */
@@ -420,6 +412,23 @@ label {
 .chem-quantity:focus {
     box-shadow: 0px 0px 5px rgba(51, 255, 51, 0.5);
 }
+
+/* Add this to ensure the table adjusts its size properly */
+#weaponsTable {
+    table-layout: fixed; /* Ensures the table cells have equal width */
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word; /* Ensures words break and wrap within the table */
+}
+
+#weaponsTable td, #weaponsTable th {
+    padding: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+
 
 /* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
 #weaponsTable, #ploysTable, #perksTable,#crits-table {
