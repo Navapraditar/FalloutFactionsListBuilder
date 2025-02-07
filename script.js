@@ -1227,16 +1227,27 @@ function createEditableCell(value, dataKey) {
     input.type = "text";
     input.value = value;
     input.dataset.key = dataKey; // Store data key for reference
-    input.style.width = "100%";
+    input.style.width = "80%";
     input.style.textAlign = "center";
-    // If it's the first column (weapon name), give it more space
-    if (dataKey === "name" || "traits" || "effect") {
-        td.style.minWidth = "200px"; // Adjust the width for longer names
-        input.style.minHeight = "40px"; // Increase height for wrapping
-        input.style.whiteSpace = "normal";
-        input.style.wordWrap = "break-word";
-        input.style.overflowWrap = "break-word";
-    }
+    // Apply specific styles for certain columns
+	if (dataKey === "name") {
+		td.style.minWidth = "200px";   // Wider min-width for name column
+		td.style.maxWidth = "350px";
+		td.style.wordWrap = "break-word";
+		td.style.overflowWrap = "break-word";
+	} else if (dataKey === "type" || dataKey === "test") {
+		td.style.minWidth = "90px";   // Narrower min-width for type and test columns
+		td.style.maxWidth = "250px";
+	} else if (dataKey === "traits" || dataKey === "effect") {
+		td.style.minWidth = "200px";   // Moderate width for traits and effect columns
+		td.style.maxWidth = "300px";
+	} else if (dataKey === "points") {
+		td.style.minWidth = "90px";   // Narrower min-width for points column
+		td.style.maxWidth = "150px";
+	} else {
+		td.style.minWidth = "150px";   // Default width for other columns
+		td.style.maxWidth = "300px";
+	}
 
     input.addEventListener("change", () => {
         selectedWeaponData[dataKey] = input.value;
