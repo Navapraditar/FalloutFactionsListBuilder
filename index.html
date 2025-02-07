@@ -23,7 +23,7 @@
     <link rel="canonical" href="https://falloutfactionslistbuilder.com">
 
     <!-- Link to Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=1.14">
+    <link rel="stylesheet" href="styles.css?v=1.16">
 
     <!-- JSON-LD Structured Data for the Web Application -->
     <script type="application/ld+json">
@@ -101,7 +101,7 @@
 
 			<h2 class="your-list-header">Your List</h2>
 			<p style="font-size: 0.9em; color: #B0A050 ;">
-				*When you load a saved crew and add a new member, or edit their points in the unit's weapon table, Crew Points will reset. Just save your crew with edits made and load. Crew Points will recalculate with newly made changes.<br> The stats and weapons format changes when adding and when loading. Loading fits a pdf so be sure to save your list, then load it if you want a pdf.
+				*I updated this site 2.6.25 to make stats editable. This messed up saved lists so you'll need to remake any lists saved prior to 2.6.25. Sorry!<br>When you load a saved crew and add a new member, or edit their points in the unit's weapon table, Crew Points will reset. Just save your crew with edits made and load. Crew Points will recalculate with newly made changes.<br> The stats and weapons format changes when adding and when loading. Loading fits a pdf so be sure to save your list, then load it if you want a pdf.
 			</p>
 			            <!-- Reset Button Section -->
             <div id="reset-section">
@@ -208,27 +208,6 @@
             </tbody>
         </table>
     </div>
-
-			<!-- Button to toggle weapon table -->
-		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
-			<div id="weapon-table-container">
-			<h2>Faction Weapons</h2>
-                <table id="weaponsTable">
-                    <thead>
-                        <tr>
-                            <!-- <th>Weapon</th>
-                            <th>Type</th>
-                            <th>Test</th>
-                            <th>Traits</th>
-                            <th>Crit</th> taking out the headers -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dynamically populated rows -->
-                    </tbody>
-                </table>
-            </div>
-			
 			<!-- Crits Table Section -->
 			<button id="toggle-crits-table">Show/Hide Crits Table</button>	
 			<div id="crits-table-container">
@@ -258,6 +237,27 @@
 					</tbody>
 				</table>
 			</div> <!-- End of perks-table-container -->
+			<!-- Button to toggle weapon table -->
+		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
+			<div id="weapon-table-container">
+			<h2>Faction Weapons</h2>
+                <table id="weaponsTable">
+                    <thead>
+                        <tr>
+                            <!-- <th>Weapon</th>
+                            <th>Type</th>
+                            <th>Test</th>
+                            <th>Traits</th>
+                            <th>Crit</th> taking out the headers -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically populated rows -->
+                    </tbody>
+                </table>
+            </div>
+			
+
         </div> <!-- End of right column -->
 		
 
