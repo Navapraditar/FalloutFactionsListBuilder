@@ -1306,38 +1306,77 @@ document.getElementById("generate-txt").addEventListener("click", () => {
     // Initialize an array to store the text content
     let unitListContent = '';
 	
-	// Get the crew notes from the textarea (same as the save/load functionality)
+    // Get the crew notes from the textarea (same as the save/load functionality)
     const crewNotesTextarea = document.querySelector("#crew-notes");
     const crewNotes = crewNotesTextarea ? crewNotesTextarea.value : '';  // Retrieve crew notes if available
 
-    // Add crew notes at the top of the file
+    // Add crew notes at the top of the file with a heading
     if (crewNotes) {
-        unitListContent += `Crew Notes:\n${crewNotes}\n\n-----------------------\n`;  // Add crew notes section
+        unitListContent += `==================== Crew Notes ====================\n${crewNotes}\n\n--------------------------------------------------\n`;  // Add crew notes section
     }
 
     // Loop through each list item to gather the unit name, stats, and unit notes
     document.querySelectorAll('#unit-list li').forEach(item => {
         const unitName = item.querySelector("span").textContent; // Get unit name
+        
         const stats = Array.from(item.querySelectorAll("td")).map((td, index) => {
             // Assuming the stats are in specific order: S, P, E, C, I, A, L, (W)
-            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)','Weapon(s)','Type','Test','Traits','Crit','Pts','','Type2','Test2','Traits2','Crit2'];
-                        // If index is the position of (W), add a line break after it
+            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)', 'Weapon(s)', 'Type', 'Test', 'Traits', 'Crit', 'Pts', '', 'Type2', 'Test2', 'Traits2', 'Crit2'];
+
             let stat = `${labels[index]}: ${td.textContent}`;
-            
+
             // Add line breaks after (W) and Pts
             if (labels[index] === '(W)' || labels[index] === 'Pts') {
                 stat += '\n'; // Add a line break after (W) or Pts
             }
-            
+
             return stat;
-        }).join(' | '); // Join all stats with " | " separator
-        
+        });
+
+        // Get the Pts value separately and place it at the top of the unit information
+        const ptsValue = stats.find(stat => stat.startsWith('Pts')).split(': ')[1]; // Extract Pts value
+        const filteredStats = stats.filter(stat => !stat.startsWith('Pts')); // Remove Pts from stats
+
+        // Get weapon(s) information
+        const weapons = item.querySelectorAll('.weapon-info'); // Assuming weapons are in elements with the class 'weapon-info'
+        let weaponText = '';
+        weapons.forEach((weapon, idx) => {
+            const weaponDetails = weapon.textContent.trim();
+            weaponText += `- ${weaponDetails}`;
+            
+            // If there's more than one weapon, add a line break
+            if (idx < weapons.length - 1) {
+                weaponText += '\n';
+            }
+
+            // Add a line break before second weapon
+            if (idx === 1) {
+                weaponText = '\n' + weaponText; // Line break before second weapon
+            }
+        });
+
+        // Get unit notes
         const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
 
-        // Append unit name, "SPECIAL" label, stats, and unit notes to the content, formatted
-        unitListContent += `Unit: ${unitName}\n`;
-        unitListContent += `${stats}\n`;  // Add "SPECIAL" label before the stats
-        unitListContent += `Notes: ${unitNotes}\n\n-----------------------\n`;  // Add unit notes with separation
+        // Add unit information in a structured format
+        unitListContent += `==================== ${unitName} ====================\n`;
+        unitListContent += `Pts: ${ptsValue}\n`;  // Place Pts value above the unit name
+        unitListContent += `Special Stats:\n`;
+
+        // Add special stats (S, P, E, etc.) in a clean, organized format
+        unitListContent += `${filteredStats.join('\n')}\n`;  // Add each stat on a new line
+
+        // Add weapons info in a bulleted list
+        if (weaponText) {
+            unitListContent += `Weapons:\n${weaponText}\n`;
+        }
+
+        // Add notes section
+        if (unitNotes) {
+            unitListContent += `\nNotes: ${unitNotes}\n\n`;
+        }
+
+        unitListContent += `--------------------------------------------------\n\n`;  // Add a separator between units
     });
 
     // Create a blob with the text content
@@ -1351,6 +1390,7 @@ document.getElementById("generate-txt").addEventListener("click", () => {
     // Trigger the download
     link.click();
 });
+
 
 document.getElementById("generate-pdf").addEventListener("click", () => {
     // Create a wrapper div dynamically
