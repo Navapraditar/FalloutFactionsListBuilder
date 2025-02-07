@@ -309,7 +309,7 @@ const factions = {
             { name: "Sledgehammer", points: 14, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
             { name: "Light Handmade Rifle", points: 18, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
             { name: "Pipe Revolver and Baseball Bat", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
-            { name: "10mm Pistol and Hand Weapon", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type: "Melee", test: "3S", traits: "Fast", effect: "-"  },
+            { name: "10mm Pistol and Hand Weapon", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
             { name: "10mm Pistol and Baseball Bat", points: 24, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
         { name: "Scavver", type: "Grunt",
