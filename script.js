@@ -1186,28 +1186,40 @@ document.getElementById("add-unit").addEventListener("click", () => {
         });
 
 
-        const statsTable = document.createElement("table");
-        statsTable.style.marginTop = "10px";
-        statsTable.style.borderCollapse = "collapse";
-        statsTable.style.width = "100%";
+const statsTable = document.createElement("table");
+statsTable.style.marginTop = "10px";
+statsTable.style.borderCollapse = "collapse";
+statsTable.style.width = "100%";
 
-        statsTable.innerHTML = `
-            <thead>
-                <tr><th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>${selectedUnitData.stats.S}</td>
-                    <td>${selectedUnitData.stats.P}</td>
-                    <td>${selectedUnitData.stats.E}</td>
-                    <td>${selectedUnitData.stats.C}</td>
-                    <td>${selectedUnitData.stats.I}</td>
-                    <td>${selectedUnitData.stats.A}</td>
-                    <td>${selectedUnitData.stats.L}</td>
-                    <td>${selectedUnitData.stats.W}</td>
-                </tr>
-            </tbody>`;
-        li.appendChild(statsTable);
+// Create table header
+statsTable.innerHTML = `
+    <thead>
+        <tr><th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th></tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="number" value="${selectedUnitData.stats.S}" data-stat="S" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.P}" data-stat="P" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.E}" data-stat="E" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.C}" data-stat="C" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.I}" data-stat="I" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.A}" data-stat="A" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.L}" data-stat="L" style="width: 50px; text-align: center;"></td>
+            <td><input type="number" value="${selectedUnitData.stats.W}" data-stat="W" style="width: 50px; text-align: center;"></td>
+        </tr>
+    </tbody>`;
+
+// Append the stats table to the unit list item
+li.appendChild(statsTable);
+
+// Add event listeners to update stats when changed
+statsTable.querySelectorAll("input").forEach(input => {
+    input.addEventListener("change", (event) => {
+        const statKey = event.target.dataset.stat; // Get which stat was changed
+        selectedUnitData.stats[statKey] = parseInt(event.target.value, 10) || 0; // Update the stat in the data
+    });
+});
+
 
         const weaponDataTable = document.createElement("table");
         weaponDataTable.style.marginTop = "10px";
@@ -1228,7 +1240,10 @@ let tableHTML = `
             <td>${selectedWeaponData.test}</td>
             <td>${selectedWeaponData.traits}</td>
             <td>${selectedWeaponData.effect}</td>
-            <td>${selectedWeaponData.points}</td>
+            <td>
+                <input type="number" value="${selectedWeaponData.points}" data-field="points" 
+                style="width: 100%; box-sizing: border-box; text-align: center;">
+            </td>
         </tr>`;
 
         // Check if second weapon data exists and add another row if so
@@ -1240,7 +1255,7 @@ let tableHTML = `
                 <td>${selectedWeaponData.test2}</td>
                 <td>${selectedWeaponData.traits2}</td>
                 <td>${selectedWeaponData.effect2}</td>
-				<!-- Exclude Points column in second row -->
+                <!-- Exclude Points column in second row -->
             </tr>`;
         }
 
@@ -1251,6 +1266,7 @@ let tableHTML = `
 		weaponDataTable.innerHTML = tableHTML;
 
 		li.appendChild(weaponDataTable);
+
 
 		//unitNotes to autofill with innate perks
 		const unitNotes = document.createElement("textarea");
@@ -1315,69 +1331,86 @@ document.getElementById("generate-txt").addEventListener("click", () => {
         unitListContent += `==================== Crew Notes ====================\n${crewNotes}\n\n--------------------------------------------------\n`;  // Add crew notes section
     }
 
-    // Loop through each list item to gather the unit name, stats, and unit notes
-    document.querySelectorAll('#unit-list li').forEach(item => {
-        const unitName = item.querySelector("span").textContent; // Get unit name
+// Loop through each list item to gather the unit name, stats, and unit notes
+document.querySelectorAll('#unit-list li').forEach(item => {
+    const unitName = item.querySelector("span").textContent; // Get unit name
+    
+    // Create a mapping of labels to their respective indexes in the stats
+    const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)', 'Weapon(s)', 'Type', 'Test', 'Traits', 'Crit', 'Pts', '', 'Type2', 'Test2', 'Traits2', 'Crit2'];
+    
+    // Get all the <td> elements, which represent stats, weapons, and other details
+    const stats = Array.from(item.querySelectorAll("td")).map((td, index) => {
+        let stat = `${labels[index]}: `;
         
-        const stats = Array.from(item.querySelectorAll("td")).map((td, index) => {
-            // Assuming the stats are in specific order: S, P, E, C, I, A, L, (W)
-            const labels = ['S', 'P', 'E', 'C', 'I', 'A', 'L', '(W)', 'Weapon(s)', 'Type', 'Test', 'Traits', 'Crit', 'Pts', '', 'Type2', 'Test2', 'Traits2', 'Crit2'];
-
-            let stat = `${labels[index]}: ${td.textContent}`;
-
-            // Add line breaks after (W) and Pts
-            if (labels[index] === '(W)' || labels[index] === 'Pts') {
-                stat += '\n'; // Add a line break after (W) or Pts
-            }
-
-            return stat;
-        });
-
-        // Get the Pts value separately and place it at the top of the unit information
-        const ptsValue = stats.find(stat => stat.startsWith('Pts')).split(': ')[1]; // Extract Pts value
-        const filteredStats = stats.filter(stat => !stat.startsWith('Pts')); // Remove Pts from stats
-
-        // Get weapon(s) information
-        const weapons = item.querySelectorAll('.weapon-info'); // Assuming weapons are in elements with the class 'weapon-info'
-        let weaponText = '';
-        weapons.forEach((weapon, idx) => {
-            const weaponDetails = weapon.textContent.trim();
-            weaponText += `- ${weaponDetails}`;
-            
-            // If there's more than one weapon, add a line break
-            if (idx < weapons.length - 1) {
-                weaponText += '\n';
-            }
-
-            // Add a line break before second weapon
-            if (idx === 1) {
-                weaponText = '\n' + weaponText; // Line break before second weapon
-            }
-        });
-
-        // Get unit notes
-        const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
-
-        // Add unit information in a structured format
-        unitListContent += `==================== ${unitName} ====================\n`;
-        unitListContent += `Pts: ${ptsValue}\n`;  // Place Pts value above the unit name
-        unitListContent += `Special Stats:\n`;
-
-        // Add special stats (S, P, E, etc.) in a clean, organized format
-        unitListContent += `${filteredStats.join('\n')}\n`;  // Add each stat on a new line
-
-        // Add weapons info in a bulleted list
-        if (weaponText) {
-            unitListContent += `Weapons:\n${weaponText}\n`;
+        // Check if there is an input element inside the <td> (for user-inputted values)
+        const input = td.querySelector("input");
+        if (input) {
+            // If input exists, get its value (e.g., user input for stats)
+            stat += input.value.trim();
+        } else {
+            // If no input, fallback to textContent (for static text like weapon names, etc.)
+            stat += td.textContent.trim();
         }
 
-        // Add notes section
-        if (unitNotes) {
-            unitListContent += `\nNotes: ${unitNotes}\n\n`;
+        // Add line breaks after (W) and Pts
+        if (labels[index] === '(W)' || labels[index] === 'Pts') {
+            stat += '\n'; // Add a line break after (W) or Pts
         }
 
-        unitListContent += `--------------------------------------------------\n\n`;  // Add a separator between units
+        return stat;
     });
+
+    // Get the Pts value separately and place it at the top of the unit information
+    const ptsValue = stats.find(stat => stat.startsWith('Pts'))?.split(': ')[1]; // Extract Pts value
+    const filteredStats = stats.filter(stat => !stat.startsWith('Pts')); // Remove Pts from stats
+	
+    // Get weapon(s) information
+    const weapons = item.querySelectorAll('.weapon-info'); // Assuming weapons are in elements with the class 'weapon-info'
+    let weaponText = '';
+    weapons.forEach((weapon, idx) => {
+        const weaponDetails = weapon.textContent.trim();
+        weaponText += `- ${weaponDetails}`;
+        
+        // If there's more than one weapon, add a line break
+        if (idx < weapons.length - 1) {
+            weaponText += '\n';
+        }
+
+        // Add a line break before the second weapon, but make sure it's only for the second weapon.
+        if (idx === 1) {
+            weaponText = '\n' + weaponText; // Line break before second weapon
+        }
+    });
+
+    // Get unit notes
+    const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
+
+    // Add unit information in a structured format
+    unitListContent += `==================== ${unitName} ====================\n`;
+    
+    // Only add the Pts if it's not undefined, and ensure it's above the special stats
+    if (ptsValue) {
+        unitListContent += `Pts: ${ptsValue}\n`;  // Place Pts value above the unit name
+    }
+
+    unitListContent += `Special Stats:\n`;
+
+    // Add special stats (S, P, E, etc.) in a clean, organized format
+    unitListContent += `${filteredStats.join('\n')}\n`;  // Add each stat on a new line
+
+    // Add weapons info in a bulleted list (without points)
+    if (weaponText) {
+        unitListContent += `Weapons:\n${weaponText}\n`;
+    }
+
+    // Add notes section
+    if (unitNotes) {
+        unitListContent += `\nNotes: ${unitNotes}\n\n`;
+    }
+
+    unitListContent += `--------------------------------------------------\n\n`;  // Add a separator between units
+});
+
 
     // Create a blob with the text content
     const blob = new Blob([unitListContent], { type: 'text/plain' });
@@ -1508,10 +1541,14 @@ document.addEventListener("DOMContentLoaded", function () {
 			const statsTable = item.querySelector("table:nth-of-type(1) tbody tr");
 			const weaponTable = item.querySelector("table:nth-of-type(2) tbody tr");
 
-			// Extract stats
-			const stats = Array.from(statsTable.querySelectorAll("td")).map(td => td.textContent);
+        // Extract SPECIALW stats
+        const statsTableCells = item.querySelectorAll("table:nth-of-type(1) tbody tr td");
+        const stats = Array.from(statsTableCells).map(td => {
+            const input = td.querySelector("input");
+            return input ? input.value : td.textContent; // Get updated values
+        });
 
-			// Extract weapon details
+			// Extract weapon details, including user-inputted points
 			const weaponRows = Array.from(item.querySelectorAll("table:nth-of-type(2) tbody tr")); 
 			const weapons = weaponRows.map(row => {
 				const cells = row.querySelectorAll("td");
@@ -1521,9 +1558,10 @@ document.addEventListener("DOMContentLoaded", function () {
 					test: cells[2]?.textContent || "",
 					traits: cells[3]?.textContent || "",
 					effect: cells[4]?.textContent || "",
-					points: parseInt(cells[5]?.textContent, 10) || 0 // Convert to number, default to 0
+					points: parseInt(cells[5]?.querySelector("input")?.value, 10) || 0 // Get input value
 				};
 			});
+
 
 
 			const notes = item.querySelector("textarea") ? item.querySelector("textarea").value : "";
@@ -1641,55 +1679,55 @@ document.addEventListener("DOMContentLoaded", function () {
 			
  
 
-            // Create a table for the SPECIALW stats
-			const statsTable = document.createElement("table");
-			statsTable.style.marginTop = "10px";
-			statsTable.style.borderCollapse = "collapse";
-			statsTable.style.width = "100%";
-			statsTable.innerHTML = `
-				<thead>
-					<tr>
-						<th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>${unit.stats.map(stat => `<td>${stat}</td>`).join('')}</tr>
-				</tbody>`;
-			li.appendChild(statsTable);
-			
-        // Create a table for weapon details
-        const weaponTable = document.createElement("table");
-        weaponTable.style.marginTop = "10px";
-        weaponTable.style.borderCollapse = "collapse";
-        weaponTable.style.width = "100%";
-        weaponTable.innerHTML = `
+        // SPECIALW Stats Table (with editable fields)
+        const statsTable = document.createElement("table");
+        statsTable.innerHTML = `
             <thead>
-                <tr>
-                    <th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th>
-                </tr>
+                <tr><th>S</th><th>P</th><th>E</th><th>C</th><th>I</th><th>A</th><th>L</th><th>(W)</th></tr>
             </thead>
-			<tbody>
-				 ${unit.weapons.map(wpn => {
-									// Sum the weapon points into crewPoints
-									crewPoints += parseInt(wpn.points, 10) || 0;
-									
-			// If there is no points value, exclude the Points column
-            const pointsCell = wpn.points ? `<td>${wpn.points}</td>` : '';
+            <tbody>
+                <tr>
+                    ${unit.stats.map(stat => `<td><input type="number" value="${stat}" style="width: 40px;"></td>`).join('')}
+                </tr>
+            </tbody>`;
+        li.appendChild(statsTable);
+			
+// Create a table for weapon details
+const weaponTable = document.createElement("table");
+weaponTable.style.marginTop = "10px";
+weaponTable.style.borderCollapse = "collapse";
+weaponTable.style.width = "100%";
+weaponTable.innerHTML = `
+    <thead>
+        <tr>
+            <th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        ${unit.weapons.map((wpn, index) => {
+            // Sum the weapon points into crewPoints
+            crewPoints += parseInt(wpn.points, 10) || 0;
+            
+            // Check if it's the first weapon to include the points column
+            const pointsCell = (index === 0) 
+                ? `<td><input type="number" value="${wpn.points}" class="weapon-points" style="width: 50px;"></td>`
+                : ''; // No points column for subsequent weapons
 
-									return `
-										<tr>
-											<td>${wpn.name}</td>
-											<td>${wpn.type}</td>
-											<td>${wpn.test}</td>
-											<td>${wpn.traits}</td>
-											<td>${wpn.effect}</td>
-											${pointsCell}
-										</tr>
-									`;
-								}).join('')}
-							</tbody>
-						`;
-						li.appendChild(weaponTable);
+            return `
+                <tr>
+                    <td>${wpn.name}</td>
+                    <td>${wpn.type}</td>
+                    <td>${wpn.test}</td>
+                    <td>${wpn.traits}</td>
+                    <td>${wpn.effect}</td>
+                    ${pointsCell}
+                </tr>
+            `;
+        }).join('')}
+    </tbody>
+`;
+li.appendChild(weaponTable);
+
 						
 
             // Add a text box for unit notes
