@@ -74,7 +74,7 @@ body {
 
 #zone-info {
     position: absolute; /* Change from 'fixed' to 'absolute' */
-    top: 20%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center both horizontally & vertically */
     background-color: rgba(0, 0, 0, 0.8);
@@ -127,18 +127,8 @@ textarea {
     bottom: 10px;
     left: 10px; /* Default: Bottom-left on Mobile */
     z-index: 1000;
+    font-size: 16px; /* Default text size */
 }
-
-/* Desktop Tweaks */
-@media (min-width: 1024px) {
-    #campaign-controls {
-        top: 10px;
-        right: 10px; /* Moves it to the top-right */
-        bottom: auto;
-        left: auto;
-    }
-}
-
 
 /* Saved Campaigns List */
 #campaign-list {
@@ -148,5 +138,25 @@ textarea {
     padding: 5px;
     margin-top: 10px;
 }
+
+/* Make it smaller on mobile */
+@media (max-width: 768px) {
+    #campaign-controls {
+        width: 200px; /* Reduce width */
+        font-size: 12px; /* Smaller text */
+        padding: 5px; /* Less padding */
+    }
+
+    #campaign-controls button {
+        font-size: 12px; /* Make buttons smaller */
+        padding: 3px 6px; /* Reduce button padding */
+    }
+
+    #campaign-list {
+        max-height: 200px; /* Shorter list */
+        font-size: 12px;
+    }
+}
+
 
 
