@@ -90,10 +90,13 @@ body {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     #zone-info {
-        top: 45%; /* Pushes it further down to avoid cutoff */
-        transform: translate(-50%, -50%);
+        top: 10px; /* Moves it to the top */
+        right: 10px; /* Moves it to the right side */
+        left: auto; /* Ensures it's not centered */
+        transform: none; /* Removes the centering transform */
         font-size: 14px; /* Adjust text size for mobile */
         padding: 8px;
+        max-width: 80%; /* Prevents it from being too wide */
     }
 }
 
