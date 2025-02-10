@@ -12,11 +12,14 @@ body {
 #map-container {
     position: relative;
     width: 90vw; /* Use 90% of the viewport width */
-    max-width: 1200px; /* Limits size on larger screens */
+    max-width: 1200px; /* Limit size on larger screens */
     height: auto;
     margin: auto;
     overflow: hidden;
+    transform: scale(0.8); /* Shrinks the whole map */
+    transform-origin: top center; /* Ensures scaling is centered */
 }
+
 
 /* Map Image */
 #map {

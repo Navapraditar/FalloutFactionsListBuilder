@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Orbitron', monospace;
-    color: #33ff33; /* Classic Pip-Boy green */
+    color: #66ff66; /* Classic Pip-Boy green */
     background-color: #111; /* Dark background for contrast */
 }
 
@@ -14,7 +14,7 @@ h1 {
     text-align: center; /* Center the title */
     font-size: 3em; /* Larger font size for the title */
     margin-top: 20px;
-    color: #2d6a4f; /* Deep green for title */
+    color: #66ff66; /* Deep green for title */ 
 }
 
 /* Style for the "Total Points" to make it stand out */
@@ -152,28 +152,26 @@ tr:hover td {
 /* Styling for all buttons */
 #save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table, #campaign-button {
     margin-right: 10px; /* Keep buttons close together */
-    font-size: 0.7rem; /* Make buttons smaller */
+    font-size: 0.8rem; /* Make buttons smaller */
     background-color: transparent;
-    color: #33ff33;
-    border: 2px solid #33ff33;
+    color: #76D7B2;
+    border: 2px solid #76D7B2;
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
-    text-shadow: 0px 0px 5px #33ff33;
     transition: background-color 0.3s ease;
 	font-family: 'Orbitron', monospace;
 }
 /* Styling for all buttons */
 #reset-button, #generate-txt, #generate-pdf{
     margin-right: 10px; /* Keep buttons close together */
-    font-size: 0.8rem; /* Make buttons smaller */
+    font-size: 0.85rem; /* Make buttons smaller */
     background-color: transparent;
-    color: #33ff33;
-    border: 2px solid #33ff33;
+    color: #76D7B2;
+    border: 2px solid #76D7B2;
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
-    text-shadow: 0px 0px 5px #33ff33;
     transition: background-color 0.3s ease;
 	font-family: 'Orbitron', monospace;
 }
@@ -215,7 +213,7 @@ tr:hover td {
 
 /* Hover effect */
 #reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover   {
-    background-color: #33ff33;
+    background-color: #76D7B2;
     color: black;
 }
 
@@ -224,11 +222,6 @@ tr:hover td {
     border-radius: 5px;
 }
 
-@keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.9; }
-    100% { opacity: 1; }
-}
 
 #weapon-table-container {
     margin-top: 10px;
@@ -340,8 +333,8 @@ p {
 /* General dropdown styling */
 select {
     background-color: #2a2a2a; /* Dark gray/black background */
-    color: #33ff33; /* Green text (like Fallout UI) */
-    border: 2px solid #33ff33; /* Green border */
+    color: #76D7B2; /* Green text (like Fallout UI) */
+    border: 2px solid #76D7B2; /* Green border */
     padding: 8px;
     font-size: 16px;
     font-family: 'Orbitron', monospace; /* A Fallout-like font */
@@ -358,8 +351,8 @@ select:hover {
 /* Style when focused (clicked) */
 select:focus {
     outline: none;
-    border-color: #33ff33; /* Green glow effect */
-    box-shadow: 0 0 10px #33ff33;
+    border-color: #66ff66; /* Green glow effect */
+    box-shadow: 0 0 10px #66ff66;
 }
 
 /* Style for options inside dropdown */
@@ -372,8 +365,8 @@ select option {
 /* General styling for the input field */
 input[type="text"] {
     background-color: #2a2a2a; /* Dark gray/black background */
-    color: #33ff33; /* Green text (like Fallout UI) */
-    border: 1px solid #33ff33; /* Green border */
+    color: #76D7B2; /* Green text (like Fallout UI) */
+    border: 1px solid #76D7B2; /* Green border */
     padding: 8px;
     font-size: 16px;
     font-family: 'Orbitron', monospace; /* A Fallout-like font */
@@ -389,14 +382,14 @@ input[type="text"]:hover {
 
 /* Add focus effect when clicked */
 input[type="text"]:focus {
-    border-color: #33ff33; /* Green glow effect */
-    box-shadow: 0 0 10px #33ff33;
+    border-color: #66ff66; /* Green glow effect */
+    box-shadow: 0 0 10px #66ff66;
 }
 
 /* Ensure the label has the same font */
 label {
     font-family: 'Orbitron', sans-serif;
-    color: #33ff33; /* Green text (like Fallout UI) */
+    color: #66ff66; /* Green text (like Fallout UI) */
     font-size: 16px;
 }
 
@@ -409,10 +402,10 @@ label {
     width: 5px; /* Adjusts the width of the input box */
     height: 8px; /* Adjusts the height */
     padding: 3px;
-    font-size: 8px; /* Smaller font size for readability */
-    border: 2px solid #00ff00; /* Subtle green border */
+    font-size: 9px; /* Smaller font size for readability */
+    border: 2px solid #76D7B2; /* Subtle green border */
     background-color: #101710; /* Dark background similar to Pip-Boy theme */
-    color: #00ff00; /* Green text color */
+    color: #76D7B2; /* Green text color */
     text-align: center; /* Centers the text inside */
     outline: none;
 }
@@ -426,7 +419,7 @@ label {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Orbitron', sans-serif;
-    color: #00ff00; /* Pip-Boy green */
+    color: #76D7B2; /* Pip-Boy green */
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -435,9 +428,9 @@ label {
 #weaponsTable th, #ploysTable th, #perksTable,#crits-table th {
     padding: 12px 20px; /* Larger padding for emphasis */
     text-align: center;
-    border: 2px solid #00ff00; /* Green border for each header cell */
+    border: 2px solid #76D7B2; /* Green border for each header cell */
     background-color: #004d00; /* Dark green Pip-Boy header */
-    color: #00ff00; /* Pip-Boy green */
+    color: #76D7B2; /* Pip-Boy green */
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
@@ -448,9 +441,9 @@ label {
 #weaponsTable td, #ploysTable td, #perksTable,#crits-table td {
     padding: 12px 20px;
     text-align: center;
-    border: 1px solid #00ff00; /* Green border for each data cell */
+    border: 1px solid #A9D08E   ; /* Green border for each data cell */
     background-color: #2b2d2f; /* Slightly lighter background */
-    color: #00ff00; /* Pip-Boy green */
+    color: #A9D08E   ; /* Pip-Boy green */
 }
 
 /* Style tbody and rows in the table */
@@ -488,9 +481,9 @@ label {
 /* Button to show/hide perks table */
 #toggle-table-button {
     background-color: #004d00; /* Dark green */
-    color: #00ff00; /* Pip-Boy green */
+    color: #66ff66; /* Pip-Boy green */
     padding: 10px 15px;
-    border: 2px solid #00ff00;
+    border: 2px solid #66ff66;
     cursor: pointer;
     font-family: 'Orbitron', sans-serif;
     font-size: 14px;
@@ -498,7 +491,7 @@ label {
 }
 
 #toggle-table-button:hover {
-    background-color: #00ff00; /* Green hover */
+    background-color: #66ff66; /* Green hover */
     color: #004d00; /* Dark green text on hover */
 }
 
@@ -554,7 +547,7 @@ label {
     padding: 15px;
     
     background-color: #2b2d2f !important; /* Dark Pip-Boy background */
-    border: 2px solid #00ff00 !important; /* Green border */
+    border: 2px solid #A9D08E     !important; /* Green border */
     border-radius: 8px; 
    
     font-family: 'Orbitron', sans-serif !important;
@@ -566,16 +559,16 @@ label {
     width: 100%;
     border-collapse: collapse;
     background-color: #2b2d2f !important; /* Darker background */
-    color: #00ff00 !important; /* Pip-Boy green */
+    color: #A9D08E     !important; /* Pip-Boy green */
 }
 
 /* Table Header */
 #perks-table-container th {
     padding: 12px 20px;
     text-align: center;
-    border: 2px solid #00ff00 !important;
+    border: 2px solid #A9D08E     !important;
     background-color: #004d00 !important; /* Dark green */
-    color: #00ff00 !important; 
+    color: #A9D08E     !important; 
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
@@ -586,9 +579,9 @@ label {
 #perks-table-container td {
     padding: 12px 20px;
     text-align: center;
-    border: 1px solid #00ff00 !important;
+    border: 1px solid #A9D08E     !important;
     background-color: #2b2d2f !important;
-    color: #00ff00 !important;
+    color: #A9D08E     !important;
 }
 
 /* Alternate Row Colors */
@@ -611,15 +604,15 @@ label {
 }
 
 #perks-table-container::-webkit-scrollbar-thumb {
-    background: #00ff00 !important;
+    background: #A9D08E     !important;
     border-radius: 5px;
 }
 
 /* Apply Fallout Theme to Everything Inside */
 #perks-table-container * {
     background-color: inherit !important;
-    color: #00ff00 !important;
-    border-color: #00ff00 !important;
+    color: #A9D08E     !important;
+    border-color: #A9D08E     !important;
 }
 
 /* Fallout-Themed Crits Table Container */
@@ -631,7 +624,7 @@ label {
     padding: 15px;
     
     background-color: #2b2d2f !important; /* Dark Pip-Boy background */
-    border: 2px solid #00ff00 !important; /* Green border */
+    border: 2px solid #A9D08E    !important; /* Green border */
     border-radius: 8px; 
    
     font-family: 'Orbitron', sans-serif !important;
@@ -643,16 +636,16 @@ label {
     width: 100%;
     border-collapse: collapse;
     background-color: #2b2d2f !important; /* Darker background */
-    color: #00ff00 !important; /* Pip-Boy green */
+    color: #A9D08E    !important; /* Pip-Boy green */
 }
 
 /* Table Header */
 #crits-table-container th {
     padding: 12px 20px;
     text-align: center;
-    border: 2px solid #00ff00 !important;
+    border: 2px solid #A9D08E    !important;
     background-color: #004d00 !important; /* Dark green */
-    color: #00ff00 !important; 
+    color: #A9D08E    !important; 
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
@@ -663,9 +656,9 @@ label {
 #crits-table-container td {
     padding: 12px 20px;
     text-align: center;
-    border: 1px solid #00ff00 !important;
+    border: 1px solid #A9D08E    !important;
     background-color: #2b2d2f !important;
-    color: #00ff00 !important;
+    color: #A9D08E    !important;
 }
 
 /* Alternate Row Colors */
@@ -688,16 +681,17 @@ label {
 }
 
 #crits-table-container::-webkit-scrollbar-thumb {
-    background: #00ff00 !important;
+    background: #A9D08E    !important;
     border-radius: 5px;
 }
 
 /* Apply Fallout Theme to Everything Inside */
 #crits-table-container * {
     background-color: inherit !important;
-    color: #00ff00 !important;
-    border-color: #00ff00 !important;
+    color: #A9D08E    !important;
+    border-color: #A9D08E    !important;
 }
+
 
 
 
