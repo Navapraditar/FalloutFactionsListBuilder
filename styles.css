@@ -424,6 +424,10 @@ label {
     margin-bottom: 20px;
 }
 
+#perksTable,#crits-table {
+    font-size: 10px;
+}
+
 /* Table header style */
 #weaponsTable th, #ploysTable th, #perksTable,#crits-table th {
     padding: 12px 20px; /* Larger padding for emphasis */
