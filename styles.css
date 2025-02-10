@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table, #campaign-button {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.7rem; /* Make buttons smaller */
     background-color: transparent;

@@ -9,23 +9,19 @@
 <body>
 
     <h1>Campaign Map</h1>
-	<div id="campaign-controls">
-    <button onclick="saveCampaign()">Save Campaign</button>
-    <div id="campaign-list"></div> <!-- This will show saved campaigns -->
-</div>
+
 
     <a href="index.html" class="back-button">← Back to Main</a>
 
 	<div id="map-container">
-	<button onclick="resetCampaign()">Reset</button>
 		<img src="images/Fo4_Nuka-World_Pamphlet.jpeg" alt="Campaign Map" id="map">
 
-        <!-- Zones -->
-        <div class="zone" id="Refreshment" style="top: 20%; left: 56%;">World of Refreshment</div>
-        <div class="zone" id="Safari" style="top: 20%; left: 26%;">Safari Adventure</div>
-        <div class="zone" id="Galactic" style="top: 75%; left: 40%;">Galactic Zone</div>
-        <div class="zone" id="DryRock" style="top: 50%; left: 25%;">Dry Rock Gulch</div>
-        <div class="zone" id="Kiddie" style="top: 40%; left: 63%;">Kiddie Kingdom</div>
+    <!-- Zones -->
+    <div class="zone" id="Refreshment" style="top: 15%; left: 66%;">World of Refreshment</div>
+    <div class="zone" id="Safari" style="top: 20%; left: 26%;">Safari Adventure</div>
+    <div class="zone" id="Galactic" style="top: 85%; left: 40%;">Galactic Zone</div>
+    <div class="zone" id="DryRock" style="top: 50%; left: 24%;">Dry Rock Gulch</div>
+    <div class="zone" id="Kiddie" style="top: 42%; left: 72%;">Kiddie Kingdom</div>
     </div>
 
     <div id="zone-info">
@@ -44,6 +40,12 @@
         <button onclick="saveNotes()">Save Note</button>
 		<button onclick="closeInfo()">Close</button>
     </div>
+	
+		<div id="campaign-controls">
+    <button onclick="saveCampaign()">Save Campaign</button>
+	<button onclick="resetCampaign()">Reset</button>
+    <div id="campaign-list"></div> <!-- This will show saved campaigns -->
+</div>
 
     <script src="campaign.js"></script> <!-- Link to JavaScript -->
 </body>

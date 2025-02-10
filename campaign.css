@@ -8,18 +8,24 @@ body {
 }
 
 
-
-#map {
-    display: block; /* Removes extra space below the image */
-    max-width: 80vw; /* Limits width to 80% of the viewport width */
-    max-height: 80vh; /* Limits height to 80% of the viewport height */
-    width: auto; /* Ensures proper scaling */
+/* Map Container */
+#map-container {
+    position: relative;
+    width: 90vw; /* Use 90% of the viewport width */
+    max-width: 1200px; /* Limits size on larger screens */
     height: auto;
-    margin: auto; /* Centers the image */
+    margin: auto;
+    overflow: hidden;
 }
 
+/* Map Image */
+#map {
+    display: block;
+    width: 100%; /* Ensures it scales with the container */
+    height: auto;
+}
 
-
+/* Zone Buttons */
 .zone {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
@@ -29,22 +35,53 @@ body {
     cursor: pointer;
     text-shadow: 0px 0px 5px #FFD700;
     transition: transform 0.2s ease;
+    transform: translate(-50%, -50%);
+    font-size: 1.2vw;
+    white-space: nowrap;
 }
 
-.zone:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 10px #FFD700;
+/* Scale the zone positions based on the original 1920x1491 image */
+#Refreshment { top: calc(15% * (1491 / 100)); left: calc(66% * (1920 / 100)); }
+#Safari { top: calc(20% * (1491 / 100)); left: calc(26% * (1920 / 100)); }
+#Galactic { top: calc(85% * (1491 / 100)); left: calc(40% * (1920 / 100)); }
+#DryRock { top: calc(50% * (1491 / 100)); left: calc(24% * (1920 / 100)); }
+#Kiddie { top: calc(42% * (1491 / 100)); left: calc(72% * (1920 / 100)); }
+
+/* Desktop Tweaks */
+@media (min-width: 1024px) {
+    #map-container {
+        max-width: 1500px; /* Prevents excessive zoom */
+    }
+    .zone {
+        font-size: 1vw; /* Keeps buttons readable */
+    }
 }
+
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    #map-container {
+        width: 100vw;
+    }
+    .zone {
+        font-size: 3vw;
+        padding: 3px 6px;
+    }
+}
+
+
+
+
 
 #zone-info {
-    position: fixed;
-    bottom: 10px;
+    position: absolute; /* Change from 'fixed' to 'absolute' */
+    top: 20%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%); /* Center both horizontally & vertically */
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border: 2px solid #FFD700;
     display: none;
+    z-index: 1000;
 }
 
 button {
@@ -78,18 +115,30 @@ textarea {
     font-weight: bold;
 }
 
-/* Campaign Controls Section */
+/* Default (Mobile-Friendly) */
 #campaign-controls {
-    position: fixed;
-    top: 10px;
-    right: 10px;
     width: 250px;
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border: 2px solid #FFD700;
     text-align: left;
     box-shadow: 0px 0px 10px #FFD700;
+    position: fixed;
+    bottom: 10px;
+    left: 10px; /* Default: Bottom-left on Mobile */
+    z-index: 1000;
 }
+
+/* Desktop Tweaks */
+@media (min-width: 1024px) {
+    #campaign-controls {
+        top: 10px;
+        right: 10px; /* Moves it to the top-right */
+        bottom: auto;
+        left: auto;
+    }
+}
+
 
 /* Saved Campaigns List */
 #campaign-list {
@@ -99,4 +148,5 @@ textarea {
     padding: 5px;
     margin-top: 10px;
 }
+
 
