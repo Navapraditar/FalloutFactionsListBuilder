@@ -90,7 +90,7 @@ body {
 /* Mobile Adjustments */
 @media (max-width: 768px) {
     #zone-info {
-        top: 60%; /* Pushes it further down to avoid cutoff */
+        top: 45%; /* Pushes it further down to avoid cutoff */
         transform: translate(-50%, -50%);
         font-size: 14px; /* Adjust text size for mobile */
         padding: 8px;
