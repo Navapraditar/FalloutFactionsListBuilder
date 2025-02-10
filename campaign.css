@@ -73,16 +73,30 @@ body {
 
 
 #zone-info {
-    position: absolute; /* Change from 'fixed' to 'absolute' */
-    top: 30%;
+    position: absolute;
+    top: 50%; /* Moves it further down to avoid being cut off */
     left: 50%;
-    transform: translate(-50%, -50%); /* Center both horizontally & vertically */
+    transform: translate(-50%, -50%); /* Centers it properly */
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px;
     border: 2px solid #FFD700;
     display: none;
     z-index: 1000;
+    max-width: 90%; /* Prevents it from being too wide on mobile */
+    max-height: 80vh; /* Ensures it stays within view */
+    overflow-y: auto; /* Allows scrolling if needed */
 }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    #zone-info {
+        top: 60%; /* Pushes it further down to avoid cutoff */
+        transform: translate(-50%, -50%);
+        font-size: 14px; /* Adjust text size for mobile */
+        padding: 8px;
+    }
+}
+
 
 button {
     background-color: transparent;
@@ -137,26 +151,29 @@ textarea {
     border: 1px solid #FFD700;
     padding: 5px;
     margin-top: 10px;
+    font-size: 14px; /* Default font size for PC */
 }
 
 /* Make it smaller on mobile */
 @media (max-width: 768px) {
     #campaign-controls {
-        width: 200px; /* Reduce width */
-        font-size: 12px; /* Smaller text */
-        padding: 5px; /* Less padding */
+        width: 180px; /* Reduce width even more on mobile */
+        font-size: 11px; /* Smaller text */
+        padding: 4px; /* Less padding */
     }
 
     #campaign-controls button {
-        font-size: 12px; /* Make buttons smaller */
+        font-size: 11px; /* Make buttons smaller */
         padding: 3px 6px; /* Reduce button padding */
     }
 
     #campaign-list {
-        max-height: 200px; /* Shorter list */
-        font-size: 12px;
+        max-height: 180px; /* Shorter list for mobile */
+        font-size: 11px; /* Smaller font size for better mobile display */
+        padding: 4px; /* Adjust padding */
     }
 }
+
 
 
 
