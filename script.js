@@ -303,7 +303,7 @@ const factions = {
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
-        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
+        S: 4, P: 3, E: 4, C: 4, I: 3, A: 5, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Sledgehammer", points: 14, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
@@ -314,7 +314,7 @@ const factions = {
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
-        S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Sawn-Off Shotgun", points: 18, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
@@ -323,7 +323,7 @@ const factions = {
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
-        S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+        S: 3, P: 3, E: 3, C: 4, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Pipe Revolver", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
