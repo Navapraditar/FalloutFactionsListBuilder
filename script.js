@@ -1632,25 +1632,17 @@ loadListButton.addEventListener("click", function () {
         crewNotesTextarea.value = crewNotes;
     }
 
-    // Sort the unitItems before rendering
-    loadedList.unitItems.sort((a, b) => {
-        // Unit Leader always comes first
-        if (a.isLeader) return -1;
-        if (b.isLeader) return 1;
+	// Sort the unitItems before rendering
+		loadedList.unitItems.sort((a, b) => {
 
-        // Champions come before Grunts
-        if (a.role === "Champion" && b.role !== "Champion") return -1;
-        if (b.role === "Champion" && a.role !== "Champion") return 1;
+			// Sort by total weapon points (descending order)
+			const aPoints = a.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
+			const bPoints = b.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
+			if (bPoints !== aPoints) return bPoints - aPoints; // Descending order
 
-        // Sort by name alphabetically
-        const nameCompare = a.unitName.localeCompare(b.unitName);
-        if (nameCompare !== 0) return nameCompare;
-
-        // Sort by total weapon points (ascending)
-        const aPoints = a.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
-        const bPoints = b.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
-        return aPoints - bPoints;
-    });
+			// Sort by name alphabetically
+			return a.unitName.localeCompare(b.unitName);
+		});
 
     // Load sorted units into the list
     loadedList?.unitItems.forEach(unit => {
