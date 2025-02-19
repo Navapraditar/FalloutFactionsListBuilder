@@ -67,7 +67,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
-            { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim(+2)", effect: "Suppress (2)" },
+            { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
             { name: "Plasma Pistol and Ripper", points: 40, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
             { name: "Missle Launcher", points: 42, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
         ] },
@@ -121,8 +121,8 @@ const factions = {
         S: 5, P: 4, E: 5, C: 4, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Automatic Pipe Rifle", points: 28, type: "Rifle (16\")", test: "3P", traits: "Aim(+1), Storm (1)", effect: "Suppress (2)" },
-            { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" }
+            { name: "Automatic Pipe Rifle", points: 28, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+            { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" }
         ] },
         { name: "Enforcer", type: "Grunt", perks: "Burly, Rad Resistant",
 		stats: { 
@@ -155,7 +155,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Hand Weapon", points: 23, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
-            { name: "Hunting Rifle", points: 39, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Hunting Rifle", points: 39, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
             { name: "Minigun", points: 47, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
         ] },
         { name: "Scavver", type: "Grunt",
@@ -165,8 +165,8 @@ const factions = {
 			weapons: [
             { name: "Short Hunting Rifle", points: 10, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce"  },
             { name: "Sawn-off Shotgun", points: 13, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
-            { name: "Pipe Rifle", points: 12, type: "Rifle (20\")", test: "3P", traits: "Aim(+1)", effect: "Suppress (1)"},
-            { name: "Automatic Pipe Rifle", points: 14, type: "Rifle (16\")", test: "3P", traits: "Aim(+1), Storm (1)", effect: "Suppress (2)" }
+            { name: "Pipe Rifle", points: 12, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
+            { name: "Automatic Pipe Rifle", points: 14, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
@@ -174,7 +174,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
-            { name: "Pipe Revolver & Hand Weapon", points: 11, type: "Pistol (12\")", test: "3A", traits: "Aim(+1), CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver & Hand Weapon", points: 11, type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "Pipe Pistol & Machete", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"  }
         ] },
         { name: "Waster", type: "Grunt",
@@ -194,7 +194,7 @@ const factions = {
         S: 4, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "10mm Pistol and Hunting Rifle", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Rifle (22\")", test2: "3P", traits2: "Aim(+1)", effect2: "Pierce" }
+            { name: "10mm Pistol and Hunting Rifle", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Rifle (22\")", test2: "3P", traits2: "Aim (+1)", effect2: "Pierce" }
         ] },
         { name: "Companion", type: "Champion", perks: "Take Me Home, Pick 1: (Sniper, Scrapper, or Fortune Finder)",
 		stats: { 
@@ -222,7 +222,7 @@ const factions = {
 			{ name: "Pipe Pistol", points: 7, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
             { name: "10mm Pistol", points: 8, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
             { name: "Double-barrelled Shotgun", points: 12, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
-            { name: "Hunting Rifle", points: 13, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" }
+            { name: "Hunting Rifle", points: 13, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" }
         ] },
         { name: "Good Boy", type: "Grunt",perks: "Beast, Sic 'Em, Take Me Home",
 		stats: { 
@@ -303,7 +303,7 @@ const factions = {
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
-        S: 4, P: 3, E: 4, C: 4, I: 4, A: 5, L: 2, W: 1  // SPECIALW stats
+        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Sledgehammer", points: 14, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
@@ -314,7 +314,7 @@ const factions = {
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
-        S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
+        S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Sawn-Off Shotgun", points: 18, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
@@ -323,7 +323,7 @@ const factions = {
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
-        S: 3, P: 3, E: 3, C: 4, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+        S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Pipe Revolver", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
@@ -377,7 +377,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Short Hunting Rifle", points: 10, type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce" },
-            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
@@ -708,7 +708,7 @@ const weaponData = {
     { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
     { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
     { weapon: "Plasma Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
-    { weapon: "Precision Combat Rifle", type: "Rifle (30\")", test: "4P", traits: "Aim(+2)", effect: "Suppress (2)" },
+    { weapon: "Precision Combat Rifle", type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
     { weapon: "Missile Launcher", type: "Heavy (26\")", test: "5S", traits: "Area (3”), Slow", effect: "Maim" },
     { weapon: "Frag Grenades", type: "Grenade (10\")", test: "3A", traits: "Area (1”), CQB", effect: "Suppress (2)" }
 ],
@@ -719,8 +719,8 @@ const weaponData = {
     { weapon: "Heavy Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce" },
     { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim(+1), Storm (1)", effect: "Suppress (2)" },
-    { weapon: "Precision Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
+    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+    { weapon: "Precision Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },
     { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
     { weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
 ],	
@@ -728,11 +728,11 @@ const weaponData = {
     { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
     { weapon: "Machete", type: "Melee", test: "4S", traits: "-", effect: "Maim" },
     { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
-    { weapon: "Pipe Revolver", type: "Pistol (12\")", test: "3A", traits: "Aim(+1), CQB", effect: "Pierce" },
+    { weapon: "Pipe Revolver", type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce" },
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim(+1), Storm (1)", effect: "Suppress (2)" },
-    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
-    { weapon: "Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim(+1)", effect: "Suppress (1)" },
+    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
+    { weapon: "Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" },
     { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
     { weapon: "Short Hunting Rifle", type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce" },
     { weapon: "Stripped Pipe Rifle", type: "Rifle (12\")", test: "3P", traits: "-", effect: "Suppress (1)" },
@@ -748,7 +748,7 @@ const weaponData = {
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
     { weapon: "Combat Shotgun", type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
     { weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
-    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+    { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
     { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" }
 ],
     "The Operators": [
@@ -1603,83 +1603,91 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Load List
-    loadListButton.addEventListener("click", function () {
-        const selectedList = savedListsDropdown.value;
-        if (!selectedList) {
-            alert("Please select a list to load.");
-            return;
-        }
+loadListButton.addEventListener("click", function () {
+    const selectedList = savedListsDropdown.value;
+    if (!selectedList) {
+        alert("Please select a list to load.");
+        return;
+    }
 
-        // Retrieve the selected list from storage
-        const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
-        const loadedList = savedLists[selectedList];
-		
-        // Clear current list and load saved items
-        unitList.innerHTML = "";
-		
-		// Initialize total points to 0
-		let crewPoints = 0;
-		let partyPoints = 0;
-		let chemPoints = 0;
-		updateCrewPoints();
-		updatePartyPoints();
-		updateChemPoints();
-		
-		// Load crew notes
-		const crewNotesTextarea = document.querySelector("#crew-notes");
-		const crewNotes = loadedList?.crewNotes || "";  // Retrieve crew notes if available
-		if (crewNotesTextarea) {
-			crewNotesTextarea.value = crewNotes;  // Set crew notes in the textarea
-		}		
-		
-			// Load unit items
-			loadedList?.unitItems.forEach(unit => {
-            const li = document.createElement("li");
+    // Retrieve the selected list from storage
+    const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+    const loadedList = savedLists[selectedList];
 
-            // Unit name and weapon text
-            const unitName = document.createElement("span");
-            unitName.style.fontWeight = "bold";
-            unitName.textContent = unit.unitName;
-            li.appendChild(unitName);
-            li.appendChild(document.createTextNode(": "));
-			
-			// Create a container div for the checkbox and label
-			const checkboxContainer = document.createElement("span");
-			checkboxContainer.style.display = "inline-flex";
-			checkboxContainer.style.flexDirection = "column";
-			checkboxContainer.style.alignItems = "center";
-			checkboxContainer.style.marginLeft = "10px";
+    // Clear current list and load saved items
+    unitList.innerHTML = "";
 
-			// Create the label
-			const activeLabel = document.createElement("label");
-			activeLabel.textContent = "Active Party";
-			activeLabel.style.fontSize = "10px";
-			activeLabel.style.color = "#B0A050 ";
-			activeLabel.style.marginBottom = "2px"; // Small spacing above checkbox
-			
-			// Add the Active checkbox
-			const activeCheckbox = document.createElement("input");
-			activeCheckbox.type = "checkbox";
-			activeCheckbox.style.marginLeft = "15px";
-        // Store weapon points in data attribute (individual weapon values)
+    // Initialize total points to 0
+    let crewPoints = 0;
+    let partyPoints = 0;
+    let chemPoints = 0;
+    updateCrewPoints();
+    updatePartyPoints();
+    updateChemPoints();
+
+    // Load crew notes
+    const crewNotesTextarea = document.querySelector("#crew-notes");
+    const crewNotes = loadedList?.crewNotes || "";
+    if (crewNotesTextarea) {
+        crewNotesTextarea.value = crewNotes;
+    }
+
+    // Sort the unitItems before rendering
+    loadedList.unitItems.sort((a, b) => {
+        // Unit Leader always comes first
+        if (a.isLeader) return -1;
+        if (b.isLeader) return 1;
+
+        // Champions come before Grunts
+        if (a.role === "Champion" && b.role !== "Champion") return -1;
+        if (b.role === "Champion" && a.role !== "Champion") return 1;
+
+        // Sort by name alphabetically
+        const nameCompare = a.unitName.localeCompare(b.unitName);
+        if (nameCompare !== 0) return nameCompare;
+
+        // Sort by total weapon points (ascending)
+        const aPoints = a.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
+        const bPoints = b.weapons.reduce((sum, wpn) => sum + (parseInt(wpn.points, 10) || 0), 0);
+        return aPoints - bPoints;
+    });
+
+    // Load sorted units into the list
+    loadedList?.unitItems.forEach(unit => {
+        const li = document.createElement("li");
+
+        // Unit name and weapon text
+        const unitName = document.createElement("span");
+        unitName.style.fontWeight = "bold";
+        unitName.textContent = unit.unitName;
+        li.appendChild(unitName);
+        li.appendChild(document.createTextNode(": "));
+
+        // Checkbox for Active Party
+        const checkboxContainer = document.createElement("span");
+        checkboxContainer.style.display = "inline-flex";
+        checkboxContainer.style.flexDirection = "column";
+        checkboxContainer.style.alignItems = "center";
+        checkboxContainer.style.marginLeft = "10px";
+
+        const activeLabel = document.createElement("label");
+        activeLabel.textContent = "Active Party";
+        activeLabel.style.fontSize = "10px";
+        activeLabel.style.color = "#B0A050";
+        activeLabel.style.marginBottom = "2px";
+
+        const activeCheckbox = document.createElement("input");
+        activeCheckbox.type = "checkbox";
+        activeCheckbox.style.marginLeft = "15px";
         activeCheckbox.dataset.points = JSON.stringify(unit.weapons.map(wpn => parseInt(wpn.points, 10) || 0));
-
-        // Ensure all checkboxes start as unchecked when loading
         activeCheckbox.checked = false;
-
-        // Event listener for the Active checkbox
         activeCheckbox.addEventListener("change", () => updatePartyPoints());
 
-		// Append the label and checkbox to the container
-		checkboxContainer.appendChild(activeLabel);
-		checkboxContainer.appendChild(activeCheckbox);
+        checkboxContainer.appendChild(activeLabel);
+        checkboxContainer.appendChild(activeCheckbox);
+        li.appendChild(checkboxContainer);
 
-		// Append the container to the list item (li)
-		li.appendChild(checkboxContainer);
-			
- 
-
-        // SPECIALW Stats Table (with editable fields)
+        // SPECIALW Stats Table
         const statsTable = document.createElement("table");
         statsTable.innerHTML = `
             <thead>
@@ -1691,115 +1699,93 @@ document.addEventListener("DOMContentLoaded", function () {
                 </tr>
             </tbody>`;
         li.appendChild(statsTable);
-			
-// Create a table for weapon details
-const weaponTable = document.createElement("table");
-weaponTable.style.marginTop = "10px";
-weaponTable.style.borderCollapse = "collapse";
-weaponTable.style.width = "100%";
-weaponTable.innerHTML = `
-    <thead>
-        <tr>
-            <th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th>
-        </tr>
-    </thead>
-    <tbody>
-        ${unit.weapons.map((wpn, index) => {
-            // Sum the weapon points into crewPoints
-            crewPoints += parseInt(wpn.points, 10) || 0;
-            
-            // Check if it's the first weapon to include the points column
-            const pointsCell = (index === 0) 
-                ? `<td><input type="number" value="${wpn.points}" class="weapon-points" style="width: 50px;"></td>`
-                : ''; // No points column for subsequent weapons
 
-            return `
+        // Weapon Table
+        const weaponTable = document.createElement("table");
+        weaponTable.style.marginTop = "10px";
+        weaponTable.style.borderCollapse = "collapse";
+        weaponTable.style.width = "100%";
+        weaponTable.innerHTML = `
+            <thead>
                 <tr>
-                    <td>${wpn.name}</td>
-                    <td>${wpn.type}</td>
-                    <td>${wpn.test}</td>
-                    <td>${wpn.traits}</td>
-                    <td>${wpn.effect}</td>
-                    ${pointsCell}
+                    <th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th>
                 </tr>
-            `;
-        }).join('')}
-    </tbody>
-`;
-li.appendChild(weaponTable);
+            </thead>
+            <tbody>
+                ${unit.weapons.map((wpn, index) => {
+                    crewPoints += parseInt(wpn.points, 10) || 0;
+                    const pointsCell = (index === 0) ? `<td><input type="number" value="${wpn.points}" class="weapon-points" style="width: 50px;"></td>` : '';
+                    return `
+                        <tr>
+                            <td>${wpn.name}</td>
+                            <td>${wpn.type}</td>
+                            <td>${wpn.test}</td>
+                            <td>${wpn.traits}</td>
+                            <td>${wpn.effect}</td>
+                            ${pointsCell}
+                        </tr>
+                    `;
+                }).join('')}
+            </tbody>
+        `;
+        li.appendChild(weaponTable);
 
-						
+        // Unit Notes
+        const unitNotes = document.createElement("textarea");
+        unitNotes.classList.add("unit-notes");
+        unitNotes.placeholder = "Enter Perks, Upgrades, Injuries, etc.";
+        unitNotes.rows = 3;
+        unitNotes.style.width = "100%";
+        unitNotes.style.marginTop = "5px";
+        unitNotes.value = unit.notes;
+        li.appendChild(unitNotes);
 
-            // Add a text box for unit notes
-            const unitNotes = document.createElement("textarea");
-            unitNotes.classList.add("unit-notes");
-            unitNotes.placeholder = "Enter Perks, Upgrades, Injuries, etc.";
-            unitNotes.rows = 3;
-            unitNotes.style.width = "100%";
-            unitNotes.style.marginTop = "5px";
-            unitNotes.value = unit.notes; // Load the saved notes
-            li.appendChild(unitNotes);
-			
-			    // Create and add the Remove button
-			const removeButton = document.createElement("button");
-			removeButton.textContent = "Remove unit ABOVE";
-			removeButton.addEventListener("click", () => {
-				// Remove the unit from the list
-				unitList.removeChild(li);
-				
-				// Adjust points
-				unit.weapons.forEach(wpn => {
-					crewPoints -= parseInt(wpn.points, 10) || 0;
-				});
-
-				// Update points display
-				crewPointsDisplay.textContent = crewPoints;
-
-				// If it's a leader, reset the hasLeader flag
-				if (unit.isLeader) hasLeader = false;
-
-				// Adjust party points if the unit was active
-				if (activeCheckbox.checked) {
-					unit.weapons.forEach(wpn => {
-						partyPoints -= parseInt(wpn.points, 10) || 0;
-					});
-					updatePartyPoints(); // Recalculate and update party points
-				}
-
-				// Recalculate and update total points
-				updateCrewPoints();
-				updatePartyPoints();
-			});
-			li.appendChild(removeButton);
-
-            // Add to unit list
-            unitList.appendChild(li);
+        // Remove button
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove unit ABOVE";
+        removeButton.addEventListener("click", () => {
+            unitList.removeChild(li);
+            unit.weapons.forEach(wpn => {
+                crewPoints -= parseInt(wpn.points, 10) || 0;
+            });
+            crewPointsDisplay.textContent = crewPoints;
+            if (unit.isLeader) hasLeader = false;
+            if (activeCheckbox.checked) {
+                unit.weapons.forEach(wpn => {
+                    partyPoints -= parseInt(wpn.points, 10) || 0;
+                });
+                updatePartyPoints();
+            }
+            updateCrewPoints();
+            updatePartyPoints();
         });
-		
-		// Function to update Party Points dynamically
-		function updatePartyPoints() {
-			let totalPoints = 0;
+        li.appendChild(removeButton);
 
-			document.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
-				const weaponPointsArray = JSON.parse(checkbox.dataset.points);
-				totalPoints += weaponPointsArray.reduce((sum, points) => sum + points, 0);
-			});
+        // Add unit to the list
+        unitList.appendChild(li);
+    });
 
-			// Update the UI
-			const partyPointsElement = document.querySelector("#party-points");
-			if (partyPointsElement) {
-				partyPointsElement.textContent = totalPoints;
-			}
-		}
-		
-	// Update total points (sum of all weapon points)
+    // Update Party Points dynamically
+    function updatePartyPoints() {
+        let totalPoints = 0;
+        document.querySelectorAll("input[type='checkbox']:checked").forEach(checkbox => {
+            const weaponPointsArray = JSON.parse(checkbox.dataset.points);
+            totalPoints += weaponPointsArray.reduce((sum, points) => sum + points, 0);
+        });
+        const partyPointsElement = document.querySelector("#party-points");
+        if (partyPointsElement) {
+            partyPointsElement.textContent = totalPoints;
+        }
+    }
+
+    // Update total crew points
     const crewPointsElement = document.querySelector("#crew-points");
     if (crewPointsElement) {
         crewPointsElement.textContent = crewPoints;
     }
 
-        alert(`List "${selectedList}" loaded successfully!`);
-    });
+    alert(`List "${selectedList}" loaded successfully!`);
+});
 
     // Delete List
     deleteListButton.addEventListener("click", function () {
