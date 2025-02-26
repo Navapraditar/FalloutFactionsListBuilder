@@ -76,7 +76,7 @@ const factions = {
         S: 6, P: 6, E: 5, C: 1, I: 1, A: 5, L: 1, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Assaultron Claws & Assaultron Eye Beam", points: 45, type: "Melee", test: "4S", traits: "Fast", effect: "Maim" }
+            { name: "Assaultron Claws and Assaultron Eye Beam", points: 45, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" }
         ] },
         { name: "Conscript", type: "Grunt",
 		stats: { 
@@ -427,7 +427,7 @@ const factions = {
             { name: ".44 Pistol and Machete", points: 16, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
         ] }
 	],
-	"Hireables": [
+		"Hireables": [
         { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
 		stats: { 
         S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
@@ -456,7 +456,126 @@ const factions = {
 			weapons: [
             { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
         ] }
+    ],
+		"Robot Companions": [
+        { name: "Mr Handy", type: "Companion, Grunt", perks: "Hardy, Machine, Medic(Med Unit Only), Programmed",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 0, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Standard Unit Robot Lasers and Various Appendages", points: 52, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)" },
+			{ name: "Medical Unit Robot Lasers and Various Appendages", points: 57, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)" },
+			{ name: "Combat Unit Robot Lasers and Various Appendages and Flamer", points: 60, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)", type3: "Heavy(6\")", test3: "4S", traits3: "Area(2\") CQB", effect3: "Ignite(3)"}
+        ] },
+        { name: "Protectron", type: "Companion, Grunt", perks: "Hardy, Machine, Medic(Med Unit Only), Programmed, Self Destruct",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 0, I: 1, A: 2, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Builder Unit Nail Gun and Robot Bash", points: 30, type: "Rifle (12\")", test: "3P", traits: "CQB Fast", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Standard Unit Robot Lasers and Robot Bash", points: 32, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Medical Unit Robot Bash", points: 33, type: "Melee", test: "4S", traits: "-", effect: "-" },
+			{ name: "Firefighter Unit Hand Cryojet and Robot Bash", points: 35, type: "Heavy (6\")", test: "3S", traits: "Area(2\") CQB Slow", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Police Unit Robot Lasers and Shock Hand", points: 35, type: "Rifle (16\")", test: "4P", traits: "CQB Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Non-lethal Fast", effect2: "Suppress(1)"}
+        ] },
+        { name: "Eyebot", type: "Companion, Grunt", perks: "Bullet Magnet, Eye Catching, Flight, Machine, Programmed",
+		stats: { 
+        S: 2, P: 4, E: 4, C: 0, I: 1, A: 5, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Eyebot Laser", points: 15, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(1)"}
+        ] },
+        { name: "Securitron MK 1.0", type: "Companion, Grunt", perks: "Burly, Hardy, Machine, Programmed",
+		stats: { 
+        S: 5, P: 5, E: 6, C: 0, I: 1, A: 2, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Robot Lasers and Securitron SMG and Robot Bash", points: 45, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Rife(12\")", test2: "3P", traits2: "Storm(3)", effect2: "Suppress(2)", type3: "Melee", test3: "4S", traits3: "-", effect3: "-" }
+		] },	
+        { name: "Securitron MK 2.0", type: "Companion, Grunt", perks: "Burly, Hardy, Life Giver, Machine, Programmed",
+		stats: { 
+        S: 5, P: 6, E: 7, C: 0, I: 1, A: 2, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Robot Lasers and Securitron SMG and Robot Bash and Shoulder Launchers", points: 70, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Rife(12\")", test2: "3P", traits2: "Storm(3)", effect2: "Suppress(2)", type3: "Melee", test3: "4S", traits3: "-", effect3: "-", type4: "Heavy(12\")", test4: "3S", traits4: "Area(2\")", effect4: "Maim" }
+		] },
+        { name: "Nukatron", type: "Companion, Grunt", perks: "Hardy, Machine, Programmed, Self Destruct",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 0, I: 1, A: 2, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Robot Lasers and Robot Bash", points: 30, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Nuka Dispenser and Robot Bash", points: 25, type: "Pistol (8\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Robot Bash", points: 20, type: "Melee", test: "4S", traits: "-", effect: "-" }
+		] },
+        { name: "Mr Frothy", type: "Companion, Grunt", perks: "Flight,Hardy, Machine, Programmed, Self Destruct",
+		stats: { 
+        S: 5, P: 5, E: 6, C: 0, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Nuka Dispenser and Robot Bash", points: 40, type: "Pistol (8\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" }
+		] }				
+    ],
+		"Creature Companions": [
+        { name: "Brahmin", type: "Companion, Grunt", perks: "Beast, Rad Resistant",
+		stats: { 
+        S: 4, P: 3, E: 5, C: 1, I: 1, A: 2, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Trample", points: 15, type: "Melee", test: "4S", traits: "Wind Up", effect: "Pushback(3)"}
+        ] },
+        { name: "Bloatfly", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Flight, Swarm",
+		stats: { 
+        S: 2, P: 3, E: 2, C: 1, I: 1, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Bloatfly Larvae", points: 5, type: "Pistol(10\")", test: "2A", traits: "Fast", effect: "-"}
+        ] },
+        { name: "Bloodbug", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Flight, Swarm",
+		stats: { 
+        S: 3, P: 2, E: 3, C: 1, I: 1, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Bloodbug Proboscis", points: 10, type: "Melee", test: "4S", traits: "-", effect: "Poison(2)"}
+        ] },
+        { name: "Deathclaw", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Blitz, Burly, Wide Swings",
+		stats: { 
+        S: 7, P: 2, E: 6, C: 1, I: 1, A: 5, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Deathclaw Claws", points: 70, type: "Melee", test: "5S", traits: "-", effect: "Maim Pushback(1)"}
+        ] },
+        { name: "Mongrel", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Sprint, Swarm",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 1, I: 2, A: 4, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws & Jaws", points: 10, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"}
+        ] },
+        { name: "Radstag", type: "Companion, Grunt", perks: "Beast, Rad Resistant",
+		stats: { 
+        S: 4, P: 3, E: 4, C: 1, I: 1, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Radstag Antlers", points: 10, type: "Melee", test: "4S", traits: "Wind Up", effect: "Pierce"}
+        ] },
+        { name: "Radstag Doe", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Swarm",
+		stats: { 
+        S: 3, P: 3, E: 3, C: 1, I: 1, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Doe Shove", points: 5, type: "Melee", test: "2S", traits: "-", effect: "-"}
+        ] },
+        { name: "Yao Guai", type: "Companion, Grunt", perks: "Beast, Rad Resistant, Burly, Hardy, Freight Train",
+		stats: { 
+        S: 7, P: 3, E: 7, C: 1, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Yao Guai Claws & Jaws", points: 70, type: "Melee", test: "5S", traits: "-", effect: "Maim Pushback(2)"}
+        ] }		
     ]
+	
+	
 };
 
 //Perks data for all factions
@@ -510,7 +629,19 @@ const perksData = [
   { perk: "True Wisdom of the Mothman", prereq:"-", description: "Friendly models within this model's Control Area may count their Charisma statistic as being 8. When a model within this model's Control Area would Fail a Confusion Test, you may reduce Ritual Count by 1 to have the model Pass the Test instead." },
   { perk: "Take Me Home", prereq:"-", description: "When this model suffers Harm, it may have another friendly model that is not at Harm Limit within 3\" suffer the Harm instead." },
   { perk: "Machine", prereq:"-", description: "This model always passes any Confusion test it is required to make. When this model is Incapacitated, it does not trigger Confusion tests in other models. Additionally, Chems cannot be used on this model, and it is unaffected by Poison(X)." },
-  { perk: "Wasteland Wanderer", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." }
+  { perk: "Wasteland Wanderer", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." },
+  { perk: "Eye Catching", prereq:"-", description: "This model always counts as being Wide Open." },
+  { perk: "Flight", prereq:"-", description: "This model is unaffected by the Proximity of enemy models and can take the Get Moving action whilst Engaged. This model does not count vertical movement towards their total allowed when climbing, and is always considered to have an Agility greater than difference in elevation when dropping down from a Terrain Feature." },
+  { perk: "Freight Train", prereq:"-", description: "This model can take the Get Moving Action whilst Engaged." },
+  { perk: "Machine", prereq:"-", description: "This model always passes any Confusion Test it is required to make. When this model is Incapacitated, it does not trigger Confusion Tests in other models. In addition, Chems cannot be used on this model, and it is unaffected by the Poison (X) and Tranquilise (X) Critical Effects. Finally, this model is unaffected by Radiation Tokens." },
+  { perk: "Programmed", prereq:"-", description: "This model cannot be a crew’s Leader, cannot take the Crew Training Story Action. In addition, it cannot gain Perks, or Experience." },
+  { perk: "Self Destruct", prereq:"-", description: "When this model is Incapacitated, each other model within 3” of it Suffers 1 Harm." },
+  { perk: "Swarm", prereq:"-", description: "When this model is taken as a Companion, you may add up to three models to your crew, instead of one, adding the Rating of each individual Companion to your Champion's Rating." },
+  { perk: "Bullet Magnet", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." },
+  { perk: "Sprint", prereq:"-", description: "When this model uses the Get Moving Action, it may move an extra 2”." },
+  { perk: "Wide Swings", prereq:"-", description: "When creating a Dice Pool for a Melee Attack, this model gains 1 Bonus Die for each Enemy model it is Engaged with, beyond the first." },
+  { perk: "Roboteer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Robot Companions list (pg. 5) to add to your Crew Roster. The Rating of the selected Companion is added to this Champion's Rating. This Perk may only be taken once per model." },
+  { perk: "Creature Tamer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Creature Companions list (pg. 8) to add to your Crew Roster. The Rating of the selected Companion is added to this Champions Rating. This Perk may only be taken once per model." }
 ];
 
 // Critical Effects table
@@ -805,7 +936,7 @@ const weaponData = {
 		{ weapon: "Mothman Sonic Wave", type: "Melee", test: "5S", traits: "Pulse", effect: "Pushback(2)" },
 		{ weapon: "Heavy Pipe Pistol", type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pierce" },
 		{ weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
-		{ weapon: "Mothman Screech", type: "Pistol(10\")", test: "5A", traits: "Pulse", Fase: "Pushback(1)" },
+		{ weapon: "Mothman Screech", type: "Pistol(10\")", test: "5A", traits: "Pulse", effect: "Pushback(1)" },
 		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
 		{ weapon: "Combat Shotgun", type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
 		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
@@ -813,7 +944,30 @@ const weaponData = {
 		{ weapon: "Hardened Sniper Rifle",type: "Rifle(36\")", test: "2P", traits: "Aim(3)", effect: "Showstopper" },
 		{ weapon: "Flamer", type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" },
 		{ weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
-    ]
+    ],
+	"Creature Companions": [
+        { weapon: "Bloodbug Proboscis", type: "Melee", test: "4S", traits: "-", effect: "Poison(2)"},
+        { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)" },
+		{ weapon: "Deathclaw Claws", type: "Melee", test: "5S", traits: "-", effect: "Maim Pushback(1)" },
+		{ weapon: "Doe Shove", type: "Melee", test: "2S", traits: "-", effect: "-"},
+		{ weapon: "Radstag Antlers", type: "Melee", test: "4S", traits: "Wind Up", effect: "Pierce"},
+		{ weapon: "Trample", type: "Melee", test: "4S", traits: "Wind Up", effect: "Pushback(3)"},
+		{ weapon: "Deathclaw Claws", type: "Melee", test: "5S", traits: "-", effect: "Maim Pushback(1)"},
+		{ weapon: "Bloatfly Larvae", type: "Pistol(10\")", test: "2A", traits: "Fast", effect: "-" }
+    ],
+	"Robot Companions": [
+        { weapon: "Robot Bash", type: "Melee", test: "4S", traits: "-", effect: "-" },
+        { weapon: "Shock Hand", type: "Melee", test: "4S", traits: "Non-lethal Fast", effect: "Suppress(1)" },
+		{ weapon: "Various Appendages", type: "Melee", test: "4S", traits: "Fast", effect: "Maim Suppress(2) Tranquilize(1)" },
+		{ weapon: "Eyebot Laser", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(1)" },
+		{ weapon: "Nuka Dispenser", type: "Pistol (8\")", test: "4P", traits: "Fast", effect: "Suppress(1)" },
+		{ weapon: "Nail Gun", type: "Rifle (12\")", test: "3P", traits: "CQB Fast", effect: "Pierce" },
+		{ weapon: "Robot Lasers", type: "Rifle (16\")", test: "4P", traits: "CQB Fast", effect: "Suppress(1)" },
+		{ weapon: "Securitron SMG", type: "Rife(12\")", test: "3P", traits: "Storm(3)", effect: "Suppress(2)" },
+		{ weapon: "Flamer", type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" },
+		{ weapon: "Hand Cryojet", type: "Heavy (6\")", test: "3S", traits: "Area(2\") CQB Slow", effect: "Suppress(1)" },
+		{ weapon: "Shoulder Launchers", type: "Heavy(12\")", test: "3S", traits: "Area(2\")", effect: "Maim" }
+    ]	
 };
 
 const ployData = {
@@ -1229,6 +1383,8 @@ statsTable.querySelectorAll("input").forEach(input => {
 const selectedWeaponData = selectedUnitData.weapons.find(w => w.name === selectedWeapon);
 
 // Start building the table HTML
+		//This shit sucks, maybe the better to do things is to create an object for each weapon. That way i don't have to just call them WPN2, WPN3, etc. I probably also would get to avoid typing them in the weapon table and faction weapon table..
+		//But i can't, i need the weapon sets as 1 object to pair with the points since points are based on weapon SETS. I think..
 let tableHTML = `
     <thead>
         <tr><th>Name</th><th>Type</th><th>Test</th><th>Traits</th><th>Effect</th><th>Points</th></tr>
@@ -1246,26 +1402,51 @@ let tableHTML = `
             </td>
         </tr>`;
 
-        // Check if second weapon data exists and add another row if so
-        if (selectedWeaponData.type2 && selectedWeaponData.test2) {
-            tableHTML += `
-            <tr>
-                <td>${"WPN2 ->"}</td>
-                <td>${selectedWeaponData.type2}</td>
-                <td>${selectedWeaponData.test2}</td>
-                <td>${selectedWeaponData.traits2}</td>
-                <td>${selectedWeaponData.effect2}</td>
-                <!-- Exclude Points column in second row -->
-            </tr>`;
-        }
+// Check if second weapon data exists and add another row if so
+if (selectedWeaponData.type2 && selectedWeaponData.test2) {
+    tableHTML += `
+        <tr>
+            <td>${"WPN2 ->"}</td>
+            <td>${selectedWeaponData.type2}</td>
+            <td>${selectedWeaponData.test2}</td>
+            <td>${selectedWeaponData.traits2}</td>
+            <td>${selectedWeaponData.effect2}</td>
+            <!-- Exclude Points column in second row -->
+        </tr>`;
+}
 
-        // Close the tbody and table tags
-        tableHTML += `</tbody>`;
+// Check if third weapon data exists and add another row if so
+if (selectedWeaponData.type3 && selectedWeaponData.test3) {
+    tableHTML += `
+        <tr>
+            <td>${"WPN3 ->"}</td>
+            <td>${selectedWeaponData.type3}</td>
+            <td>${selectedWeaponData.test3}</td>
+            <td>${selectedWeaponData.traits3}</td>
+            <td>${selectedWeaponData.effect3}</td>
+            <!-- Exclude Points column in third row -->
+        </tr>`;
+}
 
-		// Update the table with the generated HTML
-		weaponDataTable.innerHTML = tableHTML;
+// Check if fourth weapon data exists and add another row if so
+if (selectedWeaponData.type4 && selectedWeaponData.test4) {
+    tableHTML += `
+        <tr>
+            <td>${"WPN4 ->"}</td>
+            <td>${selectedWeaponData.type4}</td>
+            <td>${selectedWeaponData.test4}</td>
+            <td>${selectedWeaponData.traits4}</td>
+            <td>${selectedWeaponData.effect4}</td>
+        </tr>`;
+}
 
-		li.appendChild(weaponDataTable);
+// Close the tbody and table tags
+tableHTML += `</tbody>`;
+
+// Update the table with the generated HTML
+weaponDataTable.innerHTML = tableHTML;
+
+li.appendChild(weaponDataTable);
 
 
 		//unitNotes to autofill with innate perks
@@ -1801,5 +1982,3 @@ loadListButton.addEventListener("click", function () {
     // Initialize dropdown on page load
     updateSavedListsDropdown();
 });
-
-
