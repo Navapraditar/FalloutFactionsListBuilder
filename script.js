@@ -1,45 +1,50 @@
 const factions = {
 	    "Brotherhood of Steel": [
-        { name: "Paladin in Power Armor", type: "Champion, Leader", perks: "Natural Leader, Burly, Rad Resistant, Hardy",
+        { name: "Paladin (PA)", type: "Champion, Leader", perks: "Natural Leader, Power Armor",
 		stats: { 
-        S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
+        S: 7, P: 5, E: 7, C: 6, I: 5, A: 4, L: 2, W: 4  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 49, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  },
-            { name: "Gatling Laser", points: 57, type: "Heavy (16\")", test: "4P", traits: "Area (1\")", effect: "Ignite (2)" },
-            { name: "Minigun", points: 64, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
+            { name: "Flamer", points: 67, type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)"  },
+            { name: "Gatling Laser", points: 72, type: "Heavy (16\")", test: "4S", traits: "Area (1\") Slow", effect: "Ignite(2)" },
+            { name: "Minigun", points: 79, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
         ] },
-        { name: "Scribe", type: "Champion", perks: "Gun Nut",
+        { name: "Field Scribe", type: "Champion", perks: "Spotter",
 		stats: { 
-        S: 3, P: 3, E: 4, C: 4, I: 7, A: 4, L: 2, W: 2  // SPECIALW stats
+        S: 3, P: 4, E: 4, C: 3, I: 6, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Pistol", points: 21, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
-            { name: "10mm Pistol", points: 26, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  }
+            { name: "Laser Pistol", points: 21, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)" },
+            { name: "10mm Pistol", points: 26, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  },
+            { name: "Crusader Pistol", points: 31, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim" }
         ] },
-        { name: "Knight in Power Armor", type: "Grunt", perks: "Burly, Rad Resistant, Hardy",
+        { name: "Knight (PA)", type: "Grunt", perks: "Power Armor",
 		stats: { 
         S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Ripper", points: 45, type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
-            { name: "Ripper and Laser Pistol", points: 49, type: "Melee", test: "5S", traits: "Fast", effect: "Maim", type2: "Pistol (10\")", test2: "3A", traits2: "CQB", effect2: "Ignite (2)"  },
-            { name: "Laser Rifle", points: 50, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" }
+            { name: "Laser Pistol and Machete", points: 50, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
+            { name: "Ripper", points: 55, type: "Melee", test: "5S", traits: "Fast", effect: "Maim"},
+            { name: "Laser Rifle", points: 60, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite(1)" }
         ] },
         { name: "Aspirant", type: "Grunt",
 		stats: { 
-        S: 4, P: 5, E: 4, C: 5, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
+        S: 4, P: 5, E: 5, C: 4, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
+            { name: "Laser Pistol and Hand Weapon", points: 20, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"   },
+            { name: "Crusader Pistol and Hand Weapon", points: 23, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"    },
             { name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
             { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
         ] },
-        { name: "Lancer", type: "Grunt",
+        { name: "Initiate", type: "Grunt", perks: "Sprint",
 		stats: { 
-        S: 3, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 1  // SPECIALW stats
+        S: 3, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
+            { name: "Recon Hunting Rifle", points: 19, type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Laser Rifle", points: 23, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  },
+			{ name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" }
         ] }
     ],
 	    "Gunners": [
@@ -68,7 +73,7 @@ const factions = {
 			weapons: [
             { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
             { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
-            { name: "Plasma Pistol and Ripper", points: 40, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
+            { name: "Plasma Pistol and Ripper", points: 40, type: "Pistol (12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
             { name: "Missle Launcher", points: 42, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
         ] },
         { name: "Assaultron", type: "Grunt", perks: "Machine, Rad Resistant",
@@ -105,15 +110,16 @@ const factions = {
         S: 6, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Heavy Pipe Pistol and Sledgehammer", points: 46, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  },
-            { name: "Assault Rifle and Sledgehammer", points: 48, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  }
+            { name: "Plasma Pistol and Sledgehammer", points: 46, type: "Pistol (12\")", test: "4A", traits: "CQB FAST", effect: "Meltdown", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  },
+            { name: "Short Hunting Rifle and Super Sledge", points: 48, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce", type2: "Melee", test2: "6S", traits2: "Unwieldy (6)", effect2: "Maim"  }
         ] },
         { name: "Brute", type: "Champion", perks: "Burly, Rad Resistant",
 		stats: { 
         S: 6, P: 5, E: 6, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sledgehammer", points: 37, type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim"  },
+            { name: "Laser Rifle", points: 32, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)"  },            
+			{ name: "Sledgehammer", points: 37, type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim"  },
             { name: "Minigun", points: 48, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce"  }
         ] },
         { name: "Skirmisher", type: "Grunt", perks: "Burly, Rad Resistant",
@@ -122,16 +128,22 @@ const factions = {
             }, 
 			weapons: [
             { name: "Automatic Pipe Rifle", points: 28, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
-            { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" }
+            { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
+			{ name: "Laser Rifle", points: 33, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
+            { name: "Assault Rifle", points: 33, type: "Rifle (20\")", test: "4P", traits: "Storm(1)", effect: "Maim" }
+
         ] },
         { name: "Enforcer", type: "Grunt", perks: "Burly, Rad Resistant",
 		stats: { 
-        S: 5, P: 3, E: 5, C: 3, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
+        S: 5, P: 3, E: 5, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Pipe Pistol and Hand Weapon", points: 17, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
-            { name: "Hand Weapon and Molotov Cocktails", points: 25, type: "Melee", test: "3S", traits: "Fast", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)"  },
-            { name: "Heavy Pipe Pistol and Sledgehammer", points: 25, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim" }
+            { name: "Hand Weapon and Molotov Cocktails", points: 25, type: "Melee", test: "3S", traits: "Fast", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"  },
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 25, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim" },
+            { name: "Super Sledge and Molotov Cocktails", points: 26, type: "Melee", test: "6S", traits: "Unwieldy (6)", effect: "Maim", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"   },			
+            { name: "Short Hunting Rifle and Molotov Cocktails", points: 28, type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"  }			
+			
         ] },
         { name: "Mutant Hound", type: "Grunt", perks: "Beast, Burly, Rad Resistant, Sic 'Em",
 		stats: { 
@@ -142,89 +154,117 @@ const factions = {
         ] }
     ],
 	    "Wasteland Raiders": [
-        { name: "Butcher in Power Armor", type: "Champion, Leader", perks: "Natural Leader, Burly, Rad Resistant, Hardy, Personal Stash",
+        { name: "Boss (PA)", type: "Champion, Leader", perks: "Natural Leader, Personal Stash, Power Armor",
 		stats: { 
-        S: 5, P: 5, E: 5, C: 5, I: 5, A: 5, L: 3, W: 4  // SPECIALW stats
+        S: 5, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Assault Rifle", points: 46, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim"  }
+            { name: ".44 Pistol and Machete", points: 40, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
+            { name: "Assault Rifle", points: 45, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+            { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
+            { name: "Minigun", points: 54, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce" }
         ] },
-        { name: "Veteran", type: "Champion",
+        { name: "Butcher (PA)", type: "Champion", perks: "Sticky Fingers, Power Armor",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hunting Rifle", points: 41, type: "Rifle(22\")", test: "3A", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Flamer", points: 45, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
+            { name: "Missile Launcher", points: 56, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"}
+
+        ] },
+        { name: "Veteran", type: "Champion", perks:"Sticky Fingers",
 		stats: { 
         S: 4, P: 4, E: 4, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hand Weapon", points: 23, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
-            { name: "Hunting Rifle", points: 39, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
-            { name: "Minigun", points: 47, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
+            { name: "Pipe Pistol and Hand Weapon", points: 23, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "Pipe Pistol and Machete", points: 24, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
+            { name: "Sawn-off Shotgun", points: 25, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim"},
+            { name: "Pipe Rifle", points: 25, type: "Rifle(20\")", test: "3P", traits: "Aim(+1)", effect: "Suppress(1)"}			
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
-        S: 3, P: 4, E: 3, C: 3, I: 3, A: 3, L: 2, W: 1  // SPECIALW stats
+        S: 3, P: 4, E: 4, C: 3, I: 3, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Short Hunting Rifle", points: 10, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce"  },
-            { name: "Sawn-off Shotgun", points: 13, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
-            { name: "Pipe Rifle", points: 12, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
-            { name: "Automatic Pipe Rifle", points: 14, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" }
+            { name: "Short Hunting Rifle", points: 16, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce"  },
+            { name: "Sawn-off Shotgun", points: 18, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
+            { name: "Pipe Rifle", points: 18, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
+            { name: "Automatic Pipe Rifle", points: 20, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" }
         ] },
         { name: "Psycho", type: "Grunt",
 		stats: { 
-        S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+        S: 4, P: 3, E: 4, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-" },
-            { name: "Pipe Revolver & Hand Weapon", points: 11, type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
-            { name: "Pipe Pistol & Machete", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"  }
+            { name: "Pipe Revolver and Hand Weapon", points: 17, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Baseball Bat", points: 17, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Molotov Cocktails and Baseball Bat", points: 19, type: "Grenade(8\")", test: "2A", traits: "CQB Area(2\")", effect: "Ignite(2)", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Baseball Grenades and Hand Weapon", points: 22, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] },
-        { name: "Waster", type: "Grunt",
+        { name: "Scum", type: "Grunt",
 		stats: { 
         S: 3, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Stripped Pipe Rifle", points: 9, type: "Rifle (12\")", test: "3P", traits: "-", effect: "Suppress (1)" },
-            { name: "Pipe Pistol & Molotovs", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)" },
-            { name: "Pipe Pistol & Hand Weapon", points: 16, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
-			{ name: "Molotov Cocktails & Hand Weapon", points: 11, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+            { name: "Pipe Revolver and Baseball Bat", points: 17, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Pipe Pistol & Molotov Cocktails", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)" },
+            { name: "Pipe Pistol & Machete", points: 16, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
+			{ name: "Pipe Rifle", points: 11, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" }
         ] }
     ],
-	    "Wastelanders": [
-        { name: "Protagonist", type: "Champion, Leader", perks: "Natural Leader, Inspirational, Take Me Home",
+	    "Survivors": [
+        { name: "Local Leader", type: "Champion, Leader", perks: "Natural Leader, Inspirational, Survivalist",
 		stats: { 
         S: 4, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "10mm Pistol and Hunting Rifle", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Rifle (22\")", test2: "3P", traits2: "Aim (+1)", effect2: "Pierce" }
+            { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S", traits: "Creative Projectiles", effect: "Suppress(1)" },			
+            { name: "Sawn-off Shotgun and Officer's Sword", points: 40, type: "Rifle(8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Pierce" },            
+			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Pierce"}
         ] },
-        { name: "Companion", type: "Champion", perks: "Take Me Home, Pick 1: (Sniper, Scrapper, or Fortune Finder)",
+        { name: "Specialist", type: "Champion", perks: "Pick 1: (Hunter: Sniper, Survivalist), (Medic: Medic, Survivalist) (Trader: Fortune Finder, Survivalist)",
 		stats: { 
-        S: 3, P: 5, E: 4, C: 5, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
+        S: 3, P: 5, E: 4, C: 5, I: 6, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Sawn-Off Shotgun and Baseball Bat", points: 23, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" , type2: "Melee", test2: "3S", traits2: "Wind Up", effect2: "Suppress (1)" },
-            { name: "Combat Shotgun and Hand Weapon", points: 26, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"},
-            { name: "Assault Rifle", points: 31, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" }
+			{ name: "Medic: Hand Weapon", points: 20, type: "Melee", test: "3S", traits: "Fast", effect: "-"},	
+			{ name: "Trader: Flare Gun", points: 24, type: "-", test: "-", traits: "Distress Signal)", effect: "-"},
+            { name: "Hunter: Precision Hunting Rifle", points: 35, type: "Rifle (24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"},            
+            { name: "Hunter: Double-barreled Shotgun", points: 38, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim"}
         ] },
-        { name: "Mercenary", type: "Grunt", perks: "Take Me Home",
+        { name: "Security Guard", type: "Grunt", perks: "Survivalist",
 		stats: { 
         S: 3, P: 4, E: 5, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Shotgun", points: 17, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-            { name: "Combat Shotgun and Hand Weapon", points: 18, type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
-            { name: "Assault Rifle ", points: 22, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" }
+            { name: "Hunting Rifle", points: 22, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Automatic Pipe Rifle", points: 24, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
+            { name: "Combat Rifle", points: 27, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" }
         ] },
-        { name: "Regular Joe", type: "Grunt", perks: "Take Me Home",
+        { name: "Swatter", type: "Grunt", perks: "Survivalist",
+		stats: { 
+        S: 4, P: 3, E: 5, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Revolver and Hand Weapon", points: 21, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Baseball Bat", points: 21, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Baseball Grenades and Baseball Bat", points: 25, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Sawn-off Shotgun and Hand Weapon", points: 27, type: "Rifle(8\")", test: "4A", traits: "CQB Storm(2)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+        ] },
+        { name: "Settler", type: "Grunt", perks: "Survivalist",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 4, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-			{ name: "Pipe Pistol", points: 7, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
-            { name: "10mm Pistol", points: 8, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
-            { name: "Double-barrelled Shotgun", points: 12, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
-            { name: "Hunting Rifle", points: 13, type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" }
+			{ name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-"},
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Double-barrelled Shotgun", points: 15, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+            { name: "Pipe Bolt-Action Rifle", points: 16, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" }
         ] },
-        { name: "Good Boy", type: "Grunt",perks: "Beast, Sic 'Em, Take Me Home",
+        { name: "Good Boy", type: "Grunt",perks: "Beast, Sic 'Em, Survivalist",
 		stats: { 
         S: 4, P: 3, E: 3, C: 3, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
             }, 
@@ -308,7 +348,7 @@ const factions = {
 			weapons: [
             { name: "Sledgehammer", points: 14, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
             { name: "Light Handmade Rifle", points: 18, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
-            { name: "Pipe Revolver and Baseball Bat", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Pipe Revolver and Baseball Bat", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
             { name: "10mm Pistol and Hand Weapon", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
             { name: "10mm Pistol and Baseball Bat", points: 24, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
@@ -326,9 +366,9 @@ const factions = {
         S: 3, P: 3, E: 3, C: 4, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Pipe Revolver", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
+            { name: "Pipe Revolver", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
             { name: "10mm Pistol", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
-            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "Light Handmade Rifle", points: 16, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" }
         ] }
     ],
@@ -359,7 +399,7 @@ const factions = {
 			weapons: [
             { name: "Short Hunting Rifle", points: 15 , type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce"},
             { name: "Light Handmade Rifle", points: 20, type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)"  },
-            { name: "Pipe Revolver and Hand Weapon", points: 21, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Hand Weapon", points: 21, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "10mm Pistol and Machete", points: 21, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"}
         ] },
         { name: "Scavver", type: "Grunt",
@@ -377,7 +417,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Short Hunting Rifle", points: 10, type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce" },
-            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" , type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
@@ -404,7 +444,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Molotov Cocktails and Heavy Pipe Pistol", points: 22, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Pistol(8\")", test2: "4A", traits2: "CQB", effect2: "Pierce"},
-            { name: "Pipe Revolver and Hand Weapon", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "Pipe Revolver and Hand Weapon", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
             { name: "Heavy Pipe Pistol and Machete", points: 24, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
         ] },
         { name: "Disciple", type: "Grunt", perks: "Ritual",
@@ -423,11 +463,11 @@ const factions = {
 			weapons: [
             { name: "Pipe Pistol and Machete", points: 12 , type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
             { name: "10mm Pistol and Machete", points: 14, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
-			{ name: "Pipe Revolver and Machete", points: 15, type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
+			{ name: "Pipe Revolver and Machete", points: 15, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
             { name: ".44 Pistol and Machete", points: 16, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
         ] }
 	],
-		"Hireables": [
+		"Legends of the Wasteland": [
         { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
 		stats: { 
         S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
@@ -455,8 +495,78 @@ const factions = {
             }, 
 			weapons: [
             { name: "Heavy Assault Rifle and Power Armor Punch", points: 42, type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "-", effect2: "Pushback(3)"  }
+        ] },
+		{ name: "King of the Park", type: "Champion, Leader, Hiring Fee: 87", perks: "PLOY: Nuka-nuke Launcher, Iron Fist, King of the Castle, Natural Leader, Power Armor",
+		stats: { 
+        S: 7, P: 5, E: 7, C: 6, I: 5, A: 5, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Iron Fist and PLOY ONLY: Nuka-Nuke Launcher", points: 87, type: "Melee", test: "5S", traits: "Fast", effect: "Maim", type2: "Heavy(20\")", test2: "5S", traits2: "CQB Area(2\") Irradiate One-and-Done", effect2: "-"  }
+        ] },
+        { name: "Bottle and Cappy", type: "Grunt, Hiring Fee: 48", perks: "Every Minimum Acceptable Safety Standard Met, Four Leaf Clover, Hidden, Zip of Nuka-Cola",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 6, I: 5, A: 4, L: 4, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Splattercannon and Bladed Commie Whacker", points: 48, type: "Rifle (22\")", test: "5P", traits: "Fast", effect: "Suppress(3)", type2: "Melee", test2: "2S", traits2: "Fast", effect2: "Pierce"  }
+        ] },		
+        { name: "Redeye", type: "Champion, Hiring Fee: 50", perks: "Inspirational, Intimidation, Recruiter",
+		stats: { 
+        S: 5, P: 5, E: 4, C: 6, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "The Real Deal", points: 50, type: "Melee", test: "4S", traits: "Fast", effect: "Maim"  }
+        ] },		
+        { name: "Mason", type: "Champion, Leader, Hiring Fee: 63", perks: "Inspirational, Natural Leader, Survivalist, Toughness",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Heavy Combat Shotgun", points: 63, type: "Rifle(10\")", test: "5P", traits: "Fast Storm(1)", effect: "Maim"  }
+        ] },	
+        { name: "Mags Black", type: "Champion, Leader, Hiring Fee: 61", perks: "Making a Withdrawal, Natural Leader, Rifleman",
+		stats: { 
+        S: 5, P: 6, E: 5, C: 5, I: 6, A: 5, L: 2, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Suppressing Handmade Rifle", points: 61, type: "Rifle(22\")", test: "4P", traits: "Fast", effect: "Suppress(3)"  }
+        ] },
+        { name: "Nisha", type: "Champion, Leader, Hiring Fee: 68", perks: "Making a Withdrawal, Natural Leader, Rifleman",
+		stats: { 
+        S: 6, P: 5, E: 5, C: 6, I: 6, A: 6, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Disciple's Blade and Plasma Pistol", points: 68, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(12\")", test2: "4A", traits2: "CQB Fast", effect2: "Meltdown"  }
+        ] },				
+        { name: "Overboss Colter (PA)", type: "Champion, Leader, Hiring Fee: 72", perks: "Cheater, Natural Leader, Power Armor",
+		stats: { 
+        S: 7, P: 5, E: 7, C: 2, I: 3, A: 4, L: 1, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Powerful Combat Rifle and Iron Fist", points: 72, type: "Rifle(24\")", test: "5P", traits: "Fast", effect: "Maim", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"  }
+        ] },			
+        { name: "Nick Valentine", type: "Champion, Hiring Fee: 37", perks: "Adaptable, Informant, Rad Resistant",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 6, I: 7, A: 4, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Revolver", points: 37, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce"  }
+        ] },	
+        { name: "Paladin Danse (PA)", type: "Champion, Leader, Hiring Fee: 78", perks: "Know your Enemy (Super Mutants), Natural Leader, Odd Anatomy, Power Armor",
+		stats: { 
+        S: 6, P: 6, E: 7, C: 5, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Rifle", points: 78, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)"  }
+        ] },
+        { name: "Fist", type: "Champion, Leader, Hiring Fee: 72", perks: "Burly, Natural Leader, Rad Resistant, Toughness, Unending Stamina",
+		stats: { 
+        S: 7, P: 5, E: 6, C: 5, I: 5, A: 5, L: 2, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Minigun", points: 72, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce"  }
         ] }
-    ],
+	],
 		"Robot Companions": [
         { name: "Mr Handy", type: "Companion, Grunt", perks: "Hardy, Machine, Medic(Med Unit Only), Programmed",
 		stats: { 
@@ -581,33 +691,85 @@ const factions = {
 //Perks data for all factions
 const perksData = [
   { perk: "Big Leagues", prereq:"S4", description: "When this model makes a Melee Attack, treat its Luck as being 1 higher." },
+  { perk: "Drag", prereq:"S4", description: "After this model makes the Back Off Action, its controller may make a Drag Test (3S). For each Hit rolled, move a model that the moving model was Engaged with (at the beginning of the Back Off Action), into Base contact with the moving model. The normal rules for moving apply and the dragged model cannot be moved within 1” of an opposing model unless it can also be placed into Engagement with that model." },
+  { perk: "Mancatcher", prereq:"S5", description: "After this model Incapacitates an Enemy Champion crew member with a Melee Attack, its controller may make a Capture Test (1S). If Passed, the Incapacitated model is Captured and becomes a Captive (see pg. 55), it does not roll on the Aftermath Table during the Story Phase. Otherwise, they are Incapacitated as normal." },
+  { perk: "Charge", prereq:"S5", description: "After performing a Get Moving Action, if this model is Engaged with an Enemy model, it may make a Brawl Action without Taking Fatigue." },
+  { perk: "Basher", prereq:"S4", description: "When this model makes a Melee Attack, if the Weapon has the Pushback Critical Effect trait, increase its value by 2 until the Attack has resolved. Otherwise, it gains the Pushback (4) Critical effect until the Attack has resolved.." },
+  { perk: "Strong Back", prereq:"S3", description: "Once per Turn, during its activation, this model may make the Rummage Action without Taking Fatigue." },
   { perk: "Steady Aim", prereq:"S4", description: "When the Active player declares that this model will make an Open Fire Action with a Rifle or Heavy weapon, and they have not moved this Action, they gain a Bonus Die." },
   { perk: "Grenadier", prereq:"S6", description: "Add 3\" to the Range of any Grenade weapons carried by this model." },
+  { perk: "Wide Swings", prereq:"S6", description: "When creating a Dice Pool for a Melee Attack, this model gains 1 Bonus Die for each Enemy model it is Engaged with, beyond the first." },
   { perk: "Iron Fist", prereq:"S7", description: "Add this weapon to the model's Roster Entry: Iron Fist, Melee, 5S, Fast, Maim" },
+  
+  { perk: "Wayfinder", prereq:"P3", description: "When Scouting as part of a Scout Story Action, this model makes the Scout Test at (3P), rather than (2P)" }, 
+  { perk: "Hobble", prereq:"P3", description: "Enemy models Damaged by this model during a Ranged Attack, with a Weapon without the Area (X”) Trait, cannot be activated in the following Turn, unless all other models in the Enemy crew are Exhausted" }, 
+  { perk: "Overwatch", prereq:"P4", description: "When this model makes a Ranged Attack, if the Target Model moved in the previous Turn, it is Wide Open until the attack has resolved." }, 
+  { perk: "Spotter", prereq:"P4", description: "Friendly models within the Control Area of one or more models with this Perk may Re-roll one dice when making the Rummage Action." }, 
+  { perk: "Penetrator", prereq:"P5", description: "When this model makes a Ranged Attack (with a Weapon without the Area trait) against a Target model with an Endurance score of 5 or more, reduce the Target model's Endurance by 1, until the Attack has resolved" }, 
+  { perk: "Called Shot", prereq:"P6", description: "When this model makes a Ranged Attack with a Pistol or Rifle, if the Weapon has the Aim Trait, increase its value by 2 until the Attack has resolved. Otherwise, it gains the Aim (+2) Trait until the Attack has resolved" }, 
   { perk: "Sniper", prereq:"P4", description: "When this model makes a Ranged Attack with a Rifle weapon, the Target never counts as being Obscured" },
-  { perk: "Pickpocket", prereq:"P5", description: "When this model makes a Back Off Action, the Active player makes a Pickpocket Test (3P) for it. If the Test Passes, the opposing player must spend a Chem of their choice from their Crew Roster, without using it. The Active player immediately adds one dose of the same Chem to their own Roster if they have capacity. If the test scores 3 or more Hits, the Active player can choose which Chem is stolen instead." },
+  { perk: "Pickpocket", prereq:"P5", description: "When this model makes a Back Off Action, its controller may make a Pickpocket Test (3P). If Passed, the opposing player removes one dose of a Chem they have on their Crew Roster, it has been stolen. The Active player then adds one dose of the same Chem to their own Roster, if they have capacity. If the Test scores 3 or more Hits, the Active player can choose which Chem is stolen, instead of the opposing player." },
   { perk: "Rifleman", prereq:"P6", description: "When this model makes a Ranged Attack and uses a Rifle weapon, treat its Luck as being 1 higher" },
   { perk: "Awareness", prereq:"P7", description: "This model can give Supporting Fire even if it is not within the attacking model's Control Area. Other restrictions still apply." },
+  
+  { perk: "Stonewall", prereq:"E3", description: "This model’s Proximity area is 2”, rather than 1”." },
+  { perk: "Selfless", prereq:"E3", description: "If this model is a Target model of an Attack from a Weapon with the Area (X”) Trait, before the Attack Test is made, its controller may declare that it is Shielding Others. If it does, the Attack is resolved with this model as the only Target, and the Dice Pool gains a Bonus Die." },
+  { perk: "Immortal", prereq:"E4", description: "When a player rolls on the Serious Injury Table for this model, roll an extra die and choose a result." },
+  { perk: "Odd Anatomy", prereq:"E5", description: "When this model is the Target of an Enemy Attack, during the Trigger Critical Effect step its controller may make a Shrug Test (2E). If a number of Hits are rolled equal to, or greater than, the number of Luck Dice left in the Attacker's Dice Pool, no Critical Effects can be triggered until the Attack has resolved." },
+  { perk: "Unending Stamina", prereq:"E6", description: "Once per Round, when this Model is Exhausted, its controller may declare it is performing a Relentless Action at the beginning of their Turn, before choosing an Active Model. If they do, this model becomes the Active Model (ignoring the standard rules for selecting an Active Model) and may perform 1 Action without Taking Fatigue. At the end of the Relentless Action, this model Suffers 1 Injury." }, 
   { perk: "Rad Resistant", prereq:"E4", description: "This model is unaffected by Radiation Tokens." },
   { perk: "Cannibal", prereq:"E5", description: "If a model is Incapacitated while in contact with this model, this model recovers all Harm." },
+  { perk: "Bullet Magnet", prereq:"E5", description: "When making a Ranged Attack against your models, Enemy models must Target this model if it is the closest Visible Friendly model that can be Targeted. If a model has the Unassuming Perk, it cannot take this Perk." },
   { perk: "Toughness", prereq:"E6", description: "The first time each game that this model would be Incapacitated, make a 2E test for it. If it Passes, it immediately takes enough Harm to bring it to its Harm Limit but remains in play." },
   { perk: "Lifegiver", prereq:"E7", description: "At the start of each Round, this model recovers 2 Harm" },
+  
+  { perk: "Warden", prereq:"C3", description: "When a player makes a Captive Story Action, if their crew possesses one or more models with this Perk that are not marked as Absent, they may roll twice when determining the Score on their Faction’s Captive Table, picking whichever of the two results they choose." },
+  { perk: "Fast Talker", prereq:"C3", description: "If this model is Captured or becomes a Captive, its controller may make a Charm Test (2C). If Passed, the model talks their way out of it and does not become a Captive, it is not listed on the opponents Captives Roster, and it is not listed as Absent on the controllers Crew Roster." },
+  { perk: "Lieutenant", prereq:"C4", description: "During the Story Phase, if no model in a crew containing this model has the Natural Leader Perk, this model loses this Perk and gains the Natural Leader Perk. You may then Upgrade this model twice, as described in the Crew Training Story Action. These Upgrades do not cost any XP and do not count toward the model’s Upgrade Limit." },
+  { perk: "Unassuming", prereq:"C5", description: "When making a Ranged Attack against your models, Enemy models cannot Target this model, if there is a closer visible Friendly model that can be targeted. If a model has the Bullet Magnet Perk, it cannot take this Perk." },
+  { perk: "Partyboy/girl", prereq:"C5", description: "When a Chem is used on this model, it may either: Recover all Harm; or Recover 1 Injury." },
+  { perk: "Animal Friend", prereq:"C4", description: "At the start of a game, you may deploy a Dog in Base contact with this model. It is treated as a Friendly model for the rest of the game. It counts as a member of your crew but is removed at the end of a game." },  
   { perk: "Inspirational", prereq:"C4", description: "Increase this model's Control Area by 2\"." },
-  { perk: "Lone Wanderer", prereq:"C5", description: "While this model does not have any other Friendly models within its Control Area, add a Bonus Die to any Tests you make for it." },
+  { perk: "Lone Wanderer", prereq:"C5", description: "While this model does not have any other Friendly models within its Control Area, add 2 Bonus Die to any Tests you make for it." },
   { perk: "Intimidation", prereq:"C6", description: "When the opposing player makes a Confusion Test for an Enemy model within this model's Influence, they count its Intelligence as 1 lower." },
   { perk: "Cap Collector", prereq:"C7", description: "When trading Chems for Caps, double the number of Caps (During Scavenge or when clearing Rare Chems) that the crew receives if there is at least one model with the Perk in the crew and it is not marked as Absent." },
+  
   { perk: "Scrapper", prereq:"I4", description: "When this model makes a Search Action, double the number of Caps and Parts added to the crew's Stash." },
   { perk: "Chemist", prereq:"I5", description: "If this model is not Absent at the start of a game, the crew increases its Chem Budget by 5 (Even if it has a higher Rep than the opposing crew)." },
   { perk: "Medic", prereq:"I6", description: "When this model makes a Patch Up Action, it can either remove up to 3 Harm from itself, or remove up to 3 Harm from a Friendly model within 1\". If this model is not Abesent when the Crew makes a Recuperate, add a Bonus Die to all Endurance Tests made to see whether Champions recover from Serious Injuries." },
   { perk: "Gun Nut", prereq:"I7", description: "If this model is not marked Abest at the end of the Make Story Actions step, you may pay Parts to Modify a single weapon as though the crew had made a Modify Weapons Story Action." },
+  { perk: "Adaptable", prereq:"I3", description: "Once per game, when creating this model's Dice Pool for a S.P.E.C.I.A.L. Test, you may use this model's Intelligence in place of any other Statistic for that Test." },
+  { perk: "Savant", prereq:"I4", description: "When performing the Crew Training Story Action to purchase an Upgrade for this model, reduce the XP cost by 2." },
+  { perk: "Informant", prereq:"I4", description: "When Setting up a Game, after completing the Starting Positions step of an Objective (or Scenario), if this model is on the Battlefield, its controller may Reposition a number of Friendly models equal to its Luck statistic. If both crews have model with this Perk, the player with the Initiative Token may choose who Repositions their models first." },
+  { perk: "Strategist", prereq:"I5", description: "When a crew containing one or more models (which are not marked as Absent) with this Perk would spend 1 or more Scouting Points, the crew controller may make a Strategy Test (1I). If passed, the crew gains 1 Scouting Point." },
+  { perk: "Trigonometry", prereq:"I4", description: "When creating the Dice Pool for a Ranged Attack with this model, if it is at least 2” higher in elevation than its Target, add 2 Bonus Dice to the Pool." },
+  { perk: "Coroner", prereq:"I4", description: "During the Treat the Wounded Step of the Story Phase, if a crew has one or more models with this Perk (who are not Absent), whenever a friendly model rolls either the Broken (Aftermath Table), or Dead (Serious Injury Table) results, its controller may make an Autopsy Test (2I). If Passed, the crew gains 1XP for each Hit rolled." },  
+
+  
   { perk: "Blitz", prereq:"A4", description: "After this model completes a Brawl Action, the Active player can move it up to 3\"." },
   { perk: "Gunslinger", prereq:"A5", description: "Add 4\" to the Effective Range of any Pistols this model is carrying" },
   { perk: "Fire and Move", prereq:"A6", description: "After this model completes an Open Fire Action, the Active player can move it up to 4\"." },
   { perk: "Moving Target", prereq:"A7", description: "When this model is targeted by an Attack Action, its controlling player can declare that it will dodge at the start of the Make the Attack Test step. A model that dodges takes 1 Fatigue, but its Endurance is increased by 2 until the attack has been resolved. (Stacks with Buffout)" },
-  { perk: "Fortune Finder", prereq:"L4", description: "Whenever this model makes a Scavenge Action, add Caps equal to the result of the die roll to the crew's Stash." },
-  { perk: "Four Leaf Clover", prereq:"L5", description: "When Fortune Smiles on a SPECIAL test for this model, add 2 Standard Dice to the roll instead of 1." },
-  { perk: "Bloody Mess", prereq:"L6", description: "If an attack made by this model Incapacitates an Enemy model, each other Enemy model within 2\" takes 1 Harm. Excess Harm has no effect." },
-  { perk: "Grim Reaper's Sprint", prereq:"L7", description: "If an attack made by this model Incapacitates an Enemy model and at least 2 Luck Dice scored Hits, this model recovers 1 Fatigue." },
+  { perk: "Sprint", prereq:"A3", description: "When this model uses the Get Moving Action, it may move an extra 2”." },
+  { perk: "Parting Shot", prereq:"A4", description: "After making a Back Off Action to move out of an Enemy model’s proximity, this model may make a Ranged Attack using a Pistol Weapon against that model, without Taking Fatigue." },
+  { perk: "Hidden", prereq:"A4", description: "This model does not need to be deployed as normal. At the start of the first Round, its controller may place this model anywhere on the Battlefield that isn’t within an Enemy model’s Control Area." },
+  { perk: "Hit the Deck", prereq:"A6", description: "When making a Ranged Attack against your models, Enemy models cannot Target this model, unless it is either Wide Open, or has a Fatigue Token." },
+  { perk: "Guns Akimbo", prereq:"A6", description: "When this model makes an Attack Action with a Pistol, if that Weapon does not have the Fast Trait, it gains the Fast Trait until the Attack has resolved" },
+  { perk: "Reflexes", prereq:"A7", description: "When an Enemy model moves into this model's Proximity, this model may make a Reaction Test (2A). If Passed, this model may make a Ranged Attack with a Weapon without the Slow Trait against the Enemy model." },  
+ 
+
+  { perk: "Fortune Finder", prereq:"L2", description: "After this model resolves a Rummage Action, its controller rolls a die and gains Caps equal to its result." },
+  { perk: "Four Leaf Clover", prereq:"L3", description: "During the Fortune Smiles Step of a S.P.E.C.I.A.L. Test, this model rolls 2 Standard Dice for each Luck Die remaining in the Pool, instead of one." },
+  { perk: "Bloody Mess", prereq:"L3", description: "If this model Incapacitates an Enemy model with an Attack, each other Enemy model within 2” of the Incapacitated model Suffers 1 Harm." },
+  { perk: "Grim Reaper's Sprint", prereq:"L4", description: "When this Model Incapacitates an Enemy model with an Attack, if at least two Luck Dice Hit, this Model Recovers 1 Fatigue." },
+  
+  { perk: "Malfunction", prereq:"L2", description: "f an Enemy Ranged Attack Targeting this model scores 0 Hits, the Attacking Model Suffers 1 Harm." },
+  { perk: "Ricochet", prereq:"L2", description: "If an Enemy Ranged Attack Targeting this model scores 0 Hits, this model's controller may choose a different model within 6” to become the Target of a Ricochet. The Attacker Re-rolls the Attack Test against the Ricochet Target, as if it were the original Target of the Attack." },
+  { perk: "Lend Luck", prereq:"L3", description: "Attacks made by Friendly models against Enemy Targets within 3” of this model, may use this model’s Luck statistic when creating a Dice Pool, instead of their own Luck." },
+  { perk: "Lucky Charm", prereq:"L3", description: "When this model's controller uses a Ploy, if they have no Ploy Tokens left, they may make a Luck Test (4L). If Passed, the crew gains 1 Ploy Token." },
+  { perk: "Better Criticals", prereq:"L4", description: "When this model triggers a Critical Effect with a numerical value, such as Ignite (X), increase that value by 2 until the Attack is resolved." },
+  { perk: "Mysterious Stranger", prereq:"L4", description: "At the start of each Round after the first, this model's controller may make a Mysterious Stranger Test (1L). If Passed, that player deploys a friendly Mysterious Stranger model in Base contact with the edge of the Battlefield closest to this model. Once a player has passed a Mysterious Stranger Test, they may not attempt it again that game. The Mysterious Stranger is counted as part of its controller's crew, but is removed from the roster at the end of the game. S:5 P:5 E:6 C:4 I:5 A:6 L:3 W:1 Mysterious .44 Pistol (18\") 4A Aim(+1) Pierce" },
+  
   { perk: "Natural Leader", prereq:"-", description: "This model automatically passes Confusion tests. When making an Intelligence test for a friendly model within this model's Control Area, you can choose to use this model's Intelligence instead. " },
   { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks." },
   { perk: "Burly", prereq:"-", description: "This model's Harm limit is 4 instead of 3." },
@@ -637,9 +799,19 @@ const perksData = [
   { perk: "Programmed", prereq:"-", description: "This model cannot be a crew’s Leader, cannot take the Crew Training Story Action. In addition, it cannot gain Perks, or Experience." },
   { perk: "Self Destruct", prereq:"-", description: "When this model is Incapacitated, each other model within 3” of it Suffers 1 Harm." },
   { perk: "Swarm", prereq:"-", description: "When this model is taken as a Companion, you may add up to three models to your crew, instead of one, adding the Rating of each individual Companion to your Champion's Rating." },
-  { perk: "Bullet Magnet", prereq:"-", description: "This model can be temporarily added to a Crew using the Legends of the Wasteland rules." },
-  { perk: "Sprint", prereq:"-", description: "When this model uses the Get Moving Action, it may move an extra 2”." },
-  { perk: "Wide Swings", prereq:"-", description: "When creating a Dice Pool for a Melee Attack, this model gains 1 Bonus Die for each Enemy model it is Engaged with, beyond the first." },
+  { perk: "King of the Castle", prereq:"-", description: "This model's crew may use the Nuka-nuke Launcher Ploy. In addition, this model's crew may use the Faction Ploys for The Pack, Operators and Disciples from the Fallout: Factions - Battle for Nuka-World Starter Set." },
+  { perk: "Every Minimum Acceptable Safety Standard Met", prereq:"-", description: "This model has no Harm Limit." },
+  { perk: "Zip of Nuka-Cola", prereq:"-", description: "When this model would be Incapacitated, if a crew has a model within 2” of this model, they add a dose of Nuka-Cola to their Crew Roster." },
+  { perk: "Recruiter", prereq:"-", description: "If at the end of a game, this model was not Incapacitated, its crew may make the Recruit Story Action once for free during the next Story Phase" },
+  { perk: "Making a Withdrawal", prereq:"-", description: "When this model would cause an Enemy model to suffer an Injury or Harm, the opposing player may reduce their Stash by 5 Caps per Injury and Harm. For every 5 Caps removed, this model’s crew gains 5 Caps and the Enemy model suffers one less Injury or Harm, as appropriate." },
+  { perk: "One Rule", prereq:"-", description: "All Friendly models within this model’s Control Area have the Blitz Perk." },
+  { perk: "Cheater", prereq:"-", description: "This model can make the Get Moving, Open Fire, Patch Up, and Rummage Actions while it is Engaged." }, 
+  { perk: "Know Your Enemy (Faction)", prereq:"-", description: "When creating the Dice Pool for an Attack Action against an Enemy model from X Faction, this model gains 1 Bonus Dice. If a model gains this Perk, their controller picks the applicable Faction at that time." }, 
+  { perk: "Outsider", prereq:"-", description: "This model’s weapon cannot be modified using the Modify Weapons Story Action, and they cannot be upgraded using the Crew Training Story Action. This model does not count toward or affect any Crew Limits. If this model is a Champion, it does not allow a crew to take 5 more Grunts. In addition, the model does not count as a Friendly model for the purposes of Confusion Tests." }, 
+  { perk: "Power Armor", prereq:"-", description: "This model gains the following benefits: This model cannot Suffer Fatigue. It can still Take Fatigue by performing Actions, or other effects. This model’s Harm Limit is 4 instead of 3. This model is unaffected by Radiation Tokens." }, 
+  { perk: "V.A.T.S.", prereq:"-", description: "After declaring an Attack Action with this model, but before creating the Dice Pool, you may declare the number of Hits you expect to roll. During the Remove Duds step, if your declared number matches the number of Hits left in the Pool, then each Hit counts as 2 Hits instead." }, 
+  { perk: "Survivalist", prereq:"-", description: "Whenever this model would Suffer Harm from an Attack, and there is another Friendly model within 3” that has no Harm, the Friendly model may Suffer that Harm instead." }, 
+  { perk: "Sticky Fingers", prereq:"-", description: "When this model makes the Rummage Action to Find a Chem, after adding a Chem to the Crew Roster, they may add a second Chem with a Cap cost no higher than the total result of the two rolled dice." }, 
   { perk: "Roboteer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Robot Companions list (pg. 5) to add to your Crew Roster. The Rating of the selected Companion is added to this Champion's Rating. This Perk may only be taken once per model." },
   { perk: "Creature Tamer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Creature Companions list (pg. 8) to add to your Crew Roster. The Rating of the selected Companion is added to this Champions Rating. This Perk may only be taken once per model." }
 ];
@@ -809,21 +981,36 @@ document.getElementById('toggle-weapon-table').addEventListener('click', functio
 // Example data for different factions
 const weaponData = {
 	"Brotherhood of Steel": [
-    { weapon: "Ripper", type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
-    { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
+    { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },    
+	{ weapon: "Ripper", type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
+    { weapon: "Machete", type: "Melee", test: "4S", traits: "-", effect: "Maim" }, 
+    { weapon: "Crusader Pistol", type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim" },
+	{ weapon: "Recon Hunting Rifle", type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce"},
+	{ weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
     { weapon: "Laser Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
     { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
     { weapon: "Laser Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
     { weapon: "Flamer", type: "Heavy (6\")", test: "4S", traits: "Area (2\"), CQB", effect: "Ignite (3)" },
-    { weapon: "Gatling Laser", type: "Heavy (16\")", test: "4P", traits: "Area (1\")", effect: "Ignite (2)" },
+    { weapon: "Gatling Laser", type: "Heavy (16\")", test: "4P", traits: "Area (1\") Slow", effect: "Ignite (2)" },
     { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
 ],
-	"Hireables": [
+	"Legends of the Wasteland": [
     { weapon: "Tranquilizer Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Tranquilize(3)" },
     { weapon: "The Ghoul's Pistol", type: "Pistol (8\")", test: "5A", traits: "CQB", effect: "Maim" },
     { weapon: "The Ghoul's Rifle" ,type: "Rifle (18\")", test: "5P", traits: "Fast", effect: "Suppress(2)"},
     { weapon: "Claws and Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  },
-    { weapon: "Heavy Assault Rifle", type: "Rifle (20\")", test: "5P", traits: "Storm(1)", effect: "Maim" },
+    { weapon: "Iron Fist", type: "Melee", test: "5S", traits: "Fast", effect: "Maim" },
+    { weapon: "PLOY ONLY: Nuka-Nuke Launcher", type: "Heavy(20\")", test: "5S", traits: "CQB Area(2\") Irradiate One-and-Done", effect: "-" },
+    { weapon: "Splattercannon", type: "Rifle (22\")", test: "5P", traits: "Fast", effect: "Suppress(3)" },
+    { weapon: "Bladed Commie Whacker", type: "Melee", test: "2S", traits: "Fast", effect: "Pierce" },
+    { weapon: "The Real Deal", type: "Melee", test: "4S", traits: "Fast", effect: "Maim" },
+    { weapon: "Heavy Combat Shotgun", type: "Rifle(10\")", test: "5P", traits: "Fast Storm(1)", effect: "Maim" },
+    { weapon: "Suppressing Handmade Rifle", type: "Rifle(22\")", test: "4P", traits: "Fast", effect: "Suppress(3)" },
+    { weapon: "Disciple's Blade", type: "Melee", test: "4S", traits: "Fast", effect: "Maim" },
+    { weapon: "Plasma Pistol", type: "Pistol(12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown" },
+    { weapon: "Powerful Combat Rifle", type: "Rifle(24\")", test: "5P", traits: "Fast", effect: "Maim" },
+    { weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
+    { weapon: "Laser Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
     { weapon: "Power Armor Punch", type: "Melee", test: "4S", traits: "-", effect: "Pushback(3)"  }
 ],
 	"Gunners": [
@@ -847,40 +1034,53 @@ const weaponData = {
     { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" },
     { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
     { weapon: "Sledgehammer", type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim" },
-    { weapon: "Heavy Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce" },
+    { weapon: "Super Sledger", type: "Melee", test: "6S", traits: "Unwieldy (6)", effect: "Maim" },    
+	{ weapon: "Heavy Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce" },
     { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
+	{ weapon: "Plasma Pistol", type: "Pistol (12\")", test: "4A", traits: "CQB FAST", effect: "Meltdown"},
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
     { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
-    { weapon: "Precision Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },
-    { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+	{ weapon: "Laser Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
+	{ weapon: "Precision Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },
+    { weapon: "Short Hunting Rifle", type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce" },
+	{ weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
     { weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
 ],	
 	"Wasteland Raiders": [
     { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
     { weapon: "Machete", type: "Melee", test: "4S", traits: "-", effect: "Maim" },
+    { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "Wind Up", effect: "Suppress(1)" },
+	{ weapon: ".44 Pistol", type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce"},
     { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
     { weapon: "Pipe Revolver", type: "Pistol (12\")", test: "3A", traits: "Aim (+1), CQB", effect: "Pierce" },
     { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+    { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
     { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
     { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
     { weapon: "Pipe Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" },
     { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
     { weapon: "Short Hunting Rifle", type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce" },
-    { weapon: "Stripped Pipe Rifle", type: "Rifle (12\")", test: "3P", traits: "-", effect: "Suppress (1)" },
+    { weapon: "Flamer", type: "Heavy (6\")", test: "4S", traits: "Area (2\"), CQB", effect: "Ignite (3)" },
     { weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+	{ weapon: "Missile Launcher", type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"},
+	{ weapon: "Baseball Grenades", type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)"},
     { weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
 ],
-	"Wastelanders": [
-    { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "Wind Up", effect: "Suppress (1)" },
-    { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" },
+	"Survivors": [
+    { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "Wind Up", effect: "Suppress(1)" },
+    { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)" },
     { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
-    { weapon: "10mm Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-" },
-    { weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
-    { weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-    { weapon: "Combat Shotgun", type: "Shotgun (10\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-    { weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+	{ weapon: "Officer's Sword", type: "Melee", test: "4S", traits: "Fast", effect: "Pierce"},
+	{ weapon: "Flare Gun", type: "-", test: "-", traits: "Distress Signal)", effect: "-"},
+    { weapon: "Automatic Pipe Rifle", type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm(1)", effect: "Suppress (2)" },
+	{ weapon: "Pipe Bolt-action Rifle", type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Pierce"},
+	{ weapon: "Precision Hunting Rifle", type: "Rifle (24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"},
+    { weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+    { weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm(2)", effect: "Maim" },
     { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
-    { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" }
+    { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim" },
+	{ weapon: "Junk Jet", type: "Heavy(10\")", test: "3S", traits: "Creative Projectiles", effect: "Suppress(1)"},
+	{ weapon: "Baseball Grenades", type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)"}
 ],
     "The Operators": [
         { weapon: "Baseball Bat", type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
@@ -903,7 +1103,7 @@ const weaponData = {
 		{ weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
 		{ weapon: "Sledgehammer", type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim" },
 		{ weapon: "10mm Pistol", type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
-		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
+		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
 		{ weapon: "Sawn-off Shotgun", type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
 		{ weapon: "Light Handmade Rifle", type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
 		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
@@ -917,7 +1117,7 @@ const weaponData = {
         { weapon: "Machete", type: "Melee", test: "4S", traits: "-", effect: "Maim" },
 		{ weapon: ".44 Pistol", type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce" },
 		{ weapon: "10mm Pistol", type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
-		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
+		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
 		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
 		{ weapon: "Hunting Rifle", type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
 		{ weapon: "Light Handmade Rifle", type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
@@ -937,7 +1137,7 @@ const weaponData = {
 		{ weapon: "Heavy Pipe Pistol", type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pierce" },
 		{ weapon: "Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-" },
 		{ weapon: "Mothman Screech", type: "Pistol(10\")", test: "5A", traits: "Pulse", effect: "Pushback(1)" },
-		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(1\") CQB", effect: "Pierce" },
+		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
 		{ weapon: "Combat Shotgun", type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
 		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
 		{ weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
@@ -968,6 +1168,212 @@ const weaponData = {
 		{ weapon: "Hand Cryojet", type: "Heavy (6\")", test: "3S", traits: "Area(2\") CQB Slow", effect: "Suppress(1)" },
 		{ weapon: "Shoulder Launchers", type: "Heavy(12\")", test: "3S", traits: "Area(2\")", effect: "Maim" }
     ]	
+};
+
+const questData = {
+		"Brotherhood of Steel": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "You use a standard Ploy", Target: "3"},
+		{line: "Ad Victoriam", Tier: "1", Condition: "You win a game as the Underdon", Target: "1"},
+		{line: "Ad Victoriam", Tier: "1", Condition: "Your crew gains at least 4 XP in a single game", Target: "3"},
+		{line: "Ad Victoriam", Tier: "2", Condition: "One of your models Incapacitates an Enemy model with a Ranged Attack", Target: "10"},
+		{line: "Ad Victoriam", Tier: "2", Condition: "You play a game as the Attacker", Target: "3"},
+		{line: "Ad Victoriam", Tier: "2", Condition: "Your crew has at least 6 Reach", Target: "1"},
+		{line: "Ad Victoriam", Tier: "3", Condition: "One of your models Incapacitates an Enemy Leader with a Ranged Attack", Target: "3"},
+		{line: "Ad Victoriam", Tier: "3", Condition: "At the end of the Story Phase, you have 6 Facilities on your Home Turf", Target: "3"},
+		{line: "Ad Victoriam", Tier: "3", Condition: "In a game against you, an Enemy model Fails a Confusion Test", Target: "6"},
+		{line: "By Steel", Tier: "1", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
+		{line: "By Steel", Tier: "1", Condition: "You use the Vertibird Drop Ploy", Target: "3"},
+		{line: "By Steel", Tier: "1", Condition: "You choose to play the Duel Objective", Target: "1"},
+		{line: "By Steel", Tier: "2", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
+		{line: "By Steel", Tier: "2", Condition: "You use the Judge Captives Story Action", Target: "1"},
+		{line: "By Steel", Tier: "2", Condition: "One of your models passes a Confusion Test", Target: "6"},
+		{line: "By Steel", Tier: "3", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
+		{line: "By Steel", Tier: "3", Condition: "At least 5 of your models have a perk that they did not start the campaign with", Target: "1"},
+		{line: "By Steel", Tier: "3", Condition: "One of your models Incapacitates an Enemy Champion with a Ranged Attack.", Target: "8"},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "A Scribe ends a game without being Incapacitated.", Target: "6"},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "You use the Chain that Binds Ploy.", Target: "3"},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "A model in your crew chooses Find Caps and Parts when making a Rummage Action ", Target: "8"},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "A Scribe in your crew gains a Perk.", Target: "4"},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "You modify a weapon", Target: "4"},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "Your crew Incapacitates a model with at least one Weapon Modification. ", Target: "4"},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "A Scribe in your crew has 9 Intelligence.", Target: "1"},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "A Scribe chooses to gain Caps and Parts when they make the Rummage Action.", Target: "8"},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "Your crew has 6 Facilities on their Home Turf.", Target: "3"}
+	],
+		"Super Mutants": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
+		"Wasteland Raiders": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
+		"Survivors": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
+		"The Pack": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
+		"The Operators": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
+		"The Disciples": [
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+	],
 };
 
 const ployData = {
@@ -1003,12 +1409,12 @@ const ployData = {
     ],
 	    "Brotherhood of Steel": [
         {
-            name: "Pre-War Tech",
-            descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Select one of your model’s weapons. It gains Brutalise, Pierce or Suppress(2)."
+            name: "The Chain That Binds",
+            descr: "You may enact this Ploy at the start of the game, before the start of the first Turn. Each Grunt model within the Control Area of a Friendly Champion may take a single Action, taking Fatigue as normal."
         },
         {
             name: "Vertibird Drop",
-            descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Choose one of your models. They are not deployed at the start of the game, Instead, deploy them anywhere on the board at the start of Turn 2."
+            descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Choose one of your models. They are not deployed at the start of the game. Instead, when you become the Active player on Turn 2, place the model in Base contact of a Battlefield edge of your choice."
         }
     ],
 	    "Gunners": [
@@ -1038,19 +1444,25 @@ const ployData = {
         },
         {
             name: "Oh Yeah",
-            descr: "Enact this Ploy at the start of any of your Turns. As an additional cost, remove either a Chem or Rare Chem from your stash. Choose one of your Exhausted Grunts. Remove all Fatigue from it. Add 3 Bonus Dice to all Attack Tests this model makes. At the end of the round, remove this model from play."
+            descr: "Enact this Ploy at the start of any of your Turns. As an additional cost, remove either a Chem or Rare Chem from your stash. Choose one of your Exhausted Grunts. Remove all Fatigue from it. Add 3 Bonus Dice to all Attack Tests this model makes. When this model next becomes Exhausted, it cannot Recover Fatigue, or have Fatigue removed from it. At the end of this Round, this model is Incapacitated."
         }
     ],
-	    "Wastelanders": [
+	    "Survivors": [
         {
-            name: "I Don’t Want To Set the World on Fire",
-            descr: "Enact this Ploy when an enemy model completes a Get Moving action. Nominate a piece of Terrain. Until the end of the round, when an enemy model moves within 3” of this Terrain, their controlling player makes an Evade Test (2A). If the model fails the test, it suffers 3 Damage."
+            name: "No Place Like Home",
+            descr: "You may enact this Ploy when a Friendly model is Incapacitated. Add 1 Bonus Dice to the Dice Pool of all Confusion Tests made as a result of the Friendly model being Incapacitated."
         },
         {
             name: "Some Rain Must Fall",
-            descr: "Enact this Ploy when a friendly model is Incapacitated by an enemy model. Every friendly model may make an Open Fire or Brawl action without taking Fatigue against the enemy model that made the Action that Incapacitated the friendly model."
+            descr: "Enact this Ploy when a friendly model is Incapacitated by an enemy model, after any Confusion Tests are made. Every friendly model may make an Open Fire or Brawl action without taking Fatigue against the enemy model that made the Action that Incapacitated the friendly model."
         }
-    ],	
+    ],
+	    "Legends of the Wasteland": [
+        {
+            name: "Nuka-nuke Launcher",
+            descr: "You may enact this Ploy at the end of any Round if a Friendly King of the Park in on the Battlefield, and not Incapacitated. A Friendly King of the Park model makes a Ranged Attack Action using the Nuka-nuke Launcher Weapon. Nuka-nuke Launcher - type: Heavy(20\"); test: 5S; traits: Area(2\"), CQB, Irradiate, One and Done"
+        }
+    ],		
 		"Cult of the Mothman": [
         {
             name: "The Enlightened",
