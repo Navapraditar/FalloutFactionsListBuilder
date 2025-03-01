@@ -221,7 +221,7 @@ const factions = {
         S: 4, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S", traits: "Creative Projectiles", effect: "Suppress(1)" },			
+            { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S +1 per Part Used", traits: "Creative Projectiles", effect: "Suppress(1) +1 per Part used" },			
             { name: "Sawn-off Shotgun and Officer's Sword", points: 40, type: "Rifle(8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Pierce" },            
 			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Pierce"}
         ] },
@@ -251,7 +251,7 @@ const factions = {
 			weapons: [
             { name: "Pipe Revolver and Hand Weapon", points: 21, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "Pipe Revolver and Baseball Bat", points: 21, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
-            { name: "Baseball Grenades and Baseball Bat", points: 25, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Baseball Grenades and Baseball Bat", points: 25, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
             { name: "Sawn-off Shotgun and Hand Weapon", points: 27, type: "Rifle(8\")", test: "4A", traits: "CQB Storm(2)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] },
         { name: "Settler", type: "Grunt", perks: "Survivalist",
@@ -829,73 +829,97 @@ const critData = [
 	{crit: "Tranquilize(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target's Endurance, the Target suffers one Harm, with Excess Harm causing an Injury. If this causes the Target to be Incapacitated, when you do the Treat the Wounded step, there is no lasting effect, as though you rolled Clean Bill of Health." }
 ];
 
+let currentSortColumn = "perk"; // Default sort column
+let ascendingSort = true; // Default sort order
+
 function renderPerksTable() {
-  // Sort the perksData array alphabetically by perk name
-  const sortedPerks = perksData.sort((a, b) => {
-    return a.perk.localeCompare(b.perk); // Sort alphabetically
-  });
+    // Sort the perksData array based on the selected column and order
+    const sortedPerks = [...perksData].sort((a, b) => {
+        if (currentSortColumn === "perk") {
+            return ascendingSort ? a.perk.localeCompare(b.perk) : b.perk.localeCompare(a.perk);
+        } else if (currentSortColumn === "prereq") {
+            return ascendingSort ? a.prereq.localeCompare(b.prereq) : b.prereq.localeCompare(a.prereq);
+        }
+    });
 
-  // Get the container where you want to display the table
-  const tableContainer = document.getElementById("perks-table-container");
+    // Get the container where you want to display the table
+    const tableContainer = document.getElementById("perks-table-container");
+    tableContainer.innerHTML = ""; // Clear existing content
 
-  // Create the table
-  const table = document.createElement("table");
-  table.classList.add("perks-table");
+    // Create the table
+    const table = document.createElement("table");
+    table.classList.add("perks-table");
 
-  // Create the table header
-  const thead = document.createElement("thead");
-  const headerRow = document.createElement("tr");
-  const headers = ["Perk Name", "Description", "Req"];
-  headers.forEach(headerText => {
-    const th = document.createElement("th");
-    th.textContent = headerText;
-    headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+    // Create the table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = [
+        { key: "perk", text: "Perk Name (click to sort)" },
+        { key: "description", text: "Description" },
+        { key: "prereq", text: "Req (click to sort)" }
+    ];
 
-  // Create the table body
-  const tbody = document.createElement("tbody");
-  sortedPerks.forEach(perk => {
-    const row = document.createElement("tr");
+    headers.forEach(header => {
+        const th = document.createElement("th");
+        th.textContent = header.text;
+        th.style.cursor = "pointer"; // Indicate it's clickable
+        
+        // Add click event to sort by this column
+        if (header.key !== "description") { // Exclude sorting for "Description"
+            th.addEventListener("click", () => {
+                if (currentSortColumn === header.key) {
+                    ascendingSort = !ascendingSort; // Toggle sort order
+                } else {
+                    currentSortColumn = header.key;
+                    ascendingSort = true; // Default to ascending when switching columns
+                }
+                renderPerksTable(); // Re-render the table
+            });
+        }
+        headerRow.appendChild(th);
+    });
 
-    const perkCell = document.createElement("td");
-    perkCell.textContent = perk.perk;
-    row.appendChild(perkCell);
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
 
-    const descriptionCell = document.createElement("td");
-    descriptionCell.textContent = perk.description;
-    row.appendChild(descriptionCell);
+    // Create the table body
+    const tbody = document.createElement("tbody");
+    sortedPerks.forEach(perk => {
+        const row = document.createElement("tr");
 
-    const effectCell = document.createElement("td");
-    effectCell.textContent = perk.prereq;
-    row.appendChild(effectCell);
+        const perkCell = document.createElement("td");
+        perkCell.textContent = perk.perk;
+        row.appendChild(perkCell);
 
-    tbody.appendChild(row);
-  });
-  table.appendChild(tbody);
+        const descriptionCell = document.createElement("td");
+        descriptionCell.textContent = perk.description;
+        row.appendChild(descriptionCell);
 
-  // Append the table to the container
-  tableContainer.appendChild(table);
+        const prereqCell = document.createElement("td");
+        prereqCell.textContent = perk.prereq;
+        row.appendChild(prereqCell);
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
 }
 
-// Call the function to render the table
+// Initial render
 renderPerksTable();
 
 // Function to toggle the visibility of the perks table
 document.getElementById("toggle-perks-table").addEventListener("click", function() {
     const tableContainer = document.getElementById("perks-table-container");
-    
-    // Get the current display value of the table container
-    const currentDisplay = window.getComputedStyle(tableContainer).display;
-    
-    // Toggle the table's display style without affecting the footer
-    if (currentDisplay === "none") {
-        tableContainer.style.display = "block"; // Show the table
+
+    if (tableContainer.style.display === "none" || tableContainer.style.display === "") {
+        tableContainer.style.display = "block"; // Show table
     } else {
-        tableContainer.style.display = "none"; // Hide the table
+        tableContainer.style.display = "none"; // Hide table
     }
 });
+
 
 function renderCritsTable() {
   // Sort the critData array alphabetically by crit name (if needed)
@@ -960,6 +984,63 @@ document.getElementById("toggle-crits-table").addEventListener("click", function
         tableContainer.style.display = "none"; // Hide the table
     }
 });
+
+function renderQuestTable(faction) {
+    const tableContainer = document.getElementById("quest-table-container");
+    tableContainer.innerHTML = ""; // Clear previous table before rendering
+
+    if (!questData[faction]) {
+        tableContainer.innerHTML = `<p>No quest data available for ${faction}.</p>`;
+        return;
+    }
+
+    // Create the table
+    const table = document.createElement("table");
+    table.classList.add("questTable");
+
+    // Create the table header
+    const thead = document.createElement("thead");
+    const headerRow = document.createElement("tr");
+    const headers = ["Line", "Tier", "Condition", "Target"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Create the table body
+    const tbody = document.createElement("tbody");
+
+    // Iterate over quests for the selected faction (preserving original order)
+    questData[faction].forEach(quest => {
+        const row = document.createElement("tr");
+
+        const lineCell = document.createElement("td");
+        lineCell.textContent = quest.line;
+        row.appendChild(lineCell);
+
+        const tierCell = document.createElement("td");
+        tierCell.textContent = quest.tier;
+        row.appendChild(tierCell);
+
+        const conditionCell = document.createElement("td");
+        conditionCell.textContent = quest.condition;
+        row.appendChild(conditionCell);
+
+        const targetCell = document.createElement("td");
+        targetCell.textContent = quest.Target;
+        row.appendChild(targetCell);
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    tableContainer.appendChild(table);
+}
+
+
 
 
 //Function to toggle the visibility of the factions weapons table
@@ -1079,7 +1160,7 @@ const weaponData = {
     { weapon: "Double-barrelled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm(2)", effect: "Maim" },
     { weapon: "Hunting Rifle", type: "Rifle (22\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" },
     { weapon: "Sawn-off Shotgun", type: "Rifle (8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim" },
-	{ weapon: "Junk Jet", type: "Heavy(10\")", test: "3S", traits: "Creative Projectiles", effect: "Suppress(1)"},
+	{ weapon: "Junk Jet", type: "Heavy(10\")", test: "3S +1 per Part used", traits: "Creative Projectiles", effect: "Suppress(1) +1 per Part Used"},
 	{ weapon: "Baseball Grenades", type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)"}
 ],
     "The Operators": [
@@ -1172,207 +1253,276 @@ const weaponData = {
 
 const questData = {
 		"Brotherhood of Steel": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "You use a standard Ploy", Target: "3"},
-		{line: "Ad Victoriam", Tier: "1", Condition: "You win a game as the Underdon", Target: "1"},
-		{line: "Ad Victoriam", Tier: "1", Condition: "Your crew gains at least 4 XP in a single game", Target: "3"},
-		{line: "Ad Victoriam", Tier: "2", Condition: "One of your models Incapacitates an Enemy model with a Ranged Attack", Target: "10"},
-		{line: "Ad Victoriam", Tier: "2", Condition: "You play a game as the Attacker", Target: "3"},
-		{line: "Ad Victoriam", Tier: "2", Condition: "Your crew has at least 6 Reach", Target: "1"},
-		{line: "Ad Victoriam", Tier: "3", Condition: "One of your models Incapacitates an Enemy Leader with a Ranged Attack", Target: "3"},
-		{line: "Ad Victoriam", Tier: "3", Condition: "At the end of the Story Phase, you have 6 Facilities on your Home Turf", Target: "3"},
-		{line: "Ad Victoriam", Tier: "3", Condition: "In a game against you, an Enemy model Fails a Confusion Test", Target: "6"},
-		{line: "By Steel", Tier: "1", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
-		{line: "By Steel", Tier: "1", Condition: "You use the Vertibird Drop Ploy", Target: "3"},
-		{line: "By Steel", Tier: "1", Condition: "You choose to play the Duel Objective", Target: "1"},
-		{line: "By Steel", Tier: "2", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
-		{line: "By Steel", Tier: "2", Condition: "You use the Judge Captives Story Action", Target: "1"},
-		{line: "By Steel", Tier: "2", Condition: "One of your models passes a Confusion Test", Target: "6"},
-		{line: "By Steel", Tier: "3", Condition: "You use the Recruit Story Action to purchase a Knight", Target: "1"},
-		{line: "By Steel", Tier: "3", Condition: "At least 5 of your models have a perk that they did not start the campaign with", Target: "1"},
-		{line: "By Steel", Tier: "3", Condition: "One of your models Incapacitates an Enemy Champion with a Ranged Attack.", Target: "8"},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "A Scribe ends a game without being Incapacitated.", Target: "6"},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "You use the Chain that Binds Ploy.", Target: "3"},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "A model in your crew chooses Find Caps and Parts when making a Rummage Action ", Target: "8"},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "A Scribe in your crew gains a Perk.", Target: "4"},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "You modify a weapon", Target: "4"},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "Your crew Incapacitates a model with at least one Weapon Modification. ", Target: "4"},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "A Scribe in your crew has 9 Intelligence.", Target: "1"},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "A Scribe chooses to gain Caps and Parts when they make the Rummage Action.", Target: "8"},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "Your crew has 6 Facilities on their Home Turf.", Target: "3"}
+		{line: "Ad Victoriam", tier: "1a", condition: "You use a standard Ploy", target: "3"},
+		{line: "Ad Victoriam", tier: "1b", condition: "You win a game as the Underdong", target: "1"},
+		{line: "Ad Victoriam", tier: "1c", condition: "Your crew gains at least 4 XP in a single game", target: "3"},
+		{line: "Ad Victoriam", tier: "2a", condition: "One of your models Incapacitates an Enemy model with a Ranged Attack", target: "10"},
+		{line: "Ad Victoriam", tier: "2b", condition: "You play a game as the Attacker", target: "3"},
+		{line: "Ad Victoriam", tier: "2c", condition: "Your crew has at least 6 Reach", target: "1"},
+		{line: "Ad Victoriam", tier: "3a", condition: "One of your models Incapacitates an Enemy Leader with a Ranged Attack", target: "3"},
+		{line: "Ad Victoriam", tier: "3b", condition: "At the end of the Story Phase, you have 6 Facilities on your Home Turf", target: "3"},
+		{line: "Ad Victoriam", tier: "3c", condition: "In a game against you, an Enemy model Fails a Confusion Test", target: "6"},
+
+		{line: "By Steel", tier: "1a", condition: "You use the Recruit Story Action to purchase a Knight", target: "1"},
+		{line: "By Steel", tier: "1b", condition: "You use the Vertibird Drop Ploy", target: "3"},
+		{line: "By Steel", tier: "1c", condition: "You choose to play the Duel Objective", target: "1"},
+		{line: "By Steel", tier: "2a", condition: "You use the Recruit Story Action to purchase a Knight", target: "1"},
+		{line: "By Steel", tier: "2b", condition: "You use the Judge Captives Story Action", target: "1"},
+		{line: "By Steel", tier: "2c", condition: "One of your models passes a Confusion Test", target: "6"},
+		{line: "By Steel", tier: "3a", condition: "You use the Recruit Story Action to purchase a Knight", target: "1"},
+		{line: "By Steel", tier: "3b", condition: "At least 5 of your models have a perk that they did not start the campaign with", target: "1"},
+		{line: "By Steel", tier: "3c", condition: "One of your models Incapacitates an Enemy Champion with a Ranged Attack.", target: "8"},
+
+		{line: "Protect Humanity From Itself", tier: "1a", condition: "A Scribe ends a game without being Incapacitated.", target: "6"},
+		{line: "Protect Humanity From Itself", tier: "1b", condition: "You use the Chain that Binds Ploy.", target: "3"},
+		{line: "Protect Humanity From Itself", tier: "1c", condition: "A model in your crew chooses Find Caps and Parts when making a Rummage Action", target: "8"},
+		{line: "Protect Humanity From Itself", tier: "2a", condition: "A Scribe in your crew gains a Perk.", target: "4"},
+		{line: "Protect Humanity From Itself", tier: "2b", condition: "You modify a weapon", target: "4"},
+		{line: "Protect Humanity From Itself", tier: "2c", condition: "Your crew Incapacitates a model with at least one Weapon Modification.", target: "4"},
+		{line: "Protect Humanity From Itself", tier: "3a", condition: "A Scribe in your crew has 9 Intelligence.", target: "1"},
+		{line: "Protect Humanity From Itself", tier: "3b", condition: "A Scribe chooses to gain Caps and Parts when they make the Rummage Action.", target: "8"},
+		{line: "Protect Humanity From Itself", tier: "3c", condition: "Your crew has 6 Facilities on their Home Turf.", target: "3"}
+
 	],
 		"Super Mutants": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Survival of the Fittest", tier: "1a", condition: "You Upgrade a model’s Strength or Endurance.", target: "4"},
+		{line: "Survival of the Fittest", tier: "1b", condition: "You modify a weapon.", target: "3"},
+		{line: "Survival of the Fittest", tier: "1c", condition: "A model in the crew Incapacitates an Enemy Champion.", target: "4"},
+		{line: "Survival of the Fittest", tier: "2a", condition: "A model in the crew gains a Strength or Endurance Perk.", target: "2"},
+		{line: "Survival of the Fittest", tier: "2b", condition: "An Enemy model Fails a Confusion Test.", target: "5"},
+		{line: "Survival of the Fittest", tier: "2c", condition: "You end a game with fewer Incapacitated models than your opponent.", target: "3"},
+		{line: "Survival of the Fittest", tier: "3a", condition: "You use a Super Mutant Ploy.", target: "6"},
+		{line: "Survival of the Fittest", tier: "3b", condition: "You modify a weapon that already has two Modifications.", target: "3"},
+		{line: "Survival of the Fittest", tier: "3c", condition: "You have a model with 8 Upgrades.", target: "1"},
+
+		{line: "Ours by Right", tier: "1a", condition: "You build a Facility.", target: "2"},
+		{line: "Ours by Right", tier: "1b", condition: "The crew earns at least 3 XP in a single game.", target: "2"},
+		{line: "Ours by Right", tier: "1c", condition: "A model in the crew passes a Confusion Test.", target: "5"},
+		{line: "Ours by Right", tier: "2a", condition: "Your crew has at least 5 Reach at the end of the Story Phase.", target: "3"},
+		{line: "Ours by Right", tier: "2b", condition: "Your crew finds a dose of Rare Chems.", target: "4"},
+		{line: "Ours by Right", tier: "2c", condition: "You force another player to become Nomadic.", target: "1"},
+		{line: "Ours by Right", tier: "3a", condition: "Your crew has at least 10 Reach.", target: "1"},
+		{line: "Ours by Right", tier: "3b", condition: "You play a Raid Objective as the Attacker.", target: "3"},
+		{line: "Ours by Right", tier: "3c", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+
+		{line: "Dawn of a New Age", tier: "1a", condition: "You end a game with a model within 3” of at least 2 Objective or Search Tokens", target: "2"},
+		{line: "Dawn of a New Age", tier: "1b", condition: "You choose to play the Hunting Party Objective", target: "1"},
+		{line: "Dawn of a New Age", tier: "1c", condition: "A model in the crew gains a Perk.", target: "4"},
+		{line: "Dawn of a New Age", tier: "2a", condition: "Your crew has at least 6 Scouting Points.", target: "1"},
+		{line: "Dawn of a New Age", tier: "2b", condition: "You take the Devour Captive Story Action.", target: "1"},
+		{line: "Dawn of a New Age", tier: "2c", condition: "A model in the crew Incapacitates an Enemy Champion with a Melee Attack.", target: "4"},
+		{line: "Dawn of a New Age", tier: "3a", condition: "A model in the crew Incapacitates an Enemy Leader.", target: "3"},
+		{line: "Dawn of a New Age", tier: "3b", condition: "You end a Story Phase with a Monument on your Home Turf.", target: "3"},
+		{line: "Dawn of a New Age", tier: "3c", condition: "At least 7 of your models have a Perk that they did not start with.", target: "1"}
+
 	],
 		"Wasteland Raiders": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Ours for the Taking", tier: "1a", condition: "You play a Pillage Objective as the Attacker.", target: "2"},
+		{line: "Ours for the Taking", tier: "1b", condition: "Your crew has at least 6 Scouting Points at the end of a Story Phase.", target: "1"},
+		{line: "Ours for the Taking", tier: "1c", condition: "A model in your crew makes a Rummage Action.", target: "10"},
+		{line: "Ours for the Taking", tier: "2a", condition: "You play an Ambush Objective as the Attacker.", target: "2"},
+		{line: "Ours for the Taking", tier: "2b", condition: "Play a game as the Underdog.", target: "2"},
+		{line: "Ours for the Taking", tier: "2c", condition: "A model in your crew takes the Rummage Action.", target: "10"},
+		{line: "Ours for the Taking", tier: "3a", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+		{line: "Ours for the Taking", tier: "3b", condition: "You have 6 Facilities on your Home Turf.", target: "5"},
+		{line: "Ours for the Taking", tier: "3c", condition: "A model in your crew makes the Rummage Action.", target: "10"},
+
+		{line: "It's Party Time", tier: "1a", condition: "The crew earns 1 XP using Failing Forward.", target: "3"},
+		{line: "It's Party Time", tier: "1b", condition: "A model in the crew uses a Chem.", target: "16"},
+		{line: "It's Party Time", tier: "1c", condition: "You play a game with the Scavenge Chems Objective.", target: "2"},
+		{line: "It's Party Time", tier: "2a", condition: "You have a Chem Lab on your Home Turf.", target: "1"},
+		{line: "It's Party Time", tier: "2b", condition: "Your crew purchases a Common Chem during the Prepare Advantages step.", target: "5"},
+		{line: "It's Party Time", tier: "2c", condition: "You find a Rare Chem while making a Rummage Action.", target: "3"},
+		{line: "It's Party Time", tier: "3a", condition: "You use a Raiders Ploy.", target: "8"},
+		{line: "It's Party Time", tier: "3b", condition: "Your crew makes the Craft Chems Story Action.", target: "4"},
+		{line: "It's Party Time", tier: "3c", condition: "Your crew uses a Rare Chem.", target: "6"},
+
+		{line: "Make Them Fear Us", tier: "1a", condition: "You take the Sell Prisoners Story Action.", target: "1"},
+		{line: "Make Them Fear Us", tier: "1b", condition: "You Upgrade a model.", target: "5"},
+		{line: "Make Them Fear Us", tier: "1c", condition: "One of your models Incapacitates an Enemy model.", target: "10"},
+		{line: "Make Them Fear Us", tier: "2a", condition: "The crew takes the Recruit Story Action.", target: "4"},
+		{line: "Make Them Fear Us", tier: "2b", condition: "You modify a weapon.", target: "4"},
+		{line: "Make Them Fear Us", tier: "2c", condition: "You Incapacitate an Enemy model with at least 3 of your models within 6”.", target: "4"},
+		{line: "Make Them Fear Us", tier: "3a", condition: "An Enemy model Fails a Confusion Test.", target: "10"},
+		{line: "Make Them Fear Us", tier: "3b", condition: "You force another crew to become Nomadic.", target: "1"},
+		{line: "Make Them Fear Us", tier: "3c", condition: "A model in your crew attains a S.P.E.C.I.A.L. statistic of 9.", target: "1"}
+
 	],
 		"Survivors": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Dear Hearts and Gentle People", tier: "1a", condition: "A model in the crew uses the Patch Up Action.", target: "8"},
+		{line: "Dear Hearts and Gentle People", tier: "1b", condition: "A Rare Chem is added to the Crew Roster.", target: "2"},
+		{line: "Dear Hearts and Gentle People", tier: "1c", condition: "You purchase a Modification for a Pistol or Rifle.", target: "3"},
+		{line: "Dear Hearts and Gentle People", tier: "2a", condition: "Your crew takes the Barter Story Action.", target: "4"},
+		{line: "Dear Hearts and Gentle People", tier: "2b", condition: "You use the No Place Like Home Survivors Ploy.", target: "3"},
+		{line: "Dear Hearts and Gentle People", tier: "2c", condition: "You Upgrade a model.", target: "4"},
+		{line: "Dear Hearts and Gentle People", tier: "3a", condition: "You end a game with fewer Incapacitated models than your opponent.", target: "3"},
+		{line: "Dear Hearts and Gentle People", tier: "3b", condition: "A Champion recovers from Serious Injuries.", target: "5"},
+		{line: "Dear Hearts and Gentle People", tier: "3c", condition: "Your crew has 5 Champions.", target: "1"},
+
+		{line: "My Home Town", tier: "1a", condition: "You build a Facility using the Expand Story Action.", target: "1"},
+		{line: "My Home Town", tier: "1b", condition: "You have at least 50 Caps in your Stash.", target: "1"},
+		{line: "My Home Town", tier: "1c", condition: "You use a Survivors Ploy.", target: "3"},
+		{line: "My Home Town", tier: "2a", condition: "Your crew Incapacitates an Enemy model.", target: "10"},
+		{line: "My Home Town", tier: "2b", condition: "A model in your crew gains a Charisma or Intelligence Perk.", target: "4"},
+		{line: "My Home Town", tier: "2c", condition: "The crew takes the Recruit Story Action.", target: "5"},
+		{line: "My Home Town", tier: "3a", condition: "Your crew has at least 10 Reach.", target: "1"},
+		{line: "My Home Town", tier: "3b", condition: "You take the Redeem Captive Story Action.", target: "2"},
+		{line: "My Home Town", tier: "3c", condition: "An Enemy model Fails a Confusion Test.", target: "6"},
+
+		{line: "Every Time That I Return", tier: "1a", condition: "Your crew earns at least 4 XP in a single game.", target: "3"},
+		{line: "Every Time That I Return", tier: "1b", condition: "You modify a weapon.", target: "3"},
+		{line: "Every Time That I Return", tier: "1c", condition: "You take the Scout Story Action.", target: "3"},
+		{line: "Every Time That I Return", tier: "2a", condition: "You take the Settle Story Action.", target: "3"},
+		{line: "Every Time That I Return", tier: "2b", condition: "You Upgrade one of your models.", target: "5"},
+		{line: "Every Time That I Return", tier: "2c", condition: "Your crew Incapacitates an Enemy model with a Ranged Attack.", target: "10"},
+		{line: "Every Time That I Return", tier: "3a", condition: "A model in your Crew resolves a 7+ on the Crew Training Table.", target: "4"},
+		{line: "Every Time That I Return", tier: "3b", condition: "You rescue a Captured model in a Rescue Objective.", target: "1"},
+		{line: "Every Time That I Return", tier: "3c", condition: "A model in your crew attains a S.P.E.C.I.A.L. statistic of 9.", target: "1"}
+
+	],
+		"Gunners": [
+		{line: "The Bottom Line", tier: "1a", condition: "One of your models makes a Search Action.", target: "6"},
+		{line: "The Bottom Line", tier: "1b", condition: "Your crew takes the Barter Story Action.", target: "4"},
+		{line: "The Bottom Line", tier: "1c", condition: "You win a game.", target: "1"},
+		{line: "The Bottom Line", tier: "2a", condition: "A model in your crew gains a Perception Perk.", target: "5"},
+		{line: "The Bottom Line", tier: "2b", condition: "You purchase a Weapon Modification worth at least 3 parts.", target: "3"},
+		{line: "The Bottom Line", tier: "2c", condition: "You Upgrade one of your models.", target: "5"},
+		{line: "The Bottom Line", tier: "3a", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+		{line: "The Bottom Line", tier: "3b", condition: "You purchase the third Modification for a weapon.", target: "3"},
+		{line: "The Bottom Line", tier: "3c", condition: "You use a Standard Ploy.", target: "4"},
+		{line: "The Bottom Line", tier: "3d", condition: "A model in the Crew uses the Patch Up Action.", target: "10"},
+
+		{line: "Guns for Hire", tier: "1a", condition: "A model in the Crew causes Excess Harm.", target: "2"},
+		{line: "Guns for Hire", tier: "1b", condition: "You purchase a Modification for a Pistol or Rifle.", target: "3"},
+		{line: "Guns for Hire", tier: "1c", condition: "One of your models Incapacitates an Enemy model with a Ranged Attack.", target: "10"},
+		{line: "Guns for Hire", tier: "2a", condition: "A model in the Crew gains a Perk.", target: "8"},
+		{line: "Guns for Hire", tier: "2b", condition: "The crew earns at least three Experience Points in a single game.", target: "2"},
+		{line: "Guns for Hire", tier: "2c", condition: "You win the Ambush scenario.", target: "3"},
+		{line: "Guns for Hire", tier: "2d", condition: "Your crew has at least 3 Control in each Location.", target: "1"},
+		{line: "Guns for Hire", tier: "3a", condition: "You win a game on the opposing crew’s Home Turf.", target: "2"},
+		{line: "Guns for Hire", tier: "3b", condition: "One of your models Incapacitates an Enemy Champion with a Ranged Attack.", target: "8"},
+		{line: "Guns for Hire", tier: "3c", condition: "At least 7 of your models have a Perk that they did not start with.", target: "1"},
+
+		{line: "Take the High Ground", tier: "1a", condition: "Your crew has at least 2 Scouts in three different Locations.", target: "1"},
+		{line: "Take the High Ground", tier: "1b", condition: "You choose the Land Grab Scenario.", target: "3"},
+		{line: "Take the High Ground", tier: "1c", condition: "A model in your crew chooses Find Caps and Parts when making an Action: Rummage.", target: "10"},
+		{line: "Take the High Ground", tier: "2a", condition: "You win the Land Grab Scenario as the Attacker.", target: "3"},
+		{line: "Take the High Ground", tier: "2b", condition: "Your crew has at least 3 Control in three different Locations.", target: "1"},
+		{line: "Take the High Ground", tier: "2c", condition: "You use a Gunners Ploy.", target: "4"},
+		{line: "Take the High Ground", tier: "2d", condition: "One of your models passes a Confusion Test.", target: "6"},
+		{line: "Take the High Ground", tier: "3a", condition: "You win a game on your Home Turf.", target: "3"},
+		{line: "Take the High Ground", tier: "3b", condition: "Your crew has at least 10 Control in any Location.", target: "1"},
+		{line: "Take the High Ground", tier: "3c", condition: "The crew takes the Recruit Story Action.", target: "5"},
+		{line: "Take the High Ground", tier: "3d", condition: "An Enemy model fails a Confusion Test.", target: "10"}
+
 	],
 		"The Pack": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Rumble In The Jungle", tier: "1a", condition: "You play a game as the Attacker.", target: "3"},
+		{line: "Rumble In The Jungle", tier: "1b", condition: "You Upgrade a model.", target: "5"},
+		{line: "Rumble In The Jungle", tier: "1c", condition: "You have at least 2 Scouting Points.", target: "1"},
+		{line: "Rumble In The Jungle", tier: "2a", condition: "One of your models gains a Strength Perk.", target: "2"},
+		{line: "Rumble In The Jungle", tier: "2b", condition: "You spend at least 30 Caps from your Stash on Chems before a game.", target: "1"},
+		{line: "Rumble In The Jungle", tier: "2c", condition: "You win the Rumble Scenario.", target: "3"},
+		{line: "Rumble In The Jungle", tier: "3a", condition: "You have at least 5 Control in three different locations.", target: "1"},
+		{line: "Rumble In The Jungle", tier: "3b", condition: "You spend at least 50 Caps from your stash on Chems before a game.", target: "1"},
+		{line: "Rumble In The Jungle", tier: "3c", condition: "One of your models Incapacitates an Enemy Champion.", target: "10"},
+		{line: "Rumble In The Jungle", tier: "3d", condition: "One of your models Passes a Confusion Test.", target: "6"},
+
+		{line: "Loot And Plunder", tier: "1a", condition: "One of your models makes a Search Action.", target: "8"},
+		{line: "Loot And Plunder", tier: "1b", condition: "You choose to play the Stockpile Raid Scenario.", target: "2"},
+		{line: "Loot And Plunder", tier: "1c", condition: "You purchase a weapon Modification.", target: "5"},
+		{line: "Loot And Plunder", tier: "2a", condition: "You win the Stockpile Raid scenario as the Attacker.", target: "3"},
+		{line: "Loot And Plunder", tier: "2b", condition: "A model in your crew gains a Perception Perk.", target: "2"},
+		{line: "Loot And Plunder", tier: "2c", condition: "You have at least 50 Caps in your stash.", target: "1"},
+		{line: "Loot And Plunder", tier: "2d", condition: "You purchase a Weapon Modification that costs at least 3 Parts.", target: "5"},
+		{line: "Loot And Plunder", tier: "3a", condition: "You win the Retrieval Run Scenario as the Attacker.", target: "3"},
+		{line: "Loot And Plunder", tier: "3b", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+		{line: "Loot And Plunder", tier: "3c", condition: "You purchase a third Modification for a weapon.", target: "5"},
+		{line: "Loot And Plunder", tier: "3d", condition: "You use a Pack Ploy.", target: "4"},
+
+		{line: "Display Dominance", tier: "1a", condition: "You win a game on your Home Turf.", target: "1"},
+		{line: "Display Dominance", tier: "1b", condition: "You choose to play the Land Grab Scenario.", target: "2"},
+		{line: "Display Dominance", tier: "1c", condition: "One of your models Incapacitates an Enemy model with a Melee Attack.", target: "6"},
+		{line: "Display Dominance", tier: "2a", condition: "You win a game on the opposing crew's Home Turf.", target: "2"},
+		{line: "Display Dominance", tier: "2b", condition: "You have at least 3 Control in each location.", target: "1"},
+		{line: "Display Dominance", tier: "2c", condition: "A model in your crew gains a Charisma Perk.", target: "3"},
+		{line: "Display Dominance", tier: "3a", condition: "You play a game as the attacker.", target: "8"},
+		{line: "Display Dominance", tier: "3b", condition: "You have at least 10 Control in any Location.", target: "1"},
+		{line: "Display Dominance", tier: "3c", condition: "One of your models Incapacitates an Enemy Champion with a Melee Attack.", target: "10"}
+
 	],
 		"The Operators": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Best Kept Secrets", tier: "1a", condition: "You choose to play the Retrieval Run Scenario.", target: "3"},
+		{line: "Best Kept Secrets", tier: "1b", condition: "Your crew has at least 2 Scouring Points in 3 different Locations.", target: "1"},
+		{line: "Best Kept Secrets", tier: "1c", condition: "A model in your crew gains an Intelligence Perk.", target: "2"},
+		{line: "Best Kept Secrets", tier: "2a", condition: "Your crew has at least 3 Control in three different Locations.", target: "1"},
+		{line: "Best Kept Secrets", tier: "2b", condition: "You win the Retrieval Run Scenario as the Attacker.", target: "2"},
+		{line: "Best Kept Secrets", tier: "2c", condition: "One of your models Incapacitates an Enemy model with a Ranged Attack.", target: "10"},
+		{line: "Best Kept Secrets", tier: "3a", condition: "One of your models Incapacitates an Enemy Leader with a Ranged Attack.", target: "6"},
+		{line: "Best Kept Secrets", tier: "3b", condition: "You win the Land Grab Scenario.", target: "3"},
+		{line: "Best Kept Secrets", tier: "3c", condition: "At least 5 of your models have a Perk that they did not start with.", target: "1"},
+		{line: "Best Kept Secrets", tier: "3d", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+
+		{line: "Style and Finesse", tier: "1a", condition: "You pass a Confusion Test for one of your models.", target: "6"},
+		{line: "Style and Finesse", tier: "1b", condition: "Your crew earns at least 3 XP in a single game.", target: "3"},
+		{line: "Style and Finesse", tier: "1c", condition: "One of your models gains a Charisma Perk.", target: "2"},
+		{line: "Style and Finesse", tier: "2a", condition: "You spend at least 50 Caps from your Stash on Chems before a game.", target: "1"},
+		{line: "Style and Finesse", tier: "2b", condition: "You purchase a weapon Modification worth at least 3 Parts.", target: "3"},
+		{line: "Style and Finesse", tier: "2c", condition: "You upgrade one of your models.", target: "5"},
+		{line: "Style and Finesse", tier: "3a", condition: "You have at least 100 Caps in your Stash.", target: "1"},
+		{line: "Style and Finesse", tier: "3b", condition: "Your crew has at least 3 Control in each Location.", target: "1"},
+		{line: "Style and Finesse", tier: "3c", condition: "Your crew has at least 5 doses of Rare Chems.", target: "1"},
+		{line: "Style and Finesse", tier: "3d", condition: "You win a game on your Home Turf.", target: "3"},
+
+		{line: "The Professionals", tier: "1a", condition: "You purchase a Modification for a Pistol or Rifle.", target: "3"},
+		{line: "The Professionals", tier: "1b", condition: "One of your models makes a Search Action.", target: "6"},
+		{line: "The Professionals", tier: "1c", condition: "One of your models Incapacitates an Enemy model with a Ranged Attack.", target: "10"},
+		{line: "The Professionals", tier: "2a", condition: "You use an Operators Ploy.", target: "4"},
+		{line: "The Professionals", tier: "2b", condition: "A model in your crew gains a Perception Perk.", target: "4"},
+		{line: "The Professionals", tier: "2c", condition: "You win a game on your Home Turf.", target: "1"},
+		{line: "The Professionals", tier: "2d", condition: "You purchase a Weapon Modification worth at least 3 Parts.", target: "3"},
+		{line: "The Professionals", tier: "3a", condition: "You win a game on the opposing crew's Home Turf.", target: "3"},
+		{line: "The Professionals", tier: "3b", condition: "One of your models Incapacitates an Enemy Leader with a Ranged Attack.", target: "6"},
+		{line: "The Professionals", tier: "3c", condition: "You choose to play the Rumble Scenario.", target: "4"},
+		{line: "The Professionals", tier: "3d", condition: "One of your models has seven Upgrades.", target: "1"}
+
 	],
 		"The Disciples": [
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "1", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "2", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "Ad Victoriam", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "1", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "2", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "By Steel", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "1", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "2", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
-		{line: "Protect Humanity From Itself", Tier: "3", Condition: "", Target: ""},
+		{line: "Rise to Power", tier: "1a", condition: "The crew earns at least 4 XP in a single game.", target: "3"},
+		{line: "Rise to Power", tier: "1b", condition: "You choose the Land Grab Scenario.", target: "3"},
+		{line: "Rise to Power", tier: "1c", condition: "You have at least 50 Caps in your Stash.", target: "1"},
+		{line: "Rise to Power", tier: "2a", condition: "You win the Land Grab Scenario as the Attacker.", target: "3"},
+		{line: "Rise to Power", tier: "2b", condition: "Your crew has at least 3 Control in three different Locations.", target: "1"},
+		{line: "Rise to Power", tier: "2c", condition: "You purchase a Weapon Modification.", target: "5"},
+		{line: "Rise to Power", tier: "3a", condition: "Your crew has at least 10 Control in any Location.", target: "1"},
+		{line: "Rise to Power", tier: "3b", condition: "A model in the Crew gains a Perk.", target: "8"},
+		{line: "Rise to Power", tier: "3c", condition: "Your crew has at least 2 Scouting Points in three different Locations.", target: "1"},
+		{line: "Rise to Power", tier: "3d", condition: "One of your models Incapacitates an Enemy Leader.", target: "5"},
+
+		{line: "Let Them Know Fear", tier: "1a", condition: "Your crew has at least 2 Scouting Points in three different Locations.", target: "1"},
+		{line: "Let Them Know Fear", tier: "1b", condition: "A model in the opposing crew Fails a Confusion Test.", target: "10"},
+		{line: "Let Them Know Fear", tier: "1c", condition: "You use a Disciples Ploy.", target: "4"},
+		{line: "Let Them Know Fear", tier: "2a", condition: "Your crew has at least 5 Scouting Points in any Location.", target: "1"},
+		{line: "Let Them Know Fear", tier: "2b", condition: "One of your models Incapacitates an Enemy Champion.", target: "8"},
+		{line: "Let Them Know Fear", tier: "2c", condition: "You play a game as the Attacker.", target: "5"},
+		{line: "Let Them Know Fear", tier: "2d", condition: "You have a model with five Upgrades.", target: "1"},
+		{line: "Let Them Know Fear", tier: "3a", condition: "You win the Rumble Scenario.", target: "4"},
+		{line: "Let Them Know Fear", tier: "3b", condition: "One of your models Incapacitates an Enemy Leader with a Melee Attack.", target: "5"},
+		{line: "Let Them Know Fear", tier: "3c", condition: "At least 7 of your models have a Perk that they did not start with.", target: "1"},
+		{line: "Let Them Know Fear", tier: "3d", condition: "An Enemy model Fails a Confusion Test.", target: "10"},
+
+		{line: "The Blooded Blade", tier: "1a", condition: "You purchase a Modification for a Melee Weapon.", target: "5"},
+		{line: "The Blooded Blade", tier: "1b", condition: "One of your models gains a Strength Perk.", target: "2"},
+		{line: "The Blooded Blade", tier: "1c", condition: "One of your models Incapacitates an Enemy model with a Melee Attack.", target: "10"},
+		{line: "The Blooded Blade", tier: "2a", condition: "One of your models Incapacitates an Enemy Leader with a Melee Attack.", target: "3"},
+		{line: "The Blooded Blade", tier: "2b", condition: "An Enemy model Fails a Confusion Test.", target: "10"},
+		{line: "The Blooded Blade", tier: "2c", condition: "You use a Disciples Ploy.", target: "5"},
+		{line: "The Blooded Blade", tier: "3a", condition: "You play a game as the Attacker.", target: "4"},
+		{line: "The Blooded Blade", tier: "3b", condition: "At least 5 of your models have a Perk that they did not start with.", target: "1"},
+		{line: "The Blooded Blade", tier: "3c", condition: "One of your models Incapacitates an Enemy Champion with a Melee Attack.", target: "8"},
+		{line: "The Blooded Blade", tier: "3d", condition: "Your crew has at least 5 Control in three different Locations.", target: "1"}
+
+
 	],
 };
 
@@ -1479,32 +1629,151 @@ const ployData = {
 // Function to update the weapon table based on selected faction
 function updateWeaponTable() {
     const faction = document.getElementById('faction-select').value;
+    const table = document.querySelector('#weaponsTable');
     const tableBody = document.querySelector('#weaponsTable tbody');
-    tableBody.innerHTML = '';  // Clear existing rows
+    const tableHead = document.querySelector('#weaponsTable thead');
 
+    // Clear existing rows and headers
+    tableBody.innerHTML = '';  
+    tableHead.innerHTML = '';
+
+    // Create the table header
+    const headerRow = document.createElement("tr");
+    const headers = ["Weapon", "Type", "Test", "Traits", "Crit"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+    // Append header row to the thead
+    tableHead.appendChild(headerRow);
+
+    // Populate the table with weapon data
     if (faction && weaponData[faction]) {
         weaponData[faction].forEach(weapon => {
             const row = document.createElement('tr');
-            
-            // Add cells to the row for each weapon property
-            Object.values(weapon).forEach(val => {
-                const cell = document.createElement('td');
-                cell.textContent = val;
-                row.appendChild(cell);
-            });
-            
-            // Append the row to the table body
+
+            // Create and append each cell in order: Weapon, Type, Test, Traits, Crit
+            const weaponCell = document.createElement('td');
+            weaponCell.textContent = weapon.weapon;
+            row.appendChild(weaponCell);
+
+            const typeCell = document.createElement('td');
+            typeCell.textContent = weapon.type;
+            row.appendChild(typeCell);
+
+            const testCell = document.createElement('td');
+            testCell.textContent = weapon.test;
+            row.appendChild(testCell);
+
+            const traitsCell = document.createElement('td');
+            traitsCell.textContent = weapon.traits;
+            row.appendChild(traitsCell);
+
+            const critCell = document.createElement('td');
+            critCell.textContent = weapon.effect;
+            row.appendChild(critCell);
+
+            // Append row to the table body
             tableBody.appendChild(row);
         });
     }
 }
 
+
+// Function to update the quest table based on the selected faction
+function updateQuestTable() {
+    const faction = document.getElementById('faction-select').value;
+    const table = document.querySelector('#questTable');
+    const tableHead = document.querySelector('#questTable thead');
+    const tableBody = document.querySelector('#questTable tbody');
+
+    // Clear existing rows and headers
+    tableHead.innerHTML = '';
+    tableBody.innerHTML = ''; 
+
+    // Create the table header
+    const headerRow = document.createElement("tr");
+    const headers = ["Line", "Tier", "Condition", "Target"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+    // Append the header row to the table head
+    tableHead.appendChild(headerRow);
+
+    // Populate the table with quest data
+    if (faction && questData[faction] && questData[faction].length > 0) {
+        questData[faction].forEach(quest => {
+            const row = document.createElement('tr');
+
+            // Create table cells for Quest Line, Tier, Condition, and Target
+            const lineCell = document.createElement('td');
+            lineCell.textContent = quest.line;
+            row.appendChild(lineCell);
+
+            const tierCell = document.createElement('td');
+            tierCell.textContent = quest.tier;
+            row.appendChild(tierCell);
+
+            const conditionCell = document.createElement('td');
+            conditionCell.textContent = quest.condition;
+            row.appendChild(conditionCell);
+
+            const targetCell = document.createElement('td');
+            targetCell.textContent = quest.target;
+            row.appendChild(targetCell);
+
+            // Append the row to the table body
+            tableBody.appendChild(row);
+        });
+
+        // Make sure the table is visible
+        document.getElementById("quest-table-container").style.display = "block";
+    } else {
+        console.warn(`No quest data found for faction: ${faction}`);
+    }
+}
+
+
+// Add event listener for faction selection change
+document.getElementById("faction-select").addEventListener("change", updateQuestTable);
+
+// Show/Hide Quest Table Button
+document.getElementById("toggle-quest-table").addEventListener("click", function() {
+    const questContainer = document.getElementById("quest-table-container");
+    questContainer.style.display = (questContainer.style.display === "none") ? "block" : "none";
+});
+
+
+
+
+
 // Function to update the ploy table based on selected faction
 function updatePloysTable() {
     const faction = document.getElementById('faction-select').value;
-    const tableBody = document.querySelector('#ploysTable tbody');
-    tableBody.innerHTML = '';  // Clear existing rows
+    const table = document.getElementById('ploysTable');
+    const thead = table.querySelector("thead");
+    const tableBody = table.querySelector('tbody');
+    
+    // Clear existing header and rows
+    thead.innerHTML = '';
+    tableBody.innerHTML = '';  
 
+    // Create the table header
+    const headerRow = document.createElement("tr");
+    const headers = ["Ploy", "Description"];
+    headers.forEach(headerText => {
+        const th = document.createElement("th");
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+    thead.appendChild(headerRow);
+
+    // Populate table body with ploy data
     if (faction && ployData[faction]) {
         ployData[faction].forEach(ploy => {
             const row = document.createElement('tr');
@@ -1523,6 +1792,7 @@ function updatePloysTable() {
         });
     }
 }
+
 
 // Populate faction options dynamically (You can adjust this if needed)
 window.onload = () => {

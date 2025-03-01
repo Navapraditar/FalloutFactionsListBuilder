@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table, #campaign-button {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table, #campaign-button, #toggle-quest-table {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.8rem; /* Make buttons smaller */
     background-color: transparent;
@@ -212,7 +212,7 @@ tr:hover td {
 
 
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover   {
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover,#toggle-quest-table:hover   {
     background-color: #76D7B2;
     color: black;
 }
@@ -415,7 +415,7 @@ label {
 }
 
 /* Fallout Theme for #weaponsTable, #ploysTable, and #perksTable */
-#weaponsTable, #ploysTable, #perksTable,#crits-table {
+#weaponsTable, #ploysTable, #perksTable,#crits-table,#questTable {
     width: 100%;
     border-collapse: collapse;
     font-family: 'Orbitron', sans-serif;
@@ -424,12 +424,12 @@ label {
     margin-bottom: 20px;
 }
 
-#perksTable,#crits-table {
+#perksTable,#crits-table,#questTable {
     font-size: 10px;
 }
 
 /* Table header style */
-#weaponsTable th, #ploysTable th, #perksTable,#crits-table th {
+#weaponsTable th, #ploysTable th, #perksTable,#crits-table,#questTable th {
     padding: 12px 20px; /* Larger padding for emphasis */
     text-align: center;
     border: 2px solid #76D7B2; /* Green border for each header cell */
@@ -442,21 +442,23 @@ label {
 }
 
 /* Table data cell style */
-#weaponsTable td, #ploysTable td, #perksTable,#crits-table td {
+#weaponsTable td, #ploysTable td, #perksTable,#crits-table,#questTable td {
     padding: 12px 20px;
     text-align: center;
+	font-size: 14px;
     border: 1px solid #A9D08E   ; /* Green border for each data cell */
     background-color: #2b2d2f; /* Slightly lighter background */
     color: #A9D08E   ; /* Pip-Boy green */
 }
 
 /* Style tbody and rows in the table */
-#weaponsTable tbody, #ploysTable tbody, #perksTable,#crits-table tbody {
+#weaponsTable tbody, #ploysTable tbody, #perksTable,#crits-table,#questTable tbody {
     background-color: #2b2d2f; /* Lighter background for the body */
 }
 
 /* Alternate row colors */
 #weaponsTable tr:nth-child(even) td, 
+#questTable tr:nth-child(even) td,
 #ploysTable tr:nth-child(even) td,
 #perksTable tr:nth-child(even) td,
 #crits-table {
@@ -465,6 +467,7 @@ label {
 
 /* Hover effect for rows */
 #weaponsTable tr:hover td, 
+#questTable tr:hover td,
 #ploysTable tr:hover td,
 #perksTable tr:hover td,
 #crits-table {
@@ -472,7 +475,7 @@ label {
 }
 
 /* Optional: Style the container for additional spacing */
-#weaponsTable, #ploysTable, #perksTable,#crits-table {
+#weaponsTable, #ploysTable, #perksTable,#crits-table,#questTable {
     margin: 20px auto;
     width: 90%;
 }
@@ -574,7 +577,7 @@ label {
     background-color: #004d00 !important; /* Dark green */
     color: #A9D08E     !important; 
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -583,6 +586,7 @@ label {
 #perks-table-container td {
     padding: 12px 20px;
     text-align: center;
+    font-size: 13px;
     border: 1px solid #A9D08E     !important;
     background-color: #2b2d2f !important;
     color: #A9D08E     !important;
@@ -651,7 +655,7 @@ label {
     background-color: #004d00 !important; /* Dark green */
     color: #A9D08E    !important; 
     font-weight: bold;
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -659,6 +663,7 @@ label {
 /* Table Cells */
 #crits-table-container td {
     padding: 12px 20px;
+	font-size: 14px;
     text-align: center;
     border: 1px solid #A9D08E    !important;
     background-color: #2b2d2f !important;
@@ -694,6 +699,176 @@ label {
     background-color: inherit !important;
     color: #A9D08E    !important;
     border-color: #A9D08E    !important;
+}
+
+/* Fallout-Themed Quest Table Container */
+#quest-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease;
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 15px;
+    
+    background-color: #2b2d2f !important; /* Dark Pip-Boy background */
+    border: 2px solid #A9D08E !important; /* Green border */
+    border-radius: 8px; 
+   
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: center;
+}
+
+/* Table Style */
+#quest-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2d2f !important; /* Darker background */
+    color: #A9D08E !important; /* Pip-Boy green */
+    font-size: 14px !important;  /* Larger text */
+}
+
+/* Table Header */
+#quest-table-container th {
+    padding: 15px 25px;
+    text-align: center;
+    border: 2px solid #A9D08E !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #A9D08E !important; 
+    font-weight: bold;
+    font-size: 14px !important; /* Larger header text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Cells */
+#quest-table-container td {
+    padding: 15px 25px;
+    text-align: center;
+    border: 1px solid #A9D08E !important;
+    background-color: #2b2d2f !important;
+    color: #A9D08E !important;
+    font-size: 14px !important; /* Larger text */
+}
+
+/* Alternate Row Colors */
+#quest-table-container tr:nth-child(even) td {
+    background-color: #212223 !important; /* Darker for even rows */
+}
+
+/* Hover Effect */
+#quest-table-container tr:hover td {
+    background-color: #3a3d3f !important; /* Slight highlight */
+}
+
+/* Fallout-Themed Scrollbar */
+#quest-table-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+#quest-table-container::-webkit-scrollbar-track {
+    background: #2b2d2f !important;
+}
+
+#quest-table-container::-webkit-scrollbar-thumb {
+    background: #A9D08E !important;
+    border-radius: 5px;
+}
+
+/* Apply Fallout Theme to Everything Inside */
+#quest-table-container * {
+    background-color: inherit !important;
+    color: #A9D08E !important;
+    border-color: #A9D08E !important;
+}
+
+/* Fallout-Themed Weapon Table Container */
+#weapon-table-container {
+    transition: all 0.3s ease;
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 15px;
+    
+    background-color: #2b2d2f !important; /* Dark Pip-Boy background */
+    border: 2px solid #A9D08E !important; /* Green border */
+    border-radius: 8px; 
+   
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: center;
+}
+
+/* Table Style */
+#weapon-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2d2f !important; /* Darker background */
+    color: #A9D08E !important; /* Pip-Boy green */
+    font-size: 14px !important;  /* Consistent text size */
+}
+
+/* Table Header */
+#weapon-table-container th {
+    padding: 15px 25px;
+    text-align: center;
+    border: 2px solid #A9D08E !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #A9D08E !important; 
+    font-weight: bold;
+    font-size: 13px !important; /* Larger header text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Cells */
+#weapon-table-container td {
+    padding: 15px 25px;
+    text-align: center;
+    border: 1px solid #A9D08E !important;
+    background-color: #2b2d2f !important;
+    color: #A9D08E !important;
+    font-size: 13px !important; /* Larger text */
+}
+
+/* Alternate Row Colors */
+#weapon-table-container tr:nth-child(even) td {
+    background-color: #212223 !important; /* Darker for even rows */
+}
+
+/* Hover Effect */
+#weapon-table-container tr:hover td {
+    background-color: #3a3d3f !important; /* Slight highlight */
+}
+
+/* Fallout-Themed Scrollbar */
+#weapon-table-container::-webkit-scrollbar {
+    width: 12px;
+}
+
+#weapon-table-container::-webkit-scrollbar-track {
+    background: #2b2d2f !important;
+}
+
+#weapon-table-container::-webkit-scrollbar-thumb {
+    background: #A9D08E !important;
+    border-radius: 5px;
+}
+
+/* Apply Fallout Theme to Everything Inside */
+#weapon-table-container * {
+    background-color: inherit !important;
+    color: #A9D08E !important;
+    border-color: #A9D08E !important;
+}
+
+/* Table Header */
+#ploys-table-container th {
+    padding: 15px 25px;
+    text-align: center;
+    border: 2px solid #A9D08E !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #A9D08E !important; 
+    font-weight: bold;
+    font-size: 14px !important; /* Larger header text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 

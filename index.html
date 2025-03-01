@@ -129,7 +129,7 @@
 							<!-- Crew Notes Section -->
 			<div id="crew-notes-section">
 				<h3>Crew Notes</h3>
-				<textarea id="crew-notes" rows="4" placeholder="Enter Location, Control, Home Turf, Caps, Rep, Chems, etc."></textarea>
+				<textarea id="crew-notes" rows="4" placeholder="Ex) 58 Caps, 7 Parts, [Ad Victoriam] 1a: 2/3 | 1b: 0/1 | 1c: 1/3 "></textarea>
 			</div>
             <ul id="unit-list"></ul>
 			
@@ -208,26 +208,6 @@
             </tbody>
         </table>
     </div>
-
-			<!-- Button to toggle weapon table -->
-		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
-			<div id="weapon-table-container">
-			<h2>Faction Weapons</h2>
-                <table id="weaponsTable">
-                    <thead>
-                        <tr>
-                            <!-- <th>Weapon</th>
-                            <th>Type</th>
-                            <th>Test</th>
-                            <th>Traits</th>
-                            <th>Crit</th> taking out the headers -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dynamically populated rows -->
-                    </tbody>
-                </table>
-            </div>
 			
 			<!-- Crits Table Section -->
 			<button id="toggle-crits-table">Show/Hide Crits Table</button>	
@@ -258,13 +238,53 @@
 					</tbody>
 				</table>
 			</div> <!-- End of perks-table-container -->
+			
+			<!-- Quest Table Section -->
+			<button id="toggle-quest-table">Show/Hide Quest Table</button>	
+			<div id="quest-table-container" style="display: none;">
+				<h2>Quest List</h2>
+				<table id="questTable">
+					<thead>
+						<tr>
+							<!-- <th>Line</th>
+							<th>Tier</th>
+							<th>Condition</th>
+							<th>Target</th> taking out the headers -->
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Dynamically populated rows -->
+					</tbody>
+				</table>
+			</div> <!-- End of quest-table-container -->
+			
+				<!-- Button to toggle weapon table -->
+		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
+			<div id="weapon-table-container" style="display: none;">
+			<h2>Faction Weapons</h2>
+                <table id="weaponsTable">
+                    <thead>
+                        <tr>
+                            <!-- <th>Weapon</th>
+                            <th>Type</th>
+                            <th>Test</th>
+                            <th>Traits</th>
+                            <th>Crit</th> taking out the headers -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically populated rows -->
+                    </tbody>
+                </table>
+            </div>
+			
         </div> <!-- End of right column -->
 		
 
 
     </div> <!-- End of app -->
 
-    <script src="script.js?v=1.26"></script>
+    <script src="script.js?v=1.27"></script>
 
 
 </body>
