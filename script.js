@@ -836,6 +836,20 @@ const critData = [
 	{crit: "Tranquilize(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. For each one that scores higher than the Target's Endurance, the Target suffers one Harm, with Excess Harm causing an Injury. If this causes the Target to be Incapacitated, when you do the Treat the Wounded step, there is no lasting effect, as though you rolled Clean Bill of Health." }
 ];
 
+// Rare Chems Effects table
+const rchemData = [
+	{rchem: "Psycho Jet", roll: "1", effect: "When creating a Dice Pool for an Attack, you may spend a dose of Psycho Jet to add 2 Bonus Dice to the Pool. After the Attack has resolved, the Active model Recovers 1 Fatigue" },
+	{rchem: "Whiskey", roll: "2", effect: "When creating a Dice Pool for a Strength or Endurance test, you may spend a dose of Whiskey to increase either the Active model's Strength, or Endurance by 2, until that Test has resolved" },
+	{rchem: "Med-X", roll: "3", effect: "At any point during your Turn, you may spend a dose of Med-X to increase the Active Model’s Health by 1, until the end of the Game" },
+	{rchem: "Nuka-Cola Dark", roll: "4", effect: "When selecting the Active Model for the turn, you may spend a dose of Nuka-Cola Dark to increase that model’s Control Area by 3”, and its Luck by 1, until the end of the Turn" },
+	{rchem: "Day Tripper", roll: "5", effect: "When creating a model's Dice Pool for a S.P.E.C.I.A.L. test, you may spend a dose of Day Tripper to increase that model's Luck by 2, until that Test has resolved." },
+	{rchem: "Buffout", roll: "6", effect: "When one of your models is Targeted by an Attack Action, but before the Dice Pool is created; you may spend a dose of Buffout to increase the targeted model's Endurance by 2, until the Attack has resolved." },
+	{rchem: "Mentats", roll: "7", effect: "When one of your models Fails a Confusion Test, you may spend a dose of Mentats to have that model instead Pass the Confusion Test." },
+	{rchem: "Hydra", roll: "8", effect: "During the Story Phase, when rolling on the Serious Injury Table, you may spend a dose of Hydra to Re-Roll a result. For each dose spent, you may Re-roll three times, but cannot use the result of a Re-rolled dice." },
+	{rchem: "Calmex", roll: "9", effect: "Before making a Rummage Action, you may spend a dose of Calmex to set one of the dice to a number of your choice, rather than roll it." },
+	{rchem: "Daddy-O", roll: "10", effect: "When selecting the Active Model for the turn, you may spend a dose of Daddy-O to double the size of that model’s Control Area, until the end of the Game." }
+];
+
 // Traits table
 const traitData = [
 	{trait: "Aim(+X)", effect: "When creating the Dice Pool for an Attack Action with this Weapon, the attacking model can Take Fatigue to add X Bonus Dice to the Pool." },
@@ -856,6 +870,69 @@ const traitData = [
 
 let currentSortColumn = "perk"; // Default sort column
 let ascendingSort = true; // Default sort order
+
+// Function to render the Rare Chems table
+function renderRchemsTable() {
+  // Get the container where you want to display the table
+  const tableContainer = document.getElementById("rchems-table-container");
+
+  // Create the table
+  const table = document.createElement("table");
+  table.classList.add("rchems-table");
+
+  // Create the table header
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  const headers = ["Rare Chem", "Roll", "Effect"];
+  headers.forEach(headerText => {
+    const th = document.createElement("th");
+    th.textContent = headerText;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create the table body
+  const tbody = document.createElement("tbody");
+  rchemData.forEach(chem => { // No sorting applied, keeping the original order
+    const row = document.createElement("tr");
+
+    const rchemCell = document.createElement("td");
+    rchemCell.textContent = chem.rchem;
+    row.appendChild(rchemCell);
+
+    const rollCell = document.createElement("td");
+    rollCell.textContent = chem.roll;
+    row.appendChild(rollCell);
+
+    const effectCell = document.createElement("td");
+    effectCell.textContent = chem.effect;
+    row.appendChild(effectCell);
+
+    tbody.appendChild(row);
+  });
+  table.appendChild(tbody);
+
+  // Append the table to the container
+  tableContainer.appendChild(table);
+}
+
+// Call the function to render the rchems table
+renderRchemsTable();
+
+// Function to toggle the visibility of the rchems table
+document.getElementById("toggle-rchems-table").addEventListener("click", function() {
+    const tableContainer = document.getElementById("rchems-table-container");
+    
+    // Get the current display value of the table container
+    const currentDisplay = window.getComputedStyle(tableContainer).display;
+    
+    // Toggle the table's display style
+    tableContainer.style.display = (currentDisplay === "none") ? "block" : "none";
+});
+
+
+
 
 function renderTraitsTable() {
   // Sort the traitData array alphabetically by trait name

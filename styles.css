@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table,#toggle-traits-table, #campaign-button, #toggle-quest-table {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table,#toggle-traits-table, #campaign-button, #toggle-quest-table,#toggle-rchems-table {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.8rem; /* Make buttons smaller */
     background-color: transparent;
@@ -212,7 +212,7 @@ tr:hover td {
 
 
 /* Hover effect */
-#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover,#toggle-traits-table:hover,#toggle-quest-table:hover   {
+#reset-button:hover, #generate-txt:hover, #generate-pdf:hover, #save-list:hover, #load-list:hover,#delete-list:hover,#toggle-perks-table:hover,#toggle-rchems-table:hover,#toggle-weapon-table:hover,#toggle-crits-table:hover,#toggle-traits-table:hover,#toggle-quest-table:hover   {
     background-color: #76D7B2;
     color: black;
 }
@@ -711,6 +711,86 @@ label {
     color: #A9D08E !important;
     border-color: #A9D08E !important;
 }
+
+
+/* Fallout-Themed Rare Chems Table Container */
+#rchems-table-container {
+    display: none; /* Hidden by default */
+    transition: all 0.3s ease;
+    max-height: 70vh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 15px;
+    
+    background-color: #2b2d2f !important; /* Dark Pip-Boy background */
+    border: 2px solid #A9D08E !important; /* Green border */
+    border-radius: 8px; 
+   
+    font-family: 'Orbitron', sans-serif !important;
+    text-align: center;
+}
+
+/* Table Style */
+#rchems-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2b2d2f !important; /* Darker background */
+    color: #A9D08E !important; /* Pip-Boy green */
+}
+
+/* Table Header */
+#rchems-table-container th {
+    padding: 12px 20px;
+    text-align: center;
+    border: 2px solid #A9D08E !important;
+    background-color: #004d00 !important; /* Dark green */
+    color: #A9D08E !important; 
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table Cells */
+#rchems-table-container td {
+    padding: 12px 20px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #A9D08E !important;
+    background-color: #2b2d2f !important;
+    color: #A9D08E !important;
+}
+
+/* Alternate Row Colors */
+#rchems-table-container tr:nth-child(even) td {
+    background-color: #212223 !important; /* Darker for even rows */
+}
+
+/* Hover Effect */
+#rchems-table-container tr:hover td {
+    background-color: #3a3d3f !important; /* Slight highlight */
+}
+
+/* Fallout-Themed Scrollbar */
+#rchems-table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#rchems-table-container::-webkit-scrollbar-track {
+    background: #2b2d2f !important;
+}
+
+#rchems-table-container::-webkit-scrollbar-thumb {
+    background: #A9D08E !important;
+    border-radius: 5px;
+}
+
+/* Apply Fallout Theme to Everything Inside */
+#rchems-table-container * {
+    background-color: inherit !important;
+    color: #A9D08E !important;
+    border-color: #A9D08E !important;
+}
+
 
 
 

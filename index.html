@@ -101,7 +101,7 @@
 
 			<h2 class="your-list-header">Your List</h2>
 			<p style="font-size: 0.9em; color: #B0A050 ;">
-				3.2.25 updated with new Core Rules, added quests, added weapon upgrades to faction weapon table, added traits <br>When you load a saved crew and add a new member, or change their Points value, Crew Points will reset but just save your crew with new member/edits and load. The Crew Points will recalculate on load.
+				3.2.25 updated with new Core Rules, added quests, weapon upgrades, traits, rare chems <br>When you load a saved crew and add a new member, or change their Points value, Crew Points will reset but just save your crew with new member/edits and load. The Crew Points will recalculate on load.
 			</p>
 			            <!-- Reset Button Section -->
             <div id="reset-section">
@@ -238,6 +238,21 @@
 					</tbody>
 				</table>
 			</div> <!-- End of traits-table-container -->
+			
+		<!-- Rare Chems Table Section -->
+		<button id="toggle-rchems-table">Show/Hide Rare Chems Table</button>	
+		<div id="rchems-table-container">
+			<h2>Rare Chems List</h2>
+			<table id="rchemsTable">
+				<thead>
+					<tr>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Dynamically populated rows -->
+				</tbody>
+			</table>
+		</div> <!-- End of rchems-table-container -->
 
 			<!-- Perks Table Section -->
 			<button id="toggle-perks-table">Show/Hide Perks Table</button>	
@@ -253,6 +268,26 @@
 					</tbody>
 				</table>
 			</div> <!-- End of perks-table-container -->
+			
+							<!-- Button to toggle weapon table -->
+		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
+			<div id="weapon-table-container" style="display: none;">
+			<h2>Faction Weapons</h2>
+                <table id="weaponsTable">
+                    <thead>
+                        <tr>
+                            <!-- <th>Weapon</th>
+                            <th>Type</th>
+                            <th>Test</th>
+                            <th>Traits</th>
+                            <th>Crit</th> taking out the headers -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamically populated rows -->
+                    </tbody>
+                </table>
+            </div>
 			
 			<!-- Quest Table Section -->
 			<button id="toggle-quest-table">Show/Hide Quest Table</button>	
@@ -273,25 +308,7 @@
 				</table>
 			</div> <!-- End of quest-table-container -->
 			
-				<!-- Button to toggle weapon table -->
-		<button id="toggle-weapon-table">Show/Hide Weapon Table</button>
-			<div id="weapon-table-container" style="display: none;">
-			<h2>Faction Weapons</h2>
-                <table id="weaponsTable">
-                    <thead>
-                        <tr>
-                            <!-- <th>Weapon</th>
-                            <th>Type</th>
-                            <th>Test</th>
-                            <th>Traits</th>
-                            <th>Crit</th> taking out the headers -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Dynamically populated rows -->
-                    </tbody>
-                </table>
-            </div>
+
 			
         </div> <!-- End of right column -->
 		
