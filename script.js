@@ -145,6 +145,13 @@ const factions = {
             { name: "Short Hunting Rifle and Molotov Cocktails", points: 28, type: "Rifle(14\")", test: "3P", traits: "-", effect: "Pierce", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"  }			
 			
         ] },
+		{ name: "Centaur", type: "Grunt, Limit:1", perks: "Beast, Burly, Rad Resistant",
+		stats: { 
+        S: 4, P: 3, E: 5, C: 1, I: 1, A: 3, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Centaur Spit and Claws and Jaws", points: 32, type: "Grenade(10\")", test: "2A", traits: "Area(1\"), CQB, Irradiate, Slow", effect: "-",type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Suppress (1)" }
+        ] },
         { name: "Mutant Hound", type: "Grunt", perks: "Beast, Burly, Rad Resistant, Sic 'Em",
 		stats: { 
         S: 4, P: 2, E: 4, C: 3, I: 3, A: 5, L: 1, W: 1  // SPECIALW stats
@@ -1276,7 +1283,8 @@ const weaponData = {
 		{ weapon: "Short Hunting Rifle 3parts +8pts", type: "", test: "", traits: "Fast", effect: ""},
 		{ weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
 		{ weapon: "Minigun 5parts +12pts", type: "", test: "", traits: "Selective Fire(Area(1\")), Storm(3), Slow", effect: ""},
-		{ weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
+		{ weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" },
+		{ weapon: "Centaur Spit", type: "Grenade(10\")", test: "2A", traits: "Area(1\"), CQB, Irradiate, Slow", effect: "-"}
 ],	
 	"Wasteland Raiders": [
 		{ weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
