@@ -2973,24 +2973,22 @@ loadListButton.addEventListener("click", function () {
     alert(`List "${selectedList}" loaded successfully!`);
 });
 
-    // Delete List
-    deleteListButton.addEventListener("click", function () {
-        const selectedList = savedListsDropdown.value;
-        if (!selectedList) {
-            alert("Please select a list to delete.");
-            return;
-        }
+// Delete List without confirmation
+deleteListButton.addEventListener("click", function () {
+    const selectedList = savedListsDropdown.value;
+    if (!selectedList) {
+        alert("Please select a list to delete.");
+        return;
+    }
 
-        if (confirm(`Are you sure you want to delete "${selectedList}"?`)) {
-            const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
-            delete savedLists[selectedList];
-            localStorage.setItem("savedLists", JSON.stringify(savedLists));
+    const savedLists = JSON.parse(localStorage.getItem("savedLists")) || {};
+    delete savedLists[selectedList];
+    localStorage.setItem("savedLists", JSON.stringify(savedLists));
 
-            updateSavedListsDropdown();
+    updateSavedListsDropdown();
 
-            alert(`List "${selectedList}" deleted successfully!`);
-        }
-    });
+    alert(`List "${selectedList}" deleted successfully!`);
+});
 
     // Initialize dropdown on page load
     updateSavedListsDropdown();
