@@ -1871,7 +1871,7 @@ const ployData = {
     "The Pack": [
         {
             name: "Brutality",
-            descr: "Enact this Ploy when one of your models Incapacitates an Enemy with an attack. Your opponent must make Confusion Tests for any of thei models within 5\", rather than 3\". For each of these Tests, they count as Failing if they score fewer than two Hits."
+            descr: "Enact this Ploy when one of your models Incapacitates an Enemy with an attack. Your opponent must make Confusion Tests for any of their models within 5\", rather than 3\". For each of these Tests, they count as Failing if they score fewer than two Hits."
         },
         {
             name: "Pack Hunters",
