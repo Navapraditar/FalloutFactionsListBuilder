@@ -2257,12 +2257,7 @@ unitSelect.addEventListener("change", () => {
 
     if (selectedUnitData) {
         const isLeader = selectedUnitData.type.includes("Leader");
-        if (isLeader && hasLeader) {
-            alert("You can only have one Leader in your list!");
-            unitSelect.value = ""; // Reset selection
-            selectedUnit = null;
-            return;
-        }
+
 
         // Populate Weapon Sets
         weaponSelect.innerHTML = '<option value="">-- Select Weapon Set --</option>';
