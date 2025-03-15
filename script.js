@@ -282,7 +282,7 @@ const factions = {
     "The Operators": [
         { name: "Boss", type: "Champion, Leader", perks: "Natural Leader",
 		stats: { 
-        S: 5, P: 6, E: 5, C: 6, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
+        S: 5, P: 6, E: 5, C: 5, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Marksman's Handmade Rifle", points: 44 , type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"},
