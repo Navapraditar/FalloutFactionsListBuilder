@@ -329,7 +329,7 @@ const factions = {
         ] }
     ],
     "The Pack": [
-        { name: "Alpha", type: "Champion, Leader", perks: "Natural Leader",
+        { name: "Alpha", type: "Champion, Leader", perks: "Natural Leader, Sprint",
 		stats: { 
         S: 5, P: 5, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
@@ -338,9 +338,9 @@ const factions = {
             { name: "10mm Pistol and Deathclaw Gauntlet", points: 42, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "5S", traits2: "WindUp", effect2: "Pierce" },
             { name: "Automatic Handmade Rifle and Baseball Bat", points: 48, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
-        { name: "Top Dog", type: "Champion",
+        { name: "Top Dog", type: "Champion", perks: "Sprint",
 		stats: { 
-        S: 5, P: 4, E: 4, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+        S: 5, P: 4, E: 5, C: 5, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
             { name: "10mm Pistol and Baseball Bat", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
@@ -348,7 +348,7 @@ const factions = {
             { name: "Sledgehammer and Predator Grenades", points: 33, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim", type2: "Grenade(8\")", test2: "4A", traits2: "Area(3\") CQB", effect2: "Maim" },
             { name: "Flamer", points: 36, type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" }
         ] },
-        { name: "Psycho", type: "Grunt",
+        { name: "Psycho", type: "Grunt", perks: "Sprint",
 		stats: { 
         S: 4, P: 3, E: 4, C: 4, I: 3, A: 5, L: 2, W: 1  // SPECIALW stats
             }, 
@@ -359,7 +359,7 @@ const factions = {
             { name: "10mm Pistol and Hand Weapon", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
             { name: "10mm Pistol and Baseball Bat", points: 24, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
-        { name: "Scavver", type: "Grunt",
+        { name: "Scavver", type: "Grunt", perks: "Sprint",
 		stats: { 
         S: 4, P: 4, E: 4, C: 3, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
@@ -368,7 +368,7 @@ const factions = {
             { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
             { name: "Automatic Handmade Rifle", points: 27, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)"  }
         ] },
-        { name: "Waster", type: "Grunt",
+        { name: "Waster", type: "Grunt", perks: "Sprint",
 		stats: { 
         S: 3, P: 3, E: 3, C: 4, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
