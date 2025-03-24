@@ -176,7 +176,7 @@ const factions = {
         S: 5, P: 5, E: 5, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hunting Rifle", points: 41, type: "Rifle(22\")", test: "3A", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Hunting Rifle", points: 41, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Flamer", points: 45, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
             { name: "Missile Launcher", points: 56, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"}
 
@@ -1232,7 +1232,6 @@ const weaponData = {
 		{ weapon: "Machete 2parts +6pts", type: "", test: "5S", traits: "", effect: "" },
 		{ weapon: "Crusader Pistol", type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim" },
 		{ weapon: "Crusader Pistol 3parts +7pts", type: "", test: "", traits: "", effect: "Ignite(1), Maim"},
-		{ weapon: "Crusader Pistol 2parts +6pts", type: "", test: "5A", traits: "", effect: ""},
 		{ weapon: "Recon Hunting Rifle", type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce"},
 		{ weapon: "Recon Hunting Rifle 2parts +6pts", type: "Rifle(28\")", test: "", traits: "", effect: ""},
 		{ weapon: "Recon Hunting Rifle 4parts +8pts", type: "", test: "5P", traits: "", effect: ""},
