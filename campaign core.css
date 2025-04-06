@@ -1,0 +1,175 @@
+body {
+    background-color: #0f0f0f; /* Pip-Boy dark background */
+    font-family: 'Orbitron', monospace; /* Retro terminal font */
+    color: #66FF66; /* Fallout green glow */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Footer styling */
+#footer {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: gray;
+    font-family: Arial, sans-serif;
+}
+
+.section {
+    background-color: #1a1a1a; /* Dark panel background */
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid #66FF66; /* Glowing green outline */
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 0 10px #66FF66;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #66FF66;
+    text-shadow: 0 0 5px #66FF66;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+}
+
+input, select {
+    width: 60%;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+    color: #66FF66;
+    font-family: 'Orbitron', monospace;
+    box-shadow: inset 0 0 5px #66FF66;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #66FF66;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #000;
+    color: #66FF66;
+    padding: 8px 12px;
+    border: 1px solid #66FF66;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 5px #66FF66;
+}
+
+button:hover {
+    background-color: #111;
+    box-shadow: 0 0 8px #66FF66;
+}
+
+/* Quest Goals */
+.quest-goals .goal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 15px;
+    padding: 12px;
+    border: 2px solid #66FF66;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #33FF33;
+    width: 95%;
+    max-width: 750px;
+    min-height: 140px;
+    word-wrap: break-word;
+}
+
+/* Goal Title */
+.goal-title {
+    width: 100%;
+    background-color: #000;
+    color: #33FF33;
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 8px;
+    margin-top: 5px;
+    height: 40px;
+    font-size: 1.1em;
+    box-shadow: inset 0 0 5px #66FF66;
+}
+
+/* Progress & Target Wrapper */
+.progress-target {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Completed Progress & Target */
+.progress, .target, .user-progress {
+    width: 32%;
+    text-align: center;
+    background-color: #111;
+    padding: 10px;
+    border: 2px solid #66FF66;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #66FF66;
+}
+
+/* Inputs */
+.completed, .target-value, .user-progress-value {
+    width: 80%;
+    padding: 8px;
+    background-color: #000;
+    color: #33FF33;
+    border: none;
+    font-family: 'Orbitron', monospace;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+/* Resource Boxes - Smaller to Fit in One Row */
+.resource-box {
+    display: inline-block;
+    width: 120px; /* Reduced width */
+    height: 120px; /* Reduced height */
+    margin: 8px;
+    padding: 4px;
+    background-color: #111;
+    border: 2px solid #66FF66;
+    border-radius: 5px;
+    box-shadow: 0 0 6px #66FF66;
+    text-align: center;
+    font-size: 1em; /* Keeps text readable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensuring Resource Boxes Fit in One Row */
+.resources {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+	font-size: 1.2em;
+}
+
+
+

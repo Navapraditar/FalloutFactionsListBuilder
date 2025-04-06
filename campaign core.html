@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Tracker</title>
+    <link rel="stylesheet" href="campaign core.css">
+</head>
+<body>
+
+		<footer id="footer">
+		<small>Created by Joseph Navapraditar</small>
+		</footer>
+
+    <a href="index.html" class="back-button">← Back to Main</a>
+	<button id="reset-button">Reset</button>
+
+	
+				<!-- Save/Load List Section -->
+	<div id="list-management">
+		<h3>Save or Load Your List</h3>
+		
+		<label for="list-name">List Name:</label>
+		<input type="text" id="list-name" placeholder="Enter list name">
+
+		<button id="save-list">Save List</button>
+
+		<br><label for="saved-lists">Load Saved List:</label>
+		<select id="saved-lists">
+			<option value="">-- Select a Saved List --</option>
+		</select>
+
+		<button id="load-list">Load List</button>
+		<button id="delete-list">Delete List</button>
+	</div>
+
+    <!-- Crew Section -->
+    <div class="section crew">
+        <h2>Crew</h2>
+        <div class="input-group">
+            <label>Crew Name:</label>
+            <input type="text" id="crew-name">
+        </div>
+    </div>
+
+	<!-- Quests Section -->
+	<div class="section quests">
+		<h2>Quests</h2>
+		<!-- Subheader -->
+    <p>*To populate the Goals and Target after saving: <br> 1) Load your list. <br> 2) Select a DIFFERENT quest tier. <br> 3) Select the quest tier you actually were on. <br> 4) Load your list again.</p>
+
+		<select id="faction">
+		<option value="">Select Faction</option>
+		</select>
+
+		<select id="quest-dropdown">
+			<option value="">Select Quest</option>
+			<!-- Options dynamically populated -->
+		</select>
+		<select id="tier-dropdown">
+			<option value="1">Tier 1</option>
+			<option value="2">Tier 2</option>
+			<option value="3">Tier 3</option>
+		</select>
+		<div class="quest-goals">
+			<div class="goal">
+				<label>Goal:</label>
+				<input type="text" id="goal-input" readonly>
+				<label>Target:</label>
+				<input type="text" id="target-input" readonly>
+				<label>Your Progress:</label>
+				<input type="number" id="progress-input" placeholder="Enter your progress">
+			</div>
+			
+			<!-- Checkboxes for Progress -->
+			<div id="progress-checkboxes">
+				<!-- Checkboxes will be dynamically added here -->
+			</div>
+		</div>
+	</div>
+
+    <!-- Resources Section -->
+    <div class="section resources">
+        <h2>Resources</h2>
+        <div class="resource-box">
+            <label>Caps</label>
+            <input type="number" id="caps">
+        </div>
+        <div class="resource-box">
+            <label>Parts</label>
+            <input type="number" id="parts">
+        </div>
+        <div class="resource-box">
+            <label>Scout</label>
+            <input type="number" id="scout">
+        </div>
+        <div class="resource-box">
+            <label>Reach</label>
+            <input type="number" id="reach">
+        </div>
+        <div class="resource-box">
+            <label>XP</label>
+            <input type="number" id="xp">
+        </div>
+    </div>
+
+<!-- Home Turf Section -->
+<div class="section home-turf">
+    <h2>Home Turf</h2>
+    <div class="hazard">
+        <label>Hazard:</label>
+        <input type="text" id="hazard-name" placeholder="Hazard"><br>
+        <label>Hazard Effect:</label>
+        <input type="text" id="hazard-effect" placeholder="Effect of Hazard"><br>
+    </div>
+    <br><div class="facilities">
+        <label>Facility1:</label>
+        <input type="text" id="facility1-name" placeholder="Facility1 Name"><br>
+        <label>Facility1 Effect:</label>
+        <input type="text" id="facility1-effect" placeholder="Facility1 Effect"><br>
+        
+        <br><label>Facility2:</label>
+        <input type="text" id="facility2-name" placeholder="Facility2 Name"><br>
+        <label>Facility2 Effect:</label>
+        <input type="text" id="facility2-effect" placeholder="Facility2 Effect"><br>
+        
+        <br><label>Facility3:</label>
+        <input type="text" id="facility3-name" placeholder="Facility3 Name"><br>
+        <label>Facility3 Effect:</label>
+        <input type="text" id="facility3-effect" placeholder="Facility3 Effect"><br>
+        
+        <br><label>Facility4:</label>
+        <input type="text" id="facility4-name" placeholder="Facility4 Name"><br>
+        <label>Facility4 Effect:</label>
+        <input type="text" id="facility4-effect" placeholder="Facility4 Effect"><br>
+        
+        <br><label>Facility5:</label>
+        <input type="text" id="facility5-name" placeholder="Facility5 Name"><br>
+        <label>Facility5 Effect:</label>
+        <input type="text" id="facility5-effect" placeholder="Facility5 Effect"><br>
+        
+        <br><label>Facility6:</label>
+        <input type="text" id="facility6-name" placeholder="Facility6 Name"><br>
+        <label>Facility6 Effect:</label>
+        <input type="text" id="facility6-effect" placeholder="Facility6 Effect"><br>
+    </div>
+</div>
+
+<!-- Captives Section -->
+<div class="section captives">
+    <h2>Captives</h2>
+    <!-- Captives Inputs -->
+    <div class="captives-inputs">
+        <label>Captive1:</label>
+        <input type="text" id="captive1-details" placeholder="Captive1 Details"><br>
+        
+        <label>Captive2:</label>
+        <input type="text" id="captive2-details" placeholder="Captive2 Details"><br>
+        
+        <label>Captive3:</label>
+        <input type="text" id="captive3-details" placeholder="Captive3 Details"><br>
+        
+        <label>Captive4:</label>
+        <input type="text" id="captive4-details" placeholder="Captive4 Details"><br>
+        
+        <label>Captive5:</label>
+        <input type="text" id="captive5-details" placeholder="Captive5 Details"><br>
+        
+        <label>Captive6:</label>
+        <input type="text" id="captive6-details" placeholder="Captive6 Details"><br>
+    </div>
+</div>
+
+<!-- Rival Section -->
+<div class="section rival">
+    <h2>Rivals</h2>
+    <br><div class="rivals">
+        <label>Rival1:</label>
+        <input type="text" id="rival1-name" placeholder="Rival1 Name"><br>
+        <label>Rival1 Count:</label>
+        <input type="number" id="rival1-count" placeholder="Rival1 Count"><br>
+        
+        <br><label>Rival2:</label>
+        <input type="text" id="rival2-name" placeholder="Rival2 Name"><br>
+        <label>Rival2 Count:</label>
+        <input type="number" id="rival2-count" placeholder="Rival2 Count"><br>
+        
+        <br><label>Rival3:</label>
+        <input type="text" id="rival3-name" placeholder="Rival3 Name"><br>
+        <label>Rival3 Count:</label>
+        <input type="number" id="rival3-count" placeholder="Rival3 Count"><br>
+        
+        <br><label>Rival4:</label>
+        <input type="text" id="rival4-name" placeholder="Rival4 Name"><br>
+        <label>Rival4 Count:</label>
+        <input type="number" id="rival4-count" placeholder="Rival4 Count"><br>
+        
+        <br><label>Rival5:</label>
+        <input type="text" id="rival5-name" placeholder="Rival5 Name"><br>
+        <label>Rival5 Count:</label>
+        <input type="number" id="rival5-count" placeholder="Rival5 Count"><br>
+        
+        <br><label>Rival6:</label>
+        <input type="text" id="rival6-name" placeholder="Rival6 Name"><br>
+        <label>Rival6 Count:</label>
+        <input type="number" id="rival6-count" placeholder="Rival6 Count"><br>
+        
+        <br><label>Rival7:</label>
+        <input type="text" id="rival7-name" placeholder="Rival7 Name"><br>
+        <label>Rival7 Count:</label>
+        <input type="number" id="rival7-count" placeholder="Rival7 Count"><br>
+        
+        <br><label>Rival8:</label>
+        <input type="text" id="rival8-name" placeholder="Rival8 Name"><br>
+        <label>Rival8 Count:</label>
+        <input type="number" id="rival8-count" placeholder="Rival8 Count"><br>
+    </div>
+</div>
+    
+
+
+    <script src="campaign core.js"></script>
+</body>
+</html>

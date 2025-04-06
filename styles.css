@@ -150,7 +150,7 @@ tr:hover td {
 }
 
 /* Styling for all buttons */
-#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table,#toggle-traits-table, #campaign-button, #toggle-quest-table,#toggle-rchems-table {
+#save-list, #load-list, #delete-list,#toggle-perks-table,#toggle-weapon-table,#toggle-crits-table,#toggle-traits-table, #campaign-button,#campaign2-button, #toggle-quest-table,#toggle-rchems-table {
     margin-right: 10px; /* Keep buttons close together */
     font-size: 0.8rem; /* Make buttons smaller */
     background-color: transparent;
