@@ -2510,14 +2510,7 @@ document.getElementById("generate-txt").addEventListener("click", () => {
     // Initialize an array to store the text content
     let unitListContent = '';
 	
-    // Get the crew notes from the textarea (same as the save/load functionality)
-    const crewNotesTextarea = document.querySelector("#crew-notes");
-    const crewNotes = crewNotesTextarea ? crewNotesTextarea.value : '';  // Retrieve crew notes if available
 
-    // Add crew notes at the top of the file with a heading
-    if (crewNotes) {
-        unitListContent += `==================== Crew Notes ====================\n${crewNotes}\n\n--------------------------------------------------\n`;  // Add crew notes section
-    }
 
 // Loop through each list item to gather the unit name, stats, and unit notes
 document.querySelectorAll('#unit-list li').forEach(item => {
@@ -2570,8 +2563,6 @@ document.querySelectorAll('#unit-list li').forEach(item => {
         }
     });
 
-    // Get unit notes
-    const unitNotes = item.querySelector("textarea") ? item.querySelector("textarea").value : ''; // Get unit notes
 
     // Add unit information in a structured format
     unitListContent += `==================== ${unitName} ====================\n`;
@@ -2584,19 +2575,14 @@ document.querySelectorAll('#unit-list li').forEach(item => {
     unitListContent += `Special Stats:\n`;
 
     // Add special stats (S, P, E, etc.) in a clean, organized format
-    unitListContent += `${filteredStats.join('\n')}\n`;  // Add each stat on a new line
+    unitListContent += `${filteredStats}\n`;
 
     // Add weapons info in a bulleted list (without points)
     if (weaponText) {
         unitListContent += `Weapons:\n${weaponText}\n`;
     }
 
-    // Add notes section
-    if (unitNotes) {
-        unitListContent += `\nNotes: ${unitNotes}\n\n`;
-    }
 
-    unitListContent += `--------------------------------------------------\n\n`;  // Add a separator between units
 });
 
 
