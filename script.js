@@ -474,6 +474,48 @@ const factions = {
             { name: ".44 Pistol and Machete", points: 16, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
         ] }
 	],
+	"Zetans": [
+        { name: "Zetan Commander", type: "Champion, Leader", perks: "Burly, Hardy, Natural Leader, Rad Resistant",
+		stats: { 
+        S: 5, P: 6, E: 7, C: 4, I: 7, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Electro Suppresor and Plasma Grenades", points: 44 , type: "Melee", test: "4S", traits: "-", effect: "Suppress(3)",type2: "Grenade(8\")", test2: "4A", traits2: "Area(2\") CQB", effect2: "-" },
+            { name: "Alien Disintegrator", points: 56, type: "Rifle(16\")", test: "5P", traits: "CQB", effect: "Meltdown"  }
+        ] },
+        { name: "Zetan Lieutenant", type: "Champion",
+		stats: { 
+        S: 3, P: 4, E: 4, C: 4, I: 6, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+		weapons: [
+            { name: "Cryo Blaster", points: 26, type: "Pistol(12\")", test: "2A", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Toxin Blaster", points: 28, type: "Pistol(12\")", test: "3A", traits: "-", effect: "Poison(2)" },
+            { name: "Alien Blaster", points: 30, type: "Pistol(12\")", test: "4A", traits: "Slow", effect: "Meltdown" }
+        ] },
+        { name: "Zetan Trooper", type: "Grunt",
+		stats: { 
+        S: 2, P: 4, E: 4, C: 3, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Cryo Blaster", points: 21, type: "Pistol(12\")", test: "2A", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Toxin Blaster", points: 23, type: "Pistol(12\")", test: "3A", traits: "-", effect: "Poison(2)" },
+            { name: "Alien Blaster", points: 25, type: "Pistol(12\")", test: "4A", traits: "Slow", effect: "Meltdown" }
+        ] },
+        { name: "Alien Drone", type: "Grunt", perks: "Machine, Rad Resistant",
+		stats: { 
+        S: 2, P: 4, E: 6, C: 1, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Alien Laser", points: 30,type: "Pistol(14\")", test: "3A", traits: "Fast", effect: "Ignite(2)"}
+        ] },
+		{ name: "Flatwoods Monster", type: "Grunt", perks: "Mind Control",
+		stats: { 
+        S: 2, P: 4, E: 5, C: 6, I: 6, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Alien Laser", points: 40,type: "Pistol(14\")", test: "3A", traits: "Fast", effect: "Ignite(2)"}
+        ] }
+	],
 		"Legends of the Wasteland": [
         { name: "Lucy", type: "Grunt, Hiring Fee: 33", perks: "The One and Only, Okey Dokey, Wasteland Wanderer",
 		stats: { 
@@ -820,7 +862,8 @@ const perksData = [
   { perk: "Survivalist", prereq:"-", description: "Whenever this model would Suffer Harm from an Attack, and there is another Friendly model within 3” that has no Harm, the Friendly model may Suffer that Harm instead." }, 
   { perk: "Sticky Fingers", prereq:"-", description: "When this model makes the Rummage Action to Find a Chem, after adding a Chem to the Crew Roster, they may add a second Chem with a Cap cost no higher than the total result of the two rolled dice." }, 
   { perk: "Roboteer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Robot Companions list (pg. 5) to add to your Crew Roster. The Rating of the selected Companion is added to this Champion's Rating. This Perk may only be taken once per model." },
-  { perk: "Creature Tamer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Creature Companions list (pg. 8) to add to your Crew Roster. The Rating of the selected Companion is added to this Champions Rating. This Perk may only be taken once per model." }
+  { perk: "Creature Tamer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Creature Companions list (pg. 8) to add to your Crew Roster. The Rating of the selected Companion is added to this Champions Rating. This Perk may only be taken once per model." },
+  { perk: "Mind Control", prereq:"-", description: "This model may take Open Fire Actions using the weapon carried by an enemy model within its Control Area. Visibility is checked from the enemy model that has the weapon used by this model. During this Open Fire Action, this model uses its own Luck statistic and the appropriate Test statistic value from the enemy model. Weapons with the One & Done Trait cannot be used via this Perk." }
 ];
 
 // Critical Effects table
@@ -1566,6 +1609,23 @@ const weaponData = {
 		{ weapon: "Flamer 5parts +12pts", type: "Heavy(9\")", test: "", traits: "", effect: ""},
 		{ weapon: "Molotov Cocktails", type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)" }
     ],
+	"Zetans": [
+        { weapon: "Electro Suppresor", type: "Melee", test: "4S", traits: "-", effect: "Suppress(3)" },
+		{ weapon: "Electro Suppresor 1parts +3pts", type: "", test: "", traits: "WindUp", effect: ""},
+		{ weapon: "Alien Blaster", type: "Pistol(12\")", test: "4A", traits: "Slow", effect: "Meltdown"},
+		{ weapon: "Alien Blaster 3parts +4pts", type: "Pistol(14\")", test: "", traits: "", effect: ""},
+		{ weapon: "Alien Blaster 5parts +10pts", type: "", test: "", traits: "Remove Slow", effect: ""},
+		{ weapon: "Alien Laser", type: "Pistol(14\")", test: "3A", traits: "Fast", effect: "Ignite(2)"},
+		{ weapon: "Alien Laser 2parts +3pts", type: "Pistol(16\")", test: "", traits: "", effect: ""},
+		{ weapon: "Alien Laser 5parts +10pts", type: "", test: "", traits: "", effect: "Ignite(3)"},
+		{ weapon: "Alien Disintegrator", type: "Rifle(16\")", test: "5P", traits: "CQB", effect: "Meltdown"},
+		{ weapon: "Alien Disintegrator 3parts +6pts", type: "", test: "", traits: "Aim(+1)", effect: ""},
+		{ weapon: "Alien Disintegrator 7parts +12pts", type: "", test: "", traits: "Remove CQB", effect: ""},
+		{ weapon: "Cryo Blaster", type: "Pistol(12\")", test: "2A", traits: "Fast", effect: "Suppress(2)"},
+		{ weapon: "Cryo Blaster 4parts +6pts", type: "", test: "3A", traits: "", effect: ""},
+		{ weapon: "Toxin Blaster", type: "Pistol(12\")", test: "3A", traits: "-", effect: "Poison(2)"},
+		{ weapon: "Toxin Blaster 2parts +3pts", type: "Pistol(14\")", test: "", traits: "", effect: ""}
+    ],
 	"Creature Companions": [
         { weapon: "Bloodbug Proboscis", type: "Melee", test: "4S", traits: "-", effect: "Poison(2)"},
         { weapon: "Claws & Jaws", type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)" },
@@ -1758,6 +1818,39 @@ const questData = {
 		{line: "Take the High Ground", tier: "3d", condition: "An Enemy model fails a Confusion Test.", target: "10"}
 
 	],
+		"Zetans": [
+		{line: "Who Goes There", tier: "1a", condition: "Your crew earns at least 3 Experience Points in a single game.", target: "3"},
+		{line: "Who Goes There", tier: "1b", condition: "A model in the crew gains a Perk. ", target: "8"},
+		{line: "Who Goes There", tier: "1c", condition: "You use the Recruit Story Action to recruit a Flatwoods Monster. ", target: "1"},
+		{line: "Who Goes There", tier: "2a", condition: "A Flatwoods Monster ends a game without being Incapacitated.", target: "6"},
+		{line: "Who Goes There", tier: "2b", condition: "You take the Scout Story Action.", target: "6"},
+		{line: "Who Goes There", tier: "2c", condition: "You use a Standard Ploy", target: "3"},
+		{line: "Who Goes There", tier: "3a", condition: "At least 5 of your models have a Perk that they did not start with. ", target: "1"},
+		{line: "Who Goes There", tier: "3b", condition: "A Flatwoods Monster Incapacitates an enemy model with the weapon of another model.", target: "10"},
+		{line: "Who Goes There", tier: "3c", condition: "You win the Land Grab scenario as the Attacker.", target: "5"},
+
+		{line: "Invasion of the Zetans", tier: "1a", condition: "One of your models triggers the Meltdown Critical Effect.", target: "10"},
+		{line: "Invasion of the Zetans", tier: "1b", condition: "You play a game as the Attacker. ", target: "3"},
+		{line: "Invasion of the Zetans", tier: "1c", condition: "You choose to play the Land Grab scenario.", target: "2"},
+		{line: "Invasion of the Zetans", tier: "2a", condition: "One of your models causes an Injury with a Meltdown Critical Effect. ", target: "8"},
+		{line: "Invasion of the Zetans", tier: "2b", condition: "You win a game on the opposing crew's Home Turf. ", target: "2"},
+		{line: "Invasion of the Zetans", tier: "2c", condition: "You have at least 3 Control in each Location.", target: "1"},
+		{line: "Invasion of the Zetans", tier: "3a", condition: "One of your models Incapacitates an enemy Champion with the Meltdown Critical Effect. ", target: "6"},
+		{line: "Invasion of the Zetans", tier: "3b", condition: "Your crew has at least 5 Control in three different Locations.", target: "1"},
+		{line: "Invasion of the Zetans", tier: "3c", condition: "You purchase a Weapon Modification that costs at least 3 Parts.", target: "5"},
+		{line: "Invasion of the Zetans", tier: "3d", condition: "One of your models has 7 Upgrades.", target: "1"},		
+
+		{line: "Not of This World", tier: "1a", condition: "One of your models gains an Intelligence Perk.", target: "2"},
+		{line: "Not of This World", tier: "1b", condition: "One of your models makes a Search Action. ", target: "8"},
+		{line: "Not of This World", tier: "1c", condition: "One of your models Incapacitates an enemy Leader. ", target: "5"},
+		{line: "Not of This World", tier: "2a", condition: "You Upgrade a model.", target: "6"},
+		{line: "Not of This World", tier: "2b", condition: "One of your models Incapacitates an enemy model with a Ranged Attack.", target: "10"},
+		{line: "Not of This World", tier: "2c", condition: "You win a game on your Home Turf. ", target: "1"},
+		{line: "Not of This World", tier: "3a", condition: "You use a Zetans Ploy.", target: "4"},
+		{line: "Not of This World", tier: "3b", condition: "You win the Retrieval Run scenario as the Attacker.", target: "3"},
+		{line: "Not of This World", tier: "3c", condition: "An enemy model fails a Confusion Test. ", target: "10"}
+
+	],
 		"The Pack": [
 		{line: "Ours for the Taking", tier: "1a", condition: "You play a Pillage Objective as the Attacker.", target: "2"},
 		{line: "Ours for the Taking", tier: "1b", condition: "Your crew has at least 6 Scouting Points at the end of a Story Phase.", target: "1"},
@@ -1905,6 +1998,16 @@ const ployData = {
         {
             name: "Barricades",
             descr: "Enact this Ploy during setup, immediately before you place your first model on the Battlefield. Place two Barricades anywhere on the Battlefield, following the rules for placing Minor Terrain Features. A Barricade cannot be more than 3” long, 2” tall and 1” wide."
+        }
+    ],
+	    "Zetans": [
+        {
+            name: "Invaders from Beyond",
+            descr: "Enact this Ploy when one of your models makes a Get Moving Action. Models that Hurry do not take an additional Fatigue when moving up to 12”. Models that Hurry ignore Proximity."
+        },
+        {
+            name: "Tractor Beam",
+            descr: "Enact this Ploy at the start of any of your Turns. Move an enemy non-Leader model up to 4”."
         }
     ],
 	    "Super Mutants": [
