@@ -164,6 +164,39 @@ const questData = {
 		{line: "Take the High Ground", tier: "3", condition: "An Enemy model fails a Confusion Test.", target: "10"}
 
 	],
+		"Zetans": [
+		{line: "Who Goes There", tier: "1", condition: "Your crew earns at least 3 Experience Points in a single game.", target: "3"},
+		{line: "Who Goes There", tier: "1", condition: "A model in the crew gains a Perk. ", target: "8"},
+		{line: "Who Goes There", tier: "1", condition: "You use the Recruit Story Action to recruit a Flatwoods Monster. ", target: "1"},
+		{line: "Who Goes There", tier: "2", condition: "A Flatwoods Monster ends a game without being Incapacitated.", target: "6"},
+		{line: "Who Goes There", tier: "2", condition: "You take the Scout Story Action.", target: "6"},
+		{line: "Who Goes There", tier: "2", condition: "You use a Standard Ploy", target: "3"},
+		{line: "Who Goes There", tier: "3", condition: "At least 5 of your models have a Perk that they did not start with. ", target: "1"},
+		{line: "Who Goes There", tier: "3", condition: "A Flatwoods Monster Incapacitates an enemy model with the weapon of another model.", target: "10"},
+		{line: "Who Goes There", tier: "3", condition: "You win the Land Grab scenario as the Attacker.", target: "5"},
+
+		{line: "Invasion of the Zetans", tier: "1", condition: "One of your models triggers the Meltdown Critical Effect.", target: "10"},
+		{line: "Invasion of the Zetans", tier: "1", condition: "You play a game as the Attacker. ", target: "3"},
+		{line: "Invasion of the Zetans", tier: "1", condition: "You choose to play the Land Grab scenario.", target: "2"},
+		{line: "Invasion of the Zetans", tier: "2", condition: "One of your models causes an Injury with a Meltdown Critical Effect. ", target: "8"},
+		{line: "Invasion of the Zetans", tier: "2", condition: "You win a game on the opposing crew's Home Turf. ", target: "2"},
+		{line: "Invasion of the Zetans", tier: "2", condition: "You have at least 3 Control in each Location.", target: "1"},
+		{line: "Invasion of the Zetans", tier: "3", condition: "One of your models Incapacitates an enemy Champion with the Meltdown Critical Effect. ", target: "6"},
+		{line: "Invasion of the Zetans", tier: "3", condition: "Your crew has at least 5 Control in three different Locations.", target: "1"},
+		{line: "Invasion of the Zetans", tier: "3", condition: "You purchase a Weapon Modification that costs at least 3 Parts.", target: "5"},
+		{line: "Invasion of the Zetans", tier: "3", condition: "One of your models has 7 Upgrades.", target: "1"},		
+
+		{line: "Not of This World", tier: "1", condition: "One of your models gains an Intelligence Perk.", target: "2"},
+		{line: "Not of This World", tier: "1", condition: "One of your models makes a Search Action. ", target: "8"},
+		{line: "Not of This World", tier: "1", condition: "One of your models Incapacitates an enemy Leader. ", target: "5"},
+		{line: "Not of This World", tier: "2", condition: "You Upgrade a model.", target: "6"},
+		{line: "Not of This World", tier: "2", condition: "One of your models Incapacitates an enemy model with a Ranged Attack.", target: "10"},
+		{line: "Not of This World", tier: "2", condition: "You win a game on your Home Turf. ", target: "1"},
+		{line: "Not of This World", tier: "3", condition: "You use a Zetans Ploy.", target: "4"},
+		{line: "Not of This World", tier: "3", condition: "You win the Retrieval Run scenario as the Attacker.", target: "3"},
+		{line: "Not of This World", tier: "3", condition: "An enemy model fails a Confusion Test. ", target: "10"}
+
+	],
 		"The Pack": [
 		{line: "Ours for the Taking", tier: "1", condition: "You play a Pillage Objective as the Attacker.", target: "2"},
 		{line: "Ours for the Taking", tier: "1", condition: "Your crew has at least 6 Scouting Points at the end of a Story Phase.", target: "1"},
