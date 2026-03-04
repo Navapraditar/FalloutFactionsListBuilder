@@ -6,8 +6,28 @@ const factions = {
             }, 
 			weapons: [
             { name: "Flamer", points: 67, type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)"  },
+            { name: "Laser Pistol and War Glaive", points: 64, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)", type2: "Melee", test2: "6S", traits2: "Unwieldy(6) WindUp", effect2: "Maim"  },
             { name: "Gatling Laser", points: 72, type: "Heavy (16\")", test: "4S", traits: "Area (1\") Slow", effect: "Ignite(2)" },
-            { name: "Minigun", points: 79, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" }
+            { name: "Minigun", points: 79, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+            { name: "Missle Launcher", points: 82, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"  },
+            { name: "Super Sledge", points: 56, type: "Melee", test: "6S", traits: "Unwieldy (6)", effect: "Maim"}
+        ] },
+        { name: "Knight Captain", type: "Champion, Leader", perks: "Natural Leader",
+		stats: { 
+        S: 4, P: 6, E: 5, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
+            { name: "Silenced 10mm and Hunting Rifle", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast, Silenced", effect: "-", type2: "Rifle(22\")", test2: "3P", traits2: "Aim(+1)", effect2: "Pierce" }
+        ] },
+        { name: "Head Scribe", type: "Champion, Leader", perks: "Natural Leader, Spotter, Lucky Charm",
+		stats: { 
+        S: 4, P: 5, E: 4, C: 5, I: 7, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Pistol", points: 32, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)" },
+            { name: "10mm Pistol", points: 37, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  },
+            { name: "Crusader Pistol", points: 41, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim" }
         ] },
         { name: "Field Scribe", type: "Champion", perks: "Spotter",
 		stats: { 
@@ -24,8 +44,24 @@ const factions = {
             }, 
 			weapons: [
             { name: "Laser Pistol and Machete", points: 50, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
+            { name: "Laser Pistol and War Glaive", points: 56, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)", type2: "Melee", test2: "6S", traits2: "Unwieldy(6) WindUp", effect2: "Maim"  },
             { name: "Ripper", points: 55, type: "Melee", test: "5S", traits: "Fast", effect: "Maim"},
-            { name: "Laser Rifle", points: 60, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite(1)" }
+            { name: "Laser Rifle", points: 60, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
+            { name: "Flamer", points: 60, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
+            { name: "Gatling Laser", points: 65, type: "Heavy (16\")", test: "4S", traits: "Area (1\") Slow", effect: "Ignite(2)" },
+            { name: "Minigun", points: 70, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
+            { name: "Shishkebab", points: 56, type: "Melee", test: "4S", traits: "-", effect: "Ignite(2)" },
+            { name: "Combat Shotgun", points: 47, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
+            { name: "Plasma Rifle", points: 38, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" }
+        ] },
+        { name: "Knight Journeyman", type: "Grunt",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 4, I: 4, A: 5, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Precision Combat Rifle", points: 26, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
+            { name: "Precision Combat Rifle and Hand Weapon", points: 28, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Silenced 10mm and Hunting Rifle", points: 30, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast, Silenced", effect: "-", type2: "Rifle(22\")", test2: "3P", traits2: "Aim(+1)", effect2: "Pierce" }
         ] },
         { name: "Aspirant", type: "Grunt",
 		stats: { 
@@ -34,8 +70,18 @@ const factions = {
 			weapons: [
             { name: "Laser Pistol and Hand Weapon", points: 20, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"   },
             { name: "Crusader Pistol and Hand Weapon", points: 23, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"    },
-            { name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+            { name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
             { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
+        ] },
+        { name: "Hopeful", type: "Grunt",
+		stats: { 
+        S: 3, P: 4, E: 4, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-"   },
+            { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"    },
+            { name: "Double-barreled Shotgun", points: 15, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+            { name: "Pipe Bolt-Action Rifle", points: 16, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Pierce"  }
         ] },
         { name: "Initiate", type: "Grunt", perks: "Sprint",
 		stats: { 
@@ -44,7 +90,16 @@ const factions = {
 			weapons: [
             { name: "Recon Hunting Rifle", points: 19, type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Laser Rifle", points: 23, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  },
-			{ name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" }
+			{ name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+        ] },
+        { name: "Defender", type: "Grunt", perks: "Power Armor",
+		stats: { 
+        S: 5, P: 4, E: 5, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Combat Shotgun", points: 34, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
+            { name: "Assault Rifle", points: 40, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)"  },
+			{ name: "Laser Pistol and Ripper", points: 44, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"  }
         ] }
     ],
 	    "Gunners": [
@@ -71,7 +126,7 @@ const factions = {
         S: 4, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
+            { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim"},
             { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
             { name: "Plasma Pistol and Ripper", points: 40, type: "Pistol (12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
             { name: "Missle Launcher", points: 42, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
@@ -89,7 +144,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Laser Rifle", points: 20, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
-            { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+            { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
 			{ name: "Assault Rifle", points: 23, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)"  },
             { name: "Laser Rifle and Stun Baton", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)", type2: "Melee", test2: "4S", traits2: "Suppress (2)", effect2: "-"  }
         ] },
@@ -111,7 +166,10 @@ const factions = {
             }, 
 			weapons: [
             { name: "Plasma Pistol and Sledgehammer", points: 46, type: "Pistol (12\")", test: "4A", traits: "CQB FAST", effect: "Meltdown", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim"  },
-            { name: "Short Hunting Rifle and Super Sledge", points: 48, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce", type2: "Melee", test2: "6S", traits2: "Unwieldy (6)", effect2: "Maim"  }
+            { name: "Short Hunting Rifle and Super Sledge", points: 48, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce", type2: "Melee", test2: "6S", traits2: "Unwieldy (6)", effect2: "Maim"  },
+            { name: "Laser Rifle", points: 44, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)"  },   
+            { name: "Assault Rifle", points: 46, type: "Rifle (20\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
+            { name: "Minigun", points: 48, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce"  }
         ] },
         { name: "Brute", type: "Champion", perks: "Burly, Rad Resistant",
 		stats: { 
@@ -120,7 +178,12 @@ const factions = {
 			weapons: [
             { name: "Laser Rifle", points: 32, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)"  },            
 			{ name: "Sledgehammer", points: 37, type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim"  },
-            { name: "Minigun", points: 48, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce"  }
+            { name: "Minigun", points: 48, type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce"  },
+            { name: "Hand Weapon and Molotov Cocktails", points: 34, type: "Melee", test: "3S", traits: "Fast", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"  },
+            { name: "Heavy Pipe Pistol and Sledgehammer", points: 40, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Unwieldy (5), Wind Up", effect2: "Maim" },
+            { name: "Automatic Pipe Rifle", points: 30, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" },
+            { name: "Precision Pipe Rifle", points: 31, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },   
+
         ] },
         { name: "Skirmisher", type: "Grunt", perks: "Burly, Rad Resistant",
 		stats: { 
@@ -131,6 +194,15 @@ const factions = {
             { name: "Precision Pipe Rifle", points: 30, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
 			{ name: "Laser Rifle", points: 33, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
             { name: "Assault Rifle", points: 33, type: "Rifle (20\")", test: "4P", traits: "Storm(1)", effect: "Maim" }
+
+        ] },
+        { name: "Nightkin", type: "Grunt", perks: "Burly, Rad Resistant,Stealth Boy, Toughness",
+		stats: { 
+        S: 5, P: 5, E: 6, C: 5, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Sledgehammer", points: 42, type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim"  },
+            { name: "Incinerator", points: 50, type: "Heavy(10\")", test: "4S", traits: "Area(1\"), CQB", effect: "Ignite(3)"  }
 
         ] },
         { name: "Enforcer", type: "Grunt", perks: "Burly, Rad Resistant",
@@ -158,6 +230,32 @@ const factions = {
             }, 
 			weapons: [
             { name: "Claws and Jaws", points: 10, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
+        ] },
+        { name: "Floater", type: "Grunt", perks: "Beast, Rad Resistant, Self-Destruct",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 14, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" },
+            { name: "Claws and Jaws and Frost Breath", points: 18, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)",type2: "Pistol(6\")", test2: "4A", traits2: "Area (1\"), CQB", effect2: "Suppress(2)" },
+            { name: "Claws and Jaws and Flame Breath", points: 23, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)",type2: "Pistol(6\")", test2: "3A", traits2: "Area (1\"), CQB", effect2: "Ignite(2)"}
+
+        ] },
+        { name: "Puny Human", type: "Grunt", perks: "Disposable, Keep Up",
+		stats: { 
+        S: 3, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hand Weapon", points: 8, type: "Melee", test: "3S", traits: "Fast", effect: "-"   },
+            { name: "Baseball Bat", points: 9, type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
+            { name: "Double-barreled Shotgun", points: 15, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" }
+        ] },
+        { name: "Suicider", type: "Grunt", perks: "Beast, Burly, Rad Resistant, Disposable, Hardy, Kaboom",
+		stats: { 
+        S: 5, P: 3, E: 5, C: 2, I: 2, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 27, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
         ] }
     ],
 	    "Wasteland Raiders": [
@@ -168,7 +266,7 @@ const factions = {
 			weapons: [
             { name: ".44 Pistol and Machete", points: 40, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
             { name: "Assault Rifle", points: 45, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-            { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim"},
+            { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim", type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)"},
             { name: "Minigun", points: 54, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce" }
         ] },
         { name: "Butcher (PA)", type: "Champion", perks: "Sticky Fingers, Power Armor",
@@ -178,7 +276,7 @@ const factions = {
 			weapons: [
             { name: "Hunting Rifle", points: 41, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Flamer", points: 45, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
-            { name: "Missile Launcher", points: 56, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"}
+            { name: "Missile Launcher", points: 56, type: "Heavy(26\")", test: "4S", traits: "Area(2\") Slow", effect: "Maim"}
 
         ] },
         { name: "Veteran", type: "Champion", perks:"Sticky Fingers",
@@ -230,7 +328,7 @@ const factions = {
 			weapons: [
             { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S +1 per Part Used", traits: "Creative Projectiles", effect: "Suppress(1) +1 per Part used" },			
             { name: "Sawn-off Shotgun and Officer's Sword", points: 40, type: "Rifle(8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Pierce" },            
-			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Pierce"}
+			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"}
         ] },
         { name: "Specialist", type: "Champion", perks: "Pick 1: (Hunter: Sniper, Survivalist), (Medic: Medic, Survivalist) (Trader: Fortune Finder, Survivalist)",
 		stats: { 
@@ -249,7 +347,7 @@ const factions = {
 			weapons: [
             { name: "Hunting Rifle", points: 22, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Automatic Pipe Rifle", points: 24, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
-            { name: "Combat Rifle", points: 27, type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" }
+            { name: "Combat Rifle", points: 27, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
         ] },
         { name: "Swatter", type: "Grunt", perks: "Survivalist",
 		stats: { 
@@ -286,7 +384,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Marksman's Handmade Rifle", points: 44 , type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"},
-            { name: "Combat Rifle", points: 50, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  },
+            { name: "Combat Rifle", points: 50, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  },
             { name: "Plasma Pistol and Shishkebab", points: 51, type: "Pistol(12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "4S", traits2: "-", effect2: "Ignite(2)" }
         ] },
         { name: "Made Man", type: "Champion",
@@ -295,7 +393,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Syringer", points: 31, type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
-            { name: "Combat Rifle", points: 33, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  },
+            { name: "Combat Rifle", points: 33, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  },
             { name: "Combat Shotgun and Frag Grenades", points: 38, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim", type2: "Grenade(10\")", test2: "3A", traits2: "Area(1\") CQB", effect2: "Suppress(2)" },
             { name: "Missle Launcher", points: 48, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"  }
         ] },
@@ -314,9 +412,9 @@ const factions = {
         S: 3, P: 4, E: 4, C: 4, I: 5, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
             { name: "Marksman's Handmade Rifle", points: 24, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"  },
-            { name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim"  }
+            { name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
@@ -325,7 +423,7 @@ const factions = {
 			weapons: [
             { name: "Baseball Bat", points: 10, type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
             { name: "10mm Pistol and Hand Weapon", points: 13, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
-            { name: "Handmade Rifle", points: 14, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" }
+            { name: "Handmade Rifle", points: 14, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" }
         ] }
     ],
     "The Pack": [
@@ -336,7 +434,7 @@ const factions = {
 			weapons: [
             { name: "Sawn-off Shotgun", points: 35, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
             { name: "10mm Pistol and Deathclaw Gauntlet", points: 42, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "5S", traits2: "WindUp", effect2: "Pierce" },
-            { name: "Automatic Handmade Rifle and Baseball Bat", points: 48, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
+            { name: "Automatic Handmade Rifle and Baseball Bat", points: 48, type: "Rifle(14\")", test: "3P", traits: "Storm(2)", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
         ] },
         { name: "Top Dog", type: "Champion", perks: "Sprint",
 		stats: { 
@@ -344,7 +442,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "10mm Pistol and Baseball Bat", points: 23, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
-            { name: "Handmade Rifle and Baseball Bat", points: 25, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Handmade Rifle and Baseball Bat", points: 25, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
             { name: "Sledgehammer and Predator Grenades", points: 33, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim", type2: "Grenade(8\")", test2: "4A", traits2: "Area(3\") CQB", effect2: "Maim" },
             { name: "Flamer", points: 36, type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" }
         ] },
@@ -365,8 +463,8 @@ const factions = {
             }, 
 			weapons: [
             { name: "Sawn-Off Shotgun", points: 18, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim" },
-            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
-            { name: "Automatic Handmade Rifle", points: 27, type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)"  }
+            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
+            { name: "Automatic Handmade Rifle", points: 27, type: "Rifle(14\")", test: "3P", traits: "Storm(2)", effect: "Suppress(2)"  }
         ] },
         { name: "Waster", type: "Grunt", perks: "Sprint",
 		stats: { 
@@ -385,7 +483,7 @@ const factions = {
         S: 6, P: 5, E: 5, C: 5, I: 5, A: 6, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Handmade Rifle", points: 44, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Handmade Rifle", points: 44, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
             { name: "Precision Hunting Rifle", points: 45, type: "Rifle(24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"  },
             { name: ".44 Pistol and Machete", points: 47, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"}
         ] },
@@ -394,7 +492,7 @@ const factions = {
         S: 4, P: 5, E: 4, C: 4, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 		weapons: [
-            { name: "Handmade Rifle", points: 30, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Handmade Rifle", points: 30, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
             { name: "Syringer", points: 28, type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
             { name: "Marksman's Handmade Rifle", points: 30, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)" },
             { name: "10mm Pistol and Nuka-Grenade", points: 40, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Grenade(8\")", test2: "5A", traits2: "Area(2\") CQB Irradiate OneAndDone", effect2: "Maim" }
@@ -415,7 +513,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Hunting Rifle", points: 21, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
-            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
             { name: "Ranger's Hunting Rifle", points: 23 , type: "Rifle(18\")", test: "3P", traits: "Aim(+1) Bladed", effect: "Pierce" }
         ] },
         { name: "Waster", type: "Grunt",
@@ -461,7 +559,7 @@ const factions = {
 			weapons: [
             { name: "Double-barreled Shotgun", points: 21, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
             { name: "Combat Shotgun", points: 23,type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim"},
-            { name: "Handmade Rifle", points: 26 , type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)"}
+            { name: "Handmade Rifle", points: 26 , type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)"}
         ] },
         { name: "Seeker", type: "Grunt", perks: "Ritual",
 		stats: { 
@@ -592,7 +690,7 @@ const factions = {
         S: 7, P: 5, E: 7, C: 2, I: 3, A: 4, L: 1, W: 4  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Powerful Combat Rifle and Iron Fist", points: 72, type: "Rifle(24\")", test: "5P", traits: "Fast", effect: "Maim", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"  }
+            { name: "Powerful Combat Rifle and Iron Fist", points: 72, type: "Rifle(24\")", test: "5P", traits: "-", effect: "Maim", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"  }
         ] },			
         { name: "Nick Valentine", type: "Champion, Hiring Fee: 37", perks: "Adaptable, Informant, Rad Resistant",
 		stats: { 
@@ -1286,7 +1384,7 @@ const weaponData = {
 		{ weapon: "Laser Pistol", type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
 		{ weapon: "Laser Pistol 2parts +3pts", type: "Pistol(14\")", test: "", traits: "", effect: ""},
 		{ weapon: "Laser Pistol 4parts +7pts", type: "", test: "", traits: "CQB, Fast", effect: ""},
-		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
 		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
@@ -1319,7 +1417,7 @@ const weaponData = {
 		{ weapon: "Plasma Pistol 5parts +10pts", type: "", test: "", traits: "", effect: "Ignite(2), Meltdown"},
 		{ weapon: "Plasma Pistol 3parts +8pts", type: "Pistol(16\")", test: "", traits: "", effect: ""},
 		{ weapon: "Plasma Pistol 4parts +8pts", type: "", test: "5A", traits: "", effect: ""},
-		{ weapon: "Powerful Combat Rifle", type: "Rifle(24\")", test: "5P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Powerful Combat Rifle", type: "Rifle(24\")", test: "5P", traits: "-", effect: "Maim" },
 		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
 		{ weapon: "Laser Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)" },
 		{ weapon: "Laser Rifle 2parts +7pts", type: "Rifle(22\")", test: "", traits: "", effect: ""},
@@ -1349,7 +1447,7 @@ const weaponData = {
 		{ weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)" },
 		{ weapon: "Assault Rifle 3parts +8pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Assault Rifle 5parts +12pts", type: "", test: "", traits: "Fast, Storm(1)", effect: ""},
-		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
 		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
@@ -1358,7 +1456,7 @@ const weaponData = {
 		{ weapon: "Laser Rifle 3parts +8pts", type: "", test: "", traits: "Fast", effect: ""},
 		{ weapon: "Plasma Rifle", type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
 		{ weapon: "Precision Combat Rifle", type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
-		{ weapon: "Missile Launcher", type: "Heavy (26\")", test: "5S", traits: "Area (3”), Slow", effect: "Maim" },
+		{ weapon: "Missile Launcher", type: "Heavy (26\")", test: "4S", traits: "Area (2”), Slow", effect: "Maim" },
 		{ weapon: "Missile Launcher 5parts +12pts", type: "", test: "", traits: "", effect: "Maim, Suppress(2)"},
 		{ weapon: "Missile Launcher 3parts +6pts", type: "", test: "6S", traits: "Slow", effect: ""},
 		{ weapon: "Frag Grenades", type: "Grenade (10\")", test: "3A", traits: "Area (1”), CQB", effect: "Suppress (2)" }
@@ -1371,7 +1469,7 @@ const weaponData = {
 		{ weapon: "Sledgehammer", type: "Melee", test: "4S", traits: "Unwieldy (5), Wind Up", effect: "Maim" },
 		{ weapon: "Sledgehammer 2parts +6pts", type: "", test: "5S", traits: "", effect: ""},
 		{ weapon: "Sledgehammer 3parts +6pts", type: "", test: "", traits: "", effect: "Maim Suppress(1)"},
-		{ weapon: "Super Sledger", type: "Melee", test: "6S", traits: "Unwieldy (6)", effect: "Maim" },    
+		{ weapon: "Super Sledge", type: "Melee", test: "6S", traits: "Unwieldy (6)", effect: "Maim" },    
 		{ weapon: "Super Sledge 3parts +7pts", type: "", test: "", traits: "Unwieldy(6) Wind Up", effect: ""},
 		{ weapon: "Super Sledge 3parts +7pts", type: "", test: "", traits: "", effect: "Maim Suppress(1)"},
 		{ weapon: "Heavy Pipe Pistol", type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "Pierce" },
@@ -1424,7 +1522,7 @@ const weaponData = {
 		{ weapon: "Assault Rifle", type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
 		{ weapon: "Assault Rifle 3parts +8pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Assault Rifle 5parts +12pts", type: "", test: "", traits: "Fast, Storm(1)", effect: ""},
-		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
 		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
@@ -1449,7 +1547,7 @@ const weaponData = {
 		{ weapon: "Flamer 5parts +12pts", type: "Heavy(9\")", test: "", traits: "", effect: ""},
 		{ weapon: "Minigun", type: "Heavy (14\")", test: "4S", traits: "Slow, Storm (3)", effect: "Pierce" },
 		{ weapon: "Minigun 5parts +12pts", type: "", test: "", traits: "Selective Fire(Area(1\")), Storm(3), Slow", effect: ""},
-		{ weapon: "Missile Launcher", type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"},
+		{ weapon: "Missile Launcher", type: "Heavy(26\")", test: "4S", traits: "Area(2\") Slow", effect: "Maim"},
 		{ weapon: "Missile Launcher 5parts +12pts", type: "", test: "", traits: "", effect: "Maim, Suppress(2)"},
 		{ weapon: "Missile Launcher 3parts +6pts", type: "", test: "6S", traits: "Slow", effect: ""},
 		{ weapon: "Baseball Grenades", type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)"},
@@ -1473,7 +1571,7 @@ const weaponData = {
 		{ weapon: "Pipe Bolt-action Rifle 4parts +8pts", type: "", test: "4P", traits: "", effect: ""},
 		{ weapon: "Pipe Bolt-action Rifle 3parts +6pts", type: "", test: "", traits: "Aim(+2)", effect: ""},
 		{ weapon: "Precision Hunting Rifle", type: "Rifle (24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"},
-		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Combat Rifle", type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
 		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
@@ -1507,12 +1605,12 @@ const weaponData = {
 		{ weapon: "Plasma Pistol 5parts +10pts", type: "", test: "", traits: "", effect: "Ignite(2), Meltdown"},
 		{ weapon: "Plasma Pistol 3parts +8pts", type: "Pistol(16\")", test: "", traits: "", effect: ""},
 		{ weapon: "Plasma Pistol 4parts +8pts", type: "", test: "5A", traits: "", effect: ""},
-		{ weapon: "Combat Rifle", type: "Rifle(24\")", test: "4P", traits: "Fast", effect: "Maim" },
+		{ weapon: "Combat Rifle", type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim" },
 		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
 		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
 		{ weapon: "Combat Shotgun", type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
-		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
 		{ weapon: "Marksman's Handmade Rifle", type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)" },
 		{ weapon: "Syringer", type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
 		{ weapon: "Missle Launcher", type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim" },
@@ -1538,8 +1636,8 @@ const weaponData = {
 		{ weapon: "Sawn-off Shotgun 3parts +6pts", type: "Rifle(10\")", test: "", traits: "", effect: ""},
 		{ weapon: "Sawn-off Shotgun 4parts +8pts", type: "", test: "5P", traits: "CQB, Storm(1)", effect: ""},
 		{ weapon: "Light Handmade Rifle", type: "Rifle(12\")", test: "3P", traits: "Bladed Fast", effect: "Suppress(1)" },
-		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
-		{ weapon: "Automatic Handmade Rifle", type: "Rifle(14\")", test: "3P", traits: "Fast Storm(2)", effect: "Suppress(2)" },
+		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
+		{ weapon: "Automatic Handmade Rifle", type: "Rifle(14\")", test: "3P", traits: "Storm(2)", effect: "Suppress(2)" },
 		{ weapon: "Flamer", type: "Heavy(6\")", test: "4S", traits: "Area(2\") CQB", effect: "Ignite(3)" },
 		{ weapon: "Flamer 4parts +11pts", type: "", test: "5S", traits: "", effect: ""},
 		{ weapon: "Flamer 5parts +12pts", type: "Heavy(9\")", test: "", traits: "", effect: ""},
@@ -1560,7 +1658,7 @@ const weaponData = {
 		{ weapon: "10mm Pistol 4parts +6pts", type: "", test: "4A", traits: "", effect: ""},
 		{ weapon: "10mm Pistol 2parts +5pts", type: "", test: "", traits: "", effect: "Suppress(1)"},
 		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
-		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
 		{ weapon: "Hunting Rifle", type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
 		{ weapon: "Hunting Rifle 2parts +6pts", type: "Rifle(26\")", test: "", traits: "Aim(+1)", effect: ""},
 		{ weapon: "Hunting Rifle 4parts +8pts", type: "", test: "4P", traits: "Fast, Storm(1)", effect: ""},
@@ -1599,7 +1697,7 @@ const weaponData = {
 		{ weapon: "Mothman Screech", type: "Pistol(10\")", test: "5A", traits: "Pulse", effect: "Pushback(1)" },
 		{ weapon: "Pipe Revolver", type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" },
 		{ weapon: "Combat Shotgun", type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
-		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
+		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
 		{ weapon: "Double-barreled Shotgun", type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
 		{ weapon: "Double-barreled Shotgun 4parts +8pts", type: "", test: "4P", traits: "", effect: ""},
 		{ weapon: "Double-barreled Shotgun 6parts +8pts", type: "", test: "", traits: "Storm(3)", effect: ""},
@@ -1988,6 +2086,18 @@ const ployData = {
         {
             name: "Vertibird Drop",
             descr: "Enact this Ploy at the start of the game, before the start of Turn 1. Choose one of your models. They are not deployed at the start of the game. Instead, when you become the Active player on Turn 2, place the model in Base contact of a Battlefield edge of your choice."
+        },
+        {
+            name: "Steel Dawn",
+            descr: "You may enact this Ploy when a Friendly model with the Power Armor Perk creates a Dice Pool for an Attack Action. Add an additional Bonus Die to the Attack Action’s Dice Pool for every Friendly model without the Power Armor Perk inside the Active model’s Control Area."
+        },
+        {
+            name: "Or Even Better, Some Ammo",
+            descr: "You may enact this Ploy at the start of the game, before the start of the first Turn. Choose a Friendly model that has a weapon with the Slow Trait. Ignore the Slow Trait on this weapon during Round 2."
+        },
+        {
+            name: "Retake the Old World",
+            descr: "You may enact this Ploy at the start of the game, before the start of the first Turn. Select half of the Search Tokens on the Battlefield, rounding down. Move these Tokens up to 3\”."
         }
     ],
 	    "Gunners": [
@@ -2018,6 +2128,14 @@ const ployData = {
         {
             name: "The Next Stage",
             descr: "Enact this Ploy at the start of any of your turns. Remove one Harm from each of your models. Until the start of your next Turn, each of your models counts its Endurance as one higher."
+        },
+        {
+            name: "Going Underground",
+            descr: "You may enact this Ploy when you select a Friendly Floater model as the Active model. Place this model and up to one other Friendly Floater model anywhere on the Battlefield outside of the Control Area of an Enemy model. Any models that have been placed in this way must Take 1 Fatigue."
+        },
+        {
+            name: "Quick Snack",
+            descr: "You may enact this Ploy when you select a Friendly model with the Rad Resistant Perk as the Active model, and that model has a Friendly Puny Human model within 3\”. Remove a Friendly Puny Human model within 3\” of the Active model from the Battlefield. The Active model Recovers all Harm and Health. All other Friendly Puny Humans Take 2 Fatigue."
         }
     ],
 	    "Wasteland Raiders": [
