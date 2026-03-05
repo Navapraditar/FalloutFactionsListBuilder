@@ -38,7 +38,7 @@ const factions = {
             { name: "10mm Pistol", points: 26, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-"  },
             { name: "Crusader Pistol", points: 31, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim" }
         ] },
-        { name: "Knight (PA)", type: "Grunt", perks: "Power Armor",
+        { name: "Knight", type: "Grunt", perks: "Power Armor",
 		stats: { 
         S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
             }, 
@@ -103,60 +103,59 @@ const factions = {
         ] }
     ],
 	    "Gunners": [
-        { name: "Commander", type: "Champion, Leader", perks: "Natural Leader",
+        { name: "Captain", type: "Champion, Leader", perks: "Natural Leader",
 		stats: { 
         S: 4, P: 5, E: 4, C: 6, I: 5, A: 4, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Laser Rifle", points: 35, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
-            { name: "Plasma Rifle", points: 38, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
-            { name: "Plasma Rifle and Ripper", points: 41, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"}
+            { name: "Plasma Rifle", points: 39, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
+            { name: "Plasma Rifle and Ripper", points: 43, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim"}
         ] },
-		{ name: "Commander in Power Armor", type: "Champion, Leader", perks: "Natural Leader, Burly, Rad Resistant, Hardy",
+		{ name: "Commander", type: "Champion, Leader", perks: "Natural Leader, Power Armor",
 		stats: { 
-        S: 6, P: 5, E: 6, C: 6, I: 5, A: 4, L: 3, W: 4  // SPECIALW stats
+        S: 6, P: 5, E: 6, C: 6, I: 5, A: 4, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Laser Rifle", points: 50, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
-            { name: "Plasma Rifle", points: 53, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
-            { name: "Plasma Rifle and Ripper", points: 56, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" }
+            { name: "Laser Rifle", points: 64, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
+            { name: "Plasma Rifle", points: 68, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown" },
+            { name: "Plasma Rifle and Ripper", points: 74, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" }
         ] },
-        { name: "Lieutenant", type: "Champion",
+        { name: "Officer", type: "Champion",
 		stats: { 
         S: 4, P: 5, E: 4, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Combat Rifle", points: 35, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim"},
-            { name: "Precision Combat Rifle", points: 39, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
-            { name: "Plasma Pistol and Ripper", points: 40, type: "Pistol (12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
-            { name: "Missle Launcher", points: 42, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
+            { name: "Precision Combat Rifle", points: 28, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
+            { name: "Combat Rifle", points: 29, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim"},
+            { name: "Plasma Pistol and Ripper", points: 34, type: "Pistol (12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
+            { name: "Missle Launcher", points: 46, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
         ] },
-        { name: "Assaultron", type: "Grunt", perks: "Machine, Rad Resistant",
+        { name: "Assaultron", type: "Grunt", perks: "Machine, Hardy, Programmed, Sprint",
 		stats: { 
         S: 6, P: 6, E: 5, C: 1, I: 1, A: 5, L: 1, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Assaultron Claws and Assaultron Eye Beam", points: 45, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" }
+            { name: "Assaultron Claws and Assaultron Eye Beam", points: 41, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" }
         ] },
-        { name: "Conscript", type: "Grunt",
+        { name: "Corporal", type: "Grunt",
 		stats: { 
         S: 4, P: 5, E: 4, C: 2, I: 4, A: 3, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Laser Rifle", points: 20, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
             { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
-			{ name: "Assault Rifle", points: 23, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Suppress (2)"  },
             { name: "Laser Rifle and Stun Baton", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)", type2: "Melee", test2: "4S", traits2: "Suppress (2)", effect2: "-"  }
         ] },
-        { name: "Corporal", type: "Grunt",
+        { name: "Conscript", type: "Grunt",
 		stats: { 
         S: 4, P: 3, E: 3, C: 2, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Laser Pistol", points: 11, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)" },
             { name: "10mm Pistol and Frag Grenades", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Grenade (10\")", test2: "3A", traits2: "Area (1\"), CQB", effect2: "Suppress (2)" },
-			{ name: "Laser Pistol and Hand Weapon", points: 13, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
-            { name: "10mm and Hand Weapon", points: 14, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
+			{ name: "Laser Pistol and Hand Weapon", points: 14, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite (2)", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "10mm and Hand Weapon", points: 15, type: "Pistol (10\")", test: "3A", traits: "CQB, Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
 	    "Super Mutants": [
@@ -259,7 +258,7 @@ const factions = {
         ] }
     ],
 	    "Wasteland Raiders": [
-        { name: "Boss (PA)", type: "Champion, Leader", perks: "Natural Leader, Personal Stash, Power Armor",
+        { name: "Boss", type: "Champion, Leader", perks: "Natural Leader, Personal Stash, Power Armor",
 		stats: { 
         S: 5, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
@@ -267,9 +266,12 @@ const factions = {
             { name: ".44 Pistol and Machete", points: 40, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
             { name: "Assault Rifle", points: 45, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
             { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim", type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)"},
-            { name: "Minigun", points: 54, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce" }
+            { name: "Minigun", points: 54, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce" },
+            { name: "Hunting Rifle", points: 45, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Flamer", points: 52, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
+            { name: "Missile Launcher", points: 68, type: "Heavy(26\")", test: "4S", traits: "Area(2\") Slow", effect: "Maim"}
         ] },
-        { name: "Butcher (PA)", type: "Champion", perks: "Sticky Fingers, Power Armor",
+        { name: "Butcher", type: "Champion", perks: "Sticky Fingers, Power Armor",
 		stats: { 
         S: 5, P: 5, E: 5, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
             }, 
@@ -277,7 +279,26 @@ const factions = {
             { name: "Hunting Rifle", points: 41, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Flamer", points: 45, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
             { name: "Missile Launcher", points: 56, type: "Heavy(26\")", test: "4S", traits: "Area(2\") Slow", effect: "Maim"}
-
+        ] },
+        { name: "Forged", type: "Champion", perks: "Sticky Fingers",
+		stats: { 
+        S: 5, P: 4, E: 4, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Sledgehammer and 10mm Pistol", points: 20, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim", type2: "Pistol(10\")", test2: "3A", traits2: "CQB Fast", effect2: "-" },
+            { name: "Assault Rifle", points: 24, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+			{ name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"},
+            { name: "Flamer", points: 33, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" }
+        ] },
+        { name: "Survivalist", type: "Champion", perks: "Survivalist",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Short Hunting Rifle", points: 21, type: "Rifle (14\")", test: "3P", traits: "-", effect: "Pierce"  },
+            { name: "Pipe Rifle", points: 25, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
+            { name: "Sawn-off Shotgun", points: 28, type: "Rifle (8\")", test: "4P", traits: "CQB, Storm (2)", effect: "Maim" },
+            { name: "Automatic Pipe Rifle", points: 32, type: "Rifle (16\")", test: "3P", traits: "Aim (+1), Storm (1)", effect: "Suppress (2)" }
         ] },
         { name: "Veteran", type: "Champion", perks:"Sticky Fingers",
 		stats: { 
@@ -288,6 +309,15 @@ const factions = {
             { name: "Pipe Pistol and Machete", points: 24, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
             { name: "Sawn-off Shotgun", points: 25, type: "Rifle(8\")", test: "4P", traits: "CQB Storm(2)", effect: "Maim"},
             { name: "Pipe Rifle", points: 25, type: "Rifle(20\")", test: "3P", traits: "Aim(+1)", effect: "Suppress(1)"}			
+        ] },
+        { name: "Volunteer", type: "Grunt", perks: "Disposable, Try Outs",
+		stats: { 
+        S: 2, P: 3, E: 4, C: 2, I: 2, A: 2, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Machete", points: 7, type: "Melee",type: "Melee", test: "4S", traits: "-", effect: "Maim"  },
+            { name: "Pipe Revolver and Baseball Bat", points: 10, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+			{ name: "Pipe Revolver and Machete", points: 12, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce" , type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
         ] },
         { name: "Scavver", type: "Grunt",
 		stats: { 
@@ -318,6 +348,20 @@ const factions = {
             { name: "Pipe Pistol & Molotov Cocktails", points: 14, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite (2)" },
             { name: "Pipe Pistol & Machete", points: 16, type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-", type2: "Melee",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
 			{ name: "Pipe Rifle", points: 11, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" }
+        ] },
+        { name: "Trained Dog", type: "Grunt",perks: "Sic 'Em",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 3, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 14, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
+        ] },
+        { name: "Stupid Mutt", type: "Grunt",perks: "Sic 'Em, Beast",
+		stats: { 
+        S: 4, P: 3, E: 4, C: 3, I: 3, A: 4, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 7, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress (1)" }
         ] }
     ],
 	    "Survivors": [
@@ -328,7 +372,18 @@ const factions = {
 			weapons: [
             { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S +1 per Part Used", traits: "Creative Projectiles", effect: "Suppress(1) +1 per Part used" },			
             { name: "Sawn-off Shotgun and Officer's Sword", points: 40, type: "Rifle(8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Pierce" },            
-			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"}
+			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"},
+            { name: "Baseball Grenades and Baseball Bat", points: 37, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
+
+        ] },
+        { name: "Cool Cat", type: "Champion, Leader", perks: "Natural Leader, Power Armor, Survivalist",
+		stats: { 
+        S: 5, P: 5, E: 6, C: 7, I: 4, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Double-barreled Shotgun", points: 43, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim"},
+            { name: "Assault Rifle", points: 48, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+            { name: "Flamer", points: 52, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" }
         ] },
         { name: "Specialist", type: "Champion", perks: "Pick 1: (Hunter: Sniper, Survivalist), (Medic: Medic, Survivalist) (Trader: Fortune Finder, Survivalist)",
 		stats: { 
@@ -337,8 +392,12 @@ const factions = {
 			weapons: [
 			{ name: "Medic: Hand Weapon", points: 20, type: "Melee", test: "3S", traits: "Fast", effect: "-"},	
 			{ name: "Trader: Flare Gun", points: 24, type: "-", test: "-", traits: "Distress Signal)", effect: "-"},
+            { name: "Trader: 10mm Pistol", points: 20, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-" },
             { name: "Hunter: Precision Hunting Rifle", points: 35, type: "Rifle (24\")", test: "3P", traits: "Aim(+2)", effect: "Pierce"},            
-            { name: "Hunter: Double-barreled Shotgun", points: 38, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim"}
+            { name: "Hunter: Double-barreled Shotgun", points: 38, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim"},
+            { name: "Hunter: Baseball Grenades and Baseball Bat", points: 31, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Caravan Guard: Automatic Pipe Rifle", points: 33, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
+            { name: "Caravan Guard: Combat Rifle", points: 38, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  }
         ] },
         { name: "Security Guard", type: "Grunt", perks: "Survivalist",
 		stats: { 
@@ -348,6 +407,17 @@ const factions = {
             { name: "Hunting Rifle", points: 22, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Automatic Pipe Rifle", points: 24, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
             { name: "Combat Rifle", points: 27, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+        ] },
+        { name: "Ghoul Guard", type: "Grunt", perks: "Rad Resistant",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 4, I: 4, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Revolver and Hand Weapon", points: 24, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
+            { name: "Pipe Revolver and Baseball Bat", points: 24, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+            { name: "Hunting Rifle", points: 25, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
+            { name: "Automatic Pipe Rifle", points: 27, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
+            { name: "Sawn-off Shotgun and Hand Weapon", points: 30, type: "Rifle(8\")", test: "4A", traits: "CQB Storm(2)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] },
         { name: "Swatter", type: "Grunt", perks: "Survivalist",
 		stats: { 
@@ -359,6 +429,15 @@ const factions = {
             { name: "Baseball Grenades and Baseball Bat", points: 25, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
             { name: "Sawn-off Shotgun and Hand Weapon", points: 27, type: "Rifle(8\")", test: "4A", traits: "CQB Storm(2)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] },
+        { name: "Atom Cat", type: "Grunt", perks: "Power Armor,Survivalist",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 6, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Baseball Bat", points: 31, type: "Melee", test: "3S", traits: "WindUp", effect: "Suppress (1)" },
+            { name: "Pipe Rifle", points: 33, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)"},
+            { name: "Sawn-off Shotgun and Baseball Bat", points: 40, type: "Rifle(8\")", test: "4A", traits: "CQB Storm(2)", effect: "Maim", type2: "Melee", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
+        ] },
         { name: "Settler", type: "Grunt", perks: "Survivalist",
 		stats: { 
         S: 3, P: 4, E: 3, C: 3, I: 4, A: 3, L: 1, W: 1  // SPECIALW stats
@@ -368,6 +447,22 @@ const factions = {
             { name: "Pipe Revolver and Hand Weapon", points: 14, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" },
             { name: "Double-barreled Shotgun", points: 15, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
             { name: "Pipe Bolt-Action Rifle", points: 16, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Pierce" }
+        ] },
+        { name: "Benchwarmer", type: "Grunt", perks: "Survivalist",
+		stats: { 
+        S: 4, P: 3, E: 4, C: 2, I: 2, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Revolver and Baseball Bat", points: 14, type: "Pistol(12\")", test: "3A", traits: "CQB Aim(+1)", effect: "Pierce", test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" },
+			{ name: "Pipe Rifle", points: 16, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" },
+            { name: "Baseball Grenades and Baseball Bat", points: 17, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
+        ] },
+        { name: "Pack Brahmin", type: "Grunt", perks: "Beast, Rad Resistant",
+		stats: { 
+        S: 4, P: 3, E: 5, C: 1, I: 2, A: 2, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Trample", points: 15, type: "Melee", test: "4S", traits: "Wind Up", effect: "Pushback(3)"}
         ] },
         { name: "Good Boy", type: "Grunt",perks: "Beast, Sic 'Em, Survivalist",
 		stats: { 
@@ -526,42 +621,51 @@ const factions = {
             { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
-		"Cult of the Mothman": [
-        { name: "High Priest", type: "Champion, Leader", perks: "Inspirational, Natural Leader, Offering, Ritual",
+		"Followers of the Winged One": [
+        { name: "Priest", type: "Champion, Leader", perks: "Natural Leader, Offerings, Praise Be",
 		stats: { 
-        S: 4, P: 5, E: 4, C: 6, I: 6, A: 4, L: 3, W: 3  // SPECIALW stats
+        S: 4, P: 4, E: 5, C: 5, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Hand Weapon", points: 31, type: "Melee", test: "3S", traits: "Fast", effect: "-"  }
+            { name: "Hand Weapon", points: 18, type: "Melee", test: "3S", traits: "Fast", effect: "-"  }
         ] },
-        { name: "Faithful", type: "Champion", perks: "Ritual",
+        { name: "Holy Mothman", type: "Champion", perks: "Burly, Flight, Hardy, Mythical, Rad Resistant",
 		stats: { 
-        S: 4, P: 5, E: 5, C: 5, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+        S: 6, P: 6, E: 7, C: 5, I: 6, A: 6, L: 3, W: 4  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Mothman Screech and Sonic Wave", points: 70, type: "Pistol(10\")", test: "5A", traits: "Pulse", effect: "Pushback(1)",type2: "Melee", test2: "5S", traits2: "Pulse", effect2: "Pushback(2)" }
+        ] },
+        { name: "Mothman Hatchling", type: "Grunt", perks: "Beast, Flight, Omens, Point Blank, Rad Resistant",
+		stats: { 
+        S: 4, P: 4, E: 3, C: 3, I: 3, A: 4, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Hatchling Screech", points: 18, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pushback(1)" }
+        ] },
+        { name: "Faithful", type: "Champion", perks: "Offerings",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 4, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
             }, 
 		weapons: [
             { name: "Flamer", points: 32, type: "Rifle(18\")", test: "4P", traits: "Fast", effect: "Suppress(2)" },
             { name: "Hunting Rifle", points: 36, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)" },
             { name: "Hardened Sniper Rifle", points: 39, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Grenade(8\")", test2: "5A", traits2: "Area(2\") CQB Irradiate OneAndDone", effect2: "Maim" }
         ] },
-        { name: "Cultist", type: "Grunt", perks: "Ritual",
+        { name: "Cultist", type: "Grunt", perks: "Offerings",
 		stats: { 
-        S: 5, P: 3, E: 4, C: 4, I: 3, A: 4, L: 2, W: 2  // SPECIALW stats
+        S: 4, P: 4, E: 4, C: 4, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Molotov Cocktails and Heavy Pipe Pistol", points: 22, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Pistol(8\")", test2: "4A", traits2: "CQB", effect2: "Pierce"},
-            { name: "Pipe Revolver and Hand Weapon", points: 23, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
-            { name: "Heavy Pipe Pistol and Machete", points: 24, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" }
+            { name: "Molotov Cocktails and Heavy Pipe Pistol", points: 16, type: "Grenade (8\")", test: "2A", traits: "Area (2\"), CQB", effect: "Ignite (2)", type2: "Pistol(8\")", test2: "4A", traits2: "CQB", effect2: "Pierce"},
+            { name: "Pipe Revolver and Hand Weapon", points: 18, type: "Pistol(12\")", test: "3A", traits: "Aim(+1) CQB", effect: "Pierce",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"  },
+            { name: "Heavy Pipe Pistol and Machete", points: 17, type: "Pistol(8\")", test: "4A", traits: "CQB", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim" },
+            { name: "Double-barreled Shotgun", points: 15, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
+            { name: "Combat Shotgun", points: 18,type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim"},
+            { name: "Handmade Rifle", points: 20 , type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)"}
+
         ] },
-        { name: "Disciple", type: "Grunt", perks: "Ritual",
-		stats: { 
-        S: 3, P: 4, E: 4, C: 4, I: 3, A: 4, L: 2, W: 2  // SPECIALW stats
-            }, 
-			weapons: [
-            { name: "Double-barreled Shotgun", points: 21, type: "Rifle (12\")", test: "3P", traits: "Storm (2)", effect: "Maim" },
-            { name: "Combat Shotgun", points: 23,type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim"},
-            { name: "Handmade Rifle", points: 26 , type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)"}
-        ] },
-        { name: "Seeker", type: "Grunt", perks: "Ritual",
+        { name: "Seeker", type: "Grunt", perks: "Offerings",
 		stats: { 
         S: 3, P: 3, E: 4, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
             }, 
@@ -573,13 +677,13 @@ const factions = {
         ] }
 	],
 	"Zetans": [
-        { name: "Zetan Commander", type: "Champion, Leader", perks: "Burly, Hardy, Natural Leader, Rad Resistant",
+        { name: "Zetan Commander", type: "Champion, Leader", perks: "Natural Leader, Power Armor",
 		stats: { 
         S: 5, P: 6, E: 7, C: 4, I: 7, A: 5, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
-			{ name: "Electro Suppresor and Plasma Grenades", points: 44 , type: "Melee", test: "4S", traits: "-", effect: "Suppress(3)",type2: "Grenade(8\")", test2: "4A", traits2: "Area(2\") CQB", effect2: "-" },
-            { name: "Alien Disintegrator", points: 56, type: "Rifle(16\")", test: "5P", traits: "CQB", effect: "Meltdown"  }
+			{ name: "Electro Suppresor and Plasma Grenades", points: 56 , type: "Melee", test: "4S", traits: "-", effect: "Suppress(3)",type2: "Grenade(8\")", test2: "4A", traits2: "Area(2\") CQB", effect2: "-" },
+            { name: "Alien Disintegrator", points: 71, type: "Rifle(16\")", test: "5P", traits: "CQB", effect: "Meltdown"  }
         ] },
         { name: "Zetan Lieutenant", type: "Champion",
 		stats: { 
@@ -595,11 +699,11 @@ const factions = {
         S: 2, P: 4, E: 4, C: 3, I: 5, A: 4, L: 2, W: 1  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Cryo Blaster", points: 21, type: "Pistol(12\")", test: "2A", traits: "Fast", effect: "Suppress(2)" },
-            { name: "Toxin Blaster", points: 23, type: "Pistol(12\")", test: "3A", traits: "-", effect: "Poison(2)" },
-            { name: "Alien Blaster", points: 25, type: "Pistol(12\")", test: "4A", traits: "Slow", effect: "Meltdown" }
+            { name: "Cryo Blaster", points: 17, type: "Pistol(12\")", test: "2A", traits: "Fast", effect: "Suppress(2)" },
+            { name: "Toxin Blaster", points: 19, type: "Pistol(12\")", test: "3A", traits: "-", effect: "Poison(2)" },
+            { name: "Alien Blaster", points: 21, type: "Pistol(12\")", test: "4A", traits: "Slow", effect: "Meltdown" }
         ] },
-        { name: "Alien Drone", type: "Grunt", perks: "Machine, Rad Resistant",
+        { name: "Alien Drone", type: "Grunt", perks: "Machine, Programmed",
 		stats: { 
         S: 2, P: 4, E: 6, C: 1, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
             }, 
@@ -612,6 +716,51 @@ const factions = {
             }, 
 			weapons: [
             { name: "Alien Laser", points: 40,type: "Pistol(14\")", test: "3A", traits: "Fast", effect: "Ignite(2)"}
+        ] }
+	],
+	"Children of the Atom": [
+        { name: "Prophet", type: "Champion, Leader", perks: "Natural Leader, Rad Resistant, Visions",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 6, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Gamma Gun", points: 38 , type: "Pistol(8\")", test: "3A", traits: "CQB", effect: "Poison(2)"}
+        ] },
+        { name: "Crusader", type: "Champion", perks: "Atom's Glow",
+		stats: { 
+        S: 4, P: 5, E: 6, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Precision Pipe Rifle", points: 38, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
+            { name: "Radium Rifle", points: 40, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
+            { name: "Combat Rifle", points: 45, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+        ] },
+        { name: "Evangelist", type: "Champion", perks: "Maneuver, Power of Prayer, Visions",
+		stats: { 
+        S: 3, P: 3, E: 5, C: 5, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Makeshift Weapon", points: 21, type: "Melee", test: "3S", traits: "Fast", effect: "-"  }
+        ] },
+        { name: "Zealot", type: "Grunt", perks: "Atom's Glow",
+		stats: { 
+        S: 4, P: 5, E: 6, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Precision Pipe Rifle", points: 29, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
+            { name: "Radium Rifle", points: 31, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
+            { name: "Combat Rifle", points: 34, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+        ] },
+        { name: "Child of Atom", type: "Grunt", perks: "Atom's Glow",
+		stats: { 
+        S: 4, P: 5, E: 6, C: 4, I: 4, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pipe Pistol", points: 16 , type: "Pistol (8\")", test: "4A", traits: "CQB", effect: "-"},
+            { name: "Automatic Pipe Rifle", points: 20, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
+			{ name: "Gamma Gun", points: 22 , type: "Pistol(8\")", test: "3A", traits: "CQB", effect: "Poison(2)"},
+            { name: "Precision Pipe Rifle", points: 23, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
+            { name: "Radium Rifle", points: 26, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" }
         ] }
 	],
 		"Legends of the Wasteland": [
@@ -1673,7 +1822,7 @@ const weaponData = {
 		{ weapon: "Nuka Grenade", type: "Grenade(8\")", test: "5A", traits: "Area(2\") CQB Irradiate OneAndDone", effect: "Maim" }
 
     ],
-	"Cult of the Mothman": [
+	"Followers of the Winged One": [
         { weapon: "Hand Weapon", type: "Melee", test: "3S", traits: "Fast", effect: "-" },
 		{ weapon: "Hand Weapon 3parts +4pts", type: "", test: "4S", traits: "", effect: ""},
 		{ weapon: "Hand Weapon 3parts +4pts", type: "", test: "", traits: "", effect: "Maim"},
@@ -2102,22 +2251,58 @@ const ployData = {
     ],
 	    "Gunners": [
         {
-            name: "Suppressive Fire",
-            descr: "Enact this Ploy at the start of the opposing crew’s turn. Choose a Search Token or Objective Token on the Battlefield. Until the end of the turn, any model that finishes an Action within 3” of the chosen token suffers Fatigue."
+            name: "Resource Points",
+            descr: "Gunners get 4, 8, 12 Resource points to spend before the game based on their crew's tier."
         },
         {
-            name: "Barricades",
-            descr: "Enact this Ploy during setup, immediately before you place your first model on the Battlefield. Place two Barricades anywhere on the Battlefield, following the rules for placing Minor Terrain Features. A Barricade cannot be more than 3” long, 2” tall and 1” wide."
+            name: "Radio Beacon",
+            descr: "• Resource Points: 4 • Size: Decorative Terrain • Description: This Terrain allows the crew to use a single Standard Ploy or a Ploy from another source (such as a Scenario Ploy). Once a Ploy has been used in this way, place a facedown Ploy Token beside the Radio Beacon to show that this Radio Beacon has been used. The Lucky Charm Perk cannot be used with Radio Beacons."
+        },
+        {
+            name: "Small Wall",
+            descr: "• Resource Points: 1 • Size: Minor Terrain (No bigger than 2.5” wide, 1.5” tall, and 1” deep) • Description: This Terrain is Minor Terrain and can Obscure Visibility as normal. Small Walls should not be placed in such a way as to prevent models’ access to areas of the Battlefield. After placing any Small Walls, agree with your opponent that the placement is reasonable and adjust as needed."
+        },
+        {
+            name: "Turret",
+            descr: "• Resource Points: 3 • Size: 30mm Base • Description: Turrets are Friendly Grunt models added to your crew. They use the Profile below and have the Machine Innate Perk. Turrets cannot Suffer Harm, and can only make the Open Fire Action. • Stats: S: 1, P: 4, E: 4, C: 1, I: 1, A: 1, L: 1, ♥ 1 • Weapon: Security Turret — Rifle (16”), Test 6P, Traits: CQB, Critical Effect: Suppress(3)"
+        },
+        {
+            name: "Forward Deployment",
+            descr: "• Resource Points: 3 • Size: Minor Terrain (No bigger than 2.5” wide, 1.5” tall, and 1” deep) • Description: This Terrain is Minor Terrain and can Obscure Visibility as normal. Models from the crew that purchased it can Deploy within 3” of this Minor Terrain Feature as if this area were their Deployment Zone. Forward Deployment Points cannot be placed within 3” of an opposing crew’s Deployment Zone or Battlefield edge."
+        },
+        {
+            name: "Large Wall",
+            descr: "• Resource Points: 2 • Size: Minor Terrain (No bigger than 3” wide, 3” tall, and 1” deep) • Description: This Terrain is Minor Terrain and can Obscure Visibility as normal. Large Walls should not be placed in such a way as to prevent models’ access to areas of the Battlefield. After placing any Large Walls, agree with your opponent that the placement is reasonable and adjust as needed."
+        },
+        {
+            name: "Minefield",
+            descr: "• Resource Points: 2 • Size: 3” area • Description: After resolving a Get Moving Action for a model that moved through this Terrain, roll an Explosive Test (1L). If Passed, the model manages to avoid any danger. If Failed, the model Suffers 2 Harm. A model within 1” of a Minefield can Take 1 Fatigue and roll a Cut the Wire Test (2I). If Passed, remove the Minefield Terrain from the Battlefield. If Failed, the model Suffers 2 Harm. Minefields cannot be placed within 1” of an Objective Token or another Minefield."
+        },
+        {
+            name: "Rad Barrels",
+            descr: "• Resource Points: 2 • Size: Radiation Token • Description: This is a Radiation Token, as described on page 26 of the Fallout: Factions Rulebook."
         }
     ],
 	    "Zetans": [
         {
             name: "Invaders from Beyond",
-            descr: "Enact this Ploy when one of your models makes a Get Moving Action. Models that Hurry do not take an additional Fatigue when moving up to 12”. Models that Hurry ignore Proximity."
+            descr: "You may enact this Ploy when one of your models makes a Get Moving Action. During this Get Moving Action, Friendly models that Hurry do not Take Fatigue (in addition to any already taken for the movement), and ignore the Proximity of Enemy models."
         },
         {
             name: "Tractor Beam",
             descr: "Enact this Ploy at the start of any of your Turns. Move an enemy non-Leader model up to 4”."
+        }
+    ],
+	    "Children of the Atom": [
+        {
+            name: "Revelations",
+            descr: "You may enact this Ploy at the start of any Round after the first. For this Round, all effects that would be triggered by a model being within 3” of a Radiation Token instead apply to any model within 6” of a Radiation Token."
+
+        },
+        {
+            name: "Be Not Afraid",
+            descr: "You may enact this Ploy at the start of any of your Turns. Select an Enemy model with the Machine, Rad Resistant, or Power Armor Perk. The following effect from these Perks is ignored for that model for the rest of the game: “This model is unaffected by Radiation Tokens”."
+
         }
     ],
 	    "Super Mutants": [
@@ -2146,7 +2331,12 @@ const ployData = {
         {
             name: "Oh Yeah",
             descr: "Enact this Ploy at the start of any of your Turns. As an additional cost, remove either a Chem or Rare Chem from your stash. Choose one of your Exhausted Grunts. Remove all Fatigue from it. Add 3 Bonus Dice to all Attack Tests this model makes. When this model next becomes Exhausted, it cannot Recover Fatigue, or have Fatigue removed from it. At the end of this Round, this model is Incapacitated."
+        },
+        {
+            name: "Shrug It Off",
+            descr: "You may enact this Ploy at the start of any Round. Friendly models within your Leader’s Control Area gain the Odd Anatomy Perk until the end of the Round."
         }
+
     ],
 	    "Survivors": [
         {
@@ -2156,6 +2346,18 @@ const ployData = {
         {
             name: "Some Rain Must Fall",
             descr: "Enact this Ploy when a friendly model is Incapacitated by an enemy model, after any Confusion Tests are made. Every friendly model may make an Open Fire or Brawl action without taking Fatigue against the enemy model that made the Action that Incapacitated the friendly model."
+        },
+        {
+            name: "Home Run",
+            descr: "You may enact this Ploy when a Friendly model inflicts Damage during an Attack Action where a Baseball Bat or Baseball Grenade was chosen. The Enemy model Suffers 1 Fatigue, and is moved up to 4\” directly away from the Active model or Target point. If the Enemy model finishes this move in Base contact with any Enemy models, those models each roll a die. Each model that had a die score higher than their Agility Suffers 1 Fatigue."
+        },
+        {
+            name: "Lookin' Pale, Smoothskin",
+            descr: "You may enact this Ploy at the start of any Round except the first. Place a Radiation Token on the Battlefield."
+        },
+        {
+            name: "The Way of Cool",
+            descr: "You may enact this Ploy when you select either a Cool Cat or an Atom Cat as the Active model for the Turn. Until the end of the Round, any Enemy model that Targets this model with an Action makes a Cool Test (2C). If Passed, the Action continues as normal. If Failed, the Enemy model Takes 1 Fatigue but doesn’t make the Action."
         }
     ],
 	    "Legends of the Wasteland": [
@@ -2164,14 +2366,15 @@ const ployData = {
             descr: "You may enact this Ploy at the end of any Round if a Friendly King of the Park in on the Battlefield, and not Incapacitated. A Friendly King of the Park model makes a Ranged Attack Action using the Nuka-nuke Launcher Weapon. Nuka-nuke Launcher - type: Heavy(20\"); test: 5S; traits: Area(2\"), CQB, Irradiate, One and Done"
         }
     ],		
-		"Cult of the Mothman": [
+		"Followers of the Winged One": [
         {
-            name: "The Enlightened",
-            descr: "Enact this Ploy at the start of any of your Turns, if your crew's Ritual Count is ten or more and the Ploy The Followers of the Winged One has not been enacted."
+            name: "I Die for the Mothman",
+            descr: "You may enact this Ploy at the start of a Round. Until the end of the Round, you may Recover Fatigue from a Friendly Holy Mothman each time that a Friendly model with the Offerings Innate Perk is Incapacitated."
+
         },
         {
-            name: "Follower of the Winged One",
-            descr: "Enact this Ploy at the start of any of your Turns, if your crew's Ritual Count is ten or more and the Ploy The Enlightened has not been enacted. Place a friendly Holy Mothman within 3\" of a friendly Leader. If there is no friendly Leader on the Battlefield, place the Holy Mothman within 3\" of the center of the Battlefield. Friendly crews can no longer increase Ritual Count."
+            name: "Expel Them from Our Lands",
+            descr: "You may enact this Ploy when a Search Token is about to be removed by the opposing player. Place a Friendly Holy Mothman or Mothman Hatchling from anywhere on the Battlefield to within 1” of the Search Token."
         }
     ],
     // Add more factions and their ploys here...
