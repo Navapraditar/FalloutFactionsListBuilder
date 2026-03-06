@@ -621,6 +621,106 @@ const factions = {
             { name: "10mm Pistol and Hand Weapon", points: 15, type: "Pistol(10\")", test: "3A", traits: "CQB Fast", effect: "-", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-" }
         ] }
     ],
+    "Automatrons": [
+        { name: "The Mechanist", type: "Champion, Leader", perks: "Natural Leader, Stealth Boy",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 5, I: 7, A: 4, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Laser Pistol and War Glaive", points: 42, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)", type2: "Melee", test2: "4S", traits2: "Overwhelm WindUp", effect2: "Pierce"  }
+        ] },
+        { name: "Legendary Assaultron", type: "Champion", perks: "All the Toys, Machine, Hardy, Sprint",
+		stats: { 
+        S: 6, P: 6, E: 5, C: 1, I: 1, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+		weapons: [
+            { name: "Stunning Claws and Assaultron Eye Beam", points: 40, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(2)", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" },
+            { name: "Assaultron Claws and Assaultron Eye Beam", points: 45, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" },
+            { name: "Shishkebab and Assaultron Eye Beam", points: 49, type: "Melee", test: "4S", traits: "-", effect: "Ignite(2)", type2: "Pistol(6\")", test2: "5A", traits2: "CQB Slow", effect2: "Maim" }
+        ] },
+        { name: "Robobrain", type: "Grunt", perks: "Hardy, Machine",
+		stats: { 
+        S: 4, P: 4, E: 5, C: 4, I: 5, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Robot Lasers and Robot Bash", points: 35, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+            { name: "Mesmetron and Robot Bash", points: 39, type: "Pistol(10\")", test: "2A", traits: "CQB Non-Lethal", effect: "Suppress(3)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" }
+        ] },
+        { name: "Mr. Handy", type: "Grunt", perks: "All the Toys, Hardy, Machine, Medic",
+		stats: { 
+        S: 5, P: 5, E: 5, C: 1, I: 1, A: 4, L: 1, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Standard Unit Robot Lasers and Various Appendages", points: 52, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)" },
+			{ name: "Medical Unit Robot Lasers and Various Appendages", points: 57, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)" },
+			{ name: "Combat Unit Robot Lasers and Various Appendages and Flamer", points: 60, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Maim Suppress(2) Tranquilize(1)", type3: "Heavy(6\")", test3: "4S", traits3: "Area(2\") CQB", effect3: "Ignite(3)"}
+        ] },
+        { name: "Protectron", type: "Grunt", perks: "All the Toys, Hardy, Machine, Medic, Self Destruct",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 1, I: 1, A: 2, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Builder Unit Nail Gun and Robot Bash", points: 30, type: "Rifle (12\")", test: "3P", traits: "CQB Fast", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Standard Unit Robot Lasers and Robot Bash", points: 32, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Medical Unit Robot Bash", points: 33, type: "Melee", test: "4S", traits: "-", effect: "-" },
+			{ name: "Firefighter Unit Hand Cryojet and Robot Bash", points: 35, type: "Heavy (6\")", test: "3S", traits: "Area(2\") CQB Slow", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+			{ name: "Police Unit Robot Lasers and Shock Hand", points: 35, type: "Rifle (16\")", test: "4P", traits: "CQB Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "Non-lethal Fast", effect2: "Suppress(1)"}
+        ] },
+        { name: "Eyebot", type: "Grunt",perks: "All the Toys, Bullet Magnet, Eye Catching, Flight, Machine, Programmed",
+		stats: { 
+        S: 2, P: 4, E: 4, C: 1, I: 1, A: 5, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Eyebot Laser", points: 15, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(1)"}
+        ] }
+    ],
+    "Trappers": [
+        { name: "Ruthless Trapper", type: "Champion, Leader", perks: "Natural Leader",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 5, I: 5, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Harpoon Gun", points: 45, type: "Heavy(16\")", test: "5S", traits: "Aim(1) Slow", effect: "Haul(3)" },
+            { name: "Flechette Harpoon Gun", points: 49, type: "Heavy(10\")", test: "5S", traits: "Storm(3) Slow", effect: "-"  },
+            { name: "Barbed Harpoon Gun", points: 50, type: "Heavy(16\")", test: "6S", traits: "Aim(1) Slow", effect: "-"}
+        ] },
+        { name: "Relentless Trapper", type: "Champion",
+		stats: { 
+        S: 5, P: 5, E: 4, C: 4, I: 4, A: 4, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Recon Hunting Rifle", points: 33, type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce"},
+            { name: "Meathook and Double-barreled Shotgun", points: 36, type: "Melee", test: "4S", traits: "-", effect: "Pierce" ,type2: "Rifle (12\")", test2: "3P", traits2: "Storm (2)", effect2: "Maim"},
+            { name: "Harpoon Gun", points: 40, type: "Heavy(16\")", test: "5S", traits: "Aim(1) Slow", effect: "Haul(3)" }
+        ] },
+        { name: "Grim Trapper", type: "Grunt",
+		stats: { 
+        S: 4, P: 3, E: 4, C: 4, I: 3, A: 4, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pole Hook", points: 15 , type: "Melee", test: "4S", traits: "Overwhelm", effect: "Seize"},
+            { name: "Meathook and Pipe Revolver", points: 17, type: "Melee", test: "4S", traits: "-", effect: "Pierce" ,type2: "Pistol(12\")", test2: "3A", traits2: "Aim(+1) CQB", effect2: "Pierce"},
+            { name: "Pole Hook and Molotov Cocktails", points: 17, type: "Melee", test: "4S", traits: "Overwhelm", effect: "Seize", type2: "Grenade (8\")", test2: "2A", traits2: "Area (2\"), CQB", effect2: "Ignite(2)"  }
+        ] },
+        { name: "Stalking Trapper", type: "Grunt",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 4, I: 3, A: 3, L: 2, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Pipe Rifle", points: 18, type: "Rifle (20\")", test: "3P", traits: "Aim (+1)", effect: "Suppress (1)" },
+			{ name: "Lever Action Rifle", points: 20, type: "Rifle (16\")", test: "3P", traits: "Fast", effect: "-" },
+            { name: "Precision Pipe Rifle", points: 22, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" }            
+        ] },
+        { name: "Scrounging Trapper", type: "Grunt",
+		stats: { 
+        S: 4, P: 3, E: 3, C: 3, I: 3, A: 3, L: 1, W: 1  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Pole Hook", points: 11 , type: "Melee", test: "4S", traits: "Overwhelm", effect: "Seize"},
+            { name: "Meathook and Pipe Pistol", points: 12, type: "Melee", test: "4S", traits: "-", effect: "Pierce" ,type2: "Pistol(8\")", test2: "4A", traits2: "CQB", effect2: "Pierce"},
+			{ name: "Lever Action Rifle", points: 13, type: "Rifle (16\")", test: "3P", traits: "Fast", effect: "-" }
+        ] }
+    ],
 		"Followers of the Winged One": [
         { name: "Priest", type: "Champion, Leader", perks: "Natural Leader, Offerings, Praise Be",
 		stats: { 
@@ -1069,6 +1169,10 @@ const perksData = [
   { perk: "Natural Leader", prereq:"-", description: "This model automatically passes Confusion tests. When making an Intelligence test for a friendly model within this model's Control Area, you can choose to use this model's Intelligence instead. " },
   { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks." },
   { perk: "Burly", prereq:"-", description: "This model's Harm limit is 4 instead of 3." },
+  { perk: "All the Toys", prereq:"-", description: "When taking the Crew Training Story Action with this model, you spend Parts rather than XP to purchase Upgrades. This model gains Automatron Perks rather than regular Perks." },
+  { perk: "Stealth Boy", prereq:"-", description: "This model may not be Targeted by Ranged Attacks unless it is within Perception range of the Attacking model." },
+  { perk: "Offerings", prereq:"-", description: "This model gains the following additional option when taking the Rummage Action: Find Offerings: Recover Fatigue from a Friendly Holy Mothman model. Discard the results of the two dice used."},
+  { perk: "Atom's Glow", prereq:"-", description: "When this model makes an attack against an Enemy model, and either this model or the Target are within 3” of a Radiation Token, treat this model’s Luck as being 1 higher." },
   { perk: "Hardy", prereq:"-", description: "This model cannot suffer Fatigue. This model still takes Fatigue by performing an Action or gaining a bonus." },
   { perk: "Improvised Lasso", prereq:"-", description: "Gains the following Action: This Action can target an enemy model within 8\". The opposing player makes a 2S test. If the model Fails, it is moved 4\" towards this model." },
   { perk: "Rule No.1: Read the Manual", prereq:"-", description: "Open Fire Actions made by this model are Unlucky." },
@@ -1117,6 +1221,8 @@ const perksData = [
 const critData = [
 	{crit: "Ignite(X)", effect: "At the start of the Inflict Damage step, the opposing player rolls X Dice. For each one that scores higher than the Target model's Agility, the amount of Damage inflicted is increased by 1." },
 	{crit: "Maim", effect: "At the end of the Inflict Damage step, the Target Suffers 1 Harm." },
+    {crit: "Seize", effect: "At the end of the Inflict Damage step, the Active model makes a Back Off Action without taking Fatigue. After resolving this Action, move the Target model into contact with the Active model." },
+	{crit: "Haul(X)", effect: "At the end of the Inflict Damage step, the Active player rolls X dice. For each one that scores equal to or lower than the Active model’s Strength, the Target is moved 1” directly towards the Active model. If the Target model cannot move this full distance, it moves as far as it can."},
 	{crit: "Pierce", effect: "During the Inflict Damage step, the Target’s Endurance is treated as one lower." },
 	{crit: "Suppress(X)", effect: "At the end of the Inflict Damage step, the opposing player rolls X dice. If any of them score higher than the Target’s Intelligence, the Target suffers Fatigue." },
 	{crit: "Meltdown", effect: "At the end of the Inflict Damage step, the opposing player makes a Meltdown Test (2E) for the Target. If they score fewer Hits than the amount of Harm that the Target has suffered, the Target suffers an Injury." },
@@ -1148,11 +1254,16 @@ const traitData = [
 	{trait: "Bladed", effect: "When a model with this Weapon uses a Makeshift Weapon to make a Melee Attack, add a Bonus Die to the Pool." },
 	{trait: "CQB", effect: "This Weapon cannot Target models outside of its Effective Range" },
 	{trait: "Distress Signal", effect: "Models with this weapon gain the following Action: ACTION: SEND HELP! (UNENGAGED MODELS) The Active player chooses a Friendly model other than the model using this Action. That model moves up to 2” (this can be used to move into or out of Engagement)." },
-	{trait: "Fast", effect: "Models with this Weapon can make up to two Open Fire, or Brawl Actions within the same Turn, as long as both Actions use this Weapon." },
+    {trait: "Duel", effect: "A model Engaged with a model with this weapon cannot use the Back Off Action." },
+    {trait: "Fast", effect: "Models with this Weapon can make up to two Open Fire, or Brawl Actions within the same Turn, as long as both Actions use this Weapon." },
 	{trait: "Irradiate", effect: "After resolving an Attack Action with this Weapon, the Active player places a Radiation Token in contact with the Target model, or within 1” of the Target point if the Weapon also has the Area (X”) Trait." },
 	{trait: "One-and-done", effect: "After making an Attack with this Weapon, it cannot be used again this game." },
-	{trait: "Selective Fire", effect: "After declaring an Attack Action with this Weapon, but before creating a Dice Pool, this model's controller picks one of the Traits in this Weapons listed Selective Fire Trait (example, Selective Fire (Area (1”), Storm (3))”). This Weapon then gains that Trait until the Attack has Resolved" },
-	{trait: "Slow", effect: "Models with this Weapon may only make one Attack Action using it per Round." },
+	{trait: "Overwhelm", effect: "At the end of the Inflict Damage step, the Active model makes a Back Off Action without taking Fatigue. After resolving this Action, move the Target model into contact with the Active model." },	
+    {trait: "Pulse", effect: "When making an Attack Action with this weapon, each model Engaged with the Active model counts as a Target model. Make a single Attack Test to which no Bonus Dice can be applied. Then resolve the Inflict Damage step once for each Target model, in an order chosen by the Active player. If a rule adjusts the amount of Damage inflicted (for example, the Ignite (X) Critical Effect), this does not carry over between models. Don’t resolve Confusion until Damage has been applied to all applicable models."},	
+    {trait: "Running Shot", effect: "After completing a Get Moving Action, a model with this weapon can use it to make an Open Fire Action without Taking Fatigue." },
+    {trait: "Selective Fire", effect: "After declaring an Attack Action with this Weapon, but before creating a Dice Pool, this model's controller picks one of the Traits in this Weapons listed Selective Fire Trait (example, Selective Fire (Area (1”), Storm (3))”). This Weapon then gains that Trait until the Attack has Resolved" },
+    {trait: "Silenced", effect: "At the end of the Inflict Damage step, this model can move up to 2”. During this move, it cannot move into the Proximity of an Enemy model." },
+    {trait: "Slow", effect: "Models with this Weapon may only make one Attack Action using it per Round." },
 	{trait: "Storm(X)", effect: "When creating a Dice Pool for Attack Action with this Weapon, add X Bonus Dice to the Pool if the Target is within half of the Weapon’s Effective Range. For example, if the weapon has the Rifle (10”) Type, the Attack will gain X Bonus Dice if the Target is within 5”" },
 	{trait: "Unwieldy(X)", effect: "When a model makes an Attack Action with this Weapon, if its Strength is lower than X, the Attack Test cannot gain any Bonus Dice" },
 	{trait: "Wind Up", effect: "When creating a Dice Pool for an Attack Action with this Weapon, add 2 Bonus Dice instead of 1 if the Active model moved into Engagement with the Target model this Turn." }
@@ -2225,6 +2336,27 @@ const ployData = {
         {
             name: "Thin the Herd",
             descr: "Enact this Ploy when one of your models is Incapacitated. Until the end of the Round, add a Bonus Die to any Tests you make for your Champions."
+        }
+    ],
+	    "Automatrons": [
+        {
+            name: "You will Rue the Day",
+            descr: "You may enact this Ploy at the start of any Round. Until the end of the Round, when a Friendly model with the Machine Perk would be Incapacitated, a Friendly Leader model Recovers 1 Fatigue."
+        },
+        {
+            name: "The Flesh is Weak but Steel is Strong",
+            descr: "You may enact this Ploy if a Friendly model with the Machine Perk would be Incapacitated. The Friendly model Recovers all Harm and an Injury."
+        }
+    ],
+	    "Trappers": [
+        {
+            name: "The Fog Thickens",
+            descr:"You may enact this Ploy at the start of any Round. Until the end of the Round, all Open Fire Actions are Unlucky."
+
+        },
+        {
+            name: "Hook Line and...",
+            descr: "You may enact this Ploy when an Enemy model finishes a move within 3” of a Search Token. Make an Evade Test (5A) for every Enemy model within 3” of the Search Token. Each Enemy model suffers 5 Damage, minus 1 for each Hit scored. If the move was caused by the crew that enacted this Ploy, the Enemy model that moved must Re-Roll any Hits in the Evade Test."
         }
     ],
 	    "Brotherhood of Steel": [
