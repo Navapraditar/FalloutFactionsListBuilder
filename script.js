@@ -919,6 +919,13 @@ const factions = {
             }, 
 			weapons: [
             { name: "Heavy Combat Shotgun", points: 63, type: "Rifle(10\")", test: "5P", traits: "Fast Storm(1)", effect: "Maim"  }
+        ] },
+        { name: "Pack Hounds", type: "Grunt, Hiring Fee: 42", perks: "Beast, Cannibal, Greater Numbers, Sic 'Em, Sprint",
+		stats: { 
+        S: 4, P: 3, E: 5, C: 3, I: 3, A: 4, L: 1, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Claws and Jaws", points: 42, type: "Melee", test: "4S", traits: "Fast", effect: "Suppress(1)"  }
         ] },	
         { name: "Mags Black", type: "Champion, Leader, Hiring Fee: 61", perks: "Making a Withdrawal, Natural Leader, Rifleman",
 		stats: { 
@@ -927,12 +934,26 @@ const factions = {
 			weapons: [
             { name: "Suppressing Handmade Rifle", points: 61, type: "Rifle(22\")", test: "4P", traits: "Fast", effect: "Suppress(3)"  }
         ] },
+        { name: "William Black", type: "Champion, Hiring Fee: 50", perks: "Sniper",
+		stats: { 
+        S: 4, P: 5, E: 5, C: 4, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Upgraded Handmade Rifle", points: 50, type: "Rifle(18\")", test: "5P", traits: "Fast", effect: "Suppress(2)"  }
+        ] },
         { name: "Nisha", type: "Champion, Leader, Hiring Fee: 68", perks: "Making a Withdrawal, Natural Leader, Rifleman",
 		stats: { 
         S: 6, P: 5, E: 5, C: 6, I: 6, A: 6, L: 3, W: 3  // SPECIALW stats
             }, 
 			weapons: [
             { name: "Disciple's Blade and Plasma Pistol", points: 68, type: "Melee", test: "4S", traits: "Fast", effect: "Maim", type2: "Pistol(12\")", test2: "4A", traits2: "CQB Fast", effect2: "Meltdown"  }
+        ] },
+        { name: "Dixie", type: "Champion,Hiring Fee: 34", perks: "Burly, Natural Leader, Rad Resistant, Toughness, Unending Stamina",
+		stats: { 
+        S: 4, P: 4, E: 4, C: 5, I: 5, A: 5, L: 2, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: ".44 Pistol and Upgraded Hand Weapon", points: 34, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "-" }
         ] },				
         { name: "Overboss Colter (PA)", type: "Champion, Leader, Hiring Fee: 72", perks: "Cheater, Natural Leader, Power Armor",
 		stats: { 
@@ -961,6 +982,41 @@ const factions = {
             }, 
 			weapons: [
             { name: "Minigun", points: 72, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce"  }
+        ] },
+        { name: "The Rogue Knight", type: "Champion Hiring Fee: 76", perks: "Power Armor,Unstoppable",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 4, I: 4, A: 4, L: 2, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Aeternus", points: 76, type: "Heavy(10\")", test: "4S", traits: "Slow Storm(3)", effect: "Ignite(2)"  }
+        ] },
+        { name: "Old Longfellow", type: "Champion, Hiring Fee: 54", perks: "Hobble, On the House (Whiskey), Penetrator",
+		stats: { 
+        S: 4, P: 6, E: 5, C: 3, I: 5, A: 3, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Trusty Lever Action Rifle", points: 54, type: "Rifle (16\")", test: "4P", traits: "-", effect: "Pierce" },
+        ] },
+        { name: "Bilge", type: "Champion, Leader, Hiring Fee: 64", perks: "Power Armor, Natural Leader",
+		stats: { 
+        S: 6, P: 5, E: 6, C: 5, I: 5, A: 5, L: 2, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Breaching Harpoon Gun", points: 64, type: "Heavy(16\")", test: "5S", traits: "Aim(1) Slow", effect: "Haul(3) Pushback(3)"}
+        ] },
+        { name: "High Confessor Tektus", type: "Champion, Leader, Hiring Fee: 48", perks: "Inspirational, Natural Leader, Rad Resistant, Sermons",
+		stats: { 
+        S: 3, P: 5, E: 5, C: 7, I: 6, A: 5, L: 3, W: 3  // SPECIALW stats
+            }, 
+			weapons: [
+			{ name: "Gamma Gun", points: 48 , type: "Pistol(8\")", test: "3A", traits: "CQB", effect: "Poison(2)"}
+        ] },
+        { name: "Grand Zealot Richter", type: "Champion, Hiring Fee: 65", perks: "Lifegiver, Rad Resistant, Toughness",
+		stats: { 
+        S: 4, P: 5, E: 7, C: 4, I: 5, A: 5, L: 3, W: 2  // SPECIALW stats
+            }, 
+			weapons: [
+            { name: "Radium Rifle", points: 65, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
         ] }
 	],
 		"Robot Companions": [
@@ -1169,6 +1225,10 @@ const perksData = [
   { perk: "Natural Leader", prereq:"-", description: "This model automatically passes Confusion tests. When making an Intelligence test for a friendly model within this model's Control Area, you can choose to use this model's Intelligence instead. " },
   { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks." },
   { perk: "Burly", prereq:"-", description: "This model's Harm limit is 4 instead of 3." },
+  { perk: "Sermons", prereq:"-", description: "At the beginning of this model’s Activation, you may choose for it to Take Fatigue. If it does, apply one of the following until the end of the Round to another Friendly model within its Control Area:  Once per Turn, during its Activation, this model may make the Rummage Action without Taking Fatigue. This does not stack with the Strong Back Perk.  When this model makes a Ranged Attack with a Rifle weapon, Enemies can’t be Obscured by intervening models.  If this model is a Target model of an attack from a weapon with the Area (X”) Trait, before the Attack Test is made, its controller may declare that it is Shielding Others. If it does, the attack is resolved with this model as the only Target, and the Dice Pool gains a Bonus Die.  When making a Ranged Attack against your models, Enemy models cannot Target this model, unless it is either Wide Open, or has 1 Fatigue Token." },
+  { perk: "On the House(X)", prereq:"-", description: "• When hiring this model, your crew gains one dose of X Chem/Rare Chem. If a Chem is gained, mark a dose on your Roster.   Whiskey: When creating a Dice Pool for a Strength or Endurance Test, you may spend a dose of Whiskey to increase either the Active model’s Strength or Endurance by 2 until that Test is resolved." },
+  { perk: "Greater Numbers", prereq:"-", description: "• When you add a Pack Hound to your Crew Roster, you add two models instead of one, though you only pay the Hiring Fee once. Each model acts independently of the other and is treated as a separate model for all rules. If a rule would reference a model’s Rating, each Pack Hound is considered to have a Rating of 21." },
+  { perk: "Unstoppable", prereq:"-", description: "• At the start of each Round, add the corresponding Perk to this model’s Roster Profile for the rest of the game:  • Round 1 Toughness (Endurance)  • Round 2 Iron Fist (Strength)  • Round 3 Wide Swings (Strength)" },
   { perk: "All the Toys", prereq:"-", description: "When taking the Crew Training Story Action with this model, you spend Parts rather than XP to purchase Upgrades. This model gains Automatron Perks rather than regular Perks." },
   { perk: "Stealth Boy", prereq:"-", description: "This model may not be Targeted by Ranged Attacks unless it is within Perception range of the Attacking model." },
   { perk: "Offerings", prereq:"-", description: "This model gains the following additional option when taking the Rummage Action: Find Offerings: Recover Fatigue from a Friendly Holy Mothman model. Discard the results of the two dice used."},
