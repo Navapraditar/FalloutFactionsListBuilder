@@ -70,8 +70,8 @@ const factions = {
 			weapons: [
             { name: "Laser Pistol and Hand Weapon", points: 20, type: "Pistol (10\")", test: "3A", traits: "CQB", effect: "Ignite(2)",type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"   },
             { name: "Crusader Pistol and Hand Weapon", points: 23, type: "Pistol (12\")", test: "4A", traits: "-", effect: "Maim", type2: "Melee", test2: "3S", traits2: "Fast", effect2: "-"    },
-            { name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
-            { name: "Laser Rifle", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
+            { name: "Combat Rifle", points: 25, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" },
+            { name: "Laser Rifle", points: 24, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  }
         ] },
         { name: "Hopeful", type: "Grunt",
 		stats: { 
@@ -90,7 +90,7 @@ const factions = {
 			weapons: [
             { name: "Recon Hunting Rifle", points: 19, type: "Rifle (24\")", test: "4P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Laser Rifle", points: 23, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)"  },
-			{ name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+			{ name: "Combat Rifle", points: 24, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" }
         ] },
         { name: "Defender", type: "Grunt", perks: "Power Armor",
 		stats: { 
@@ -127,7 +127,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Precision Combat Rifle", points: 28, type: "Rifle (30\")", test: "4P", traits: "Aim (+2)", effect: "Suppress (2)" },
-            { name: "Combat Rifle", points: 29, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim"},
+            { name: "Combat Rifle", points: 29, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-"},
             { name: "Plasma Pistol and Ripper", points: 34, type: "Pistol (12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "5S", traits2: "Fast", effect2: "Maim" },
             { name: "Missle Launcher", points: 46, type: "Heavy (26\")", test: "5S", traits: "Area (3\"), Slow", effect: "Maim" }
         ] },
@@ -144,7 +144,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Laser Rifle", points: 20, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)" },
-            { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" },
+            { name: "Combat Rifle", points: 22, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" },
             { name: "Laser Rifle and Stun Baton", points: 25, type: "Rifle (18\")", test: "4P", traits: "-", effect: "Ignite (1)", type2: "Melee", test2: "4S", traits2: "Suppress (2)", effect2: "-"  }
         ] },
         { name: "Conscript", type: "Grunt",
@@ -265,7 +265,7 @@ const factions = {
 			weapons: [
             { name: ".44 Pistol and Machete", points: 40, type: "Pistol(14\")", test: "4A", traits: "Aim(+1)", effect: "Pierce",type2: "Melee", test2: "4S", traits2: "-", effect2: "Maim"   },
             { name: "Assault Rifle", points: 45, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-            { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim", type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)"},
+            { name: "Combat Rifle and Baseball Bat", points: 48, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-", type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)"},
             { name: "Minigun", points: 54, type: "Heavy(14\")", test: "4S", traits: "Slow Storm(3)", effect: "Pierce" },
             { name: "Hunting Rifle", points: 45, type: "Rifle(22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Flamer", points: 52, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" },
@@ -286,8 +286,8 @@ const factions = {
             }, 
 			weapons: [
             { name: "Sledgehammer and 10mm Pistol", points: 20, type: "Melee", test: "4S", traits: "Unwieldy(5) WindUp", effect: "Maim", type2: "Pistol(10\")", test2: "3A", traits2: "CQB Fast", effect2: "-" },
-            { name: "Assault Rifle", points: 24, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
-			{ name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"},
+            { name: "Assault Rifle", points: 26, type: "Rifle (20\")", test: "4P", traits: "Storm (1)", effect: "Maim" },
+			{ name: "Combat Rifle", points: 25, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-"},
             { name: "Flamer", points: 33, type: "Heavy(6\")", test: "4S", traits: "CQB Area(2\")", effect: "Ignite(3)" }
         ] },
         { name: "Survivalist", type: "Champion", perks: "Survivalist",
@@ -372,7 +372,7 @@ const factions = {
 			weapons: [
             { name: "Junk Jet", points: 34, type: "Heavy(10\")", test: "3S +1 per Part Used", traits: "Creative Projectiles", effect: "Suppress(1) +1 per Part used" },			
             { name: "Sawn-off Shotgun and Officer's Sword", points: 40, type: "Rifle(8\")", test: "4P", traits: "CQB, Storm(2)", effect: "Maim", type2: "Melee", test2: "4S", traits2: "Fast", effect2: "Pierce" },            
-			{ name: "Combat Rifle", points: 45, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Pierce"},
+			{ name: "Combat Rifle", points: 45, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-"},
             { name: "Baseball Grenades and Baseball Bat", points: 37, type: "Grenade(8\")", test: "3A", traits: "CQB Area(2\") Big Swing(6\")", effect: "Suppress(1)",type2: "Melee" , test2: "3S", traits2: "WindUp", effect2: "Suppress (1)" }
 
         ] },
@@ -406,7 +406,7 @@ const factions = {
 			weapons: [
             { name: "Hunting Rifle", points: 22, type: "Rifle (22\")", test: "3P", traits: "Aim(+1)", effect: "Pierce" },
             { name: "Automatic Pipe Rifle", points: 24, type: "Rifle (16\")", test: "3P", traits: "Aim(+1) Storm(1)", effect: "Suppress(2)"  },
-            { name: "Combat Rifle", points: 27, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+            { name: "Combat Rifle", points: 25, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" }
         ] },
         { name: "Ghoul Guard", type: "Grunt", perks: "Rad Resistant",
 		stats: { 
@@ -479,7 +479,7 @@ const factions = {
             }, 
 			weapons: [
             { name: "Marksman's Handmade Rifle", points: 44 , type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"},
-            { name: "Combat Rifle", points: 50, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  },
+            { name: "Calibrated Combat Rifle", points: 50, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  },
             { name: "Plasma Pistol and Shishkebab", points: 51, type: "Pistol(12\")", test: "4A", traits: "CQB Fast", effect: "Meltdown", type2: "Melee", test2: "4S", traits2: "-", effect2: "Ignite(2)" }
         ] },
         { name: "Made Man", type: "Champion",
@@ -488,8 +488,8 @@ const factions = {
             }, 
 			weapons: [
             { name: "Syringer", points: 31, type: "Rifle(16\")", test: "2P", traits: "Aim(+2)", effect: "Poison(3)" },
-            { name: "Combat Rifle", points: 33, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  },
-            { name: "Combat Shotgun and Frag Grenades", points: 38, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim", type2: "Grenade(10\")", test2: "3A", traits2: "Area(1\") CQB", effect2: "Suppress(2)" },
+            { name: "Combat Rifle", points: 33, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-"  },
+            { name: "Calibrated Combat Shotgun and Frag Grenades", points: 38, type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim", type2: "Grenade(10\")", test2: "3A", traits2: "Area(1\") CQB", effect2: "Suppress(2)" },
             { name: "Missle Launcher", points: 48, type: "Heavy(26\")", test: "5S", traits: "Area(3\") Slow", effect: "Maim"  }
         ] },
         { name: "Psycho", type: "Grunt",
@@ -509,7 +509,7 @@ const factions = {
 			weapons: [
             { name: "Handmade Rifle", points: 23, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
             { name: "Marksman's Handmade Rifle", points: 24, type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)"  },
-            { name: "Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  }
+            { name: "Calibrated Combat Rifle", points: 27, type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim"  }
         ] },
         { name: "Waster", type: "Grunt",
 		stats: { 
@@ -833,7 +833,7 @@ const factions = {
 			weapons: [
             { name: "Precision Pipe Rifle", points: 38, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
             { name: "Radium Rifle", points: 40, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
-            { name: "Combat Rifle", points: 45, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+            { name: "Combat Rifle", points: 45, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" }
         ] },
         { name: "Evangelist", type: "Champion", perks: "Maneuver, Power of Prayer, Visions",
 		stats: { 
@@ -849,7 +849,7 @@ const factions = {
 			weapons: [
             { name: "Precision Pipe Rifle", points: 29, type: "Rifle (20\")", test: "3P", traits: "Aim (+2)", effect: "Pierce" },            
             { name: "Radium Rifle", points: 31, type: "Rifle (14\")", test: "3P", traits: "Aim(+2)", effect: "Pierce" },
-            { name: "Combat Rifle", points: 34, type: "Rifle (24\")", test: "4P", traits: "-", effect: "Maim" }
+            { name: "Combat Rifle", points: 34, type: "Rifle (24\")", test: "4P", traits: "Crackshot(1)", effect: "-" }
         ] },
         { name: "Child of Atom", type: "Grunt", perks: "Atom's Glow",
 		stats: { 
@@ -976,7 +976,7 @@ const factions = {
 			weapons: [
             { name: "Laser Rifle", points: 78, type: "Rifle(18\")", test: "4P", traits: "-", effect: "Ignite(1)"  }
         ] },
-        { name: "Fist", type: "Champion, Leader, Hiring Fee: 72", perks: "Burly, Natural Leader, Rad Resistant, Toughness, Unending Stamina",
+        { name: "Fist", type: "Champion, Leader, Hiring Fee: 85", perks: "Burly, Natural Leader, Rad Resistant, Toughness, Unending Stamina",
 		stats: { 
         S: 7, P: 5, E: 6, C: 5, I: 5, A: 5, L: 2, W: 4  // SPECIALW stats
             }, 
@@ -1066,7 +1066,7 @@ const factions = {
         S: 4, P: 5, E: 5, C: 0, I: 1, A: 2, L: 1, W: 2  // SPECIALW stats
             }, 
 			weapons: [
-            { name: "Robot Lasers and Robot Bash", points: 30, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
+            { name: "Robot Lasers and Robot Bash", points: 32, type: "Rifle (16\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
 			{ name: "Nuka Dispenser and Robot Bash", points: 25, type: "Pistol (8\")", test: "4P", traits: "Fast", effect: "Suppress(1)", type2: "Melee", test2: "4S", traits2: "-", effect2: "-" },
 			{ name: "Robot Bash", points: 20, type: "Melee", test: "4S", traits: "-", effect: "-" }
 		] },
@@ -1202,7 +1202,7 @@ const perksData = [
   { perk: "Gunslinger", prereq:"A5", description: "Add 4\" to the Effective Range of any Pistols this model is carrying" },
   { perk: "Fire and Move", prereq:"A6", description: "After this model completes an Open Fire Action, the Active player can move it up to 4\"." },
   { perk: "Moving Target", prereq:"A7", description: "When this model is targeted by an Attack Action, its controlling player can declare that it will dodge at the start of the Make the Attack Test step. A model that dodges takes 1 Fatigue, but its Endurance is increased by 2 until the attack has been resolved. (Stacks with Buffout)" },
-  { perk: "Sprint", prereq:"A3", description: "When this model uses the Get Moving Action, it may move an extra 2”." },
+  { perk: "Sprint", prereq:"A3", description: "When this model uses the Get Moving Action or moves during a Movement Order, it may move an extra 2”." },
   { perk: "Parting Shot", prereq:"A4", description: "After making a Back Off Action to move out of an Enemy model’s proximity, this model may make a Ranged Attack using a Pistol Weapon against that model, without Taking Fatigue." },
   { perk: "Hidden", prereq:"A4", description: "This model does not need to be deployed as normal. At the start of the first Round, its controller may place this model anywhere on the Battlefield that isn’t within an Enemy model’s Control Area." },
   { perk: "Hit the Deck", prereq:"A6", description: "When making a Ranged Attack against your models, Enemy models cannot Target this model, unless it is either Wide Open, or has a Fatigue Token." },
@@ -1211,7 +1211,7 @@ const perksData = [
  
 
   { perk: "Fortune Finder", prereq:"L2", description: "After this model resolves a Rummage Action, its controller rolls a die and gains Caps equal to its result." },
-  { perk: "Four Leaf Clover", prereq:"L3", description: "During the Fortune Smiles Step of a S.P.E.C.I.A.L. Test, this model rolls 2 Standard Dice for each Luck Die remaining in the Pool, instead of one." },
+  { perk: "Four Leaf Clover", prereq:"L3", description: "During the Fortune Smiles Step of a S.P.E.C.I.A.L. Test, this model rolls 2 Standard Dice for a single Luck Die remaining in the Pool, instead of one. Each other Luck Die in the Pool rolls a Standard Die as normal." },
   { perk: "Bloody Mess", prereq:"L3", description: "If this model Incapacitates an Enemy model with an Attack, each other Enemy model within 2” of the Incapacitated model Suffers 1 Harm." },
   { perk: "Grim Reaper's Sprint", prereq:"L4", description: "When this Model Incapacitates an Enemy model with an Attack, if at least two Luck Dice Hit, this Model Recovers 1 Fatigue." },
   
@@ -1223,7 +1223,7 @@ const perksData = [
   { perk: "Mysterious Stranger", prereq:"L4", description: "At the start of each Round after the first, this model's controller may make a Mysterious Stranger Test (1L). If Passed, that player deploys a friendly Mysterious Stranger model in Base contact with the edge of the Battlefield closest to this model. Once a player has passed a Mysterious Stranger Test, they may not attempt it again that game. The Mysterious Stranger is counted as part of its controller's crew, but is removed from the roster at the end of the game. S:5 P:5 E:6 C:4 I:5 A:6 L:3 W:1 Mysterious .44 Pistol (18\") 4A Aim(+1) Pierce" },
   
   { perk: "Natural Leader", prereq:"-", description: "This model automatically passes Confusion tests. When making an Intelligence test for a friendly model within this model's Control Area, you can choose to use this model's Intelligence instead. " },
-  { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks." },
+  { perk: "Beast", prereq:"-", description: "This model cannot be a Crew's Leader and never gains perks other than the Outsider Perk." },
   { perk: "Burly", prereq:"-", description: "This model's Harm limit is 4 instead of 3." },
   { perk: "Sermons", prereq:"-", description: "At the beginning of this model’s Activation, you may choose for it to Take Fatigue. If it does, apply one of the following until the end of the Round to another Friendly model within its Control Area:  Once per Turn, during its Activation, this model may make the Rummage Action without Taking Fatigue. This does not stack with the Strong Back Perk.  When this model makes a Ranged Attack with a Rifle weapon, Enemies can’t be Obscured by intervening models.  If this model is a Target model of an attack from a weapon with the Area (X”) Trait, before the Attack Test is made, its controller may declare that it is Shielding Others. If it does, the attack is resolved with this model as the only Target, and the Dice Pool gains a Bonus Die.  When making a Ranged Attack against your models, Enemy models cannot Target this model, unless it is either Wide Open, or has 1 Fatigue Token." },
   { perk: "On the House(X)", prereq:"-", description: "• When hiring this model, your crew gains one dose of X Chem/Rare Chem. If a Chem is gained, mark a dose on your Roster.   Whiskey: When creating a Dice Pool for a Strength or Endurance Test, you may spend a dose of Whiskey to increase either the Active model’s Strength or Endurance by 2 until that Test is resolved." },
@@ -1256,7 +1256,7 @@ const perksData = [
   { perk: "Flight", prereq:"-", description: "This model is unaffected by the Proximity of enemy models and can take the Get Moving action whilst Engaged. This model does not count vertical movement towards their total allowed when climbing, and is always considered to have an Agility greater than difference in elevation when dropping down from a Terrain Feature." },
   { perk: "Freight Train", prereq:"-", description: "This model can take the Get Moving Action whilst Engaged." },
   { perk: "Machine", prereq:"-", description: "This model always passes any Confusion Test it is required to make. When this model is Incapacitated, it does not trigger Confusion Tests in other models. In addition, Chems cannot be used on this model, and it is unaffected by the Poison (X) and Tranquilise (X) Critical Effects. Finally, this model is unaffected by Radiation Tokens." },
-  { perk: "Programmed", prereq:"-", description: "This model cannot be a crew’s Leader, cannot take the Crew Training Story Action. In addition, it cannot gain Perks, or Experience." },
+  { perk: "Programmed", prereq:"-", description: "This model cannot be a crew’s Leader, cannot take the Crew Training Story Action. In addition, it cannot gain Perks (Other than Outsider), or Experience." },
   { perk: "Self Destruct", prereq:"-", description: "When this model is Incapacitated, each other model within 3” of it Suffers 1 Harm." },
   { perk: "Swarm", prereq:"-", description: "When this model is taken as a Companion, you may add up to three models to your crew, instead of one, adding the Rating of each individual Companion to your Champion's Rating." },
   { perk: "King of the Castle", prereq:"-", description: "This model's crew may use the Nuka-nuke Launcher Ploy. In addition, this model's crew may use the Faction Ploys for The Pack, Operators and Disciples from the Fallout: Factions - Battle for Nuka-World Starter Set." },
@@ -1267,11 +1267,12 @@ const perksData = [
   { perk: "One Rule", prereq:"-", description: "All Friendly models within this model’s Control Area have the Blitz Perk." },
   { perk: "Cheater", prereq:"-", description: "This model can make the Get Moving, Open Fire, Patch Up, and Rummage Actions while it is Engaged." }, 
   { perk: "Know Your Enemy (Faction)", prereq:"-", description: "When creating the Dice Pool for an Attack Action against an Enemy model from X Faction, this model gains 1 Bonus Dice. If a model gains this Perk, their controller picks the applicable Faction at that time." }, 
-  { perk: "Outsider", prereq:"-", description: "This model’s weapon cannot be modified using the Modify Weapons Story Action, and they cannot be upgraded using the Crew Training Story Action. This model does not count toward or affect any Crew Limits. If this model is a Champion, it does not allow a crew to take 5 more Grunts. In addition, the model does not count as a Friendly model for the purposes of Confusion Tests." }, 
+  { perk: "Outsider", prereq:"-", description: "This model’s weapon cannot be modified using the Modify Weapons Story Action, and they cannot be upgraded using the Crew Training Story Action. This model does not count toward or affect any Crew Limits. If this model is a Champion, it does not allow a crew to take 5 more Grunts. If this model has the Leader Class, it does not count towards the number of Leaders your crew can have. A model can gain this Perk even if it would otherwise not be able to gain Perks. In addition, the model does not count as a Friendly model for the purposes of Confusion Tests." }, 
   { perk: "Power Armor", prereq:"-", description: "This model gains the following benefits: This model cannot Suffer Fatigue. It can still Take Fatigue by performing Actions, or other effects. This model’s Harm Limit is 4 instead of 3. This model is unaffected by Radiation Tokens." }, 
   { perk: "V.A.T.S.", prereq:"-", description: "After declaring an Attack Action with this model, but before creating the Dice Pool, you may declare the number of Hits you expect to roll. During the Remove Duds step, if your declared number matches the number of Hits left in the Pool, then each Hit counts as 2 Hits instead." }, 
   { perk: "Survivalist", prereq:"-", description: "Whenever this model would Suffer Harm from an Attack, and there is another Friendly model within 3” that has no Harm, the Friendly model may Suffer that Harm instead." }, 
   { perk: "Sticky Fingers", prereq:"-", description: "When this model makes the Rummage Action to Find a Chem, after adding a Chem to the Crew Roster, they may add a second Chem with a Cap cost no higher than the total result of the two rolled dice." }, 
+  { perk: "Stabilized Joints", prereq:"-", description: "When this model drops down from Terrain, its move does not end if the difference in elevation is greater than the model’s Agility statistic in inches.’ The Parts Cost of this Armor Perk is 3 rather than 4. The Rating Increase of this Armor Perk is 6 rather than 8."},
   { perk: "Roboteer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Robot Companions list (pg. 5) to add to your Crew Roster. The Rating of the selected Companion is added to this Champion's Rating. This Perk may only be taken once per model." },
   { perk: "Creature Tamer (Companion)", prereq:"Champion", description: "When recruiting a Champion, it may gain this Perk at no cost. When a model gains this Perk, you may choose one Companion from the Creature Companions list (pg. 8) to add to your Crew Roster. The Rating of the selected Companion is added to this Champions Rating. This Perk may only be taken once per model." },
   { perk: "Mind Control", prereq:"-", description: "This model may take Open Fire Actions using the weapon carried by an enemy model within its Control Area. Visibility is checked from the enemy model that has the weapon used by this model. During this Open Fire Action, this model uses its own Luck statistic and the appropriate Test statistic value from the enemy model. Weapons with the One & Done Trait cannot be used via this Perk." }
@@ -1313,6 +1314,7 @@ const traitData = [
 	{trait: "Big Swing(X)", effect: "When making an Attack Action with this Weapon, the attacking model can Take Fatigue to increase its Effective Range by X”" },
 	{trait: "Bladed", effect: "When a model with this Weapon uses a Makeshift Weapon to make a Melee Attack, add a Bonus Die to the Pool." },
 	{trait: "CQB", effect: "This Weapon cannot Target models outside of its Effective Range" },
+	{trait: "Crackshot(X)", effect: "Crackshot(X): At the end of the Inflict Damage step during an Attack Action with this weapon, the attacking model can Take Fatigue to have the Target Suffer X Harm. This cannot cause Excess Harm." },
 	{trait: "Distress Signal", effect: "Models with this weapon gain the following Action: ACTION: SEND HELP! (UNENGAGED MODELS) The Active player chooses a Friendly model other than the model using this Action. That model moves up to 2” (this can be used to move into or out of Engagement)." },
     {trait: "Duel", effect: "A model Engaged with a model with this weapon cannot use the Back Off Action." },
     {trait: "Fast", effect: "Models with this Weapon can make up to two Open Fire, or Brawl Actions within the same Turn, as long as both Actions use this Weapon." },
@@ -1925,10 +1927,10 @@ const weaponData = {
 		{ weapon: "Plasma Pistol 5parts +10pts", type: "", test: "", traits: "", effect: "Ignite(2), Meltdown"},
 		{ weapon: "Plasma Pistol 3parts +8pts", type: "Pistol(16\")", test: "", traits: "", effect: ""},
 		{ weapon: "Plasma Pistol 4parts +8pts", type: "", test: "5A", traits: "", effect: ""},
-		{ weapon: "Combat Rifle", type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim" },
-		{ weapon: "Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
-		{ weapon: "Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
-		{ weapon: "Combat Rifle 2parts +6pts", type: "", test: "", traits: "Bladed, Fast", effect: ""},
+		{ weapon: "Calibrated Combat Rifle", type: "Rifle(24\")", test: "4P", traits: "-", effect: "Maim" },
+		{ weapon: "Calibrated Combat Rifle 3parts +9pts", type: "Rifle(30\")", test: "", traits: "", effect: ""},
+		{ weapon: "Calibrated Combat Rifle 3parts +10pts", type: "", test: "5P", traits: "", effect: ""},
+		{ weapon: "Calibrated Combat Rifle 2parts +3pts", type: "", test: "", traits: "Bladed", effect: ""},
 		{ weapon: "Combat Shotgun", type: "Rifle(10\")", test: "4P", traits: "Storm(1)", effect: "Maim" },
 		{ weapon: "Handmade Rifle", type: "Rifle(18\")", test: "4P", traits: "-", effect: "Suppress(2)" },
 		{ weapon: "Marksman's Handmade Rifle", type: "Rifle(30\")", test: "2P", traits: "Aim(+3)", effect: "Suppress(3)" },
